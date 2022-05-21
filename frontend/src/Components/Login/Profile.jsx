@@ -7,6 +7,7 @@ export const Profile = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+  console.log(user)
   return (
     isAuthenticated && (
       <div className="Profile-Card">
