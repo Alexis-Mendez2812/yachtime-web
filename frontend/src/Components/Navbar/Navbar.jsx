@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import logo from "./logo/logoYT.png"
 import style from "./Navbar.module.css"
+import { Link } from "react-router-dom"
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -29,12 +30,12 @@ function Navbar() {
             </div>
             <div className={style.ulDiv}> 
                     <ul className={style.ulEnlaces}>
-                        <li><a href='#' className={style.enlace}>home</a></li>
-                        <li><a href='#' className={style.enlace}>memership</a></li>
-                        <li><a href='#' className={style.enlace}>contact us</a></li>
-                        <li><a href='#' className={style.enlace}>facebook</a></li>
-                        <li><a href='#' className={style.enlace}>instagram</a></li>
-                        <li><a href='#' className={style.enlace}>login</a></li>
+                        <li><Link to={"/"} className={style.enlace}>home</Link></li>
+                        <li><Link to={"/membership"} className={style.enlace}>membership</Link></li>
+                        <li><Link to={"/contactUs"} className={style.enlace}>contact us</Link></li>
+                        <li><a href='https://www.facebook.com/Yatchtimeapp-104930065485155/' className={style.enlace}>facebook</a></li>
+                        <li><a href='https://www.instagram.com/yatchtimeapp/?igshid=YmMyMTA2M2Y=' className={style.enlace}>instagram</a></li>
+                        <li><Link to={"/"} className={style.enlace}>login</Link></li>
                     </ul>
             </div>
         </nav>
