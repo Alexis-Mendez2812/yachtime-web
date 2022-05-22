@@ -5,9 +5,6 @@ export const allYates = ()=> {
     return async function(dispatch){ 
     let res = await axios.get("http://localhost:3001/allYatees")
     let payload = await res.data    
-        return { 
-            type: ALL_YATES,
-            payload
-        }
+    dispatch({ type: ALL_YATES, payload })
     }
 }
