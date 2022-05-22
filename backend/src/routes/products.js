@@ -1,10 +1,11 @@
 const { Router } = require("express");
 const axios = require("axios");
-const { Users } = require(`../db`);
+const { Users , Products } = require(`../db`);
 // const main = require("../controllers/mailer");
 
 const router = Router();
 
+// let comicsDb = await Comics.findAll({order: [['updatedAt', 'DESC']]});
 //USERS
 
 router.post("/", async (req, res) => {
@@ -77,19 +78,8 @@ router.put("/profile", async (req, res) => {
 		console.log(error, "error en la ruta put /profile");
 	}
 });
-router.get("/all", async (req, res) => {
 
-	try {
-		
-		const users = await Users.findAll();
-		
-		return res.status(200).json(users);
-	} catch (error) {
-		console.log(error);
-	}
-});
-
-router.get("/login/:email", async (req, res) => {
+router.get("/:email", async (req, res) => {
 	const { email } = req.params;
 
 	try {
@@ -147,7 +137,16 @@ router.get("/favorites", async (req, res) => {
 
 //ADMIN
 
+router.get("/all", async (req, res) => {
 
+	try {
+		
+		const users = await Users.all();
+		return res.status(201).json(users);
+	} catch (error) {
+		console.log(error);
+	}
+});
 
 //ACTUALIZAR A USUARIO PAGO
 
@@ -241,56 +240,6 @@ router.put("/banned", async (req, res) => {
 		return res.status(201).json("Actualizacion de baneo exitosa");
 	} catch (error) {
 		console.log(error, "error en la ruta put /banned");
-	}
-});
-//PRECARGA
-
-router.get("/precarga", async (req, res) => {
-	const { email } = req.body;
-
-	try {
-		
-		var superAdmin =await Users.findOrCreate({
-			where: {
-				email: "Milagrosdiezbarrantes@gmail.com",
-				password: 'mili123',
-			firtsName: "mili ",
-				lastName: "berrantez",
-				userName: "La-Mili",
-			picture:"https://img.freepik.com/vector-gratis/diseno-ilustracion-vector-personaje-avatar-mujer-joven_24877-18536.jpg",
-				role: "ROLE_SUPER_ADMIN",
-			},
-		});
-		var superAdmin2 =await Users.findOrCreate({
-			where: {//email,firtsName, lastName, userName, picture, password 
-				email: "281212.namaste@gmail.com",
-				password: 'alex123',
-				firtsName: "Alexis",
-				lastName: "Mendez",
-				userName: "The-Machine",
-			picture: "https://lh3.googleusercontent.com/a-/AOh14GiUh1_SvyqlWseAfbiBc7zzmGHcr3_La0rCRMF7jA=s96-c-rg-br100",
-				role: "ROLE_SUPER_ADMIN",
-			},
-		});
-		var superAdmin3 =await Users.findOrCreate({
-			where: {
-				email: "ruartejoaquin@gmail.com",
-				password: 'joaco123',
-				firtsName: "Joaquin",
-				lastName: "Ruarte",
-				userName: "JoacoRuarte",
-			picture: "https://lh3.googleusercontent.com/a-/AOh14GiCaJtDxJVq8_citOjdiBHTqCuZ6bXmeKKZMma77w=s96-c-rg-br100",
-				role: "ROLE_SUPER_ADMIN",
-			}
-		});
-		
-		
-
-		return res.status(201).json("Precarga exitosa");
-	} catch (error) {
-		
-		console.log(error, "error en la ruta get /precarga");
-		return res.status(200).json("Datos existentes");
 	}
 });
 

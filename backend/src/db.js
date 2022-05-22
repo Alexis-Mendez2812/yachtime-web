@@ -6,7 +6,7 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/bta`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/yachtime`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
@@ -29,7 +29,10 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 sequelize.models = Object.fromEntries(capsEntries);
 
 
-const { Users } = sequelize.models;
+const { Users , Products } = sequelize.models;
+
+Users.belongsToMany(Products,{through:"Favorites_Products" })
+Products.belongsToMany(Users,{through: "Favorites_Products"})
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
