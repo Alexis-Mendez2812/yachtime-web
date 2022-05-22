@@ -8,7 +8,6 @@ const router = Router();
 //USERS
 
 router.post("/", async (req, res) => {
-	const { email } = req.body;
 	// email
 	// firstName
 	// lastName
@@ -19,7 +18,7 @@ router.post("/", async (req, res) => {
 	try {
 		if (req.body.email_verified) {
 			let { email, family_name, picture, given_name, nickname } = req.body;
-
+			
 			const [user, created] = await Users.findOrCreate({
 				where: {
 					email: email,
@@ -29,7 +28,10 @@ router.post("/", async (req, res) => {
 					picture: picture,
 				},
 			});
+			
+			return res.status(201).json(user);
 		}
+		const { email, firtsName, lastName, userName, picture, password } = req.body;
 
 		const [user, created] = await Users.findOrCreate({
 			where: {
