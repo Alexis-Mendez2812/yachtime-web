@@ -12,11 +12,15 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
     },
-    name: {
+    firtsName: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    nickname: {
+    lastName: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    userName: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
