@@ -1,40 +1,10 @@
-import axios from 'axios';
-export const GET_CHARACTERS = "GET_CHARACTERS";
-export const GET_TITLE = "GET_TITLE";
+import axios from "axios"
+export const ALL_YATES = "ALL_YATES"
 
-//================CHARACTERS=================//
-export function getAllCharacters() {
-    return async function (dispatch) {
-        try {
-            const allCharacters = await axios.get('localhost:3001/characters');
-            return dispatch({
-                type: GET_CHARACTERS,
-                payload: allCharacters.data
-            })
-        }
-        catch (error) {
-            console.log(error)
-        }
+export const allYates = ()=> { 
+    return async function(dispatch){ 
+    let res = await axios.get("http://localhost:3001/allYatees")
+    let payload = await res.data    
+    dispatch({ type: ALL_YATES, payload })
     }
 }
-
-
-
-//================COMICS=================//
-
-
-export function getComicsByTitle(title) {
-    return async function (dispatch) {
-        try {
-            const queryTitle = await axios.get(`http://localhost:3001/comics?title=${title}`)
-            return dispatch({
-                type: GET_TITLE,
-                payload: queryTitle.data
-            })
-        }
-        catch (err) {
-            alert('Title not found', err)
-        }
-    }
-}
-
