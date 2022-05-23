@@ -4,5 +4,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 export const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
-  return <button onClick={() => loginWithRedirect()}>Login</button>;
+  return(<>
+  <div className="" >
+  <button onClick={() => loginWithRedirect()}>
+    <img src="https://www.yachtlife.com/static/media/google_icon.795cf39d.svg" ></img>  
+      CONTINUE WITH GOOGLE</button>
+  </div>
+  </> 
+  );
 };

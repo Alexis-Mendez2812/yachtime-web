@@ -34,7 +34,7 @@ function Navbar() {
                         <li><a href='#' className={style.enlace}>contact us</a></li>
                         <li><a href='#' className={style.enlace}>facebook</a></li>
                         <li><a href='#' className={style.enlace}>instagram</a></li>
-                        <li><a href='#' className={style.enlace}>login</a></li>
+                        <li><a href='login' className={style.enlace}>login</a></li>
                     </ul>
             </div>
         </nav>

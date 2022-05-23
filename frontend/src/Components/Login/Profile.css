@@ -8,20 +8,19 @@
 }
 .Login-header{
     display: flex;
-    background-color: rgba(189, 2, 2, 0.905);
     width: 50%;
     min-height: 15vh;
     min-width: 30vh;
     flex-direction: column;
     align-content: center;
     align-items: center;
-    border: 4px solid blue;
+    border: 10px outset rgba(132, 132, 202, 0.281);
     border-radius: 10px;
     justify-content: center;
 }
 .Login{
     display: flex;
-    background-color: black;
+    background-color: #19253a;
     height:100vh;
     margin: auto;
     flex-direction: column;
