@@ -22,7 +22,6 @@
     -webkit-filter: blur(0px);
     color: rgba(77, 28, 28, 0.76);
     font-weight: bold;
-    border: 3px solid #f1f1f1;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -36,4 +35,5 @@
     align-content: center;
     justify-content: flex-start;
     align-items: center;
+    border-radius: 5%;
   }

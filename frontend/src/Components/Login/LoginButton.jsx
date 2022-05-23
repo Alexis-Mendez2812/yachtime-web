@@ -7,7 +7,7 @@ export const LoginButton = () => {
   return(<>
   <div className="" >
   <button onClick={() => loginWithRedirect()}>
-    <img src="https://www.yachtlife.com/static/media/google_icon.795cf39d.svg" ></img>  
+    <img src="https://www.yachtlife.com/static/media/google_icon.795cf39d.svg" alt="google" ></img>  
       CONTINUE WITH GOOGLE</button>
   </div>
   </> 

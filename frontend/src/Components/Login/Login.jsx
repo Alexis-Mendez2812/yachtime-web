@@ -1,6 +1,8 @@
 import React from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import { LoginButton } from "./LoginButton.jsx";
+import { LoginForm } from "./LoginForm.jsx";
+import { Register } from "./Register.jsx";
 import { LogoutButton } from "./LogoutButton.jsx";
 import { Profile } from "./Profile.jsx";
 import "./Profile.css"
@@ -28,7 +30,8 @@ function Login() {
   </div>
             </div>
           <LoginButton />
-          
+          <LoginForm />
+          <Register />
           </div>
         )}
       </header>
