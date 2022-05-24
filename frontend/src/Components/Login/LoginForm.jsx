@@ -1,6 +1,6 @@
 import React,{ useState } from "react";
 import { Link } from "react-router-dom";
-
+import Navbar from "../Navbar/Navbar.jsx"
 import toast from "react-hot-toast";
 
 export function validate(input) {
@@ -65,7 +65,7 @@ export const LoginForm = () => {
   <>
 
 
-
+<Navbar/>
           <form onSubmit={handleSumbit} className="SignUpContainer">
             <label>Username</label>
             <input

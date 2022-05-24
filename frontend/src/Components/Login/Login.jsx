@@ -7,7 +7,6 @@ import style from "./Login.module.css"
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { postUserGoogle } from '../../Redux/Actions/actions.js';
-
 function Login() {
   const dispatch = useDispatch();
   const { user } = useAuth0();
@@ -21,7 +20,7 @@ function Login() {
   return (
     <>
         <div className={style.container}></div>
-      <header className={style.header}>
+      <div className={style.header}>
 
         {(
           <div>
@@ -37,7 +36,7 @@ function Login() {
             <Link to={"/"} ><button>BACK TO HOME</button></Link>
           </div>
         )}
-      </header>
+      </div>
       </>
 
   );

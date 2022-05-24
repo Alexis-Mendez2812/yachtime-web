@@ -3,7 +3,7 @@ import style from "./BannerHome.module.css";
 import { MdOutlineSearch } from "react-icons/md"
 
 function BannerHome() {
-  let estado = "Miami(FL)";
+
   const [state , setState] = useState("Maimi(FL)")
   const handleChange = (event) => {
     setState(event.target.value)

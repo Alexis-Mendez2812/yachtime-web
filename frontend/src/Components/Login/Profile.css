@@ -1,10 +1,29 @@
-.Profile-Card{
+.Conteiner-Card{
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-content: space-around;
     justify-content: space-around;
     align-items: center;
+z-index: 0;
+
+}
+.Profile-Card{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+    border: 5px solid #9b9a9a8a;
+    background-image: url("https://images.alphacoders.com/238/thumb-1920-238803.jpg");
+    color: rgba(226, 226, 226, 0.884) ;
+    border-radius: 16px 16px 16px 16px;
+    -webkit-box-shadow: 12px 15px 20px 7px rgba(28,73,186,0.82); 
+box-shadow: 12px 15px 20px 7px rgba(28,73,186,0.82);
+margin:2rem;
+padding:1rem;
 }
 .Login-header{
     display: flex;
@@ -73,4 +92,12 @@ Button:active {
 
 a{
     text-decoration: none;
+}
+.navbar{
+    width:100%;
+    height:25%;
+    background-color: #19253a;
+    position: absolute;
+    z-index: 400;
+    margin:0px;
 }
