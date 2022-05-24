@@ -38,12 +38,17 @@
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
 }
 
 .ulEnlaces > li{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    list-style: none;
+    grid-gap: 2rem;
+    gap: 2rem;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .enlace{

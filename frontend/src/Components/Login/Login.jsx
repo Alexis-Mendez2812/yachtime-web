@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import { LoginButton } from "./LoginButton.jsx";
-import { LogoutButton } from "./LogoutButton.jsx";
-import { Profile } from "./Profile.jsx";
+
 import "./Profile.css"
 import style from "./Login.module.css"
 import { Link } from 'react-router-dom';
@@ -11,7 +10,7 @@ import { postUserGoogle } from '../../Redux/Actions/actions.js';
 
 function Login() {
   const dispatch = useDispatch();
-  const { isAuthenticated,user } = useAuth0();
+  const { user } = useAuth0();
 
   useEffect(() => {
    
@@ -24,12 +23,7 @@ function Login() {
         <div className={style.container}></div>
       <header className={style.header}>
 
-        {isAuthenticated ? (
-          <>
-            <Profile />
-            <LogoutButton />
-          </>
-        ) : (
+        {(
           <div>
             <div>
             <div>
