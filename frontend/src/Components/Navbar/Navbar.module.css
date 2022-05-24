@@ -5,15 +5,17 @@
     height: 70px;
     padding: 5px;
     background-color: #17181c00;
+    transition: all 300ms;
 }
 
 .navScroll{
     display: flex;
     position: fixed;
     width: 100%;
-    height: 110px;
+    height: 70px;
     padding: 5px;
     background-color: #17181c;
+    transition: all 300ms;
 }
 .imgYT{
     width: 30%;

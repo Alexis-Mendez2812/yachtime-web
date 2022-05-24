@@ -35,7 +35,7 @@ function Navbar() {
                         <li><Link to={"/contactUs"} className={style.enlace}>contact us</Link></li>
                         <li><a href='https://www.facebook.com/Yatchtimeapp-104930065485155/' className={style.enlace}>facebook</a></li>
                         <li><a href='https://www.instagram.com/yatchtimeapp/?igshid=YmMyMTA2M2Y=' className={style.enlace}>instagram</a></li>
-                        <li><Link to={"/"} className={style.enlace}>login</Link></li>
+                        <li><Link to={"/login"} className={style.enlace}>login</Link></li>
                     </ul>
             </div>
         </nav>
