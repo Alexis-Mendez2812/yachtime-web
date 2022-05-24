@@ -1,8 +1,23 @@
 import React from "react";
+
 import { useAuth0 } from "@auth0/auth0-react";
+// import { useDispatch } from "react-redux";
 
 export const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+
+  // const dispatch = useDispatch();
+  const {user, isLoading, isAuthenticated} = useAuth0();
+
+  //  const favoritesCharacters = useSelector((state) => state.CharactersReducer.favoritesCharacters)
+  
+ 
+    // useEffect(() => {
+    //   if(user.email){
+    //     dispatch(getFavoritesCharacters(user.email))
+    //   }
+    // }, [user]);
+
+
 
   if (isLoading) {
     return <div>Loading...</div>;

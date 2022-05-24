@@ -21,7 +21,7 @@ export function validate(input) {
 }
 
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
 
   const [input, setInput] = useState({
     username: "",

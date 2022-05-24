@@ -8,32 +8,40 @@ const router = Router();
 //USERS
 
 router.post("/", async (req, res) => {
-	// email
-	// firstName
-	// lastName
-	// userName
-	// age
-	// password
-	// picture
+
+	console.log("0")
 	try {
+		console.log("1")
 		if (req.body.email_verified) {
 			let { email, family_name, picture, given_name, nickname } = req.body;
-			
-			const [user, created] = await Users.findOrCreate({
-				where: {
-					email: email,
-					firtsName: given_name,
-					lastName: family_name,
-					userName: nickname,
-					picture: picture,
-				},
-			});
-
-			console.log("se creó el usuario por auth0 " + created);
-			
-			return res.status(201).json(user);
-		}
-		const { email, firtsName, lastName, userName, picture, password } = req.body;
+			console.log("2")
+			let usuario = await Users.findOne({
+				where:{
+					email,
+				}
+			})
+			if(Object.keys(usuario).length){
+				console.log("usuario existente")
+				return res.status(200).json(usuario)
+			  }else{
+				
+				  
+				  const [user, created] = await Users.findOrCreate({
+					  where: {
+						  email: email,
+						  firtsName: given_name,
+						  lastName: family_name,
+						  userName: nickname,
+						  picture: picture,
+						},
+					});
+					
+					console.log("se creó el usuario por auth0 " + created);
+					
+					return res.status(201).json(user);
+				}
+			}
+				const { email, firtsName, lastName, userName, picture, password } = req.body;
 
 		const [user, created] = await Users.findOrCreate({
 			where: {
