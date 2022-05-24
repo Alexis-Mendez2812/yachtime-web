@@ -1,0 +1,61 @@
+.imgMembership{
+    background-image: url("./logo/background_menber_01.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 3rem;
+}
+
+.textMembership{
+    display: flex;
+    flex-direction:column;
+    font-family: "Nunito";
+    width: 300px;
+    position: relative;
+    right: -20rem;
+    justify-content: center;
+    color: #fff;
+    align-items: center;
+}
+.textMembership > h2{
+    display: flex;
+    flex-direction: column;
+    font-family: "Nunito";
+    width: 300px;
+    justify-content: center;
+    color: #fff;
+    align-items: center;
+    font-size: 40px;
+}
+
+.textMembership > p{
+    text-align: center;
+}
+
+.textMembership > button{
+    background-color: #C4AA56;
+    cursor: pointer;
+    border: none;
+    color: white;
+    padding: 17px;
+    border-radius: none;
+}
+.textMembership > button:hover{
+    background-color: #b39c54;
+    border: none;
+    color: rgb(243, 240, 240);
+    padding: 17px;
+    border-radius: none;
+}
+
+.descarga{
+    width: 250px;
+    height: 70px;
+    border: none;
+    border-radius: 6px;
+}

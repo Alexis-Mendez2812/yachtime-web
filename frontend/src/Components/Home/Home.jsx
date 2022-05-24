@@ -1,5 +1,6 @@
 import React from 'react'
 import BannerHome from '../BannerHome/BannerHome'
+import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
 import YachtimeContact from '../YachtimeContact/YachtimeContact'
 function Home() {
@@ -8,6 +9,7 @@ function Home() {
         <Navbar />
         <BannerHome/>
         <YachtimeContact/>
+        <Footer/>
     </div>
   )
 }

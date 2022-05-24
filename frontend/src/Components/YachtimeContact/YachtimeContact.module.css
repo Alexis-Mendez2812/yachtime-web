@@ -1,5 +1,5 @@
 .YachtimeContact{
-    height: 80vh;
+    height: 120vh;
 }
 
 .img{
@@ -29,6 +29,28 @@
     background-color: #222;
 }
 
+.staff > a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
 .instagram{
     font-size: 30px;
+}
+
+.divUbicacion{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
 }
