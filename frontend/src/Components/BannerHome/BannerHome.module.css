@@ -5,6 +5,7 @@
     /* background-position-x: -199px; */
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     height: 100vh;
     width: 100%;
 }
@@ -17,7 +18,7 @@
     align-items: center;
     width: 100%;
     background: rgb(0 97 255 / 22%);
-    background: linear-gradient(180deg, rgb(0 97 255 / 22%) 0%, rgba(23,24,28,0.8103448275862069) 98%);
+    background: linear-gradient(180deg, rgb(0 97 255 / 22%) 0%, rgba(23,24,28,1) 98%);
     /* background-color: rgb(0 97 255 / 22%); */
 }
 

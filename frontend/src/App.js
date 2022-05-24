@@ -19,6 +19,7 @@ function App() {
           <Route path='/loginForm' element={<LoginForm />} />
           <Route path='/registerForm' element={<RegisterForm />} />
           <Route exact path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
           <Route path="/" element={<Navbar />} />
           <Route path="*" element={<Home />} />
         </Routes>
