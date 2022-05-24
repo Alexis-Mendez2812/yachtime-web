@@ -1,0 +1,129 @@
+/* .nav{ 
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    padding: 5px;
+    background-color: #17181c00;
+}
+
+.navScroll{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 110px;
+    padding: 5px;
+    background-color: #17181c;
+}
+.imgYT{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.img{ 
+    border: none;
+    height: 50px;
+    width: 100%;
+}
+
+.ulDiv{
+    width: 100%;
+    display: flex;
+    margin-right: 2rem;
+    justify-content: flex-end;
+}
+
+.ulEnlaces{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.ulEnlaces > li{
+    list-style: none;
+    grid-gap: 2rem;
+    gap: 2rem;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.enlace{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 500ms;
+}
+
+.enlace:hover{
+    border-bottom: 1px solid gray;
+} */
+
+
+.nav{ 
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    padding: 5px;
+    background-color: #17181c00;
+    transition: all 300ms;
+}
+
+.navScroll{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    padding: 5px;
+    background-color: #17181c;
+    transition: all 300ms;
+}
+.imgYT{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.img{ 
+    border: none;
+    height: 50px;
+    width: 100%;
+}
+
+.ulDiv{
+    width: 100%;
+    display: flex;
+    margin-right: 2rem;
+    justify-content: flex-end;
+}
+
+.ulEnlaces{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.ulEnlaces > li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.enlace{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 500ms;
+}
+
+.enlace:hover{
+    border-bottom: 1px solid gray;
+}

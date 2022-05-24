@@ -1,0 +1,39 @@
+
+.container{
+    background-image: url('./assets/photo-login.jpg');
+    /* background-position-x: -199px; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    filter: blur(8px);
+  -webkit-filter: blur(8px);
+  }
+.header{
+  display: flex;
+    background-image: url('./assets/photo-login.jpg');
+    /* background-position-x: -199px; */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 22.8rem;
+    width: 100%;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    color: rgba(77, 28, 28, 0.76);
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5%;
+  }
