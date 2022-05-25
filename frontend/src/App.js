@@ -21,6 +21,7 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path="/" element={<Navbar />} />
+          <Route path='/newproduct' element={<NewProduct />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
