@@ -2,10 +2,19 @@ import React, { useEffect, useState } from 'react'
 import logo from "./logo/logoYT.png"
 import style from "./Navbar.module.css"
 import { Link } from "react-router-dom"
-
+import { postUserGoogle } from "../../Redux/Actions/actions";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useDispatch, useSelector } from "react-redux";
 function Navbar() {
+    const dispatch = useDispatch();
+	const { user } = useAuth0();
   const [isScrolled, setIsScrolled] = useState(false)
-
+  let userSession = useSelector((state) => state.userSession);
+  useEffect(() => {
+    if (user?.email) {
+        return dispatch(postUserGoogle(user));
+    }
+}, [dispatch, user]);
     useEffect(() => { 
         const handleScroll = () => { 
             if(window.scrollY > 0){ 
@@ -35,7 +44,21 @@ function Navbar() {
                         <li><Link to={"/contactUs"} className={style.enlace}>contact us</Link></li>
                         <li><a href='https://www.facebook.com/Yatchtimeapp-104930065485155/' className={style.enlace}>facebook</a></li>
                         <li><a href='https://www.instagram.com/yatchtimeapp/?igshid=YmMyMTA2M2Y=' className={style.enlace}>instagram</a></li>
-                        <li><Link to={"/login"} className={style.enlace}>login</Link></li>
+                        {userSession.email ? (
+							<>
+								<li>
+									<Link to={"/profile"} className={style.enlace}>
+										<img src={userSession.picture} alt="profile"/>
+									</Link>
+								</li>
+							</>
+						) : (
+							<li>
+								<Link to={"/login"} className={style.enlace}>
+									login
+								</Link>
+							</li>
+						)}
                     </ul>
             </div>
         </nav>
