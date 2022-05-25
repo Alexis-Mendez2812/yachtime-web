@@ -11,8 +11,6 @@ export  function  allYates(){
 }
 
 export  function  postUserGoogle(user){ 
-    console.log("user action")
-    console.log(user)
     return async function(dispatch){ 
     let usuario= await axios.post("/users",user);
    return dispatch({ type: POST_USER, payload:usuario.data })
