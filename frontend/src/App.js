@@ -7,6 +7,7 @@ import { LoginForm } from "./Components/Login/LoginForm.jsx";
 import { RegisterForm } from "./Components/Login/RegisterForm.jsx";
 import  Loading  from "./Components/Loading/Loading.jsx";
 import { Profile } from "./Components/Login/Profile.jsx";
+import  NewProduct  from "./Components/NewProduct/NewProduct.jsx";
 
 function App() {
   return (
