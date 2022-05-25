@@ -19,8 +19,8 @@ function Footer() {
       <footer>
           <hr style={{border: "1px solid gray"}}/>
           <div>
-              <img src="https://es.logodownload.org/wp-content/uploads/2019/06/disponible-en-google-play-badge-1.png" className={style.descarga}/>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Available_on_the_App_Store_%28black%29.png" className={style.descarga}/>
+              <img src="https://es.logodownload.org/wp-content/uploads/2019/06/disponible-en-google-play-badge-1.png" className={style.descarga}  alt="aguante" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Available_on_the_App_Store_%28black%29.png" className={style.descarga}  alt="aguante" />
           </div>
       </footer>
     </div>
