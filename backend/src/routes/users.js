@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const axios = require("axios");
+
 const { Users } = require(`../db`);
 // const main = require("../controllers/mailer");
 
@@ -9,18 +9,17 @@ const router = Router();
 
 router.post("/", async (req, res) => {
 
-	console.log("0")
 	try {
-		console.log("1")
+
 		if (req.body.email_verified) {
 			let { email, family_name, picture, given_name, nickname } = req.body;
-			console.log("2")
+
 			let usuario = await Users.findOne({
 				where:{
 					email,
 				}
 			})
-			if(Object.keys(usuario).length){
+			if(usuario && Object.keys(usuario).length){
 				console.log("usuario existente")
 				return res.status(200).json(usuario)
 			  }else{

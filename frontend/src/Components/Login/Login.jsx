@@ -6,16 +6,9 @@ import "./Profile.css"
 import style from "./Login.module.css"
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { postUserGoogle } from '../../Redux/Actions/actions.js';
 function Login() {
-  const dispatch = useDispatch();
-  const { user } = useAuth0();
 
-  useEffect(() => {
-   
-    if(user?.email){ return dispatch(postUserGoogle(user))
-    }
-  }, [dispatch,user]);
+
 
   return (
     <>

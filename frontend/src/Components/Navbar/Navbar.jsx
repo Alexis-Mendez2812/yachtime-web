@@ -11,7 +11,7 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   let userSession = useSelector((state) => state.userSession);
   useEffect(() => {
-    if (user?.email) {
+    if (user&&user.email) {
         return dispatch(postUserGoogle(user));
     }
 }, [dispatch, user]);
