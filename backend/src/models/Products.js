@@ -7,35 +7,15 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    name: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    pictures: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
-    },
-    location: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    builder: {
+    make: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    year: {
+    model: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    length: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    beam: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    guests: {
+    year: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -47,13 +27,50 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    draft: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    speed: {
+    guest: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    length: {
+      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      allowNull: false,
+    },
+    beam: {
+      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      allowNull: false,
+    },
+    draft: {
+      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      allowNull: false,
+    },
+    fuelCapacity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    waterCapacity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    cruiseVel: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    fuelType: {
+      type: DataTypes.STRING,
+      defaultValue: "gasoline",
+      allowNull: true,
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    pictures: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
+    }
   });
 };
