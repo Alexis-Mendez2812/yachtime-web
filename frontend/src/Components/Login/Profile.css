@@ -29,19 +29,19 @@
     align-items: center;
     
 }
-button {
+/* button {
     background-color:rgba(184, 6, 6, 0.912);
     text-decoration: none;
     border-radius: 10px;
     border: 2px solid black;
-}
+} */
 img{
     margin:10 px;
     border-radius: 4px;
     border: 2px solid rgb(120, 120, 120);
 
 }
-Button {
+/* Button {
 	box-shadow: 0px 1px 0px 0px #fff6af;
 	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
 	background-color:#ffec64;
@@ -64,4 +64,4 @@ Button:hover {
 Button:active {
 	position:relative;
 	top:1px;
-}
+} */
