@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
-import { useAuth0 } from "@auth0/auth0-react";
+import React from 'react'
+
 import { LoginButton } from "./LoginButton.jsx";
 
 import "./Profile.css"
 import style from "./Login.module.css"
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+
 function Login() {
 
 
