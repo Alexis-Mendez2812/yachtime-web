@@ -106,53 +106,8 @@ const Admin = () => {
       
 
       <h1 style={{ margin: "4rem", width: "40%" }} class="ui teal header">
-        Welcome to your DASHBOARD
+        Welcome to DASHBOARD
       </h1>
-      <div>
-        <Button
-          animated="fade"
-          color="orange"
-          style={{
-            fontSize: "22px",
-            margin: "1rem",
-            borderRadius: "20px",
-
-            boxShadow: "10px, white",
-            width: "20%",
-            padding: "1rem",
-          }}
-        >
-        </Button>
-        <Button
-          animated="fade"
-          color="pink"
-          style={{
-            fontSize: "22px",
-            margin: "1rem",
-            borderRadius: "20px",
-
-            boxShadow: "10px, white",
-            width: "20%",
-            padding: "1rem",
-          }}
-        >
-        </Button>
-        <Button
-          animated="fade"
-          color="green"
-          style={{
-            fontSize: "22px",
-            margin: "1rem",
-            borderRadius: "20px",
-
-            boxShadow: "10px, white",
-            width: "20%",
-            padding: "1rem",
-          }}
-        >
-        
-        </Button>
-      </div>
 
       <div>
         <select
@@ -229,10 +184,11 @@ const Admin = () => {
         >
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.HeaderCell>Firts Name</Table.HeaderCell>
+              <Table.HeaderCell>Last Name</Table.HeaderCell>
+              <Table.HeaderCell>User Name</Table.HeaderCell>
               <Table.HeaderCell>email</Table.HeaderCell>
               <Table.HeaderCell>Role</Table.HeaderCell>
-              <Table.HeaderCell>Plan</Table.HeaderCell>
               <Table.HeaderCell>Id</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -269,7 +225,7 @@ const Admin = () => {
 
       <div>
         <h2 style={{ margin: "4rem", width: "40%" }} class="ui teal header">
-          COMICS MENU
+        YACHTS MENU
         </h2>
 
         <Button
@@ -283,7 +239,7 @@ const Admin = () => {
             boxShadow: "10px, white",
           }}
         >
-          Show uploaded comics
+          Show uploaded Yachts
         </Button>
 
       
@@ -296,10 +252,21 @@ const Admin = () => {
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>ID</Table.HeaderCell>
-              <Table.HeaderCell>Title</Table.HeaderCell>
-              <Table.HeaderCell>Cover</Table.HeaderCell>
-              <Table.HeaderCell>Banner</Table.HeaderCell>
-              <Table.HeaderCell></Table.HeaderCell>
+              <Table.HeaderCell>Make</Table.HeaderCell>
+              <Table.HeaderCell>Model</Table.HeaderCell>
+              <Table.HeaderCell>Year</Table.HeaderCell>
+              <Table.HeaderCell>Cabins</Table.HeaderCell>
+              <Table.HeaderCell>Bathrooms</Table.HeaderCell>
+              <Table.HeaderCell>Guest</Table.HeaderCell>
+              <Table.HeaderCell>Length</Table.HeaderCell>
+              <Table.HeaderCell>Beam</Table.HeaderCell>
+              <Table.HeaderCell>Draft</Table.HeaderCell>
+              <Table.HeaderCell>Fuel Cap</Table.HeaderCell>
+              <Table.HeaderCell>Water Cap</Table.HeaderCell>
+              <Table.HeaderCell>Cruise Vel</Table.HeaderCell>
+              <Table.HeaderCell>Location</Table.HeaderCell>
+              <Table.HeaderCell>Fuel Type</Table.HeaderCell>
+              <Table.HeaderCell>Description</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
