@@ -8,12 +8,16 @@ import { RegisterForm } from "./Components/Login/RegisterForm.jsx";
 import  Loading  from "./Components/Loading/Loading.jsx";
 import { Profile } from "./Components/Login/Profile.jsx";
 import  NewProduct  from "./Components/NewProduct/NewProduct.jsx";
+import  Uploading  from "./Components/Uploading/Uploading.jsx";
+import Admin from "./Components/Admin/Admin";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/admin" element={<Admin />} />
+          <Route path='/Uploading' element={<Uploading />} />
           <Route path='/newproduct' element={<NewProduct />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/loading' element={<Loading />} />
@@ -22,6 +26,7 @@ function App() {
           <Route path='/registerForm' element={<RegisterForm />} />
           <Route exact path='/' element={<Home />} />
           <Route path="/" element={<Navbar />} />
+          <Route path='/newproduct' element={<NewProduct />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>

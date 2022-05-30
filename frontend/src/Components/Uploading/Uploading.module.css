@@ -1,0 +1,7 @@
+.uploadingContainer{
+    display:flex;
+    background-color: rgb(163, 206, 206);
+    height:40vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

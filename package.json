@@ -2,6 +2,8 @@
   "dependencies": {
     "@heroicons/react": "^1.0.6",
     "axios": "^0.27.1",
+    "cloudinary-react": "^1.7.2",
+    "google-maps-react": "^2.0.6",
     "stripe": "^9.4.0",
     "tailwind": "^4.0.0"
   },
