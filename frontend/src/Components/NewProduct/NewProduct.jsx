@@ -6,7 +6,7 @@ import "./NewProduct.css";
 export default function NewProduct() {
 	const [product, setProduct] = useState({
 		make: "",
-		model: "",
+		model: 40,
 		year: 1990,
 		cabins: 0,
 		bathrooms: 0,
@@ -64,6 +64,7 @@ console.log(product.pictures)
 							<input
 							className="Form-input"
 							type="number"
+							min="40"
 							name="model"
 							value={product.model}
 							placeholder="40/45/70/100/120"
@@ -183,6 +184,7 @@ console.log(product.pictures)
 							<input
 							className="Form-input"
 							type="number"
+							min="0"
 							name="fuelCapacity"
 							value={product.fuelCapacity}
 							placeholder="Title"
@@ -191,6 +193,7 @@ console.log(product.pictures)
 							<input
 							className="Form-input"
 							type="number"
+							min="0"
 							name="waterCapacity"
 							value={product.waterCapacity}
 							placeholder="Title"
@@ -199,6 +202,7 @@ console.log(product.pictures)
 							<input
 							className="Form-input"
 							type="number"
+							min="0"
 							name="cruiseVel"
 							value={product.cruiseVel}
 							placeholder="Title"
@@ -241,11 +245,7 @@ console.log(product.pictures)
 						{controller.button === "button" && (
 							<input className="myButton fake" type="button" value="👻"></input>
 						)}
-						{/* {!controller.button && (
-              <button type="submit" className="Form-button">
-                CREATE
-              </button>
-            )} */}
+						
 						{!controller.button && (
 							<button type="submit" class="myButton">
 								🚢

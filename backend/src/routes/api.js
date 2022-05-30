@@ -8,7 +8,7 @@ const router = Router();
 
 router.get('/images', async (req, res) => {
     const { resources } = await cloudinary.search
-        .expression('folder:dev_setups')
+        .expression('folder:deve')
         .sort_by('public_id', 'desc')
         .max_results(30)
         .execute();
