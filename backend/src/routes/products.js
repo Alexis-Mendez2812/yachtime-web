@@ -141,8 +141,8 @@ router.get("/all", async (req, res) => {
 
 	try {
 		
-		const users = await Users.all();
-		return res.status(201).json(users);
+		const products = await Products.findAll();
+		return res.status(200).json(products);
 	} catch (error) {
 		console.log(error);
 	}

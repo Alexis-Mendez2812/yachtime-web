@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { postUserGoogle } from "../../Redux/Actions/actions";
 import  "./Profile.css"
 import {LogoutButton} from "./LogoutButton.jsx"
+import { Link } from "react-router-dom";
 
 export const Profile = () => {
 	const dispatch = useDispatch();
@@ -39,6 +40,8 @@ console.log(user)
 				<h4>{userSession.firtsName}</h4>
 				<h2>{userSession.lastName}</h2>
 				<h4>Email: {userSession.email}</h4>
+				<Link to={"/newproduct"} ><button>NEW CHARTER</button></Link>
+				<Link to={"/admin"} ><button>ADMIN</button></Link>
 				<LogoutButton/>
 			</div>
 		</div>
