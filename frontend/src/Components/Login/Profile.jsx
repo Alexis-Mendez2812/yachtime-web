@@ -13,7 +13,7 @@ export const Profile = () => {
 	const dispatch = useDispatch();
 	const { user } = useAuth0();
 	let userSession = useSelector((state) => state.userSession);
-console.log(user)
+// console.log(user)
 	// useEffect(() => {
 	//   if(user.email){
 	//     dispatch(getFavoritesCharacters(user.email))

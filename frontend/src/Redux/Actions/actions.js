@@ -31,7 +31,7 @@ export function getAllUsers (){
     return async function(dispatch) {
         try {
             const users = await axios('/users/all');
-            console.log(users.data)
+            // console.log(users.data)
             return dispatch ({
                 type: GET_USERS,
                 payload: users.data
@@ -59,6 +59,7 @@ export function getAllProducts() {          //para trerce todos los comics
         }
     }
 }
+
 
 export const deleteYate = (id) => {
     console.log(id)
