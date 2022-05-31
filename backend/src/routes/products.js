@@ -62,6 +62,43 @@ router.post("/", async (req, res) => {
 			});
 	}
 });
+router.get("/cargafull", async (req, res) => {
+	try {
+		
+	const [yates,created] =	botes.forEach(async (e) => { await Products.findOrCreate({
+			where: {
+			make:e.make,
+			model:e.model,
+			year:e.year,
+			cabins:e.cabins,
+			bathrooms:e.bathrooms,
+			guests:e.guests,
+			length:e.length,
+			beam:e.beam,
+			draft:e.draft,
+			fuelCapacity:e.fuelCapacity,
+			waterCapacity:e.waterCapacity,
+			cruiseVel:e.cruiseVel,
+			location:e.location,
+			fuelType:e.fuelType,
+			description:e.description,
+			pictures:e.pictures,
+			},
+		});})
+	
+
+
+
+		return res.status(201).json(yates,created);
+	} catch (error) {
+		console.log(error, "algo pasó con el post del cargafull chequea los campos");
+		return res
+			.status(500)
+			.json({
+				mensaje: "algo pasó con el post del cargafull chequea los campos",
+			});
+	}
+});
 router.put("/profile", async (req, res) => {
 	const { email } = req.body;
 

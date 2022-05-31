@@ -21,7 +21,7 @@ router.post('/upload', async (req, res) => {
         console.log(req.body)
         const fileStr = req.body.data;
         const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-            upload_preset: 'dev_setups',
+            upload_preset: 'deve',
         });
         console.log(uploadResponse);
         res.json({ msg: 'yaya' });
