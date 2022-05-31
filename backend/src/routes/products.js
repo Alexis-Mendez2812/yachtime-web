@@ -80,9 +80,8 @@ router.get("/cargafull", async (req, res) => {
 			waterCapacity:e.waterCapacity,
 			cruiseVel:e.cruiseVel,
 			location:e.location,
-			fuelType:e.fuelType,
+			fuelType:e.fuelType?e.fuelType:"gasoline",
 			description:e.description,
-			pictures:e.pictures,
 			},
 		});})
 	
