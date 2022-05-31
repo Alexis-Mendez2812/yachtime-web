@@ -251,22 +251,20 @@ const Admin = () => {
         >
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>ID</Table.HeaderCell>
               <Table.HeaderCell>Make</Table.HeaderCell>
-              <Table.HeaderCell>Model</Table.HeaderCell>
-              <Table.HeaderCell>Year</Table.HeaderCell>
-              <Table.HeaderCell>Cabins</Table.HeaderCell>
-              <Table.HeaderCell>Bathrooms</Table.HeaderCell>
+              <Table.HeaderCell> Model </Table.HeaderCell>
+              <Table.HeaderCell> Year </Table.HeaderCell>
+              <Table.HeaderCell> Cabins </Table.HeaderCell>
+              <Table.HeaderCell> Bathrooms </Table.HeaderCell>
               <Table.HeaderCell>Guest</Table.HeaderCell>
-              <Table.HeaderCell>Length</Table.HeaderCell>
-              <Table.HeaderCell>Beam</Table.HeaderCell>
-              <Table.HeaderCell>Draft</Table.HeaderCell>
-              <Table.HeaderCell>Fuel Cap</Table.HeaderCell>
-              <Table.HeaderCell>Water Cap</Table.HeaderCell>
+              <Table.HeaderCell> Length </Table.HeaderCell>
+              <Table.HeaderCell> Beam </Table.HeaderCell>
+              <Table.HeaderCell> Draft </Table.HeaderCell>
+              <Table.HeaderCell> Fuel Cap </Table.HeaderCell>
+              <Table.HeaderCell> Water Cap </Table.HeaderCell>
               <Table.HeaderCell>Cruise Vel</Table.HeaderCell>
-              <Table.HeaderCell>Location</Table.HeaderCell>
               <Table.HeaderCell>Fuel Type</Table.HeaderCell>
-              <Table.HeaderCell>Description</Table.HeaderCell>
+
             </Table.Row>
           </Table.Header>
 
@@ -276,20 +274,18 @@ const Admin = () => {
               createdComics?.map((comic) => {
                 return (
                   <Table.Row key={comic.id}>
-                    <Table.Cell>{`${comic.id}`}</Table.Cell>
                     <Table.Cell>{`${comic.make}`}</Table.Cell>
                     <Table.Cell>{`${comic.model}'`}</Table.Cell>
                     <Table.Cell>{`${comic.year}`}</Table.Cell>
                     <Table.Cell>{`${comic.cabins}`}</Table.Cell>
-                    <Table.Cell>{`${comic.bathrooms}`}</Table.Cell>
+                    <Table.Cell>{comic.bathrooms}</Table.Cell>
                     <Table.Cell>{`${comic.guests}`}</Table.Cell>
-                    <Table.Cell>{`${comic.length}`}</Table.Cell>
-                    <Table.Cell>{`${comic.beam}`}</Table.Cell>
-                    <Table.Cell>{`${comic.draft}`}</Table.Cell>
+                    <Table.Cell>{`${comic.length[0]}' ${comic.length.length>1?comic.length[1]:0}" `}</Table.Cell>
+                    <Table.Cell>{`${comic.beam[0]}' ${comic.beam.length>1?comic.beam[1]:0}"`}</Table.Cell>
+                    <Table.Cell>{`${comic.draft[0]}' ${comic.draft.length>1?comic.draft[1]:0}"`}</Table.Cell>
                     <Table.Cell>{`${comic.fuelCapacity} GAL`}</Table.Cell>
                     <Table.Cell>{`${comic.waterCapacity} GAL`}</Table.Cell>
                     <Table.Cell>{`${comic.cruiseVel} KNOTS`}</Table.Cell>
-                    <Table.Cell>{`${comic.location}`}</Table.Cell>
                     <Table.Cell>{`${comic.fuelType||"gasoline"}`}</Table.Cell>
                     <Table.Cell>
                       <Fab color="secondary" aria-label="edit">

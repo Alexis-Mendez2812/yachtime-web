@@ -79,24 +79,22 @@ router.get("/cargafull", async (req, res) => {
 			fuelCapacity:e.fuelCapacity,
 			waterCapacity:e.waterCapacity,
 			cruiseVel:e.cruiseVel,
-			location:e.location,
-			fuelType:e.fuelType,
+			fuelType:e.fuelType?e.fuelType:"gasoline",
 			description:e.description,
-			pictures:e.pictures,
 			},
 		});})
 	
 
 
 
-		return res.status(201).json(yates,created);
+		return res.status(201).json(botes);
 	} catch (error) {
 		console.log(error, "algo pasó con el post del cargafull chequea los campos");
 		return res
 			.status(500)
-			.json({
-				mensaje: "algo pasó con el post del cargafull chequea los campos",
-			});
+			.json(
+				botes
+			);
 	}
 });
 router.put("/profile", async (req, res) => {
