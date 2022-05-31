@@ -251,7 +251,6 @@ const Admin = () => {
         >
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>ID</Table.HeaderCell>
               <Table.HeaderCell>Make</Table.HeaderCell>
               <Table.HeaderCell>Model</Table.HeaderCell>
               <Table.HeaderCell>Year</Table.HeaderCell>
@@ -276,14 +275,13 @@ const Admin = () => {
               createdComics?.map((comic) => {
                 return (
                   <Table.Row key={comic.id}>
-                    <Table.Cell>{`${comic.id}`}</Table.Cell>
                     <Table.Cell>{`${comic.make}`}</Table.Cell>
                     <Table.Cell>{`${comic.model}'`}</Table.Cell>
                     <Table.Cell>{`${comic.year}`}</Table.Cell>
                     <Table.Cell>{`${comic.cabins}`}</Table.Cell>
                     <Table.Cell>{`${comic.bathrooms}`}</Table.Cell>
                     <Table.Cell>{`${comic.guests}`}</Table.Cell>
-                    <Table.Cell>{`${comic.length}`}</Table.Cell>
+                    <Table.Cell>{`${comic.length[0]}' ${comic.length.length>1?comic.length[1]:0}" `}</Table.Cell>
                     <Table.Cell>{`${comic.beam}`}</Table.Cell>
                     <Table.Cell>{`${comic.draft}`}</Table.Cell>
                     <Table.Cell>{`${comic.fuelCapacity} GAL`}</Table.Cell>
