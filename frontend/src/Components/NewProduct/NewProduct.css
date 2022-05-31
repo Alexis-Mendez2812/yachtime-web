@@ -1,26 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .Form-body{
 
     display: flex;
     align-items: center;
     background-image: url("https://wallpapercave.com/wp/wp5399756.jpg") ;
-    background-position: 100% 100%;
+    background-position: 100%;
     background-size: cover ;
     background-attachment: fixed;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    font-size: 20px;
 }
+
 .Form-form {
     
-    display: flex;
-    flex-wrap: nowrap;
-    background-color: #3e95c79a;
-    border-radius: 20px;
-    box-sizing: border-box;
-    height: 100%;
-    padding: 10px;
-    width: 75%;
-    flex-direction: column;
+  width: 600px;
+  background: #24303c;
+  padding: 30px;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 4px;
+  font-family: 'calibri';
+  color: white;
+  box-shadow: 10px 13px 37px rgba(0, 0, 0, 0.788);
   }
   
   .Form-title {
@@ -127,20 +133,24 @@
     align-items: center;
 }
 .Form-input{
-    color: rgba(202, 230, 40, 0.926);
-    width: 60%;
-    background-color:rgba(119, 119, 119, 0.44);
-    padding:2px;
-    border-radius: 5px 50px 3px 5px;
+  width: 90%;
+  background: #24303c;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #e8c23a67;
+  font-family: 'calibri';
+  font-size: 18px;
+  color: white;
     
 }
 .Form-div-internal{
-    color: rgba(202, 230, 40, 0.926);
-    width: 60%;
-    background-color:rgba(119, 119, 119, 0.44);
-    padding:0px;
-    border-radius: 5px 50px 3px 5px;
-    border: 2px solid rgba(27, 27, 27, 0.801);
+    color: #e8c23a67;
+    width: 90%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e8c23a67;
   }
   .Form-input-internal{
     color: rgba(202, 230, 40, 0.926);

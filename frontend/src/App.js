@@ -10,6 +10,7 @@ import { Profile } from "./Components/Login/Profile.jsx";
 import  NewProduct  from "./Components/NewProduct/NewProduct.jsx";
 import  Uploading  from "./Components/Uploading/Uploading.jsx";
 import Admin from "./Components/Admin/Admin";
+import ContactUs from "./Components/ContactUs/ContactUs.jsx";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/Uploading' element={<Uploading />} />
           <Route path='/newproduct' element={<NewProduct />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/contactUs' element={<ContactUs />} />
           <Route path='/loading' element={<Loading />} />
           <Route path='/login' element={<Login />} />
           <Route path='/loginForm' element={<LoginForm />} />
