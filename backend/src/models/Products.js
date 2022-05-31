@@ -57,7 +57,7 @@ module.exports = (sequelize) => {
     },
     location: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     fuelType: {
       type: DataTypes.STRING,
@@ -70,7 +70,7 @@ module.exports = (sequelize) => {
     },
     pictures: {
       type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
+      allowNull: true,
     }
   });
 };

@@ -1,54 +1,65 @@
 const { Router } = require("express");
 const axios = require("axios");
-const { Users , Products } = require(`../db`);
+const { Users, Products } = require(`../db`);
 // const main = require("../controllers/mailer");
-
+const{botes} = require("../yates.json");
 const router = Router();
 
 // let comicsDb = await Comics.findAll({order: [['updatedAt', 'DESC']]});
 //USERS
 
 router.post("/", async (req, res) => {
-	// email
-	// firstName
-	// lastName
-	// userName
-	// age
-	// password
-	// picture
 	try {
-		if (req.body.email_verified) {
-			let { email, family_name, picture, given_name, nickname } = req.body;
-			
-			const [user, created] = await Users.findOrCreate({
-				where: {
-					email: email,
-					firtsName: given_name,
-					lastName: family_name,
-					userName: nickname,
-					picture: picture,
-				},
-			});
-
-			console.log("se creó el usuario por auth0 " + created);
-			
-			return res.status(201).json(user);
-		}
-		const { email, firtsName, lastName, userName, picture, password } = req.body;
-
-		const [user, created] = await Users.findOrCreate({
+		const {
+			make,
+			model,
+			year,
+			cabins,
+			bathrooms,
+			guest,
+			length,
+			beam,
+			draft,
+			fuelCapacity,
+			waterCapacity,
+			cruiseVel,
+			location,
+			fuelType,
+			description,
+			pictures,
+		} = req.body;
+		const product = await Products.findOrCreate({
 			where: {
-				email,firtsName, lastName, userName, picture, password 
+			make,
+			model,
+			year,
+			cabins,
+			bathrooms,
+			guest,
+			length,
+			beam,
+			draft,
+			fuelCapacity,
+			waterCapacity,
+			cruiseVel,
+			location,
+			fuelType,
+			description,
+			pictures,
 			},
 		});
-		console.log("se creó el usuario por el form " + created);
 
-		return res.status(201).json( user );
+
+
+
+		return res.status(201).json(product);
 	} catch (error) {
-		console.log(error, "algo pasó con el post del user chequea los campos");
+		console.log(error, "algo pasó con el post del product chequea los campos");
 		return res
 			.status(200)
-			.json({ mensaje: "algo pasó con el post del user chequea los campos" });
+			.json({
+				mensaje: "algo pasó con el post del product chequea los campos",
+			});
 	}
 });
 router.put("/profile", async (req, res) => {
@@ -63,14 +74,14 @@ router.put("/profile", async (req, res) => {
 		});
 		console.log(email);
 		console.log(user);
-//const { email, firtsName, lastName, userName, picture, password } = req.body;
+		//const { email, firtsName, lastName, userName, picture, password } = req.body;
 		await user.update({
 			email: req.body.email,
 			firtsName: req.body.firtsName,
 			lastName: req.body.lastName,
 			userName: req.body.userName,
 			password: req.body.password,
-			picture: req.body.picture
+			picture: req.body.picture,
 		});
 
 		return res.status(201).json("Actualizacion exitosa");
@@ -79,17 +90,12 @@ router.put("/profile", async (req, res) => {
 	}
 });
 
-router.get("/:email", async (req, res) => {
-	const { email } = req.params;
+
+router.get("/json", async (req, res) => {
 
 	try {
-		console.log(email);
-		const user = await Users.findOne({
-			where: {
-				email: email,
-			},
-		});
-		return res.status(201).json(user);
+		
+		return res.status(200).json(botes);
 	} catch (error) {
 		console.log(error);
 	}
@@ -108,7 +114,7 @@ router.post("/favorites", async (req, res) => {
 		});
 		console.log("soy idProducts", idProducts);
 		user.setComics(idProducts);
-		
+
 		return res.status(200).send(user.Products);
 	} catch (error) {
 		console.log(error, "error en la ruta post/favorites");
@@ -116,7 +122,6 @@ router.post("/favorites", async (req, res) => {
 });
 
 router.get("/favorites", async (req, res) => {
-	
 	const { email } = req.params;
 
 	try {
@@ -134,13 +139,10 @@ router.get("/favorites", async (req, res) => {
 	}
 });
 
-
 //ADMIN
 
 router.get("/all", async (req, res) => {
-
 	try {
-		
 		const products = await Products.findAll();
 		return res.status(200).json(products);
 	} catch (error) {
@@ -162,8 +164,8 @@ router.put("/payment", async (req, res) => {
 		});
 		console.log(email);
 		console.log(user);
-//const { email, firtsName, lastName, userName, picture, password } = req.body;
-user.update({role:"ROLE_PRIME"})
+		//const { email, firtsName, lastName, userName, picture, password } = req.body;
+		user.update({ role: "ROLE_PRIME" });
 
 		return res.status(201).json("Actualizacion de pago exitosa");
 	} catch (error) {
@@ -184,9 +186,9 @@ router.put("/authorize", async (req, res) => {
 		});
 		console.log(email);
 		console.log(user);
-//const { email, firtsName, lastName, userName, picture, password } = req.body;
+		//const { email, firtsName, lastName, userName, picture, password } = req.body;
 		await user.update({
-			role:  "ROLE_ADMIN"
+			role: "ROLE_ADMIN",
 		});
 
 		return res.status(201).json("Actualizacion de permisos exitosa");
@@ -208,9 +210,9 @@ router.put("/desauthorize", async (req, res) => {
 		});
 		console.log(email);
 		console.log(user);
-//const { email, firtsName, lastName, userName, picture, password } = req.body;
+		//const { email, firtsName, lastName, userName, picture, password } = req.body;
 		await user.update({
-			role:  "ROLE_USER"
+			role: "ROLE_USER",
 		});
 
 		return res.status(201).json("Actualizacion de permisos exitosa");
@@ -232,9 +234,9 @@ router.put("/banned", async (req, res) => {
 		});
 		console.log(email);
 		console.log(user);
-//const { email, firtsName, lastName, userName, picture, password } = req.body;
+		//const { email, firtsName, lastName, userName, picture, password } = req.body;
 		await user.update({
-			role:  "ROLE_BANNED"
+			role: "ROLE_BANNED",
 		});
 
 		return res.status(201).json("Actualizacion de baneo exitosa");
@@ -243,7 +245,20 @@ router.put("/banned", async (req, res) => {
 	}
 });
 
+router.get("/:email", async (req, res) => {
+	const { email } = req.params;
 
-
+	try {
+		console.log(email);
+		const user = await Users.findOne({
+			where: {
+				email: email,
+			},
+		});
+		return res.status(201).json(user);
+	} catch (error) {
+		console.log(error);
+	}
+});
 
 module.exports = router;
