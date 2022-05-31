@@ -9,6 +9,7 @@ import {
 } from "../Actions/actions"
 const initialState = {
     allYates: [],
+    copyYates: [],
     myYates:[],
     favoritesYates:[],
     userSession:{},
@@ -25,7 +26,7 @@ export default function rootReducer (state = initialState, { type, payload }) {
   case POST_USER:
     return { ...state, userSession: payload }
   case GET_ALL_PRODUCTS:
-    return { ...state, allYates: payload }
+    return { ...state, allYates: payload,copyYates: payload}
   case GET_USERS:
       return {
         ...state,

@@ -33,7 +33,7 @@ const Admin = () => {
   const [showUsers, setShowUsers] = React.useState(false);
   let comics = useSelector((state) => state.allYates);
   const [showComics, setShowComics] = React.useState(false);
-  const createdComics = comics?.filter((comic) => comic.id === null);
+  const createdComics = comics;
 
   const options = [
     { key: "standar", text: "Monthly", value: 1 },
@@ -275,14 +275,25 @@ const Admin = () => {
             : showComics &&
               createdComics?.map((comic) => {
                 return (
-                  <Table.Row key={comic.idPrincipal}>
-                    <Table.Cell>{comic.idPrincipal}</Table.Cell>
-                    <Table.Cell>{comic.title}</Table.Cell>
-                    <Table.Cell>{comic.img}</Table.Cell>
-                    <Table.Cell>{comic.banner}</Table.Cell>
+                  <Table.Row key={comic.id}>
+                    <Table.Cell>{`${comic.id}`}</Table.Cell>
+                    <Table.Cell>{`${comic.make}`}</Table.Cell>
+                    <Table.Cell>{`${comic.model}'`}</Table.Cell>
+                    <Table.Cell>{`${comic.year}`}</Table.Cell>
+                    <Table.Cell>{`${comic.cabins}`}</Table.Cell>
+                    <Table.Cell>{`${comic.bathrooms}`}</Table.Cell>
+                    <Table.Cell>{`${comic.guests}`}</Table.Cell>
+                    <Table.Cell>{`${comic.length}`}</Table.Cell>
+                    <Table.Cell>{`${comic.beam}`}</Table.Cell>
+                    <Table.Cell>{`${comic.draft}`}</Table.Cell>
+                    <Table.Cell>{`${comic.fuelCapacity} GAL`}</Table.Cell>
+                    <Table.Cell>{`${comic.waterCapacity} GAL`}</Table.Cell>
+                    <Table.Cell>{`${comic.cruiseVel} KNOTS`}</Table.Cell>
+                    <Table.Cell>{`${comic.location}`}</Table.Cell>
+                    <Table.Cell>{`${comic.fuelType||"gasoline"}`}</Table.Cell>
                     <Table.Cell>
                       <Fab color="secondary" aria-label="edit">
-                       
+                       +
                       </Fab>
                       <Fab color="error" aria-label="delete">
                         <DeleteIcon
