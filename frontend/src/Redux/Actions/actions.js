@@ -91,3 +91,19 @@ export const filterByRole = (plan) =>{
         payload: Number(plan)
     }
 }
+
+//PAYPAL
+export function postPayment(pago) {
+    return async function (dispatch) {
+        try {
+            const { data } = await axios.post(`/users/payment`,pago)
+            return dispatch({
+                type: "POST_PAYMENT",
+                payload: data
+            })
+        }
+        catch (err) {
+            alert("error post paypal(se rompio)", err)
+        }
+    }
+    }

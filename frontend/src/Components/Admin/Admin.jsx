@@ -189,7 +189,6 @@ const Admin = () => {
               <Table.HeaderCell>User Name</Table.HeaderCell>
               <Table.HeaderCell>email</Table.HeaderCell>
               <Table.HeaderCell>Role</Table.HeaderCell>
-              <Table.HeaderCell>Id</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
@@ -202,17 +201,28 @@ const Admin = () => {
               users?.map((user) => {
                 return (
                   <Table.Row  key ={user.id}>
-                    <Table.Cell>
-                      {user.name}
-                    </Table.Cell>
+                    <Table.Cell>{user.firtsName}</Table.Cell>
+                    <Table.Cell>{user.lastName}</Table.Cell>
+                    <Table.Cell>{user.userName}</Table.Cell>
                     <Table.Cell>{user.email}</Table.Cell>
                     <Table.Cell>{user.role}</Table.Cell>
-                    <Table.Cell>{user.plan_id}</Table.Cell>
                     <Table.Cell>
                       <Fab color="secondary" aria-label="edit">
                        
                       </Fab>
                     </Table.Cell>
+                    <Table.Cell>
+                      <Fab color="secondary" aria-label="edit">
+                       
+                      </Fab>
+                    </Table.Cell>
+                    <Fab color="error" aria-label="delete">
+                        <DeleteIcon
+                          onClick={() => {
+                            handledeleteYate(user.idPrincipal);
+                          }}
+                        />
+                      </Fab>
                   </Table.Row>
                 );
               })}

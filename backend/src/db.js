@@ -31,8 +31,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 const { Users , Products } = sequelize.models;
 
-Users.belongsToMany(Products,{through:"Favorites_Products" })
-Products.belongsToMany(Users,{through: "Favorites_Products"})
+Users.belongsToMany(Products,{through:"owner" })
+Products.belongsToMany(Users,{through: "owner"})
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
