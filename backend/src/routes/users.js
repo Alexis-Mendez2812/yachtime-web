@@ -259,7 +259,7 @@ router.get("/precarga", async (req, res) => {
 		
 		var superAdmin =await Users.findOrCreate({
 			where: {
-				email: "Milagrosdiezbarrantes@gmail.com",
+				email: "milagrosdiezbarrantes@gmail.com",
 				password: 'mili123',
 			firtsName: "mili ",
 				lastName: "berrantez",
