@@ -10,6 +10,9 @@ export const FILT_BY_STATS = "FILT_BY_STATS"
 export const FILT_BY_ROLE = "FILT_BY_ROLE"
 export const VACIAR = "VACIAR"
 export const GET_ID_NAME = "GET_ID_NAME"
+export const AUTHORIZE = "AUTHORIZE"
+export const DESAUTHORIZE = "DESAUTHORIZE"
+export const BANNED = "BANNED"
 
 
 
@@ -45,11 +48,10 @@ export function getAllUsers (){
     }
 }
 }
-export function authorize (){    
+export function authorize (email){    
     return async function(dispatch) {
         try {
-            const users = await axios('/users/authorize');
-            
+            const users = await axios.post('/users/authorize',{email});
             return dispatch ({
                 type: AUTHORIZE,
                 payload: users.data
@@ -60,13 +62,13 @@ export function authorize (){
     }
 }
 }
-export function getAllUsers (){    
+export function desauthorize (email){    
     return async function(dispatch) {
         try {
-            const users = await axios('/users/all');
+            const users = await axios.post('/users/desauthorize',{email});
             // console.log(users.data)
             return dispatch ({
-                type: GET_USERS,
+                type: DESAUTHORIZE,
                 payload: users.data
             })
     }
@@ -75,13 +77,13 @@ export function getAllUsers (){
     }
 }
 }
-export function getAllUsers (){    
+export function banned (email){    
     return async function(dispatch) {
         try {
-            const users = await axios('/users/all');
+            const users = await axios.post('/users/banned',{email});
             // console.log(users.data)
             return dispatch ({
-                type: GET_USERS,
+                type: BANNED,
                 payload: users.data
             })
     }

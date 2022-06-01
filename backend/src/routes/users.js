@@ -180,7 +180,7 @@ router.post("/payment", async (req, res) => {
 });
 //DAR PERMISOS
 
-router.put("/authorize", async (req, res) => {
+router.post("/authorize", async (req, res) => {
 	const { email } = req.body;
 
 	try {
@@ -204,7 +204,7 @@ router.put("/authorize", async (req, res) => {
 });
 //QUITAR PERMISOS
 
-router.put("/desauthorize", async (req, res) => {
+router.post("/desauthorize", async (req, res) => {
 	const { email } = req.body;
 
 	try {
@@ -221,14 +221,15 @@ router.put("/desauthorize", async (req, res) => {
 			role:  "ROLE_USER"
 		});
 
-		return res.status(201).json("Actualizacion de permisos exitosa");
+		const uses = await Users.findAll()
+		return res.status(201).json(uses);
 	} catch (error) {
 		console.log(error, "error en la ruta put /desauthorize");
 	}
 });
 //BANEAR USUARIO
 
-router.put("/banned", async (req, res) => {
+router.post("/banned", async (req, res) => {
 	const { email } = req.body;
 
 	try {
@@ -245,7 +246,8 @@ router.put("/banned", async (req, res) => {
 			role:  "ROLE_BANNED"
 		});
 
-		return res.status(201).json("Actualizacion de baneo exitosa");
+		const uses = await Users.findAll()
+		return res.status(201).json(uses);
 	} catch (error) {
 		console.log(error, "error en la ruta put /banned");
 	}
