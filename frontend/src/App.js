@@ -10,14 +10,19 @@ import { Profile } from "./Components/Login/Profile.jsx";
 import  NewProduct  from "./Components/NewProduct/NewProduct.jsx";
 import  Uploading  from "./Components/Uploading/Uploading.jsx";
 import Admin from "./Components/Admin/Admin";
+
 import ContactUs from "./Components/ContactUs/ContactUs.jsx";
 import Membership from './Components/Membership/Membership.jsx';
+
+import PayPal from "./Components/PayPal/PayPal";
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/paypal" element={<PayPal />} />
           <Route path="/admin" element={<Admin />} />
           <Route path='/Uploading' element={<Uploading />} />
           <Route path='/newproduct' element={<NewProduct />} />

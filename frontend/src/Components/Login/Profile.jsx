@@ -8,6 +8,7 @@ import { postUserGoogle } from "../../Redux/Actions/actions";
 import  "./Profile.css"
 import {LogoutButton} from "./LogoutButton.jsx"
 import { Link } from "react-router-dom";
+import CheckoutBut from "../PayPal/PayPal";
 
 export const Profile = () => {
 	const dispatch = useDispatch();
@@ -43,6 +44,8 @@ export const Profile = () => {
 				<Link to={"/newproduct"} ><button>NEW CHARTER</button></Link>
 				<Link to={"/admin"} ><button>ADMIN</button></Link>
 				<LogoutButton/>
+				<CheckoutBut totalPrice={15} items={1} totalItems={1} />
+				<CheckoutBut totalPrice={100} items={1} totalItems={1} />
 			</div>
 		</div>
 		</div>

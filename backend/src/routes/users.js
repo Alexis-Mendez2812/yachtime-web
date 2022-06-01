@@ -1,6 +1,6 @@
 const { Router } = require("express");
 
-const { Users } = require(`../db`);
+const { Users,Payments } = require(`../db`);
 // const main = require("../controllers/mailer");
 
 const router = Router();
@@ -158,24 +158,24 @@ router.get("/favorites", async (req, res) => {
 
 //ACTUALIZAR A USUARIO PAGO
 
-router.put("/payment", async (req, res) => {
-	const { email } = req.body;
-
+router.post("/payment", async (req, res) => {
+	const { email, orderID, payerID, amount } = req.body;
 	try {
-		console.log(email);
-		const user = await Users.findOne({
-			where: {
-				email: email,
-			},
-		});
-		console.log(email);
-		console.log(user);
-//const { email, firtsName, lastName, userName, picture, password } = req.body;
-user.update({role:"ROLE_PRIME"})
+        const pago = await Payments.create({
+            email, orderID, payerID, amount
+          });
+        const user = await Users.findOne({
+            where: {
+              email: email,
+            }
+        });
+        user.update({role:"ROLE_PRIME"})
+        console.log("se hizo el pago")
 
-		return res.status(201).json("Actualizacion de pago exitosa");
-	} catch (error) {
-		console.log(error, "error en la ruta put /payment");
+		return res.status(200).json({ user,pago});
+	} catch (err) {
+		console.log(err);
+		// next(err)
 	}
 });
 //DAR PERMISOS
