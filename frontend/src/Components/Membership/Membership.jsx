@@ -48,7 +48,7 @@ function Membership() {
             <li><p>Take advantage of our promos.</p></li>
         </ul>
   </div>   
-        <a href="#">300$ / Annual</a>
+        <a href="/paypal/pay/300">300$ / Annual</a>
 	</div>
 </div>
 <div class="card">
@@ -63,7 +63,7 @@ function Membership() {
             <li><p>Take advantage of our promos.</p></li>
         </ul>
   </div>   
-		<a href="#">75$ / Month</a>       
+		<a href="/paypal/pay/75">75$ / Month</a>       
 	</div>
 </div>
 

@@ -5,13 +5,16 @@ import {
   GET_ALL_PRODUCTS,
   DELETE_YATE,
   FILT_BY_STATS,
-  FILT_BY_ROLE
+  FILT_BY_ROLE,
+  VACIAR,
+  GET_ID_NAME
 } from "../Actions/actions"
 const initialState = {
     allYates: [],
     copyYates: [],
     myYates:[],
     favoritesYates:[],
+    yateSelected:{},
     userSession:{},
     users:[],
     copyUsers:[]
@@ -21,7 +24,7 @@ export default function rootReducer (state = initialState, { type, payload }) {
   switch (type) {
 
   case ALL_YATES:
-    return { ...state, allYates: payload }
+    return { ...state, allYates: payload,copyYates: payload }
 
   case POST_USER:
     return { ...state, userSession: payload }
@@ -49,11 +52,20 @@ export default function rootReducer (state = initialState, { type, payload }) {
       const filtered = backUp.filter(
         (user) => Number(user.plan_id) === payload
       );
-      
       return {
         ...state,
         copyUsers: filtered,
       }
+      case VACIAR:
+        return {
+            ...state,
+            yateSelected:{}
+        }
+      case GET_ID_NAME:
+        return {
+            ...state,
+            yateSelected:payload
+        }
   default:
     return state
   }

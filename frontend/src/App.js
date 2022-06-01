@@ -15,6 +15,8 @@ import ContactUs from "./Components/ContactUs/ContactUs.jsx";
 import Membership from './Components/Membership/Membership.jsx';
 
 import PayPal from "./Components/PayPal/PayPal";
+import  CardDetail  from "./Components/CardDetail/CardDetail.jsx";
+import  Pay  from "./Components/Pay/Pay.jsx";
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route path="/" element={<Navbar />} />
           <Route path='/newproduct' element={<NewProduct />} />
+          <Route path='/CardDetail/:id' element={<CardDetail />} />
+          <Route path='/paypal/pay/:mount' element={<Pay />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
