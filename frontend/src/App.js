@@ -11,15 +11,26 @@ import  NewProduct  from "./Components/NewProduct/NewProduct.jsx";
 import  Uploading  from "./Components/Uploading/Uploading.jsx";
 import Admin from "./Components/Admin/Admin";
 
+import ContactUs from "./Components/ContactUs/ContactUs.jsx";
+import Membership from './Components/Membership/Membership.jsx';
+
+import PayPal from "./Components/PayPal/PayPal";
+import  CardDetail  from "./Components/CardDetail/CardDetail.jsx";
+import  Pay  from "./Components/Pay/Pay.jsx";
+
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/paypal" element={<PayPal />} />
           <Route path="/admin" element={<Admin />} />
           <Route path='/Uploading' element={<Uploading />} />
           <Route path='/newproduct' element={<NewProduct />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/contactUs' element={<ContactUs />} />
+          <Route path='/membership' element={<Membership />} />
           <Route path='/loading' element={<Loading />} />
           <Route path='/login' element={<Login />} />
           <Route path='/loginForm' element={<LoginForm />} />
@@ -27,6 +38,8 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route path="/" element={<Navbar />} />
           <Route path='/newproduct' element={<NewProduct />} />
+          <Route path='/CardDetail/:id' element={<CardDetail />} />
+          <Route path='/paypal/pay/:mount' element={<Pay />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>

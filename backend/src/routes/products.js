@@ -65,7 +65,7 @@ router.post("/", async (req, res) => {
 router.get("/cargafull", async (req, res) => {
 	try {
 		
-	const [yates,created] =	botes.forEach(async (e) => { await Products.findOrCreate({
+	let yates =	botes.forEach(async (e) => { await Products.findOrCreate({
 			where: {
 			make:e.make,
 			model:e.model,
@@ -83,11 +83,11 @@ router.get("/cargafull", async (req, res) => {
 			description:e.description,
 			},
 		});})
-	
+yates = await Products.findAll();	
 
 
 
-		return res.status(201).json(botes);
+		return res.status(201).json(yates);
 	} catch (error) {
 		console.log(error, "algo pasó con el post del cargafull chequea los campos");
 		return res
@@ -179,6 +179,17 @@ router.get("/favorites", async (req, res) => {
 router.get("/all", async (req, res) => {
 	try {
 		const products = await Products.findAll();
+		return res.status(200).json(products);
+	} catch (error) {
+		console.log(error);
+	}
+});
+router.get("/detail/:id", async (req, res) => {
+	try {
+		const{id}=req.params
+		const products = await Products.findOne({
+			where: {id}
+		});
 		return res.status(200).json(products);
 	} catch (error) {
 		console.log(error);
