@@ -1,16 +1,15 @@
 
 .container {
-   margin-top: 50px;
+    width: 100%;
+    height: 100vh;
     margin-left: auto;
     margin-right: auto;
-        background-image: url("./background_menber_01.jpg");
+        background-image: url("./DoubleShotExterior51.jpg");
         display: flex;
         justify-content: center;
         align-items: center;
         background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
- 
+        background-size: cover; 
 } 
 
 .contact-wrapper {
@@ -107,9 +106,7 @@
 
 /* LARGE SIZE */
 @media(min-width: 700px) {
-    body {
-        padding: 0 4em;
-    }
+    
     .contact-wrapper {
         display: grid;
     }
