@@ -3,7 +3,7 @@ import { SiInstagram } from "react-icons/si";
 import Navbar from '../Navbar/Navbar';
 import tarjet from '../Membership/img/business_card.png';
 import './Membership.css';
-
+import Footer from '../Footer/Footer'
 function Membership() {
     return (
       <>
@@ -42,8 +42,8 @@ function Membership() {
 		<p>Individuals that typically entertain family and friends or clients on single day charters throughout the year.</p>
 		<div>
         <ul className="listaul">
-            <li className="listaulli"><p>Offer your yacht with us.</p></li>
-            <li className="listaulli"><p>You will not pay commissions for each charter.</p></li>
+            <li><p>Offer your yacht with us.</p></li>
+            <li><p>You will not pay commissions for each charter.</p></li>
             <li><p>The best yacht's selection of all Miami.</p></li>
             <li><p>Take advantage of our promos.</p></li>
         </ul>
@@ -57,13 +57,13 @@ function Membership() {
 		<p>Individuals that typically entertain family and friends or clients on single day charters throughout the year.</p>
      <div>
         <ul className="listaul">
-            <li className="listaulli"><p>Offer your yacht with us.</p></li>
-            <li className="listaulli"><p>You will not pay commissions for each charter.</p></li>
+            <li><p>Offer your yacht with us.</p></li>
+            <li><p>You will not pay commissions for each charter.</p></li>
             <li><p>The best yacht's selection of all Miami.</p></li>
             <li><p>Take advantage of our promos.</p></li>
         </ul>
   </div>   
-		<a href="#">75$ / month</a>       
+		<a href="#">75$ / Month</a>       
 	</div>
 </div>
 
@@ -72,9 +72,7 @@ function Membership() {
 
    
 
-      
-
-
+    <Footer/>
 
 	
       </>
