@@ -8,6 +8,8 @@ export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 export const DELETE_YATE = "DELETE_YATE"
 export const FILT_BY_STATS = "FILT_BY_STATS"
 export const FILT_BY_ROLE = "FILT_BY_ROLE"
+export const VACIAR = "VACIAR"
+export const GET_ID_NAME = "GET_ID_NAME"
 
 
 
@@ -107,3 +109,27 @@ export function postPayment(pago) {
         }
     }
     }
+
+    export function vaciar(){
+    
+       
+        return {
+            type: "VACIAR",
+        }
+    
+}
+
+export function getIdYate(id){
+    return async function(dispatch){
+     try{
+
+         let json = await axios.get(`/products/detail/${id}`);
+         return dispatch({
+             type: "GET_ID_NAME",
+             payload:json.data
+            })
+        }catch(error){
+            console.log(error)
+        }
+    }
+}

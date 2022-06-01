@@ -14,6 +14,7 @@ import Admin from "./Components/Admin/Admin";
 import ContactUs from "./Components/ContactUs/ContactUs.jsx";
 
 import PayPal from "./Components/PayPal/PayPal";
+import  CardDetail  from "./Components/CardDetail/CardDetail.jsx";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route path="/" element={<Navbar />} />
           <Route path='/newproduct' element={<NewProduct />} />
+          <Route path='/CardDetail/:id' element={<CardDetail />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>

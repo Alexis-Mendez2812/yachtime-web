@@ -184,6 +184,17 @@ router.get("/all", async (req, res) => {
 		console.log(error);
 	}
 });
+router.get("/detail/:id", async (req, res) => {
+	try {
+		const{id}=req.params
+		const products = await Products.findOne({
+			where: {id}
+		});
+		return res.status(200).json(products);
+	} catch (error) {
+		console.log(error);
+	}
+});
 
 
 
