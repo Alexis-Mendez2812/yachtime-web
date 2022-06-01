@@ -11,6 +11,7 @@ import  NewProduct  from "./Components/NewProduct/NewProduct.jsx";
 import  Uploading  from "./Components/Uploading/Uploading.jsx";
 import Admin from "./Components/Admin/Admin";
 import ContactUs from "./Components/ContactUs/ContactUs.jsx";
+import Membership from './Components/Membership/Membership.jsx';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/newproduct' element={<NewProduct />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/contactUs' element={<ContactUs />} />
+          <Route path='/membership' element={<Membership />} />
           <Route path='/loading' element={<Loading />} />
           <Route path='/login' element={<Login />} />
           <Route path='/loginForm' element={<LoginForm />} />
