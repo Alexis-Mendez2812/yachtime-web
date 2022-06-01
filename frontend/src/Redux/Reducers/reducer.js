@@ -6,7 +6,8 @@ import {
   DELETE_YATE,
   FILT_BY_STATS,
   FILT_BY_ROLE,
-  VACIAR
+  VACIAR,
+  GET_ID_NAME
 } from "../Actions/actions"
 const initialState = {
     allYates: [],
@@ -51,15 +52,20 @@ export default function rootReducer (state = initialState, { type, payload }) {
       const filtered = backUp.filter(
         (user) => Number(user.plan_id) === payload
       );
+      return {
+        ...state,
+        copyUsers: filtered,
+      }
       case VACIAR:
         return {
             ...state,
             yateSelected:{}
         }
-      return {
-        ...state,
-        copyUsers: filtered,
-      }
+      case GET_ID_NAME:
+        return {
+            ...state,
+            yateSelected:payload
+        }
   default:
     return state
   }

@@ -7,7 +7,7 @@ export default function CardHomeYate({yates}) {
     return (
     <div className="CardHome-container">
         {yates.map((e)=>(
-          <div key={e.id}  href={`/home/${e.id}`} >
+          <div key={e.id}  href={`/CardDetail/${e.id}`} >
           <CardHome 
             
             id={e.id} 
@@ -25,7 +25,7 @@ export default function CardHomeYate({yates}) {
 
 export  function CardHome(props){
     const {id,make,model} = props
-    // console.log(Genres)
+  
     return(
     <div key={id} className="CardHome-card-conteiner" >
     <div  className="CardHome-card" >
@@ -39,7 +39,7 @@ export  function CardHome(props){
 
     <div >
 
-    <a href={`/home/${id}`} className="CardHome-span" >More details...</a>
+    <a href={`/CardDetail/${id}`} className="CardHome-span" >More details...</a>
     </div>
     </div>
     </div>
