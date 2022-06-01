@@ -196,8 +196,8 @@ router.put("/authorize", async (req, res) => {
 		await user.update({
 			role:  "ROLE_ADMIN"
 		});
-
-		return res.status(201).json("Actualizacion de permisos exitosa");
+		const uses = await Users.findAll()
+		return res.status(201).json(uses);
 	} catch (error) {
 		console.log(error, "error en la ruta put /authorize");
 	}

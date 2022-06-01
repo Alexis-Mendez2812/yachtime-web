@@ -72,6 +72,24 @@ const Admin = () => {
     dispatch(deleteYate(id));
     setShowComics(!showComics);
   };
+  const handleChangeUser = (email,action) => {
+    switch (action) {
+
+      case "admin":
+        return console.log("a")
+    
+      case "user":
+        return console.log("b")
+    
+      case "banned":
+        return console.log("c")
+
+      default:
+        return console.log("z")
+      }
+    dispatch(deleteYate(id));
+    setShowComics(!showComics);
+  };
 
 
   const invoice = () => {
@@ -214,7 +232,7 @@ const Admin = () => {
                     <Fab color="primary" aria-label="delete">
                       <AdminPanelSettingsIcon
                           onClick={() => {
-                            handledeleteYate(user.idPrincipal);
+                            handleChangeUser(user.email,"admin");
                           }}
                           
                         />
@@ -222,14 +240,14 @@ const Admin = () => {
                     <Fab color="secondary" aria-label="delete">
                         <ArrowCircleDownIcon
                           onClick={() => {
-                            handledeleteYate(user.idPrincipal);
+                            handleChangeUser(user.email,"user");
                           }}
                         />
                       </Fab>
                     <Fab color="error" aria-label="delete">
                         <DeleteIcon
                           onClick={() => {
-                            handledeleteYate(user.idPrincipal);
+                            handleChangeUser(user.email,"banned");
                           }}
                         />
                       </Fab>

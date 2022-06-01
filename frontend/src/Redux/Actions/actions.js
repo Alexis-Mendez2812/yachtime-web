@@ -29,6 +29,52 @@ export  function  postUserGoogle(user){
     }
 }
 
+//ADMIN
+export function getAllUsers (){    
+    return async function(dispatch) {
+        try {
+            const users = await axios('/users/all');
+            // console.log(users.data)
+            return dispatch ({
+                type: GET_USERS,
+                payload: users.data
+            })
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+}
+export function authorize (){    
+    return async function(dispatch) {
+        try {
+            const users = await axios('/users/authorize');
+            
+            return dispatch ({
+                type: AUTHORIZE,
+                payload: users.data
+            })
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+}
+export function getAllUsers (){    
+    return async function(dispatch) {
+        try {
+            const users = await axios('/users/all');
+            // console.log(users.data)
+            return dispatch ({
+                type: GET_USERS,
+                payload: users.data
+            })
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+}
 export function getAllUsers (){    
     return async function(dispatch) {
         try {
