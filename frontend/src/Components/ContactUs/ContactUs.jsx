@@ -2,7 +2,7 @@ import React from "react";
 import { SiInstagram } from "react-icons/si";
 import style from "./ContactUs.css";
 import Navbar from '../Navbar/Navbar'
-
+import Footer from '../Footer/Footer'
 
 function ContactUs() {
   return (
@@ -28,6 +28,9 @@ function ContactUs() {
         </div>  
     </div>
     </div>
+    <div><br></br><br></br></div>
+    <Footer/>
+
     </>
   );
 }
