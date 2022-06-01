@@ -1,6 +1,6 @@
 import React,{ useState } from 'react'
 import style from "./Uploading.module.css"
-import axios from "axios"
+import Axios from "axios"
 import { CloudinaryContext, Image } from 'cloudinary-react'
 
 
@@ -30,26 +30,58 @@ const previewFile = (file)=>{
 const handleSubmitFile=(e)=>{
     e.preventDefault();
     if(!previewSource)return;
-uploadImage(previewSource);
+uploadImages(previewSource);
 }
 
-const uploadImage= async (base64EncodeImage)=> {
+const uploadImages= async (base64EncodeImage)=> {
 console.log(base64EncodeImage);
 try {
-    await axios.post("/api/upload",{
-      data: JSON.stringify({data:base64EncodeImage})
+    await Axios.post("/api/upload",{
+      data: JSON.stringify({base64EncodeImage})
     })
 } catch (error) {
     console.log(error)
 }
 }
+
+
+const [imageSelected,setImageSelected]= useState("")
+
+
+
+const uploadImage=()=>{
+  const formData= new FormData();
+  formData.append("file",imageSelected)
+  formData.append("upload_preset","api-img")
+
+  // Axios.post("https://api.cloudinary.com/v1_1/yachtimeapp/image/upload",formData).then((response)=>{console.log(response)})
+  console.log(imageSelected.file)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div className={style.uploadingContainer}>
         <h1>Upload</h1>
         <form onSubmit={handleSubmitFile} >
             <input type="file" name="image" onChange={handleFileInputChange} value={fileInputState} className="uploagind-input"  />
-            <button  className="btn" type="submit" ></button>
+            <button  className="btn" type="submit" >Submit</button>
         </form>
+        <div>
+          <h2>New Upload </h2>
+          <input type="file" onChange={(event)=>{setImageSelected(event.target.files[0])}}  />
+          <button onClick={uploadImage}>Upload image</button>
+        </div>
         <div>
         {previewSource && (
           <img src={previewSource} alt="chosen"  style={{height:"20%",width:"auto"}} />

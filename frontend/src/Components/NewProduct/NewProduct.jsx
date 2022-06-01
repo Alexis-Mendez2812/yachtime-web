@@ -26,7 +26,7 @@ export default function NewProduct() {
 		location: "",
 		fuelType: "",
 		description: "",
-		pictures: "Desktop/zzRecurso 1.png",
+		pictures: [""],
 	});
 	const [controller, setController] = useState({});
 console.log(product.pictures)

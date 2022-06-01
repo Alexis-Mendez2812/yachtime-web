@@ -13,8 +13,11 @@ import {
 import { Link } from "react-router-dom";
 import { Table, Button } from "semantic-ui-react";
 import Fab from "@material-ui/core/Fab";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+// import ArrowCircleDown from "@material-ui/icons/ArrowCircleDown";
+// import AdminPanelSettings from "@material-ui/icons/AdminPanelSettings";
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import DeleteIcon from "@material-ui/icons/Block";
 import AddIcon from "@material-ui/icons/Add";
 
 
@@ -207,15 +210,22 @@ const Admin = () => {
                     <Table.Cell>{user.email}</Table.Cell>
                     <Table.Cell>{user.role}</Table.Cell>
                     <Table.Cell>
-                      <Fab color="secondary" aria-label="edit">
-                       
+                     
+                    <Fab color="primary" aria-label="delete">
+                      <AdminPanelSettingsIcon
+                          onClick={() => {
+                            handledeleteYate(user.idPrincipal);
+                          }}
+                          
+                        />
                       </Fab>
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Fab color="secondary" aria-label="edit">
-                       
+                    <Fab color="secondary" aria-label="delete">
+                        <ArrowCircleDownIcon
+                          onClick={() => {
+                            handledeleteYate(user.idPrincipal);
+                          }}
+                        />
                       </Fab>
-                    </Table.Cell>
                     <Fab color="error" aria-label="delete">
                         <DeleteIcon
                           onClick={() => {
@@ -223,6 +233,9 @@ const Admin = () => {
                           }}
                         />
                       </Fab>
+                    
+                    </Table.Cell>
+                    
                   </Table.Row>
                 );
               })}
