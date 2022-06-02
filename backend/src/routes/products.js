@@ -2,7 +2,7 @@ const { Router } = require("express");
 const axios = require("axios");
 const { Users, Products } = require(`../db`);
 // const main = require("../controllers/mailer");
-const{botes} = require("../yates.json");
+const { botes } = require("../yates.json");
 const router = Router();
 
 // let comicsDb = await Comics.findAll({order: [['updatedAt', 'DESC']]});
@@ -30,71 +30,67 @@ router.post("/", async (req, res) => {
 		} = req.body;
 		const product = await Products.findOrCreate({
 			where: {
-			make,
-			model,
-			year,
-			cabins,
-			bathrooms,
-			guest,
-			length,
-			beam,
-			draft,
-			fuelCapacity,
-			waterCapacity,
-			cruiseVel,
-			location,
-			fuelType,
-			description,
-			pictures,
+				make,
+				model,
+				year,
+				cabins,
+				bathrooms,
+				guest,
+				length,
+				beam,
+				draft,
+				fuelCapacity,
+				waterCapacity,
+				cruiseVel,
+				location,
+				fuelType,
+				description,
+				pictures,
 			},
 		});
 
-
-
-
 		return res.status(201).json(product);
 	} catch (error) {
-		console.log(error, "algo pasó con el post del product chequea los campos");
-		return res
-			.status(200)
-			.json({
-				mensaje: "algo pasó con el post del product chequea los campos",
-			});
+		console.log(
+			error,
+			"algo pasó con el post del product chequea los campos"
+		);
+		return res.status(200).json({
+			mensaje: "algo pasó con el post del product chequea los campos",
+		});
 	}
 });
 router.get("/cargafull", async (req, res) => {
 	try {
-		
-	let yates =	botes.forEach(async (e) => { await Products.findOrCreate({
-			where: {
-			make:e.make,
-			model:e.model,
-			year:e.year,
-			cabins:e.cabins,
-			bathrooms:e.bathrooms,
-			guests:e.guests,
-			length:e.length,
-			beam:e.beam,
-			draft:e.draft,
-			fuelCapacity:e.fuelCapacity,
-			waterCapacity:e.waterCapacity,
-			cruiseVel:e.cruiseVel,
-			fuelType:e.fuelType?e.fuelType:"gasoline",
-			description:e.description,
-			},
-		});})
-yates = await Products.findAll();	
-
-
+		let yates = botes.forEach(async (e) => {
+			await Products.findOrCreate({
+				where: {
+					make: e.make,
+					model: e.model,
+					year: e.year,
+					cabins: e.cabins,
+					bathrooms: e.bathrooms,
+					guests: e.guests,
+					length: e.length,
+					beam: e.beam,
+					draft: e.draft,
+					fuelCapacity: e.fuelCapacity,
+					waterCapacity: e.waterCapacity,
+					cruiseVel: e.cruiseVel,
+					fuelType: e.fuelType ? e.fuelType : "gasoline",
+					description: e.description,
+				},
+			});
+		});
+		yates = await Products.findAll();
 
 		return res.status(201).json(yates);
 	} catch (error) {
-		console.log(error, "algo pasó con el post del cargafull chequea los campos");
-		return res
-			.status(500)
-			.json(
-				botes
-			);
+		console.log(
+			error,
+			"algo pasó con el post del cargafull chequea los campos"
+		);
+		return res.status(500).json(botes);
 	}
 });
 router.put("/profile", async (req, res) => {
@@ -125,11 +121,8 @@ router.put("/profile", async (req, res) => {
 	}
 });
 
-
 router.get("/json", async (req, res) => {
-
 	try {
-		
 		return res.status(200).json(botes);
 	} catch (error) {
 		console.log(error);
@@ -186,18 +179,15 @@ router.get("/all", async (req, res) => {
 });
 router.get("/detail/:id", async (req, res) => {
 	try {
-		const{id}=req.params
+		const { id } = req.params;
 		const products = await Products.findOne({
-			where: {id}
+			where: { id },
 		});
 		return res.status(200).json(products);
 	} catch (error) {
 		console.log(error);
 	}
 });
-
-
-
 
 router.get("/:email", async (req, res) => {
 	const { email } = req.params;
