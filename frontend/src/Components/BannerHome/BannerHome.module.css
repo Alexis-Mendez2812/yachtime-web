@@ -17,11 +17,17 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background: rgb(0 97 255 / 22%);
-    background: linear-gradient(180deg, rgb(0 97 255 / 22%) 0%, rgba(23,24,28,1) 98%);
+    background: rgba(2, 15, 36, 0.5);
+    background: linear-gradient(180deg, rgba(2, 2, 2, 0.6) 0%, rgba(23,24,28,1) 98%);
     /* background-color: rgb(0 97 255 / 22%); */
 }
-
+.bannerText{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    justify-content: center;
+    align-items: center;
+}
 .titleBanner{
     color: #fff;
     font-weight: 700;
@@ -33,75 +39,71 @@
     color: #fff;
     font-size: 20px;
     font-weight: 600;
-    margin-top: 21rem;
     text-transform: uppercase;
 }
 
 .select{
+    width: 65%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 1rem;
-    height: 60px;
 }
 
-.size{
+
+
+
+
+.size, .duration{
+    display: flex;
+    flex-direction: column;
+    padding: 7px;
     background-color: #fff;
-    color: black;
-    width: 250px;
-}
-.size > select{
-    background-color: #fff;
-    color: black;
-    outline: none;
-    width: 250px;
-    border: transparent;
-    cursor: pointer;
-}
-.size > h3{
-    height: 10px;
-    margin: 3px 0px 18px 3px;
-    font-weight: 600;
-    font-family: 'Nunito';
+    width: 100%;
 }
 
-.duration{
-    background-color: #fff;
-    width: 250px;
-    color: black;
+.size h3, .duration > h3{
+    font-size: small;
+    font-family: "Avenir Next","Avenir","Avenir Heavy",Helvetica,Arial,sans-serif;
+    color: rgb(187, 184, 184);
+
 }
 
-.duration > h3{
-    height: 10px;
-    margin: 3px 0px 18px 3px;
-    font-weight: 600;
-    font-family: 'Nunito';
-}
-
-.duration > select{
+.size > select,.duration > select{
+    min-height: 30px;
+    height: 100%;
     background-color: #fff;
     border: transparent;
-    width: 250px;
-    color: black;
+    width: 100%;
+    color: rgb(187, 184, 184);
     outline: none;
     cursor: pointer;
 }
 
 .iconSearch{
     display: flex;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40px;
     background-color: #43B1E5;
     cursor: pointer;
     transition: all 300ms;
 }
 
 .iconSearch:hover{
-    background-color: #3e96be;
+    background-color: #27627d;
 }
 
 
 .iconSearch > svg{
     color: white;
     font-size: 30px;
+}
+
+.charter{
+    font-size: 54px;
+    color: white;
+    text-align: center;
+    font-family: "Avenir Next","Avenir","Avenir Heavy",Helvetica,Arial,sans-serif;
 }

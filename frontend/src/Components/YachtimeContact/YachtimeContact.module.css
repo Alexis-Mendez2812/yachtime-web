@@ -1,9 +1,9 @@
 .YachtimeContact{
-    height: 120vh;
+    padding: 2em;
 }
 
 .img{
-    border-radius: 9999px;
+    border-radius: 50%;
     width: 160px;
     height: 160px;
 }
@@ -14,6 +14,7 @@
 
 .divImages{
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
 }
@@ -42,9 +43,11 @@
 .divUbicacion{
     display: flex;
     flex-direction: row-reverse;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
     align-items: center;
+    padding-top: 2em;
 }
 
 .contact{
