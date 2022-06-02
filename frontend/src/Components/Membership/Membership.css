@@ -6,8 +6,11 @@
 }
 
 .inner-section{
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background-color: #302e2e;
-    box-shadow: 10px 10px 8px rgba(0,0,0,0.3);
 }
 .inner-section h1{
     margin-bottom: 30px;
@@ -28,7 +31,7 @@
 }
 .img{
     border-radius: 15px;
-    shadow: 0 0 5px #4b4b4b, 0 0 40px #4b4b4b, 0 0 80px #4b4b4b;
+    box-shadow: 0 0 5px #4b4b4b, 0 0 40px #4b4b4b, 0 0 80px #4b4b4b;
 }
 .text{
     font-size: 18px;

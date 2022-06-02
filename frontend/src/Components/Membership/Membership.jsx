@@ -15,19 +15,11 @@ function Membership() {
 					<img
 						src={background}
 						alt="img"
-						width="450px"
+						width="100%"
 						height="450px"
 					></img>
 				</div>
 				<div class="inner-section">
-					<img
-						className="img"
-						src={tarjet}
-						alt="img"
-						width="450px"
-						height="250px"
-					></img>
-
 					<h1 className="how">How To Join</h1>
 					<p class="text">
 						Yachtimeapp welcomes all people who love being on the
