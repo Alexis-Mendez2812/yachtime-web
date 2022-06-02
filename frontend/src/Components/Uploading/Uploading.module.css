@@ -1,7 +1,29 @@
-.uploadingContainer{
-    display:flex;
-    background-color: rgb(163, 206, 206);
-    height:40vh;
-    flex-direction: column;
-    flex-wrap: wrap;
+.uploadingContainer {
+   display: flex;
+   flex-direction: column;
+   height: 14rem;
+   background-color: #191e29;
+}
+
+.imgContainer {
+   height: 13rem;
+   overflow: auto;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+}
+
+.deleteButton {
+   background-color: black;
+   color: white;
+   font-size: 2vh;
+}
+
+::-webkit-scrollbar {
+   background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: rgb(39, 37, 37);
+   border-radius: 0.5rem;
 }

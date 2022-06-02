@@ -8,58 +8,6 @@ const router = Router();
 // let comicsDb = await Comics.findAll({order: [['updatedAt', 'DESC']]});
 //USERS
 
-router.post("/", async (req, res) => {
-	try {
-		const {
-			make,
-			model,
-			year,
-			cabins,
-			bathrooms,
-			guest,
-			length,
-			beam,
-			draft,
-			fuelCapacity,
-			waterCapacity,
-			cruiseVel,
-			location,
-			fuelType,
-			description,
-			pictures,
-		} = req.body;
-		const product = await Products.findOrCreate({
-			where: {
-				make,
-				model,
-				year,
-				cabins,
-				bathrooms,
-				guest,
-				length,
-				beam,
-				draft,
-				fuelCapacity,
-				waterCapacity,
-				cruiseVel,
-				location,
-				fuelType,
-				description,
-				pictures,
-			},
-		});
-
-		return res.status(201).json(product);
-	} catch (error) {
-		console.log(
-			error,
-			"algo pasó con el post del product chequea los campos"
-		);
-		return res.status(200).json({
-			mensaje: "algo pasó con el post del product chequea los campos",
-		});
-	}
-});
 router.get("/cargafull", async (req, res) => {
 	try {
 		let yates = botes.forEach(async (e) => {
