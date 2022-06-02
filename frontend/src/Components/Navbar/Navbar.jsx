@@ -58,22 +58,7 @@ function Navbar() {
 								contact us
 							</Link>
 						</li>
-						<li>
-							<a
-								href="https://www.facebook.com/Yatchtimeapp-104930065485155/"
-								className={style.enlace}
-							>
-								facebook
-							</a>
-						</li>
-						<li>
-							<a
-								href="https://www.instagram.com/yatchtimeapp/?igshid=YmMyMTA2M2Y="
-								className={style.enlace}
-							>
-								instagram
-							</a>
-						</li>
+
 						{userSession.email ? (
 							<>
 								<li>
@@ -91,7 +76,7 @@ function Navbar() {
 						) : (
 							<li>
 								<Link to={"/login"} className={style.enlace}>
-									login
+									<i class="fa-solid fa-arrow-right-to-bracket"></i>
 								</Link>
 							</li>
 						)}
