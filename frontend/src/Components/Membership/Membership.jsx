@@ -1,24 +1,38 @@
-import React from "react";
-import { SiInstagram } from "react-icons/si";
+import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
-import tarjet from "../Membership/img/business_card.png";
 import background from "./img/banner_menber_01.jpg";
 import "./Membership.css";
 import Footer from "../Footer/Footer";
+import { Box, Button, Modal, Typography } from "@material-ui/core";
+import CheckoutBut from "../PayPal/PayPal";
+
 function Membership() {
+	// -----> modal 1
+	const [open, setOpen] = useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
+	// ------> modal 2
+	const [modal2, setModal2] = useState(false);
+	const handleOpenModal2 = () => setModal2(true);
+	const handleCloseModal2 = () => setModal2(false);
+	const style = {
+		position: "absolute",
+		top: "50%",
+		left: "50%",
+		transform: "translate(-50%, -50%)",
+		width: 400,
+		bgcolor: "background.paper",
+		border: "2px solid #000",
+		boxShadow: 24,
+		p: 4,
+	};
+	// ------> end modal
 	return (
 		<>
 			<Navbar />
 
 			<div class="about">
-				<div>
-					<img
-						src={background}
-						alt="img"
-						width="100%"
-						height="450px"
-					></img>
-				</div>
+				<div className="aboutImg"></div>
 				<div class="inner-section">
 					<h1 className="how">How To Join</h1>
 					<p class="text">
@@ -32,8 +46,8 @@ function Membership() {
 						patterns and upcoming needs to ensure a mutual fit.
 					</p>
 
-					<div class="skills">
-						<button>GET IT NOW</button>
+					<div>
+						<button class="btn-purchase2">GET IT NOW</button>
 					</div>
 				</div>
 			</div>
@@ -79,7 +93,22 @@ function Membership() {
 									</li>
 								</ul>
 							</div>
-							<a href="/paypal/pay/300">300$ / Annual</a>
+							<button
+								className="btn-purchase"
+								onClick={handleOpen}
+							>
+								300$ / Annual
+							</button>
+							<Modal
+								open={open}
+								onClose={handleClose}
+								aria-labelledby="modal-modal-title"
+								aria-describedby="modal-modal-description"
+							>
+								<Box sx={style}>
+									<CheckoutBut totalPrice="300" />
+								</Box>
+							</Modal>
 						</div>
 					</div>
 					<div class="card">
@@ -112,7 +141,22 @@ function Membership() {
 									</li>
 								</ul>
 							</div>
-							<a href="/paypal/pay/75">75$ / Month</a>
+							<button
+								className="btn-purchase"
+								onClick={handleOpenModal2}
+							>
+								75$ / Month
+							</button>
+							<Modal
+								open={modal2}
+								onClose={handleCloseModal2}
+								aria-labelledby="modal-modal-title"
+								aria-describedby="modal-modal-description"
+							>
+								<Box sx={style}>
+									<CheckoutBut totalPrice="75" />
+								</Box>
+							</Modal>
 						</div>
 					</div>
 				</div>
