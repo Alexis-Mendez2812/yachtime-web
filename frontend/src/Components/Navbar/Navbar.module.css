@@ -85,6 +85,7 @@
     transition: all 300ms;
 }
 .imgYT{
+    min-width: 200px;
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -115,6 +116,11 @@
     flex-direction: column;
     justify-content: center;
 }
+.ulEnlaces li img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
 
 .enlace{
     text-decoration: none;
@@ -133,4 +139,10 @@
     width: 100%;
     height: 1px;
     background-color: #43B1E5;;
+}
+
+@media screen and (max-width: 500px){
+    .ulEnlaces{
+        display: none;
+    }
 }

@@ -47,8 +47,6 @@ function YachtimeContact() {
 				</div>
 			</div>
 			<div>
-				<h1 className={style.title}>Contact</h1>
-
 				<div className={style.divUbicacion}>
 					<div className={style.contact}>
 						<h3>+1 786-721-2525</h3>

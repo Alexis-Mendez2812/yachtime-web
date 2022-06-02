@@ -43,9 +43,11 @@
 .divUbicacion{
     display: flex;
     flex-direction: row-reverse;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
     align-items: center;
+    padding-top: 2em;
 }
 
 .contact{
