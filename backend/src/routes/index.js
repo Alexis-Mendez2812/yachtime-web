@@ -4,7 +4,7 @@ const { Router } = require('express');
 const users = require('./users.js');
 const products = require('./products.js');
 // const api = require('./api.js');
-const cloudinaryRoutes = require('./CloudinaryRoutes/uploadRoute');
+const cloudinaryRoutes = require('./PostForm/uploadRoute');
 
 const router = Router();
 
