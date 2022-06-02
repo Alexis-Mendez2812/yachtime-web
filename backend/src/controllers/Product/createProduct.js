@@ -28,35 +28,46 @@ const uploadImage = async (req, res) => {
          pictures,
       } = req.body;
 
-      const URLs = [];
+      var URLs = [];
+      // pictures.forEach(async (pic, i) => {
+      //    const urlimg = await cloudinary.uploader.upload(pic, {
+      //       upload_preset: 'api-img',
+      //    });
+      //    URLs.push(urlimg.secure_url);
+      //    if (i === pictures.length - 1) {
+      //       console.log('ACA ', URLs);
+      //    }
+      // });
 
-      pictures.forEach(async (pic) => {
-         const URLimg = await cloudinary.uploader.upload(pic, {
+      for (let i = 0; i < pictures.length; i++) {
+         const urlimg = await cloudinary.uploader.upload(pictures[i], {
             upload_preset: 'api-img',
          });
-         URLs.push(URLimg);
-      });
-
-      await Products.findOrCreate({
-         where: {
-            make,
-            model,
-            year,
-            cabins,
-            bathrooms,
-            guests: guest,
-            length,
-            beam,
-            draft,
-            fuelCapacity,
-            waterCapacity,
-            cruiseVel,
-            location,
-            fuelType,
-            description,
-            pictures: URLs,
-         },
-      });
+         URLs.push(urlimg.secure_url);
+         if (i === pictures.length - 1) {
+            await Products.findOrCreate({
+               where: {
+                  make,
+                  model,
+                  year,
+                  cabins,
+                  bathrooms,
+                  guests: guest,
+                  length,
+                  beam,
+                  draft,
+                  fuelCapacity,
+                  waterCapacity,
+                  cruiseVel,
+                  location,
+                  fuelType,
+                  description,
+                  pictures: URLs,
+               },
+            });
+            console.log(URLs);
+         }
+      }
 
       res.json({ status: 'Product saved successfully.' });
    } catch (err) {
