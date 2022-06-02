@@ -1,15 +1,12 @@
 .about{
-    background: url(img/banner_menber_01.jpg) no-repeat left;
-    background-size: 55%;
+    padding-top: 70px;
+    display: flex;
     background-color: #181717;
     overflow: hidden;
-    padding: 100px 0;
 }
+
 .inner-section{
-    width: 55%;
-    float: right;
     background-color: #302e2e;
-    padding: 130px;
     box-shadow: 10px 10px 8px rgba(0,0,0,0.3);
 }
 .inner-section h1{
@@ -56,16 +53,14 @@
     background-color: #191a1ac9;
     color: #e8c23a;
 }
+/* }
 @media screen and (max-width:1200px){
     .inner-section{
         padding: 80px;
     }
 }
 @media screen and (max-width:1000px){
-    .about{
-        background-size: 100%;
-        padding: 100px 40px;
-    }
+    
     .inner-section{
         width: 100%;
     }
@@ -83,7 +78,7 @@
         padding: 5px;
         width: 160px;
     }
-}
+} */
 
 /*Cards*/
 .container-card{
@@ -181,12 +176,13 @@
   }
 
 .listaul {
+    display: flex;
+    flex-direction: column;
     position: relative;
 }
 .listaulli{ 
  position: relative;
  list-style:none;
- display:table;
  margin: 10px 0;
  padding-left: 34px;
  padding-right: 5px
