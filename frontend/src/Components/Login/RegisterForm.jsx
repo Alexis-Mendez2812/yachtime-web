@@ -55,7 +55,8 @@ export const RegisterForm = () => {
 	};
 
 	return (
-		<>
+		<div className="animate__animated animate__fadeInRight">
+			<h1>Sing Up</h1>
 			<form onSubmit={handleSumbit} className="formContainer">
 				<input
 					onChange={handleInputChange}
@@ -78,6 +79,6 @@ export const RegisterForm = () => {
 				{errors.password && <p className="error">{errors.password}</p>}
 				<button className="formButton">Register</button>
 			</form>
-		</>
+		</div>
 	);
 };

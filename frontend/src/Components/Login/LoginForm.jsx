@@ -55,8 +55,10 @@ export const LoginForm = () => {
 	};
 
 	return (
-		<>
+		<div className="animate__animated animate__fadeInRight">
+			<h1>Log In!</h1>
 			<LoginButton />
+			<h1 className="loginFormOr">OR</h1>
 			<form onSubmit={handleSumbit} className="formContainer">
 				<input
 					onChange={handleInputChange}
@@ -64,6 +66,7 @@ export const LoginForm = () => {
 					placeholder="Email"
 					type="text"
 					name="username"
+					autoComplete="off"
 				/>
 				{errors.username && <p className="error">{errors.username}</p>}
 
@@ -81,12 +84,8 @@ export const LoginForm = () => {
 					<Link id="olv-ct" to={"/PasswordReset"}>
 						Forgot your password?
 					</Link>
-
-					<Link id="register" to={"/SignUp"}>
-						Register
-					</Link>
 				</div>
 			</form>
-		</>
+		</div>
 	);
 };
