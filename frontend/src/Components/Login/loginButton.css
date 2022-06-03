@@ -3,9 +3,11 @@
     align-items: center;
     gap: 10px;
     width: 100%;
+    max-width: 300px;
     background-color: #1d304f ;
     padding-left:10px ;
     transition: all .3s ease;
+    margin: auto;
 }
 .google-btn:hover{
     cursor: pointer;
