@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { postYateForm } from '../../Redux/Actions/formAction';
+import { postYateForm } from '../../Redux/Actions/FormActions/formAction';
 import {
    Box,
    ImageListItem,
@@ -102,7 +102,7 @@ export default function NewProduct() {
                alignItems: 'center',
             }}
          >
-            <CircularProgress color='error' size={100} />;
+            <CircularProgress color='info' size={100} />;
          </Box>
       );
    } else {
