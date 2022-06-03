@@ -30,6 +30,7 @@ export default function CardHomeYate() {
       setCharging(true);
       setTimeout(() => {
          setCharging(false);
+         window.scrollTo(0, 500);
          setCurrentPage(pageNumber);
       }, 400);
    };
