@@ -30,10 +30,10 @@ export const DataUser = () => {
 					Log Out
 				</div>
 			</div>
-			<div className="DataUser_stadistics">
+			{/* <div className="DataUser_stadistics">
 				<div className="stadistic_dataUser">estadistica 1</div>
 				<div className="stadistic_dataUser">estadistica 2</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };
