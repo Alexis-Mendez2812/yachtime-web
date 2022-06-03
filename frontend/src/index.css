@@ -26,6 +26,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #17181C;
+  box-sizing: border-box;
 }
 /**
  * Render the `main` element consistently in IE.
