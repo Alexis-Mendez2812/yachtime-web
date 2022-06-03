@@ -1,0 +1,36 @@
+.LoginSplitScreen{
+    color: white;
+    height: 100vh;
+    display: flex;
+}
+@media screen and (max-width: 700px){
+    .LoginSplitScreen{
+        flex-direction: column;
+    }
+}
+.copy{
+    text-align: center;
+}
+.copy2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.LoginLeft{
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.LoginRight{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-image: url('https://res.cloudinary.com/yachtimeapp/image/upload/v1654208967/api-img/l1vhwuhpr2kuqfmejykm.jpg');
+}
