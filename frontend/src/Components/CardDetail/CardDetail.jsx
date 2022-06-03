@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { getIdYate, vaciar } from "../../Redux/Actions/actions";
 import "./CardDetail.css";
 import Loading from "../Loading/Loading";
@@ -40,17 +40,22 @@ export default function GameDetail() {
 			cruiseVel,
 			location,
 			fuelType,
+			pictures,
 			description,
 		} = yateSelected;
 
+		let picturas = ["https://res.cloudinary.com/yachtimeapp/image/upload/v1654214651/api-img/mj9ckyiislx5gouumomy.jpg","https://res.cloudinary.com/yachtimeapp/image/upload/v1654212288/api-img/lxx2f2b9lmkbg0lvcyfx.jpg","https://res.cloudinary.com/yachtimeapp/image/upload/v1654209395/api-img/duj29ftdharc66cr3ydd.jpg","https://res.cloudinary.com/yachtimeapp/image/upload/v1654208627/api-img/miihujetknktoqc1cjmi.jpg"]
+		let main= picturas.shift()
 		return (
 			<div className="CardDetail-body">
-				<div className="CardDetail-conteiner-img">
+				<div className="CardDetail-conteiner-img"  >
+				
+				
+					<img className="CardDetail-imgMain" src={main} alt={main}/>
+				<ArrowBackIcon onClick={handleVaciar} />
 					<h1 className="CardDetail-h1">{`${model}' ${make}`}</h1>
-					
-				<div>
-					<button onClick={handleVaciar}>To Home</button>
-				</div>
+
+
 				</div>
 				<div className="CardDetail-conteiner">
 					<div>
@@ -104,6 +109,10 @@ export default function GameDetail() {
 					<div className="CardDetail-label">
 						<h4 className="CardDetail-span">Description: </h4>
 						<label className="CardDetail-label">{description}</label>
+					</div>
+					<div className="CardDetail-galery">
+
+{picturas?.length>1 && picturas.map((e)=>(<img className="CardDetail-galery-img" src={e} alt={e}/>))}
 					</div>
 				</div>
 			</div>

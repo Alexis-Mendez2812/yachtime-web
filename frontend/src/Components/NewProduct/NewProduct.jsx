@@ -327,7 +327,7 @@ export default function NewProduct() {
                   )}
 
                   {!controller.button && (
-                     <button type='submit' class='myButton'>
+                     <button type='submit' className='myButton'>
                         🚢
                      </button>
                   )}

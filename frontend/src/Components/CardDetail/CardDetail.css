@@ -1,13 +1,46 @@
-
 .CardDetail-body{
+    width: 100vw;
+    height:100vh;
+    background-image: url("https://i.pinimg.com/originals/3b/08/3f/3b083fccf1caf3544188a120a620f2f0.png");
+background-repeat: no-repeat;
+    background-size: cover ;
+    display: flex;
+    display: flex;
+    align-content: stretch;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    color: #ffffff;
+}
+.CardDetail-conteiner-img{
     width: 100%;
     height:100vh;
-    background-image: url("https://www.teahub.io/photos/full/190-1900218_black-red-abstract-polygon-3d-4k-red-gaming.jpg");
-    display: flex;
-    align-content: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    overflow: hidden;
+    z-index: 100;
 }
+.CardDetail-imgMain{
+    width: 100%;
+    height:100vh;
+    overflow: hidden;
+    z-index: 0;
+    
+}
+.CardDetail-galery{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: flex-start;
+    height:30%;
+    overflow: hidden;
+    
+}
+.CardDetail-galery-img{
+    width: 30%;
+}
+/* 
 .CardDetail-conteiner{
     display: flex;
     flex-wrap: wrap;
@@ -85,4 +118,4 @@ ul{
 }
 .CardDetail-label{
     overflow:hidden;
-}
+} */
