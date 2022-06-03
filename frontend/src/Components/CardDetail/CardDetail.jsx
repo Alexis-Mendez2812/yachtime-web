@@ -1,10 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { getIdYate, vaciar } from "../../Redux/Actions/actions";
 import "./CardDetail.css";
 import Loading from "../Loading/Loading";
+import Navbar from "../Navbar/Navbar";
 
 export default function GameDetail() {
 	const history = useNavigate();
@@ -40,76 +41,101 @@ export default function GameDetail() {
 			cruiseVel,
 			location,
 			fuelType,
+			pictures,
 			description,
 		} = yateSelected;
 
+		let picturas = [
+			"https://res.cloudinary.com/yachtimeapp/image/upload/v1654214651/api-img/mj9ckyiislx5gouumomy.jpg",
+			"https://res.cloudinary.com/yachtimeapp/image/upload/v1654212288/api-img/lxx2f2b9lmkbg0lvcyfx.jpg",
+			"https://res.cloudinary.com/yachtimeapp/image/upload/v1654209395/api-img/duj29ftdharc66cr3ydd.jpg",
+			"https://res.cloudinary.com/yachtimeapp/image/upload/v1654208627/api-img/miihujetknktoqc1cjmi.jpg",
+		];
+		let main = picturas.shift();
 		return (
-			<div className="CardDetail-body">
-				<div className="CardDetail-conteiner-img">
-					<h1 className="CardDetail-h1">{`${model}' ${make}`}</h1>
-					
-				<div>
-					<button onClick={handleVaciar}>To Home</button>
+			<>
+				<div clasName="div-Navbar">
+					<Navbar />
 				</div>
-				</div>
-				<div className="CardDetail-conteiner">
-					<div>
-						<h4 className="CardDetail-span">Year: </h4>
-						<label className="CardDetail-rating">{year}</label>
-						<br />
-					</div>
+				<div className="CardDetail-body">
+					<div className="CardDetail-conteiner-img">
+						<img className="CardDetail-imgMain" src={main} alt={main} />
 
-					<div>
-						<h4 className="CardDetail-Released">Cabins: </h4>
-						<label className="CardDetail-Released">{cabins}</label>
+						<h1 className="CardDetail-h1">{`${model}' ${make}`}</h1>
 					</div>
-					
-					<div>
-						<h4 className="CardDetail-Released">Bathrooms: </h4>
-						<label className="CardDetail-Released">{bathrooms}</label>
-					</div>
-					<div>
-						<h4 className="CardDetail-Released">Guests: </h4>
-						<label className="CardDetail-Released">{guests}</label>
-					</div>
-					<div>
-						<h4 className="CardDetail-Released">Length: </h4>
-						<label className="CardDetail-Released">{`${length[0]}' ${length.length>1?length[1]:0}" `}</label>
-					</div>
-					<div>
-						<h4 className="CardDetail-Released">Beam: </h4>
-						<label className="CardDetail-Released">{`${beam[0]}' ${beam.length>1?beam[1]:0}" `}</label>
-					</div>
-					<div>
-						<h4 className="CardDetail-Released">Draft: </h4>
-						<label className="CardDetail-Released">{`${draft[0]}' ${draft.length>1?draft[1]:0}" `}</label>
-					</div>
-					<div>
-						<h4 className="CardDetail-Released">Fuel Capacity: </h4>
-						<label className="CardDetail-Released">{`${fuelCapacity} GAL`}</label>
-					</div>
-					<div>
-						<h4 className="CardDetail-Released">Water Capacity: </h4>
-						<label className="CardDetail-Released">{`${waterCapacity} GAL`}</label>
-					</div>
-					<div>
-						<h4 className="CardDetail-Released">Cruise Vel: </h4>
-						<label className="CardDetail-Released">{`${cruiseVel} KNOTS`}</label>
-					</div>
-					<div>
-						<h4 className="CardDetail-Released">Fuel Type: </h4>
-						<label className="CardDetail-Released">{`${fuelType||"gasoline"}`}</label>
-					</div>
-					
-					<div className="CardDetail-label">
-						<h4 className="CardDetail-span">Description: </h4>
-						<label className="CardDetail-label">{description}</label>
+					<div className="CardDetail-conteiner">
+						<div>
+							<h4 className="CardDetail-span">Year: </h4>
+							<label className="CardDetail-rating">{year}</label>
+							<br />
+						</div>
+
+						<div>
+							<h4 className="CardDetail-Released">Cabins: </h4>
+							<label className="CardDetail-Released">{cabins}</label>
+						</div>
+
+						<div>
+							<h4 className="CardDetail-Released">Bathrooms: </h4>
+							<label className="CardDetail-Released">{bathrooms}</label>
+						</div>
+						<div>
+							<h4 className="CardDetail-Released">Guests: </h4>
+							<label className="CardDetail-Released">{guests}</label>
+						</div>
+						<div>
+							<h4 className="CardDetail-Released">Length: </h4>
+							<label className="CardDetail-Released">{`${length[0]}' ${
+								length.length > 1 ? length[1] : 0
+							}" `}</label>
+						</div>
+						<div>
+							<h4 className="CardDetail-Released">Beam: </h4>
+							<label className="CardDetail-Released">{`${beam[0]}' ${
+								beam.length > 1 ? beam[1] : 0
+							}" `}</label>
+						</div>
+						<div>
+							<h4 className="CardDetail-Released">Draft: </h4>
+							<label className="CardDetail-Released">{`${draft[0]}' ${
+								draft.length > 1 ? draft[1] : 0
+							}" `}</label>
+						</div>
+						<div>
+							<h4 className="CardDetail-Released">Fuel Capacity: </h4>
+							<label className="CardDetail-Released">{`${fuelCapacity} GAL`}</label>
+						</div>
+						<div>
+							<h4 className="CardDetail-Released">Water Capacity: </h4>
+							<label className="CardDetail-Released">{`${waterCapacity} GAL`}</label>
+						</div>
+						<div>
+							<h4 className="CardDetail-Released">Cruise Vel: </h4>
+							<label className="CardDetail-Released">{`${cruiseVel} KNOTS`}</label>
+						</div>
+						<div>
+							<h4 className="CardDetail-Released">Fuel Type: </h4>
+							<label className="CardDetail-Released">{`${
+								fuelType || "gasoline"
+							}`}</label>
+						</div>
+
+						<div className="CardDetail-label">
+							<h4 className="CardDetail-span">Description: </h4>
+							<label className="CardDetail-label">{description}</label>
+						</div>
+						<div className="CardDetail-galery">
+							{picturas?.length > 1 &&
+								picturas.map((e) => (
+									<img className="CardDetail-galery-img" src={e} alt={e} />
+								))}
+						</div>
 					</div>
 				</div>
-			</div>
+			</>
 		);
 	}
-	return <Loading/>;
+	return <Loading />;
 }
 /*
 {

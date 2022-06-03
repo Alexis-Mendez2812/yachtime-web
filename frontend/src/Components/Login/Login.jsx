@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
-import { LoginButton } from "./LoginButton.jsx";
-
 import "./Profile.css";
 import style from "./Login.module.css";
-import { Link } from "react-router-dom";
 import { LoginForm } from "./LoginForm.jsx";
 import { RegisterForm } from "./RegisterForm.jsx";
+import { Link } from "react-router-dom";
 
 function Login() {
 	const [login, setLogin] = useState(true);
@@ -16,31 +14,35 @@ function Login() {
 	return (
 		<div className={style.LoginSplitScreen}>
 			<div className={style.LoginLeft}>
+				<div className={style.goBackLogin}>
+					<Link to="/">
+						<i className="fa-solid fa-arrow-right-to-bracket"></i>{" "}
+						Go back
+					</Link>
+				</div>
 				<div className={style.copy}>
-					<h1>Explore bla bla bla</h1>
+					<h1>Are you new here?</h1>
 					<p>
-						otra cosa que decir pero mucho mas larga que la de
-						arriba
+						This will be the best experience you will have. What are
+						you waiting for?
 					</p>
-					<button onClick={handleLogIn}>Registrase</button>
+					<button className={style.btn} onClick={handleLogIn}>
+						{login ? "Sing Up" : "Log In"}
+					</button>
 				</div>
 			</div>
 			<div className={style.LoginRight}>
-				<form>
-					<div className={style.copy2}>
-						{login ? (
-							<>
-								<h1>Sing Up</h1>
-								<LoginForm />
-							</>
-						) : (
-							<>
-								<h1>Register</h1>
-								<RegisterForm />
-							</>
-						)}
-					</div>
-				</form>
+				<div className={style.copy2}>
+					{login ? (
+						<>
+							<LoginForm />
+						</>
+					) : (
+						<>
+							<RegisterForm />
+						</>
+					)}
+				</div>
 			</div>
 		</div>
 		// <>

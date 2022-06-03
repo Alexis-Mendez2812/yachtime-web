@@ -27,6 +27,7 @@ router.get('/cargafull', async (req, res) => {
                cruiseVel: e.cruiseVel,
                fuelType: e.fuelType ? e.fuelType : 'gasoline',
                description: e.description,
+			   pictures:e.pictures
             },
          });
       });
