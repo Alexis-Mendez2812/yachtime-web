@@ -1,13 +1,59 @@
-
 .CardDetail-body{
-    width: 100%;
-    height:100vh;
-    background-image: url("https://www.teahub.io/photos/full/190-1900218_black-red-abstract-polygon-3d-4k-red-gaming.jpg");
+    width: 100vw;
+    height:300vh;
     display: flex;
-    align-content: center;
-    justify-content: space-between;
+    align-content: stretch;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    color: #ffffff;
+    margin:-100px 0px 0px 0px;
+
 }
+.div-Navbar{
+    position: absolute;
+}
+.CardDetail-conteiner-img{
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-end;
+    align-items: flex-end;
+
+}
+.CardDetail-imgMain{
+    width: 100%;
+    height: 10%;
+    margin:-150px 0px 0px 0px;
+    overflow: hidden;
+align-self: center;
+}
+.CardDetail-h1{
+color:rgb(255, 255, 255);
+background-color: rgba(177, 177, 177, 0.349);
+margin: -250px 50px 25px 0px;
+font-size: 4rem;
+padding: 1rem;
+}
+.CardDetail-galery{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: flex-start;
+    height:30%;
+    overflow: hidden;
+    
+}
+.CardDetail-galery-img{
+    width: 30%;
+    
+}
+/* 
 .CardDetail-conteiner{
     display: flex;
     flex-wrap: wrap;
@@ -85,4 +131,4 @@ ul{
 }
 .CardDetail-label{
     overflow:hidden;
-}
+} */

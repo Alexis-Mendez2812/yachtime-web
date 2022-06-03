@@ -10,6 +10,9 @@ export const FILT_BY_STATS = "FILT_BY_STATS"
 export const FILT_BY_ROLE = "FILT_BY_ROLE"
 export const VACIAR = "VACIAR"
 export const GET_ID_NAME = "GET_ID_NAME"
+export const AUTHORIZE = "AUTHORIZE"
+export const DESAUTHORIZE = "DESAUTHORIZE"
+export const BANNED = "BANNED"
 
 
 
@@ -29,6 +32,7 @@ export  function  postUserGoogle(user){
     }
 }
 
+//ADMIN
 export function getAllUsers (){    
     return async function(dispatch) {
         try {
@@ -36,6 +40,50 @@ export function getAllUsers (){
             // console.log(users.data)
             return dispatch ({
                 type: GET_USERS,
+                payload: users.data
+            })
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+}
+export function authorize (email){    
+    return async function(dispatch) {
+        try {
+            const users = await axios.post('/users/authorize',{email});
+            return dispatch ({
+                type: AUTHORIZE,
+                payload: users.data
+            })
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+}
+export function desauthorize (email){    
+    return async function(dispatch) {
+        try {
+            const users = await axios.post('/users/desauthorize',{email});
+            // console.log(users.data)
+            return dispatch ({
+                type: DESAUTHORIZE,
+                payload: users.data
+            })
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+}
+export function banned (email){    
+    return async function(dispatch) {
+        try {
+            const users = await axios.post('/users/banned',{email});
+            // console.log(users.data)
+            return dispatch ({
+                type: BANNED,
                 payload: users.data
             })
     }
