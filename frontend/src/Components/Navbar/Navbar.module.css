@@ -64,86 +64,87 @@
     border-bottom: 1px solid gray;
 } */
 
-
-.nav{ 
-    display: flex;
-    position: fixed;
-    width: 100%;
-    height: 70px;
-    padding: 5px;
-    background-color: #17181c00;
-    transition: all 300ms;
-    z-index: 100000;
+.nav {
+   display: flex;
+   position: fixed;
+   width: 100%;
+   height: 70px;
+   padding: 5px;
+   background-color: #17181c00;
+   transition: all 300ms;
+   z-index: 100000;
 }
 
-.navScroll{
-    display: flex;
-    position: fixed;
-    width: 100%;
-    height: 70px;
-    padding: 5px;
-    background-color: #17181c;
-    transition: all 300ms;
+.navScroll {
+   display: flex;
+   position: fixed;
+   width: 100%;
+   height: 70px;
+   padding: 5px;
+   background-color: #17181c;
+   transition: all 300ms;
 }
-.imgYT{
-    min-width: 200px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 30px;
+.imgYT {
+   min-width: 200px;
+   width: 30%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   cursor: pointer;
+   margin-left: 30px;
 }
-.img{ 
-    border: none;
-    height: 50px;
-    width: 100%;
-}
-
-.ulDiv{
-    width: 100%;
-    display: flex;
-    margin-right: 2rem;
-    justify-content: flex-end;
+.img {
+   border: none;
+   height: 50px;
+   width: 100%;
+   cursor: pointer;
 }
 
-.ulEnlaces{
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+.ulDiv {
+   width: 100%;
+   display: flex;
+   margin-right: 2rem;
+   justify-content: flex-end;
 }
 
-.ulEnlaces > li{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.ulEnlaces {
+   display: flex;
+   list-style: none;
+   gap: 2rem;
+}
+
+.ulEnlaces > li {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 }
 .ulEnlaces li img {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+   border-radius: 50%;
+   width: 50px;
+   height: 50px;
 }
 
-.enlace{
-    text-decoration: none;
-    color: #fff;
-    font-weight: 400;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
+.enlace {
+   text-decoration: none;
+   color: #fff;
+   font-weight: 400;
+   cursor: pointer;
+   text-transform: uppercase;
+   transition: all 0.3s ease;
 }
-.enlace:hover{
-    color: #79d1fa;
+.enlace:hover {
+   color: #79d1fa;
 }
-.enlace:hover::after{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: #43B1E5;;
+.enlace:hover::after {
+   content: '';
+   display: block;
+   width: 100%;
+   height: 1px;
+   background-color: #43b1e5;
 }
 
-@media screen and (max-width: 500px){
-    .ulEnlaces{
-        display: none;
-    }
+@media screen and (max-width: 500px) {
+   .ulEnlaces {
+      display: none;
+   }
 }
