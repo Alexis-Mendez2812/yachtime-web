@@ -6,6 +6,7 @@ import diego from './staff/diego.jpg';
 import valeria from './staff/valeria.jpg';
 import { SiInstagram } from 'react-icons/si';
 import { Box } from '@mui/material';
+import { MapContainer } from './styledComponents';
 
 function YachtimeContact() {
    const [mapRef, setMapRef] = useState(
@@ -52,16 +53,7 @@ function YachtimeContact() {
             </div>
          </div>
          {mapRef && (
-            <Box
-               style={{
-                  width: '100vw',
-                  height: '32vh',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  marginLeft: '-2em',
-                  justifyContent: 'space-evenly',
-               }}
-            >
+            <MapContainer>
                <iframe
                   src={mapRef}
                   width='600'
@@ -79,7 +71,7 @@ function YachtimeContact() {
                   </span>
                   <p style={{ color: 'white' }}>United States</p>
                </Box>
-            </Box>
+            </MapContainer>
          )}
       </div>
    );

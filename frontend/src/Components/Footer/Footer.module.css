@@ -1,109 +1,109 @@
-.imgMembership{
-    background-image: url("./logo/background_menber_01.jpg");
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 400px;
-    margin-bottom: 3rem;
+.imgMembership {
+   background-image: url('./logo/background_menber_01.jpg');
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   width: 100%;
+   height: 400px;
+   margin-bottom: 3rem;
 }
 
-.textMembership{
-    padding: 1em;
-    gap: 1em;
-    width: 50%;
-    display: flex;
-    flex-direction:column;
-    font-family: "Nunito";
-    justify-content: flex-end;
-    color: #fff;
-    align-items: center;
+.textMembership {
+   padding: 1em;
+   gap: 1em;
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   font-family: 'Nunito';
+   justify-content: flex-end;
+   color: #fff;
+   align-items: center;
 }
-.textMembership > h2{
-    display: flex;
-    flex-direction: column;
-    font-family: "Nunito";
-    width: 600px;
-    justify-content: center;
-    color: #fff;
-    align-items: center;
-    font-size: 40px;
-}
-
-.textMembership > p{
-    text-align: center;
+.textMembership > h2 {
+   display: flex;
+   flex-direction: column;
+   font-family: 'Nunito';
+   width: 600px;
+   justify-content: center;
+   color: #fff;
+   align-items: center;
+   font-size: 40px;
 }
 
-.textMembership > button{
-    background-color: #191a1ac9;
-    cursor: pointer;
-    color: white;
-    padding: 19px;
-    border-radius: 20px;
-    transition: all .3s ease;
-    border:none;
-}
-.textMembership > button:hover{
-    background-color: #b39c54;
-    color: rgb(46, 45, 45);
-    padding: 17px;
-    border-radius: none;
+.textMembership > p {
+   text-align: center;
 }
 
-.footer{
-    display: flex;
-    margin-top: 1rem;
-    gap: 1em;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
+.textMembership > button {
+   background-color: #191a1ac9;
+   cursor: pointer;
+   color: white;
+   padding: 19px;
+   border-radius: 20px;
+   transition: all 0.3s ease;
+   border: none;
+}
+.textMembership > button:hover {
+   background-color: #b39c54;
+   color: rgb(46, 45, 45);
+   padding: 17px;
+   border-radius: none;
 }
 
-.divImages{
-    display: flex;
-    gap: 1rem;
+.footer {
+   display: flex;
+   margin-top: 1rem;
+   gap: 1em;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   margin-bottom: 1rem;
 }
 
-.descarga{
-    width: 150px;
-    height: 45px;
-    border: none;
-    border-radius: 6px;
+.divImages {
+   display: flex;
+   gap: 1rem;
 }
 
-.enlaces{
-    display: flex;
-    width: 450px;
-    flex-wrap: wrap;
-    justify-content: center;
+.descarga {
+   width: 150px;
+   height: 45px;
+   border: none;
+   border-radius: 6px;
 }
 
-.enlaces > a{ 
-    margin-right: 1rem;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    transition: all 300ms;
-}
-.enlaces > a:hover{ 
-    color: rgb(110, 110, 110);
-}
-.enlaces > span{ 
-    color: gray;
+.enlaces {
+   display: flex;
+   width: 450px;
+   flex-wrap: wrap;
+   justify-content: center;
 }
 
-.instagram{
-    font-size: 30px;
+.enlaces > a {
+   margin-right: 1rem;
+   text-decoration: none;
+   color: white;
+   cursor: pointer;
+   transition: all 300ms;
+}
+.enlaces > a:hover {
+   color: rgb(110, 110, 110);
+}
+.enlaces > span {
+   color: gray;
 }
 
-.redesSociales{
-    display: flex;
-    gap: 1rem;
+.instagram {
+   font-size: 30px;
 }
-.redesSociales>a{
-    text-decoration: none;
-    color: #fff;
+
+.redesSociales {
+   display: flex;
+   gap: 1rem;
+}
+.redesSociales > a {
+   text-decoration: none;
+   color: #fff;
 }
