@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar.jsx";
 import toast from "react-hot-toast";
 import "./LoginForm.css";
+import { LoginButton } from "./LoginButton.jsx";
 
 export function validate(input) {
 	let errors = {};
@@ -57,26 +58,41 @@ export const RegisterForm = () => {
 	return (
 		<div className="animate__animated animate__fadeInRight">
 			<h1>Sing Up</h1>
+			<LoginButton />
+			<h1 className="loginFormOr">OR</h1>
 			<form onSubmit={handleSumbit} className="formContainer">
-				<input
-					onChange={handleInputChange}
-					value={input.username}
-					placeholder="Email"
-					type="text"
-					name="username"
-					className="input-usuario"
-				/>
-				{errors.username && <p className="error">{errors.username}</p>}
+				<div>
+					<input
+						onChange={handleInputChange}
+						value={input.username}
+						placeholder="Email"
+						type="text"
+						name="username"
+						className="input-usuario"
+					/>
+					{errors.username && (
+						<p className="error">{errors.username}</p>
+					)}
+				</div>
+				<div>
+					<input
+						onChange={handleInputChange}
+						value={input.password}
+						placeholder="Password"
+						type="password"
+						name="password"
+						className="input-usuario"
+					/>
+					{errors.password && (
+						<p className="error">{errors.password}</p>
+					)}
+					<input
+						type="password"
+						name="confirmPassword"
+						placeholder="Confirm Password"
+					/>
+				</div>
 
-				<input
-					onChange={handleInputChange}
-					value={input.password}
-					placeholder="Password"
-					type="password"
-					name="password"
-					className="input-usuario"
-				/>
-				{errors.password && <p className="error">{errors.password}</p>}
 				<button className="formButton">Register</button>
 			</form>
 		</div>
