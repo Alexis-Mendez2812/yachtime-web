@@ -12,6 +12,8 @@
     height: 200px;
 }
 .DataUser_imgProfile img{
+    min-width: 200px;
+    margin-right: 200px;
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -25,6 +27,9 @@
     justify-content: center;
     align-items: center;
     margin-top: 1em;
+}
+.DataUser_button a{
+    text-decoration: none;
 }
 .DataUser_data h1{
     margin-bottom: 0;
@@ -72,3 +77,4 @@
 .logOutColor{
     background-color: #c9302c;
 }
+

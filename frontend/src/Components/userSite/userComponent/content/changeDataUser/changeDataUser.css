@@ -1,0 +1,18 @@
+.change_DataUser_imgProfile{
+    width: 200px;
+    height: 200px;
+    transition: all .3s ease;
+}
+.change_DataUser_imgProfile img{
+    min-width: 200px;
+    margin-right: 200px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 1px 1px 20px rgb(255, 255, 255);
+
+}
+.change_DataUser_imgProfile:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}

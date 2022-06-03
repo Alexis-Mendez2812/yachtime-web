@@ -1,3 +1,12 @@
 .userSiteCont{
     display: flex;
 }
+.dataRouteCont{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+.dataRouteCont a{
+    text-decoration: none;
+}
