@@ -1,10 +1,6 @@
 .CardDetail-body{
     width: 100vw;
-    height:100vh;
-    background-image: url("https://i.pinimg.com/originals/3b/08/3f/3b083fccf1caf3544188a120a620f2f0.png");
-background-repeat: no-repeat;
-    background-size: cover ;
-    display: flex;
+    height:300vh;
     display: flex;
     align-content: stretch;
     justify-content: flex-start;
@@ -12,19 +8,35 @@ background-repeat: no-repeat;
     flex-direction: row;
     align-items: center;
     color: #ffffff;
+    margin:-100px 0px 0px 0px;
+
+}
+.div-Navbar{
+    position: absolute;
 }
 .CardDetail-conteiner-img{
     width: 100%;
-    height:100vh;
     overflow: hidden;
-    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-end;
+    align-items: flex-end;
+
 }
 .CardDetail-imgMain{
     width: 100%;
-    height:100vh;
+    height: 10%;
+    margin:-150px 0px 0px 0px;
     overflow: hidden;
-    z-index: 0;
-    
+align-self: center;
+}
+.CardDetail-h1{
+color:rgb(255, 255, 255);
+background-color: rgba(177, 177, 177, 0.349);
+margin: -250px 50px 25px 0px;
+font-size: 4rem;
+padding: 1rem;
 }
 .CardDetail-galery{
     display:flex;
@@ -39,6 +51,7 @@ background-repeat: no-repeat;
 }
 .CardDetail-galery-img{
     width: 30%;
+    
 }
 /* 
 .CardDetail-conteiner{
