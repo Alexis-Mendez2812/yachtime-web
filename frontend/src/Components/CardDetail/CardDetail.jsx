@@ -58,7 +58,7 @@ export default function GameDetail() {
 			"https://res.cloudinary.com/yachtimeapp/image/upload/v1654209395/api-img/duj29ftdharc66cr3ydd.jpg",
 			"https://res.cloudinary.com/yachtimeapp/image/upload/v1654208627/api-img/miihujetknktoqc1cjmi.jpg",
 		];
-		let main = picturas.shift();
+		let main = pictures.shift();
 		return (
 			<>
 				<div clasName="div-Navbar">
@@ -143,8 +143,8 @@ export default function GameDetail() {
 							<label className="CardDetail-label">{description}</label>
 						</div>
 						<div className="CardDetail-galery">
-							{picturas?.length > 1 &&
-								picturas.map((e) => (
+							{pictures?.length > 1 &&
+								pictures.map((e) => (
 									<img className="CardDetail-galery-img" src={e} alt={e} />
 								))}
 						</div>
