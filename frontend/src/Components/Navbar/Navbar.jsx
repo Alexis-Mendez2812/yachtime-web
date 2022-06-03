@@ -63,7 +63,7 @@ function Navbar() {
 							<>
 								<li>
 									<Link
-										to={"/profile"}
+										to={"/userSite"}
 										className={style.enlace}
 									>
 										<img
