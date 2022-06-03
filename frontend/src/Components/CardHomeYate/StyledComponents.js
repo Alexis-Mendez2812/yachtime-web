@@ -32,6 +32,22 @@ export const Card = styled(Box)`
       background-position-y: 70%;
    }
 `;
+export const CardDetail = styled(Box)`
+display: flex;
+flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+   width: 100vw;
+   height: 87vh;
+   background-size: cover;
+   background-position-y: 30%;
+   transition: 2s;
+   cursor: pointer;
+
+   &:hover {
+      background-position-y: 100%;
+   }
+`;
 
 export const DataGraphy = styled(Typography)`
    margin-left: 0.7rem;
@@ -43,5 +59,9 @@ export const DataGraphy = styled(Typography)`
 
 export const TextBox = styled(Box)`
    margin-top: 48%;
+   background: linear-gradient(to right, grey, transparent, transparent);
+`;
+export const TextBoxDet = styled(Box)`
+
    background: linear-gradient(to right, grey, transparent, transparent);
 `;
