@@ -6,6 +6,13 @@ import { getIdYate, vaciar } from "../../Redux/Actions/actions";
 import "./CardDetail.css";
 import Loading from "../Loading/Loading";
 import Navbar from "../Navbar/Navbar";
+import {
+	AllCardsContainer,
+	CardDetail,
+	DataGraphy,
+	ChargingContainer,
+	TextBoxDet,
+} from "../CardHomeYate/StyledComponents";
 
 export default function GameDetail() {
 	const history = useNavigate();
@@ -59,9 +66,20 @@ export default function GameDetail() {
 				</div>
 				<div className="CardDetail-body">
 					<div className="CardDetail-conteiner-img">
-						<img className="CardDetail-imgMain" src={main} alt={main} />
-
+				<CardDetail
+							style={{
+								backgroundImage: `url(${
+									main	})`,
+							}}
+						>
+							<TextBoxDet>
+								<DataGraphy>
 						<h1 className="CardDetail-h1">{`${model}' ${make}`}</h1>
+								</DataGraphy>
+							</TextBoxDet>
+						</CardDetail>
+						{/* <img className="CardDetail-imgMain" src={main} alt={main} /> */}
+
 					</div>
 					<div className="CardDetail-conteiner">
 						<div>

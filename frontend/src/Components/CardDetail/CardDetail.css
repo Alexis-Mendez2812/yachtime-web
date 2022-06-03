@@ -1,14 +1,12 @@
 .CardDetail-body{
     width: 100vw;
-    height:300vh;
     display: flex;
-    align-content: stretch;
+    align-content: center;
     justify-content: flex-start;
-    flex-wrap: wrap;
-    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-direction: column;
     align-items: center;
     color: #ffffff;
-    margin:-100px 0px 0px 0px;
 
 }
 .div-Navbar{
@@ -33,10 +31,11 @@ align-self: center;
 }
 .CardDetail-h1{
 color:rgb(255, 255, 255);
-background-color: rgba(177, 177, 177, 0.349);
-margin: -250px 50px 25px 0px;
-font-size: 4rem;
+font-size: 100%;
 padding: 1rem;
+margin: 0px 25px 0px 0px;
+border-bottom: 5px double #f3b837a6;
+border-radius: 0px 0px 40px 0px;
 }
 .CardDetail-galery{
     display:flex;
@@ -50,85 +49,18 @@ padding: 1rem;
     
 }
 .CardDetail-galery-img{
-    width: 30%;
+    width: 33%;
+    height:auto;
     
 }
-/* 
 .CardDetail-conteiner{
+
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding:15px;
-    width: 40%;
+    width: 100%;
     height:95vh;
-    border-radius: 40px   0  0 40px ;
-    background-color: rgba(255, 0, 0, 0.509);
+    border-radius:0px 40px  40px 0px;
 }
-
-.CardDetail-conteiner-img{
-    justify-content: space-between;
-    padding:15px;
-    width: 40%;
-    height:95vh;
-    border-radius: 0px  40px 40px  0;
-    background-color: rgba(255, 0, 0, 0.509);
-    overflow: hidden;
-}
-.CardDetail-img{
-    margin: 10PX 10PX 10PX -20PX;
-    width: 600px;
-    height:375px;
-    overflow:hidden;}
-ul{
-    display: flex;
-}
-    .CardDetail-platforms{
-        display:flex;
-        text-decoration: none;
-        padding:3px;
-        margin:1px;
-        background-color: rgba(129, 127, 127, 0.849);
-        color:#fff;
-        border: 1px solid #2b2b2f;
-        border-radius: 5px;
-    }
-.CardDetail-h1{
-    font-size:50px;
-    margin: -10PX 5PX 20PX 10PX;
-}
-.CardDetail-rating{
-    margin:  0PX 0PX 0PX 0PX;
-}
-.CardDetail-Released{
-    margin:  0PX 10PX;
-
-}
-.CardDetail-span{
-    margin:  0PX 0PX;
-
-}
-.CardDetail-div-plat{
-
-    display: flex;
-}
-.CardDetail-div-genres{
-
-    display: flex;
-}
-.CardDetail-ul{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-.CardDetail-ul-genres{
-    justify-content: space-between;
-    display: flex;
-    padding: 0px;
-}
-.CardDetail-label{
-    overflow:hidden;
-} */
