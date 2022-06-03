@@ -1,6 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./dataUser.css";
 
 export const DataUser = () => {
@@ -10,10 +11,11 @@ export const DataUser = () => {
 	const { logout } = useAuth0();
 
 	return (
-		<div className="DataUser_container">
+		<div className="DataUser_container animate__animated animate__fadeIn">
 			<div className="DataUser_imgProfile">
 				<img src={picture} alt="userPic" />
 			</div>
+
 			<div className="DataUser_data">
 				<h1>
 					{firtsName} {lastName}
@@ -21,8 +23,12 @@ export const DataUser = () => {
 				<p>{email}</p>
 			</div>
 			<div className="DataUser_button">
-				<div className=" btn passwordColor">Change Password</div>
-				<div className=" btn userDatacolor">Change user data</div>
+				<Link to="/userSite/changepass">
+					<div className=" btn passwordColor">Change Password</div>
+				</Link>
+				<Link to="/userSite/changeUserData">
+					<div className=" btn userDatacolor">Change user data</div>
+				</Link>
 				<div
 					onClick={() => logout({ returnTo: window.location.origin })}
 					className=" btn logOutColor"
