@@ -7,7 +7,10 @@ import {
   FILT_BY_STATS,
   FILT_BY_ROLE,
   VACIAR,
-  GET_ID_NAME
+  GET_ID_NAME,
+  AUTHORIZE,
+DESAUTHORIZE,
+BANNED
 } from "../Actions/actions"
 const initialState = {
     allYates: [],
@@ -30,6 +33,12 @@ export default function rootReducer (state = initialState, { type, payload }) {
     return { ...state, userSession: payload }
   case GET_ALL_PRODUCTS:
     return { ...state, allYates: payload,copyYates: payload}
+  case AUTHORIZE:
+    return { ...state, Users: payload,copyUsers: payload}
+  case DESAUTHORIZE:
+    return { ...state, Users: payload,copyUsers: payload}
+  case BANNED:
+    return { ...state, Users: payload,copyUsers: payload}
   case GET_USERS:
       return {
         ...state,
