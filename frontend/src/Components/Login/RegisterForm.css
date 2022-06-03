@@ -1,0 +1,4 @@
+.formContainer div{
+    display: flex;
+    gap: 1em;
+}

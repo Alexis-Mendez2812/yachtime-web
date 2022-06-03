@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../Navbar/Navbar.jsx";
 import toast from "react-hot-toast";
 import "./LoginForm.css";
+import "./RegisterForm.css";
 import { LoginButton } from "./LoginButton.jsx";
 
 export function validate(input) {
@@ -62,6 +61,14 @@ export const RegisterForm = () => {
 			<h1 className="loginFormOr">OR</h1>
 			<form onSubmit={handleSumbit} className="formContainer">
 				<div>
+					<input type="text" name="name" placeholder="Firts Name" />
+					<input
+						type="text"
+						name="lastname"
+						placeholder="Last Name"
+					/>
+				</div>
+				<div>
 					<input
 						onChange={handleInputChange}
 						value={input.username}
@@ -73,6 +80,7 @@ export const RegisterForm = () => {
 					{errors.username && (
 						<p className="error">{errors.username}</p>
 					)}
+					<input type="text" name="username" placeholder="Username" />
 				</div>
 				<div>
 					<input
