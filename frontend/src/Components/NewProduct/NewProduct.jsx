@@ -370,7 +370,7 @@ export default function NewProduct() {
                                  <img
                                     src={pic}
                                     alt=''
-                                    style={{ width: '17.3vw' }}
+                                    style={{ width: '10vw' }}
                                  />
                               </ImageListItem>
                            );
