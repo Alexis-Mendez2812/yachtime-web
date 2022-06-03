@@ -53,7 +53,7 @@ export default function CardHomeYate() {
                   <Card
                      key={e.id}
                      style={{
-                        backgroundImage: `url(${e.pictures[0]})`,
+                        backgroundImage: `url(${e.pictures[0]||"https://res.cloudinary.com/yachtimeapp/image/upload/v1654214651/api-img/mj9ckyiislx5gouumomy.jpg"})`,
                      }}
                   >
                      <TextBox>
