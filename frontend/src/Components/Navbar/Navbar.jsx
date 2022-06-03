@@ -72,7 +72,7 @@ function Navbar() {
 							<>
 								<li>
 									<Link
-										to={"/profile"}
+										to={"/userSite/data"}
 										className={style.enlace}
 									>
 										<img
