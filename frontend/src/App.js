@@ -40,7 +40,9 @@ function App() {
 					<Route path="/newproduct" element={<NewProduct />} />
 					<Route path="/CardDetail/:id" element={<CardDetail />} />
 					<Route path="/paypal/pay/:mount" element={<Pay />} />
+
 					<Route path="/userSite" element={<UserSite />} />
+					<Route path="/userSite/*" element={<UserSite />} />
 					<Route path="*" element={<Home />} />
 				</Routes>
 			</BrowserRouter>

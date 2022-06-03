@@ -40,37 +40,42 @@ body {
 }
 
 #sidebar header {
-  background-color: #263238;
   font-size: 20px;
   line-height: 52px;
   text-align: center;
 }
 
-#sidebar header a {
-  color: #fff;
-  display: block;
-  text-decoration: none;
-}
-
-#sidebar header a:hover {
-  color: #fff;
-}
 
 /* #sidebar .nav{
   
 } */
+.imgYTw{
+  min-width: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.imgw{ 
+  margin: auto;
+  border: none;
+  height: 50px;
+  width: 80%;
+}
 
 #sidebar .nav a{
   background: none;
-  border-bottom: 1px solid #455A64;
+  text-decoration: none;
   color: #CFD8DC;
-  font-size: 14px;
-  padding: 16px 24px;
+  font-size: 1rem;
+  padding: 20px 24px;
+  display: flex;
+  border-bottom: 1px solid grey;
 }
 
 #sidebar .nav a:hover{
   background: none;
-  color: #ECEFF1;
+  color: #76bbe9;
 }
 
 #sidebar .nav a i{

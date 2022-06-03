@@ -1,50 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./userSideBar.css";
+import logo from "../../../Navbar/logo/logoYT.png";
 
 export const UserSidebar = () => {
 	return (
 		<div id="viewport">
 			{/* <!-- Sidebar --> */}
 			<div id="sidebar">
-				<header>
-					<a href="#">My App</a>
+				<header className="imgYTw">
+					<img src={logo} alt="yachtimeLogo" className="imgw " />
 				</header>
-				<ul class="nav">
+				<ul className="nav">
 					<li>
-						<Link to="/userSite/data">
-							<i class="zmdi zmdi-view-dashboard"></i> Dashboard
-						</Link>
+						<Link to="/userSite/data">Dashboard</Link>
 					</li>
 					<li>
-						<a href="#">
-							<i class="zmdi zmdi-link"></i> Shortcuts
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="zmdi zmdi-widgets"></i> Overview
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="zmdi zmdi-calendar"></i> Events
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="zmdi zmdi-info-outline"></i> About
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="zmdi zmdi-settings"></i> Services
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="zmdi zmdi-comment-more"></i> Contact
-						</a>
+						<Link to="/userSite/myYacht">My Yacht</Link>
 					</li>
 				</ul>
 			</div>
