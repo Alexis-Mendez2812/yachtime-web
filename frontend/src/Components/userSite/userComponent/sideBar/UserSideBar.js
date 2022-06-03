@@ -9,7 +9,9 @@ export const UserSidebar = () => {
 			{/* <!-- Sidebar --> */}
 			<div id="sidebar">
 				<header className="imgYTw">
-					<img src={logo} alt="yachtimeLogo" className="imgw " />
+					<Link to="/">
+						<img src={logo} alt="yachtimeLogo" className="imgw " />
+					</Link>
 				</header>
 				<ul className="nav">
 					<li>
