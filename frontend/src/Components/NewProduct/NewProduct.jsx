@@ -48,7 +48,7 @@ export default function NewProduct() {
          validate({ ...product, [event.target.name]: event.target.value })
       );
    };
-
+console.log(product)
    const handleDeleteFile = (e) => {
       e.preventDefault();
       setProduct({
