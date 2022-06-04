@@ -28,7 +28,6 @@ export default function rootReducer(state = initialState, { type, payload }) {
    switch (type) {
       case ALL_YATES:
          return { ...state, allYates: payload, copyYates: payload };
-
       case POST_USER:
          return { ...state, userSession: payload };
       case GET_ALL_PRODUCTS:
@@ -80,23 +79,54 @@ export default function rootReducer(state = initialState, { type, payload }) {
             ...state,
             yateSelected: payload,
          };
-
       case 'FILTER_BY_SIZE':
-         const filteredYates = state.allYates;
+         const allData = state.copyYates;
 
          let filSize;
 
          if (payload === 'all') {
-            filSize = filteredYates;
+            filSize = allData;
          } else {
-            filSize = filteredYates.filter((yate) => {
+            filSize = allData.filter((yate) => {
                return yate.model === Number(payload);
             });
          }
 
          return {
             ...state,
-            allYates: filteredYates,
+            allYates: filSize,
+         };
+      case 'FILTER_BY_MODEL':
+         const allBoats = state.copyYates;
+
+         let filModel;
+
+         if (payload === 'all') {
+            filModel = allBoats;
+         } else {
+            filModel = allBoats.filter((yate) => {
+               return yate.make === payload;
+            });
+         }
+
+         return {
+            ...state,
+            allYates: filModel,
+         };
+      case 'FILTER_BY_YEAR':
+         const everyBoat = state.copyYates;
+         let filYear;
+         if (payload === 'all') {
+            filYear = everyBoat;
+         } else {
+            filYear = everyBoat.filter((yate) => {
+               return yate.year === Number(payload);
+            });
+         }
+
+         return {
+            ...state,
+            allYates: filYear,
          };
       default:
          return state;

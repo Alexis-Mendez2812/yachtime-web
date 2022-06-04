@@ -47,18 +47,19 @@ export default function CardHomeYate() {
       dispatch(getAllProducts());
    }, [dispatch]);
 
-   if (charging) {
-      return (
-         <ChargingContainer>
-            <CircularProgress color='info' size={100} />;
-         </ChargingContainer>
-      );
-   } else {
-      return (
-         <Box>
-            <Box style={{ display: 'flex', justifyContent: 'flex-end' }}>
-               <Filtros />
-            </Box>
+   return (
+      <Box>
+         <Box style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Filtros
+               setCurrentPage={setCurrentPage}
+               setCharging={setCharging}
+            />
+         </Box>
+         {charging ? (
+            <ChargingContainer>
+               <CircularProgress color='info' size={100} />;
+            </ChargingContainer>
+         ) : (
             <AllCardsContainer>
                {renderYates.map((e) => (
                   <Card
@@ -79,14 +80,14 @@ export default function CardHomeYate() {
                   </Card>
                ))}
             </AllCardsContainer>
-            {allYates.length > 9 && (
-               <Paginado
-                  yatesPerPage={yatesPerPage}
-                  allYates={allYates.length}
-                  paginado={paginado}
-               />
-            )}
-         </Box>
-      );
-   }
+         )}
+         {allYates.length > 9 && (
+            <Paginado
+               yatesPerPage={yatesPerPage}
+               allYates={allYates.length}
+               paginado={paginado}
+            />
+         )}
+      </Box>
+   );
 }
