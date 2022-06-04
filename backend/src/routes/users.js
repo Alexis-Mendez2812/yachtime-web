@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const { Users, Payments } = require(`../db`);
+const { Users, Payments, Chat } = require(`../db`);
 // const main = require("../controllers/mailer");
 
 const router = Router();
@@ -11,12 +11,12 @@ router.post('/', async (req, res) => {
    try {
       if (req.body.email_verified) {
          let { email, family_name, picture, given_name, nickname } = req.body;
-
          let usuario = await Users.findOne({
             where: {
                email,
             },
          });
+
          if (usuario && Object.keys(usuario).length) {
             console.log('usuario existente');
             return res.status(200).json(usuario);
@@ -54,11 +54,10 @@ router.post('/', async (req, res) => {
       return res.status(201).json(user);
    } catch (error) {
       console.log(error, 'algo pasó con el post del user chequea los campos');
-      return res.status(200).json({
-         mensaje: 'algo pasó con el post del user chequea los campos',
-      });
+      return res.status(500).json(error);
    }
 });
+
 router.put('/profile', async (req, res) => {
    const { email } = req.body;
 
@@ -86,6 +85,7 @@ router.put('/profile', async (req, res) => {
       console.log(error, 'error en la ruta put /profile');
    }
 });
+
 router.get('/all', async (req, res) => {
    try {
       const users = await Users.findAll();
@@ -179,32 +179,32 @@ router.post('/payment', async (req, res) => {
 });
 //DAR PERMISOS
 
-router.post("/authorize", async (req, res) => {
-	const { email } = req.body;
+router.post('/authorize', async (req, res) => {
+   const { email } = req.body;
 
-	try {
-		console.log(email);
-		const user = await Users.findOne({
-			where: {
-				email: email,
-			},
-		});
-		console.log(email);
-		console.log(user);
-//const { email, firtsName, lastName, userName, picture, password } = req.body;
-		await user.update({
-			role:  "ROLE_ADMIN"
-		});
-		const uses = await Users.findAll()
-		return res.status(201).json(uses);
-	} catch (error) {
-		console.log(error, "error en la ruta put /authorize");
-	}
+   try {
+      console.log(email);
+      const user = await Users.findOne({
+         where: {
+            email: email,
+         },
+      });
+      console.log(email);
+      console.log(user);
+      //const { email, firtsName, lastName, userName, picture, password } = req.body;
+      await user.update({
+         role: 'ROLE_ADMIN',
+      });
+      const uses = await Users.findAll();
+      return res.status(201).json(uses);
+   } catch (error) {
+      console.log(error, 'error en la ruta put /authorize');
+   }
 });
 //QUITAR PERMISOS
 
-router.post("/desauthorize", async (req, res) => {
-	const { email } = req.body;
+router.post('/desauthorize', async (req, res) => {
+   const { email } = req.body;
 
    try {
       console.log(email);
@@ -220,16 +220,16 @@ router.post("/desauthorize", async (req, res) => {
          role: 'ROLE_USER',
       });
 
-		const uses = await Users.findAll()
-		return res.status(201).json(uses);
-	} catch (error) {
-		console.log(error, "error en la ruta put /desauthorize");
-	}
+      const uses = await Users.findAll();
+      return res.status(201).json(uses);
+   } catch (error) {
+      console.log(error, 'error en la ruta put /desauthorize');
+   }
 });
 //BANEAR USUARIO
 
-router.post("/banned", async (req, res) => {
-	const { email } = req.body;
+router.post('/banned', async (req, res) => {
+   const { email } = req.body;
 
    try {
       console.log(email);
@@ -245,11 +245,11 @@ router.post("/banned", async (req, res) => {
          role: 'ROLE_BANNED',
       });
 
-		const uses = await Users.findAll()
-		return res.status(201).json(uses);
-	} catch (error) {
-		console.log(error, "error en la ruta put /banned");
-	}
+      const uses = await Users.findAll();
+      return res.status(201).json(uses);
+   } catch (error) {
+      console.log(error, 'error en la ruta put /banned');
+   }
 });
 //PRECARGA
 
