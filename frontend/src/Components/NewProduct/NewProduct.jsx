@@ -17,23 +17,23 @@ export default function NewProduct() {
 	const navigate = useNavigate();
 	const [product, setProduct] = useState({
 		make: "",
-		model: 40,
-		year: 1990,
-		cabins: 0,
-		bathrooms: 0,
-		guest: 0,
-		length: [],
-		lengthUno: 30,
-		lengthDos: 0,
-		beam: [],
-		beamUno: 10,
-		beamDos: 0,
-		draft: [],
-		draftUno: 3,
-		draftDos: 0,
-		fuelCapacity: 0,
-		waterCapacity: 0,
-		cruiseVel: 0,
+		model: "40",
+		year: "1990",
+		cabins: "0",
+		bathrooms: "0",
+		guest: "0",
+		length: "",
+		lengthUno: "30",
+		lengthDos: "0",
+		beam: "",
+		beamUno: "10",
+		beamDos: "0",
+		draft: "",
+		draftUno: "3",
+		draftDos: "0",
+		fuelCapacity: "0",
+		waterCapacity: "0",
+		cruiseVel: "0",
 		location: "",
 		fuelType: "",
 		description: "",
@@ -50,7 +50,7 @@ export default function NewProduct() {
 			validate({ ...product, [event.target.name]: event.target.value })
 		);
 	};
-
+console.log("controller", controller)
 	const handleDeleteFile = (e) => {
 		e.preventDefault();
 		setProduct({
@@ -81,6 +81,12 @@ export default function NewProduct() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setCharging(true);
+      if(!product.make||
+         product.pictures.length===0||
+         !product.description){
+            setCharging(false);
+            return alert("complete todos los campos")
+         }
 		setTimeout(() => {
 			postYateForm(product)
 				.then(() => {
@@ -384,6 +390,16 @@ export default function NewProduct() {
 							</div>
 						</div>
 						<div className="Form-div-controlers">
+							{controller.make && (
+								<p className="Form-controller">
+									●{controller.make}
+								</p>
+							)}
+							{controller.pictures && (
+								<p className="Form-controller">
+									●{controller.pictures}
+								</p>
+							)}
 							{controller.description && (
 								<p className="Form-controller">
 									●{controller.description}
@@ -436,36 +452,24 @@ export default function NewProduct() {
 									})}
 							</Box>
 						</Box>
-						<div className="Form-">
-							{controller.button === "button" && (
-								<input
-									className="Form-fake-button"
-									type="button"
-									value="CREATE?"
-								></input>
-							)}
-							{controller.button === "button" && (
-								<input
-									className="myButton fake"
-									type="button"
-									value="👻"
-								></input>
-							)}
-
-							{!controller.button && (
-								<button type="submit" className="myButton">
-									🚢
-								</button>
-							)}
-						</div>
-						<Button
+						
+                  {!controller.button && (		<Button
 							style={{ marginTop: "0.5vh" }}
-							color="error"
+							color="success"
 							onClick={handleSubmit}
 							variant="contained"
-						>
+                     >
 							S U B M I T
 						</Button>
+							)}
+                  {controller.button && (		<Button
+							style={{ marginTop: "0.5vh" }}
+							color="error"
+							variant="contained"
+                     >
+							DISABLED
+						</Button>
+							)}
 					</form>
 				</div>
 			</>
@@ -473,26 +477,25 @@ export default function NewProduct() {
 	}
 }
 
-export function validate(game) {
+export function validate(product) {
 	let controller = {};
-
+console.log(product)
 	//DESCRIPTION
-	if (!game.description) {
+	if (!product.make) {
+		controller.make = "The make is required";}
+	if (product.pictures.length===0) {
+		controller.pictures = "The picture is required";}
+	if (!product.description) {
 		controller.description = "The description is required";
-	} else if (game.description.length > 255) {
+	} else if (product.description.length > 255) {
 		controller.description =
 			"The description should not be more than 255 characters";
 	}
 
 	if (
-		controller.name ||
-		controller.background_image ||
-		controller.genres ||
-		controller.rating ||
-		controller.platforms ||
-		controller.released ||
+		controller.make ||
 		controller.description ||
-		!game.description
+		!product.description
 	) {
 		controller.button = "button";
 	}
