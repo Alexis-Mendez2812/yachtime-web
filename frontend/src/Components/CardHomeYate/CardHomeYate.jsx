@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from '../../Redux/Actions/ProductActions/getAllProducts';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Filtros from '../Filtros/Filtros';
 import './CardHome.css';
 import Paginado from '../Paginado/Paginado';
 import { Box, CircularProgress } from '@mui/material';
@@ -55,6 +56,9 @@ export default function CardHomeYate() {
    } else {
       return (
          <Box>
+            <Box style={{ display: 'flex', justifyContent: 'flex-end' }}>
+               <Filtros />
+            </Box>
             <AllCardsContainer>
                {renderYates.map((e) => (
                   <Card
