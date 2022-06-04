@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from '../../Redux/Actions/ProductActions/getAllProducts';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Filtros from '../Filtros/Filtros';
 import './CardHome.css';
 import Paginado from '../Paginado/Paginado';
 import { Box, CircularProgress } from '@mui/material';
@@ -46,15 +47,19 @@ export default function CardHomeYate() {
       dispatch(getAllProducts());
    }, [dispatch]);
 
-   if (charging) {
-      return (
-         <ChargingContainer>
-            <CircularProgress color='info' size={100} />;
-         </ChargingContainer>
-      );
-   } else {
-      return (
-         <Box>
+   return (
+      <Box>
+         <Box style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Filtros
+               setCurrentPage={setCurrentPage}
+               setCharging={setCharging}
+            />
+         </Box>
+         {charging ? (
+            <ChargingContainer>
+               <CircularProgress color='info' size={100} />;
+            </ChargingContainer>
+         ) : (
             <AllCardsContainer>
                {renderYates.map((e) => (
                   <Card
@@ -75,14 +80,14 @@ export default function CardHomeYate() {
                   </Card>
                ))}
             </AllCardsContainer>
-            {allYates.length > 9 && (
-               <Paginado
-                  yatesPerPage={yatesPerPage}
-                  allYates={allYates.length}
-                  paginado={paginado}
-               />
-            )}
-         </Box>
-      );
-   }
+         )}
+         {allYates.length > 9 && (
+            <Paginado
+               yatesPerPage={yatesPerPage}
+               allYates={allYates.length}
+               paginado={paginado}
+            />
+         )}
+      </Box>
+   );
 }

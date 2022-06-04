@@ -33,10 +33,10 @@ export const Card = styled(Box)`
    }
 `;
 export const CardDetail = styled(Box)`
-display: flex;
-flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+   justify-content: flex-end;
    width: 100vw;
    height: 87vh;
    background-size: cover;
@@ -59,9 +59,8 @@ export const DataGraphy = styled(Typography)`
 
 export const TextBox = styled(Box)`
    margin-top: 48%;
-   background: linear-gradient(to right, grey, transparent, transparent);
+   background: linear-gradient(to right, black, transparent, transparent);
 `;
 export const TextBoxDet = styled(Box)`
-
    background: linear-gradient(to right, grey, transparent, transparent);
 `;
