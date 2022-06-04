@@ -33,7 +33,7 @@ function Footer() {
                </div>
                <div className={style.enlaces}>
                   <Link to={'/'}>About us</Link>
-                  <Link to={'/'}>Contact us</Link>
+                  <Link to={'/contactUs'}>Contact us</Link>
                   <Link to={'/'}>Terms of service</Link>
                   <Link to={'/'}>Privacy policy</Link>
                   <br />

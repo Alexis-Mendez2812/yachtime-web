@@ -17,37 +17,10 @@ export default function HomeYates() {
       dispatch(allYates());
    }, []);
 
-   //Funcion del select Genres/api/db
-   function handleOnGenres(event) {
-      dispatch(event.target.value);
-      setAux(event.target.value);
-   }
-   // console.log("estado auxiliar",aux)
-
-   //Funcion del los select by orders
-   function handleOnOrder(event) {
-      dispatch(event.target.value);
-      setAux(event.target.value);
-   }
-   // console.log("estado auxiliar",aux)
-
    return (
       <div className='Home-conteiner'>
          <div className='Home-nav'>
-            <div className='Home-search' key='searchbar'>
-               {/* <SearchBar   />     */}
-            </div>
-
-            {/*Orden alfabetico */}
-            <select
-               id='alf'
-               defaultValue='All'
-               onChange={(e) => handleOnOrder(e)}
-            >
-               <option value='asc'>Alphabetical</option>
-               <option value='asc'>asc</option>
-               <option value='des'>des</option>
-            </select>
+            <div className='Home-search' key='searchbar'></div>
          </div>
          <div>{allYats && <CardHomeYate />}</div>
          {state.copyYates?.length === 0 && (
