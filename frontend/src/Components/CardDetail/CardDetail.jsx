@@ -51,7 +51,7 @@ export default function GameDetail() {
 			pictures,
 			description,
 		} = yateSelected;
-
+console.log(yateSelected)
 		let picturas = [
 			"https://res.cloudinary.com/yachtimeapp/image/upload/v1654214651/api-img/mj9ckyiislx5gouumomy.jpg",
 			"https://res.cloudinary.com/yachtimeapp/image/upload/v1654212288/api-img/lxx2f2b9lmkbg0lvcyfx.jpg",
@@ -103,21 +103,15 @@ export default function GameDetail() {
 						</div>
 						<div>
 							<h4 className="CardDetail-Released">Length: </h4>
-							<label className="CardDetail-Released">{`${length[0]}' ${
-								length.length > 1 ? length[1] : 0
-							}" `}</label>
+							<label className="CardDetail-Released">{`${length}" `}</label>
 						</div>
 						<div>
 							<h4 className="CardDetail-Released">Beam: </h4>
-							<label className="CardDetail-Released">{`${beam[0]}' ${
-								beam.length > 1 ? beam[1] : 0
-							}" `}</label>
+							<label className="CardDetail-Released">{`${beam}" `}</label>
 						</div>
 						<div>
 							<h4 className="CardDetail-Released">Draft: </h4>
-							<label className="CardDetail-Released">{`${draft[0]}' ${
-								draft.length > 1 ? draft[1] : 0
-							}" `}</label>
+							<label className="CardDetail-Released">{`${draft}" `}</label>
 						</div>
 						<div>
 							<h4 className="CardDetail-Released">Fuel Capacity: </h4>

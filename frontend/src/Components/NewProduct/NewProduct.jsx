@@ -48,9 +48,39 @@ export default function NewProduct() {
 		setProduct({ ...product, [event.target.name]: event.target.value });
 		setController(
 			validate({ ...product, [event.target.name]: event.target.value })
-		);
+			);
+		};
+		const handleOnChangeBeam = function (event) {
+			if(event.target.name === "beamUno"){
+				setProduct({ ...product,beamUno: event.target.value, beam:  `${event.target.value}' ${product.beamDos}` });
+				console.log(product.beam)
+			}
+			if(event.target.name === "beamDos"){
+				setProduct({ ...product,beamDos: event.target.value, beam:  `${product.beamUno}' ${event.target.value}` });
+				console.log(product.beam)
+			}
 	};
-console.log("controller", controller)
+		const handleOnChangeLength = function (event) {
+			if(event.target.name === "lengthUno"){
+				setProduct({ ...product,lengthUno: event.target.value, length:  `${event.target.value}' ${product.lengthDos}` });
+				console.log(product.length)
+			}
+			if(event.target.name === "lengthDos"){
+				setProduct({ ...product,lengthDos: event.target.value, length:  `${product.lengthUno}' ${event.target.value}` });
+				console.log(product.length)
+			}
+	};
+		const handleOnChangeDraft = function (event) {
+			if(event.target.name === "draftUno"){
+				setProduct({ ...product,draftUno: event.target.value, draft:  `${event.target.value}' ${product.draftDos}` });
+				console.log(product.draft)
+			}
+			if(event.target.name === "draftDos"){
+				setProduct({ ...product,draftDos: event.target.value, draft:  `${product.draftUno}' ${event.target.value}` });
+				console.log(product.draft)
+			}
+	};
+
 	const handleDeleteFile = (e) => {
 		e.preventDefault();
 		setProduct({
@@ -74,6 +104,12 @@ console.log("controller", controller)
 					...product,
 					pictures: [...product.pictures, reader.result],
 				});
+				setController(
+					validate({
+						...product,
+						pictures: [...product.pictures, reader.result],
+					})
+					);
 			};
 		}
 	};
@@ -229,7 +265,7 @@ console.log("controller", controller)
 											max="200"
 											value={product.lengthUno}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeLength}
 										></input>
 										<input
 											className="Form-input-internal"
@@ -239,7 +275,7 @@ console.log("controller", controller)
 											max="11"
 											value={product.lengthDos}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeLength}
 										></input>
 										<label className="Form-label-internal ">
 											{" "}
@@ -260,7 +296,7 @@ console.log("controller", controller)
 											max="40"
 											value={product.beamUno}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeBeam}
 										></input>
 										<input
 											className="Form-input-internal"
@@ -270,7 +306,7 @@ console.log("controller", controller)
 											max="11"
 											value={product.beamDos}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeBeam}
 										></input>
 										<label className="Form-label-internal ">
 											{" "}
@@ -293,7 +329,7 @@ console.log("controller", controller)
 											max="10"
 											value={product.draftUno}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeDraft}
 										></input>
 										<input
 											className="Form-input-internal"
@@ -303,7 +339,7 @@ console.log("controller", controller)
 											max="11"
 											value={product.draftDos}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeDraft}
 										></input>
 										<label className="Form-label-internal ">
 											{" "}
@@ -487,9 +523,9 @@ console.log(product)
 		controller.pictures = "The picture is required";}
 	if (!product.description) {
 		controller.description = "The description is required";
-	} else if (product.description.length > 255) {
+	} else if (product.description.length > 400) {
 		controller.description =
-			"The description should not be more than 255 characters";
+			"The description should not be more than 400 characters";
 	}
 
 	if (
