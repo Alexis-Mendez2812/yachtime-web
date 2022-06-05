@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import "./cardYate.css";
 import NewProduct from "../../../../../NewProduct/NewProduct";
+import { ButtonEdit } from "../buttonEdit/ButtonEdit";
 
 export const CardYate = ({ yate }) => {
 	console.log(yate);
@@ -32,47 +33,14 @@ export const CardYate = ({ yate }) => {
 						</Typography>
 					</CardContent>
 					<CardActions>
-						<button
-							type="button"
-							class="btn btn-primary"
-							data-bs-toggle="modal"
-							data-bs-target="#exampleModal"
-						>
-							Editar
-						</button>
-
+						{/* componente modal */}
+						<ButtonEdit yate={yate} />
 						<Button size="small">Eliminar</Button>
 					</CardActions>
 				</Card>
 			) : (
 				<p>usted no tiene yates en alquiler</p>
 			)}
-			<div
-				class="modal modal-xl fade"
-				id="exampleModal"
-				tabindex="-1"
-				aria-labelledby="exampleModalLabel"
-				aria-hidden="true"
-			>
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">
-								Modal title
-							</h5>
-							<button
-								type="button"
-								class="btn-close"
-								data-bs-dismiss="modal"
-								aria-label="Close"
-							></button>
-						</div>
-						<div class="modal-body">
-							<NewProduct />
-						</div>
-					</div>
-				</div>
-			</div>
 		</>
 	);
 };
