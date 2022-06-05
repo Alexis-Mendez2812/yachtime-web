@@ -71,13 +71,16 @@ body {
   padding: 20px 24px;
   display: flex;
   border-bottom: 1px solid grey;
+  transition: all .5s ease;
 }
 
 #sidebar .nav a:hover{
   background: none;
-  color: #76bbe9;
+  background-color: #76bbe9;
 }
 
 #sidebar .nav a i{
   margin-right: 16px;
+  min-width: 18px;
+  text-align: center;
 }
