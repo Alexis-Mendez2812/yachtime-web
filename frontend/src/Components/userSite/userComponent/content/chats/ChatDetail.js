@@ -1,34 +1,68 @@
-import React, { useState } from "react";
-import "./chatDetail.css";
+import React, { useState } from 'react';
+import './chatDetail.css';
+import { Box } from '@mui/material';
 
 export const ChatDetail = () => {
-	const [chats, setChats] = useState(false);
-	return (
-		<div className="chat_container">
-			<div className="listChats">
-				{chats ? (
-					"List of chats"
-				) : (
-					<div className="no__chats">
-						You don't have any chats yet.{" "}
-						<i class="fa-solid fa-comments"></i>
-					</div>
-				)}
-			</div>
-			<div className="ChatDetail">
-				<div className="chat__view"></div>
-				<div className="chat_buttons_container">
-					<div className="caja_InTexto">
-						<input
-							type="text"
-							placeholder="Type your message here"
-						/>
-					</div>
-					<div className="buttonSendChat">
-						<i class="fa-solid fa-paper-plane"></i>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+   const [chats, setChats] = useState(false);
+
+   return (
+      <Box
+         style={{
+            backgroundColor: 'red',
+            height: '100vh',
+            width: '81.7vw',
+            display: 'flex',
+         }}
+      >
+         <Box
+            style={{ backgroundColor: 'green', height: '100vh', width: '30vw' }}
+         ></Box>{' '}
+         <Box
+            style={{
+               backgroundColor: 'purple',
+               height: '100vh',
+               width: '51.7vw',
+            }}
+         >
+            <Box
+               style={{
+                  backgroundColor: 'brown',
+                  height: '93vh',
+                  width: '51.7vw',
+               }}
+            ></Box>
+            <Box
+               style={{
+                  backgroundColor: 'blue',
+                  height: '7vh',
+                  width: '51.7vw',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-around',
+               }}
+            >
+               <input
+                  style={{
+                     backgroundColor: 'white',
+                     width: '85%',
+                     height: '80%',
+                     border: '0vh',
+                     outline: 'none',
+                  }}
+               ></input>
+               <button
+                  style={{
+                     backgroundColor: 'yellow',
+                     color: 'black',
+                     width: '11%',
+                     height: '50%',
+                     border: '0vh',
+                  }}
+               >
+                  Send
+               </button>
+            </Box>
+         </Box>
+      </Box>
+   );
 };
