@@ -56,14 +56,14 @@
     gap: 1em;
     border: none;
 }
-.btn{
+.btnData{
     padding: .5em;
     border-radius: 5px;
     color: white;
     font-weight: bold;
     transition: all .3s ease;
 }
-.btn:hover{
+.btnData:hover{
     cursor: pointer;
     transform: scale(1.05);
 
