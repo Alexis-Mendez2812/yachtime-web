@@ -15,10 +15,21 @@ export const UserSidebar = () => {
 				</header>
 				<ul className="nav">
 					<li>
-						<Link to="/userSite/data">Dashboard</Link>
+						<Link to="/userSite/data">
+							<i class="fa-solid fa-ellipsis-vertical"></i>
+							Profile
+						</Link>
 					</li>
 					<li>
-						<Link to="/userSite/myYacht">My Yacht</Link>
+						<Link to="/userSite/myYacht">
+							<i class="fa-solid fa-sailboat"></i>My Yacht
+						</Link>
+					</li>
+					<li>
+						<Link to="/userSite/chats">
+							<i class="fa-solid fa-comments"></i>
+							Chats
+						</Link>
 					</li>
 				</ul>
 			</div>
