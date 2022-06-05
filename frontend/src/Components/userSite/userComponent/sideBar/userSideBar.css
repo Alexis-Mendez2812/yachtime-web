@@ -80,5 +80,6 @@ body {
 
 #sidebar .nav a i{
   margin-right: 16px;
+  min-width: 18px;
   text-align: center;
 }
