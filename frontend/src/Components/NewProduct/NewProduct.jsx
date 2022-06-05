@@ -17,23 +17,23 @@ export default function NewProduct() {
 	const navigate = useNavigate();
 	const [product, setProduct] = useState({
 		make: "",
-		model: 40,
-		year: 1990,
-		cabins: 0,
-		bathrooms: 0,
-		guest: 0,
-		length: [],
-		lengthUno: 30,
-		lengthDos: 0,
-		beam: [],
-		beamUno: 10,
-		beamDos: 0,
-		draft: [],
-		draftUno: 3,
-		draftDos: 0,
-		fuelCapacity: 0,
-		waterCapacity: 0,
-		cruiseVel: 0,
+		model: "40",
+		year: "1990",
+		cabins: "0",
+		bathrooms: "0",
+		guest: "0",
+		length: "",
+		lengthUno: "30",
+		lengthDos: "0",
+		beam: "",
+		beamUno: "10",
+		beamDos: "0",
+		draft: "",
+		draftUno: "3",
+		draftDos: "0",
+		fuelCapacity: "0",
+		waterCapacity: "0",
+		cruiseVel: "0",
 		location: "",
 		fuelType: "",
 		description: "",
@@ -48,7 +48,37 @@ export default function NewProduct() {
 		setProduct({ ...product, [event.target.name]: event.target.value });
 		setController(
 			validate({ ...product, [event.target.name]: event.target.value })
-		);
+			);
+		};
+		const handleOnChangeBeam = function (event) {
+			if(event.target.name === "beamUno"){
+				setProduct({ ...product,beamUno: event.target.value, beam:  `${event.target.value}' ${product.beamDos}` });
+				console.log(product.beam)
+			}
+			if(event.target.name === "beamDos"){
+				setProduct({ ...product,beamDos: event.target.value, beam:  `${product.beamUno}' ${event.target.value}` });
+				console.log(product.beam)
+			}
+	};
+		const handleOnChangeLength = function (event) {
+			if(event.target.name === "lengthUno"){
+				setProduct({ ...product,lengthUno: event.target.value, length:  `${event.target.value}' ${product.lengthDos}` });
+				console.log(product.length)
+			}
+			if(event.target.name === "lengthDos"){
+				setProduct({ ...product,lengthDos: event.target.value, length:  `${product.lengthUno}' ${event.target.value}` });
+				console.log(product.length)
+			}
+	};
+		const handleOnChangeDraft = function (event) {
+			if(event.target.name === "draftUno"){
+				setProduct({ ...product,draftUno: event.target.value, draft:  `${event.target.value}' ${product.draftDos}` });
+				console.log(product.draft)
+			}
+			if(event.target.name === "draftDos"){
+				setProduct({ ...product,draftDos: event.target.value, draft:  `${product.draftUno}' ${event.target.value}` });
+				console.log(product.draft)
+			}
 	};
 
 	const handleDeleteFile = (e) => {
@@ -74,6 +104,12 @@ export default function NewProduct() {
 					...product,
 					pictures: [...product.pictures, reader.result],
 				});
+				setController(
+					validate({
+						...product,
+						pictures: [...product.pictures, reader.result],
+					})
+					);
 			};
 		}
 	};
@@ -81,6 +117,12 @@ export default function NewProduct() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setCharging(true);
+      if(!product.make||
+         product.pictures.length===0||
+         !product.description){
+            setCharging(false);
+            return alert("complete todos los campos")
+         }
 		setTimeout(() => {
 			postYateForm(product)
 				.then(() => {
@@ -223,7 +265,7 @@ export default function NewProduct() {
 											max="200"
 											value={product.lengthUno}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeLength}
 										></input>
 										<input
 											className="Form-input-internal"
@@ -233,7 +275,7 @@ export default function NewProduct() {
 											max="11"
 											value={product.lengthDos}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeLength}
 										></input>
 										<label className="Form-label-internal ">
 											{" "}
@@ -254,7 +296,7 @@ export default function NewProduct() {
 											max="40"
 											value={product.beamUno}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeBeam}
 										></input>
 										<input
 											className="Form-input-internal"
@@ -264,7 +306,7 @@ export default function NewProduct() {
 											max="11"
 											value={product.beamDos}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeBeam}
 										></input>
 										<label className="Form-label-internal ">
 											{" "}
@@ -287,7 +329,7 @@ export default function NewProduct() {
 											max="10"
 											value={product.draftUno}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeDraft}
 										></input>
 										<input
 											className="Form-input-internal"
@@ -297,7 +339,7 @@ export default function NewProduct() {
 											max="11"
 											value={product.draftDos}
 											placeholder="Title"
-											onChange={handleOnChange}
+											onChange={handleOnChangeDraft}
 										></input>
 										<label className="Form-label-internal ">
 											{" "}
@@ -384,6 +426,16 @@ export default function NewProduct() {
 							</div>
 						</div>
 						<div className="Form-div-controlers">
+							{controller.make && (
+								<p className="Form-controller">
+									●{controller.make}
+								</p>
+							)}
+							{controller.pictures && (
+								<p className="Form-controller">
+									●{controller.pictures}
+								</p>
+							)}
 							{controller.description && (
 								<p className="Form-controller">
 									●{controller.description}
@@ -436,36 +488,24 @@ export default function NewProduct() {
 									})}
 							</Box>
 						</Box>
-						<div className="Form-">
-							{controller.button === "button" && (
-								<input
-									className="Form-fake-button"
-									type="button"
-									value="CREATE?"
-								></input>
-							)}
-							{controller.button === "button" && (
-								<input
-									className="myButton fake"
-									type="button"
-									value="👻"
-								></input>
-							)}
-
-							{!controller.button && (
-								<button type="submit" className="myButton">
-									🚢
-								</button>
-							)}
-						</div>
-						<Button
+						
+                  {!controller.button && (		<Button
 							style={{ marginTop: "0.5vh" }}
-							color="error"
+							color="success"
 							onClick={handleSubmit}
 							variant="contained"
-						>
+                     >
 							S U B M I T
 						</Button>
+							)}
+                  {controller.button && (		<Button
+							style={{ marginTop: "0.5vh" }}
+							color="error"
+							variant="contained"
+                     >
+							DISABLED
+						</Button>
+							)}
 					</form>
 				</div>
 			</>
@@ -473,26 +513,25 @@ export default function NewProduct() {
 	}
 }
 
-export function validate(game) {
+export function validate(product) {
 	let controller = {};
-
+console.log(product)
 	//DESCRIPTION
-	if (!game.description) {
+	if (!product.make) {
+		controller.make = "The make is required";}
+	if (product.pictures.length===0) {
+		controller.pictures = "The picture is required";}
+	if (!product.description) {
 		controller.description = "The description is required";
-	} else if (game.description.length > 255) {
+	} else if (product.description.length > 400) {
 		controller.description =
-			"The description should not be more than 255 characters";
+			"The description should not be more than 400 characters";
 	}
 
 	if (
-		controller.name ||
-		controller.background_image ||
-		controller.genres ||
-		controller.rating ||
-		controller.platforms ||
-		controller.released ||
+		controller.make ||
 		controller.description ||
-		!game.description
+		!product.description
 	) {
 		controller.button = "button";
 	}

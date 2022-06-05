@@ -1,20 +1,23 @@
 const express = require('express');
-const axios = require('axios');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
+const http = require('http');
+const { Server } = require('socket.io');
+const cors = require('cors');
 
 require('./db.js');
 
-const server = express();
+const app = express();
+app.use(cors());
 
-server.name = 'API';
+app.name = 'API';
 
-server.use(express.json({ limit: '50mb' }));
-server.use(express.urlencoded({ extended: true, limit: '50mb' }));
-server.use(cookieParser());
-server.use(morgan('dev'));
-server.use((req, res, next) => {
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use(cookieParser());
+app.use(morgan('dev'));
+app.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');
    res.header('Access-Control-Allow-Credentials', 'true');
    res.header(
@@ -28,14 +31,22 @@ server.use((req, res, next) => {
    next();
 });
 
-server.use('/', routes);
+app.use('/', routes);
 
 // Error catching endware.
-server.use((err, req, res, next) => {
+app.use((err, req, res, next) => {
    const status = err.status || 500;
    const message = err.message || err;
    console.error(err);
    res.status(status).send(message);
 });
 
-module.exports = server;
+const server = http.createServer(app);
+const io = new Server(server, {
+   cors: {
+      origin: 'http://localhost:3000',
+      methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+   },
+});
+
+module.exports = { server, io };

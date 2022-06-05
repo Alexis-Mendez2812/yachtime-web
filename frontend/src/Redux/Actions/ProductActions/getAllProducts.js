@@ -9,3 +9,13 @@ export const getAllProducts = () => {
          .catch((err) => console.log(err));
    };
 };
+
+export const getProductById = (id) => {
+   return (dispatch) => {
+      axios(`/products/detail/${id}`)
+         .then((ans) => {
+            return dispatch({ type: 'GET_YATE_DETAIL', payload: ans.data });
+         })
+         .catch((err) => console.log(err));
+   };
+};

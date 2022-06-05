@@ -32,15 +32,15 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     length: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     beam: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     draft: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     fuelCapacity: {
