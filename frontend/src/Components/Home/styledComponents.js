@@ -9,6 +9,7 @@ export const WppAvatar = styled(Avatar)`
    position: fixed;
    margin-left: 90vw;
    margin-top: 85vh;
+   z-index: 100;
    cursor: pointer;
    transition: 0.5s;
 
