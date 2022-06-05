@@ -13,31 +13,55 @@ import "./NewProduct.css";
 import style from "../Uploading/Uploading.module.css";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 
-export default function NewProduct() {
+export default function NewProduct({
+	make,
+	model,
+	year,
+	cabins,
+	bathrooms,
+	guest,
+	length,
+	lengthUno,
+	lengthDos,
+	beam,
+	beamUno,
+	beamDos,
+	draft,
+	draftUno,
+	draftDos,
+	fuelCapacity,
+	waterCapacity,
+	cruiseVel,
+	location,
+	fuelType,
+	description,
+	pictures,
+	isEdit,
+}) {
 	const navigate = useNavigate();
 	const [product, setProduct] = useState({
-		make: "",
-		model: "40",
-		year: "1990",
-		cabins: "0",
-		bathrooms: "0",
-		guest: "0",
-		length: "",
-		lengthUno: "30",
-		lengthDos: "0",
-		beam: "",
-		beamUno: "10",
-		beamDos: "0",
-		draft: "",
-		draftUno: "3",
-		draftDos: "0",
-		fuelCapacity: "0",
-		waterCapacity: "0",
-		cruiseVel: "0",
-		location: "",
-		fuelType: "",
-		description: "",
-		pictures: [],
+		make: make || "",
+		model: model || "40",
+		year: year || "1990",
+		cabins: cabins || "0",
+		bathrooms: bathrooms || "0",
+		guest: guest || "0",
+		length: length || "",
+		lengthUno: lengthUno || "30",
+		lengthDos: lengthDos || "0",
+		beam: beam || "",
+		beamUno: beamUno || "10",
+		beamDos: beamDos || "0",
+		draft: draft || "",
+		draftUno: draftUno || "3",
+		draftDos: draftDos || "0",
+		fuelCapacity: fuelCapacity || "0",
+		waterCapacity: waterCapacity || "0",
+		cruiseVel: cruiseVel || "0",
+		location: location || "",
+		fuelType: fuelType || "",
+		description: description || "",
+		pictures: pictures || [],
 	});
 	const [controller, setController] = useState({});
 	const [charging, setCharging] = useState(false);
@@ -178,15 +202,23 @@ export default function NewProduct() {
 	} else {
 		return (
 			<>
-				<Link to="/userSite/myYacht">
+				{/* <Link to="/userSite/myYacht">
 					<div>
 						<div className="change_btn ">Go back</div>
 					</div>
-				</Link>
+				</Link> */}
 				<div className="Form-body animate__animated animate__fadeIn">
 					<form className="Form-form">
 						<div className="Form-div-title">
-							<h1 className="Form-title">Import your Ship!</h1>
+							{isEdit ? (
+								<h1 className="Form-title">
+									Edit your Yacth!!
+								</h1>
+							) : (
+								<h1 className="Form-title">
+									Create new Yatch!
+								</h1>
+							)}
 						</div>
 						<div className="Form-div-inputs">
 							<div className="inputContUp">

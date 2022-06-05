@@ -8,7 +8,6 @@ export const MyYacht = () => {
 	const allYates = useSelector((state) => {
 		return state.allYates;
 	});
-	console.log(allYates);
 	return (
 		<div>
 			<div className="card_yates_container">
