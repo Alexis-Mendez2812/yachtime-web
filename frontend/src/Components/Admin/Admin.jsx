@@ -11,7 +11,7 @@ import {
 	filterByStats,
 	authorize,
 	desauthorize,
-	banned
+	banned,
 } from "../../Redux/Actions/actions";
 import { Link } from "react-router-dom";
 import { Table, Button } from "semantic-ui-react";
@@ -24,8 +24,6 @@ import DeleteIcon from "@material-ui/icons/Block";
 import AddIcon from "@material-ui/icons/Add";
 
 const Admin = () => {
-	//CRUD COMICS
-
 	const dispatch = useDispatch();
 
 	const users = useSelector((state) => state.copyUsers);
@@ -159,7 +157,10 @@ banned
 			</div>
 
 			<div>
-				<h2 style={{ margin: "4rem", width: "40%" }} class="ui teal header">
+				<h2
+					style={{ margin: "4rem", width: "40%" }}
+					class="ui teal header"
+				>
 					USERS MENU
 				</h2>
 
@@ -221,30 +222,50 @@ banned
 						  users?.map((user) => {
 								return (
 									<Table.Row key={user.id}>
-										<Table.Cell>{user.firtsName}</Table.Cell>
+										<Table.Cell>
+											{user.firtsName}
+										</Table.Cell>
 										<Table.Cell>{user.lastName}</Table.Cell>
 										<Table.Cell>{user.userName}</Table.Cell>
 										<Table.Cell>{user.email}</Table.Cell>
 										<Table.Cell>{user.role}</Table.Cell>
 										<Table.Cell>
-											<Fab color="primary" aria-label="delete">
+											<Fab
+												color="primary"
+												aria-label="delete"
+											>
 												<AdminPanelSettingsIcon
 													onClick={() => {
-														handleChangeUser(user.email, "admin");
+														handleChangeUser(
+															user.email,
+															"admin"
+														);
 													}}
 												/>
 											</Fab>
-											<Fab color="secondary" aria-label="delete">
+											<Fab
+												color="secondary"
+												aria-label="delete"
+											>
 												<ArrowCircleDownIcon
 													onClick={() => {
-														handleChangeUser(user.email, "user");
+														handleChangeUser(
+															user.email,
+															"user"
+														);
 													}}
 												/>
 											</Fab>
-											<Fab color="error" aria-label="delete">
+											<Fab
+												color="error"
+												aria-label="delete"
+											>
 												<DeleteIcon
 													onClick={() => {
-														handleChangeUser(user.email, "banned");
+														handleChangeUser(
+															user.email,
+															"banned"
+														);
 													}}
 												/>
 											</Fab>
@@ -260,7 +281,10 @@ banned
 			<br />
 
 			<div>
-				<h2 style={{ margin: "4rem", width: "40%" }} class="ui teal header">
+				<h2
+					style={{ margin: "4rem", width: "40%" }}
+					class="ui teal header"
+				>
 					YACHTS MENU
 				</h2>
 
@@ -311,29 +335,47 @@ banned
 										<Table.Cell>{`${comic.model}'`}</Table.Cell>
 										<Table.Cell>{`${comic.year}`}</Table.Cell>
 										<Table.Cell>{`${comic.cabins}`}</Table.Cell>
-										<Table.Cell>{comic.bathrooms}</Table.Cell>
+										<Table.Cell>
+											{comic.bathrooms}
+										</Table.Cell>
 										<Table.Cell>{`${comic.guests}`}</Table.Cell>
 										<Table.Cell>{`${comic.length[0]}' ${
-											comic.length.length > 1 ? comic.length[1] : 0
+											comic.length.length > 1
+												? comic.length[1]
+												: 0
 										}" `}</Table.Cell>
 										<Table.Cell>{`${comic.beam[0]}' ${
-											comic.beam.length > 1 ? comic.beam[1] : 0
+											comic.beam.length > 1
+												? comic.beam[1]
+												: 0
 										}"`}</Table.Cell>
 										<Table.Cell>{`${comic.draft[0]}' ${
-											comic.draft.length > 1 ? comic.draft[1] : 0
+											comic.draft.length > 1
+												? comic.draft[1]
+												: 0
 										}"`}</Table.Cell>
 										<Table.Cell>{`${comic.fuelCapacity} GAL`}</Table.Cell>
 										<Table.Cell>{`${comic.waterCapacity} GAL`}</Table.Cell>
 										<Table.Cell>{`${comic.cruiseVel} KNOTS`}</Table.Cell>
-										<Table.Cell>{`${comic.fuelType || "gasoline"}`}</Table.Cell>
+										<Table.Cell>{`${
+											comic.fuelType || "gasoline"
+										}`}</Table.Cell>
 										<Table.Cell>
-											<Fab color="secondary" aria-label="edit">
+											<Fab
+												color="secondary"
+												aria-label="edit"
+											>
 												+
 											</Fab>
-											<Fab color="error" aria-label="delete">
+											<Fab
+												color="error"
+												aria-label="delete"
+											>
 												<DeleteIcon
 													onClick={() => {
-														handledeleteYate(comic.idPrincipal);
+														handledeleteYate(
+															comic.idPrincipal
+														);
 													}}
 												/>
 											</Fab>

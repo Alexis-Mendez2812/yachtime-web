@@ -1,67 +1,66 @@
-.CardDetail-body{
-    width: 100vw;
-    display: flex;
-    align-content: center;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-items: center;
-    color: #ffffff;
-
+.CardDetail-body {
+   width: 100vw;
+   display: flex;
+   align-content: center;
+   justify-content: flex-start;
+   flex-wrap: nowrap;
+   flex-direction: column;
+   align-items: center;
+   color: #ffffff;
 }
-.div-Navbar{
-    position: absolute;
+.div-Navbar {
+   position: absolute;
 }
-.CardDetail-conteiner-img{
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: flex-end;
-    align-items: flex-end;
-
+.CardDetail-conteiner-img {
+   width: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+   align-content: flex-end;
+   align-items: flex-end;
 }
-.CardDetail-imgMain{
-    width: 100%;
-    height: 10%;
-    margin:-150px 0px 0px 0px;
-    overflow: hidden;
-align-self: center;
+.CardDetail-imgMain {
+   width: 100%;
+   height: 10%;
+   margin: -150px 0px 0px 0px;
+   overflow: hidden;
+   align-self: center;
 }
-.CardDetail-h1{
-color:rgb(255, 255, 255);
-font-size: 100%;
-padding: 1rem;
-margin: 0px 25px 0px 0px;
-border-bottom: 5px double #f3b837a6;
-border-radius: 0px 0px 40px 0px;
+.CardDetail-h1 {
+   color: rgb(255, 255, 255);
+   font-size: 100%;
+   padding: 1rem;
+   margin: 0px 25px 0px 0px;
+   border-bottom: 5px double #f3b837a6;
+   border-radius: 0px 0px 40px 0px;
 }
-.CardDetail-galery{
-    display: grid;
-    grid-template-columns: repeat(1fr);
-    grid-template-rows: repeat(1fr);
-    grid-column-gap: 12px;
-    grid-row-gap: 12px;
-    justify-content: space-around;
-    align-content: space-evenly;
-    align-items: center;
-    justify-items: center;
-    overflow: hidden;
-    
+.CardDetail-galery {
+   display: grid;
+   grid-template-columns: repeat(1fr);
+   grid-template-rows: repeat(1fr);
+   grid-column-gap: 12px;
+   grid-row-gap: 12px;
+   justify-content: space-around;
+   align-content: space-evenly;
+   align-items: center;
+   justify-items: center;
+   overflow: hidden;
 }
-.CardDetail-galery-img{
-    width: 100%;
-    height:auto;
+.CardDetail-galery-img {
+   width: 100%;
+   height: auto;
 }
-.CardDetail-conteiner{
-
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding:15px;
-    width: 100%;
-    height:95vh;
-    border-radius:0px 40px  40px 0px;
+.CardDetail-conteiner {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+   padding: 15px;
+   width: 100%;
+   height: 95vh;
+   border-radius: 0px 40px 40px 0px;
+}
+.box_feature{
+   padding: 2em;
 }
