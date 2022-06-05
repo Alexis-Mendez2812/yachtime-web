@@ -32,6 +32,7 @@ export const Card = styled(Box)`
       background-position-y: 70%;
    }
 `;
+
 export const CardDetail = styled(Box)`
    display: flex;
    flex-direction: column;

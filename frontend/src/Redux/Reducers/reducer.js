@@ -22,6 +22,7 @@ const initialState = {
    userSession: {},
    users: [],
    copyUsers: [],
+   oneYate: [],
 };
 
 export default function rootReducer(state = initialState, { type, payload }) {
@@ -127,6 +128,13 @@ export default function rootReducer(state = initialState, { type, payload }) {
          return {
             ...state,
             allYates: filYear,
+         };
+      case 'GET_YATE_DETAIL':
+         const arr = [];
+         arr.push(payload);
+         return {
+            ...state,
+            oneYate: arr,
          };
       default:
          return state;
