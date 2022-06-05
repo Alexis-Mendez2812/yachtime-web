@@ -17,7 +17,7 @@ export const UserSidebar = () => {
 					<li>
 						<Link to="/userSite/data">
 							<i class="fa-solid fa-ellipsis-vertical"></i>
-							Dashboard
+							Profile
 						</Link>
 					</li>
 					<li>

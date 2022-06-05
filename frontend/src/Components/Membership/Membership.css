@@ -98,6 +98,9 @@
 } */
 
 /*Cards*/
+a{
+   text-decoration: none;
+}
 .container-card {
    padding: 2em;
    width: 100%;

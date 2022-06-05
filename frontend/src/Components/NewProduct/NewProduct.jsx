@@ -48,37 +48,61 @@ export default function NewProduct() {
 		setProduct({ ...product, [event.target.name]: event.target.value });
 		setController(
 			validate({ ...product, [event.target.name]: event.target.value })
-			);
-		};
-		const handleOnChangeBeam = function (event) {
-			if(event.target.name === "beamUno"){
-				setProduct({ ...product,beamUno: event.target.value, beam:  `${event.target.value}' ${product.beamDos}` });
-				console.log(product.beam)
-			}
-			if(event.target.name === "beamDos"){
-				setProduct({ ...product,beamDos: event.target.value, beam:  `${product.beamUno}' ${event.target.value}` });
-				console.log(product.beam)
-			}
+		);
 	};
-		const handleOnChangeLength = function (event) {
-			if(event.target.name === "lengthUno"){
-				setProduct({ ...product,lengthUno: event.target.value, length:  `${event.target.value}' ${product.lengthDos}` });
-				console.log(product.length)
-			}
-			if(event.target.name === "lengthDos"){
-				setProduct({ ...product,lengthDos: event.target.value, length:  `${product.lengthUno}' ${event.target.value}` });
-				console.log(product.length)
-			}
+	const handleOnChangeBeam = function (event) {
+		if (event.target.name === "beamUno") {
+			setProduct({
+				...product,
+				beamUno: event.target.value,
+				beam: `${event.target.value}' ${product.beamDos}`,
+			});
+			console.log(product.beam);
+		}
+		if (event.target.name === "beamDos") {
+			setProduct({
+				...product,
+				beamDos: event.target.value,
+				beam: `${product.beamUno}' ${event.target.value}`,
+			});
+			console.log(product.beam);
+		}
 	};
-		const handleOnChangeDraft = function (event) {
-			if(event.target.name === "draftUno"){
-				setProduct({ ...product,draftUno: event.target.value, draft:  `${event.target.value}' ${product.draftDos}` });
-				console.log(product.draft)
-			}
-			if(event.target.name === "draftDos"){
-				setProduct({ ...product,draftDos: event.target.value, draft:  `${product.draftUno}' ${event.target.value}` });
-				console.log(product.draft)
-			}
+	const handleOnChangeLength = function (event) {
+		if (event.target.name === "lengthUno") {
+			setProduct({
+				...product,
+				lengthUno: event.target.value,
+				length: `${event.target.value}' ${product.lengthDos}`,
+			});
+			console.log(product.length);
+		}
+		if (event.target.name === "lengthDos") {
+			setProduct({
+				...product,
+				lengthDos: event.target.value,
+				length: `${product.lengthUno}' ${event.target.value}`,
+			});
+			console.log(product.length);
+		}
+	};
+	const handleOnChangeDraft = function (event) {
+		if (event.target.name === "draftUno") {
+			setProduct({
+				...product,
+				draftUno: event.target.value,
+				draft: `${event.target.value}' ${product.draftDos}`,
+			});
+			console.log(product.draft);
+		}
+		if (event.target.name === "draftDos") {
+			setProduct({
+				...product,
+				draftDos: event.target.value,
+				draft: `${product.draftUno}' ${event.target.value}`,
+			});
+			console.log(product.draft);
+		}
 	};
 
 	const handleDeleteFile = (e) => {
@@ -109,7 +133,7 @@ export default function NewProduct() {
 						...product,
 						pictures: [...product.pictures, reader.result],
 					})
-					);
+				);
 			};
 		}
 	};
@@ -117,12 +141,14 @@ export default function NewProduct() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setCharging(true);
-      if(!product.make||
-         product.pictures.length===0||
-         !product.description){
-            setCharging(false);
-            return alert("complete todos los campos")
-         }
+		if (
+			!product.make ||
+			product.pictures.length === 0 ||
+			!product.description
+		) {
+			setCharging(false);
+			return alert("complete todos los campos");
+		}
 		setTimeout(() => {
 			postYateForm(product)
 				.then(() => {
@@ -152,12 +178,12 @@ export default function NewProduct() {
 	} else {
 		return (
 			<>
-				<Link to="/userSite/data">
+				<Link to="/userSite/myYacht">
 					<div>
 						<div className="change_btn ">Go back</div>
 					</div>
 				</Link>
-				<div className="Form-body">
+				<div className="Form-body animate__animated animate__fadeIn">
 					<form className="Form-form">
 						<div className="Form-div-title">
 							<h1 className="Form-title">Import your Ship!</h1>
@@ -488,24 +514,25 @@ export default function NewProduct() {
 									})}
 							</Box>
 						</Box>
-						
-                  {!controller.button && (		<Button
-							style={{ marginTop: "0.5vh" }}
-							color="success"
-							onClick={handleSubmit}
-							variant="contained"
-                     >
-							S U B M I T
-						</Button>
-							)}
-                  {controller.button && (		<Button
-							style={{ marginTop: "0.5vh" }}
-							color="error"
-							variant="contained"
-                     >
-							DISABLED
-						</Button>
-							)}
+						{!controller.button && (
+							<Button
+								style={{ marginTop: "0.5vh" }}
+								color="success"
+								onClick={handleSubmit}
+								variant="contained"
+							>
+								S U B M I T
+							</Button>
+						)}
+						{controller.button && (
+							<Button
+								style={{ marginTop: "0.5vh" }}
+								color="error"
+								variant="contained"
+							>
+								DISABLED
+							</Button>
+						)}
 					</form>
 				</div>
 			</>
@@ -515,12 +542,14 @@ export default function NewProduct() {
 
 export function validate(product) {
 	let controller = {};
-console.log(product)
+	console.log(product);
 	//DESCRIPTION
 	if (!product.make) {
-		controller.make = "The make is required";}
-	if (product.pictures.length===0) {
-		controller.pictures = "The picture is required";}
+		controller.make = "The make is required";
+	}
+	if (product.pictures.length === 0) {
+		controller.pictures = "The picture is required";
+	}
 	if (!product.description) {
 		controller.description = "The description is required";
 	} else if (product.description.length > 400) {
@@ -528,11 +557,7 @@ console.log(product)
 			"The description should not be more than 400 characters";
 	}
 
-	if (
-		controller.make ||
-		controller.description ||
-		!product.description
-	) {
+	if (controller.make || controller.description || !product.description) {
 		controller.button = "button";
 	}
 	return controller;
