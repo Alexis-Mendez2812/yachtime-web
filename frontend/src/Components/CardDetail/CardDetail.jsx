@@ -91,7 +91,7 @@ export default function GameDetail() {
 					</PictureShadow>
 				</Picture>
 				<Box
-					className="animate__animated animate__fadeIn animate__delay-1s"
+					className="box_feature animate__animated animate__fadeIn animate__delay-1s"
 					style={{ display: "flex" }}
 				>
 					<FeatureBox style={{ width: "50vw" }}>

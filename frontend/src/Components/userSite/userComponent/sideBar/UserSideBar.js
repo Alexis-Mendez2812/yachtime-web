@@ -26,7 +26,7 @@ export const UserSidebar = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/userSite/myYacht">
+						<Link to="/userSite/chats">
 							<i class="fa-solid fa-comments"></i>
 							Chats
 						</Link>

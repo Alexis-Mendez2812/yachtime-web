@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
-import background from "./img/banner_menber_01.jpg";
+import background from "./img/business_card.png";
 import "./Membership.css";
 import Footer from "../Footer/Footer";
 import { Box, Modal } from "@material-ui/core";
@@ -33,8 +33,13 @@ function Membership() {
 			<Navbar />
 
 			<div class="about">
-				<div className="aboutImg"></div>
+				<div className="aboutImg">
+					<span>a</span>
+				</div>
 				<div class="inner-section">
+					<div class="cardImg">
+						<img src={background} alt="img" />
+					</div>
 					<h1 className="how">How To Join</h1>
 					<p class="text">
 						Yachtimeapp welcomes all people who love being on the
