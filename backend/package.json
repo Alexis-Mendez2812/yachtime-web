@@ -10,10 +10,9 @@
    "author": "Henry",
    "license": "ISC",
    "engines": {
-      "node": "16.14.0",
+      "node": ">=16.14.0",
       "npm": ">=6.14.6"
    },
-   "homepage":"https://yachtimeapp.com/",
    "dependencies": {
       "axios": "^0.27.0",
       "body-parser": "^1.19.0",
@@ -22,7 +21,6 @@
       "cors": "^2.8.5",
       "dotenv": "^8.2.0",
       "express": "^4.17.1",
-      "ioredis": "^4.19.2",
       "jsonwebtoken": "^8.5.1",
       "morgan": "^1.10.0",
       "nodemon": "^2.0.16",
