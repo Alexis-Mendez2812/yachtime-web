@@ -49,14 +49,14 @@ const io = new Server(newServer, {
    },
 });
 
-// io.on('connection', (socket) => {
-//    socket.on('join_chat', (room) => {
-//       socket.join(room);
-//    });
+io.on('connection', (socket) => {
+   socket.on('join_chat', (room) => {
+      socket.join(room);
+   });
 
-//    socket.on('send_message', (data) => {
-//       socket.to(data.room).emit('receive_message', data.actualMessage);
-//    });
-// });
+   socket.on('send_message', (data) => {
+      socket.to(data.room).emit('receive_message', data.actualMessage);
+   });
+});
 
-module.exports = {newServer, io};
+module.exports = newServer;
