@@ -1,21 +1,22 @@
 const { Chat, Users } = require('../../db');
 
 const postMessage = async (req, res) => {
-   const { owner, to, message } = req.body;
+   const { owner, to, messages } = req.body;
    try {
-      if (!owner || !to || !message) {
-         return res.status(400).json({ status: 'sdfgsdfsdfa.' });
+      if (!owner || !to || !messages || messages.length === 0) {
+         return res.status(400).json({ status: 'No hay datos.' });
       } else {
-         const [newMessage] = await Chat.findOrCreate({
-            where: {
-               to: to,
-               message: message,
-            },
+         messages.forEach(async (m) => {
+            const [newMessage] = await Chat.findOrCreate({
+               where: {
+                  to: to,
+                  message: m,
+               },
+            });
+            const messageOwner = await Users.findOne({ where: { id: owner } });
+            await messageOwner.addChat(newMessage);
          });
 
-         const messageOwner = await Users.findOne({ where: { id: owner } });
-         console.log(messageOwner);
-         await messageOwner.addChat(newMessage);
          return res.json({ status: 'message guardado.' });
       }
    } catch (err) {

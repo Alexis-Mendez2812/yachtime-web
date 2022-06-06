@@ -41,12 +41,22 @@ app.use((err, req, res, next) => {
    res.status(status).send(message);
 });
 
-const server = http.createServer(app);
-const io = new Server(server, {
+const newServer = http.createServer(app);
+const io = new Server(newServer, {
    cors: {
       origin: 'http://localhost:3000',
       methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
    },
 });
 
-module.exports = { server, io };
+io.on('connection', (socket) => {
+   socket.on('join_chat', (room) => {
+      socket.join(room);
+   });
+
+   socket.on('send_message', (data) => {
+      socket.to(data.room).emit('receive_message', data.actualMessage);
+   });
+});
+
+module.exports = newServer;

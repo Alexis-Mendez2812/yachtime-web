@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Login from './Components/Login/Login.jsx';
 import Home from './Components/Home/Home.jsx';
 import Navbar from './Components/Navbar/Navbar';
@@ -28,6 +28,7 @@ function App() {
          <WppAvatar>
             <WhatsAppIcon sx={{ fontSize: 50 }} />
          </WppAvatar>
+
          <BrowserRouter>
             <Routes>
                <Route path='/paypal' element={<PayPal />} />

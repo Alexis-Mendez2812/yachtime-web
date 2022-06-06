@@ -8,67 +8,68 @@ const router = Router();
 // let comicsDb = await Comics.findAll({order: [['updatedAt', 'DESC']]});
 //USERS
 
-router.get("/cargafull", async (req, res) => {
-	try {
-		let yates = botes.forEach(async (e) => {
-			await Products.findOrCreate({
-				where: {
-					make: e.make,
-					model: e.model,
-					year: e.year,
-					cabins: e.cabins,
-					bathrooms: e.bathrooms,
-					guests: e.guests,
-					length: e.length,
-					beam: e.beam,
-					draft: e.draft,
-					fuelCapacity: e.fuelCapacity,
-					waterCapacity: e.waterCapacity,
-					cruiseVel: e.cruiseVel,
-					fuelType: e.fuelType ? e.fuelType : "gasoline",
-					description: e.description,
-					pictures: e.pictures,
-				},
-			});
-		});
-		yates = await Products.findAll();
+router.get('/cargafull', async (req, res) => {
+   try {
+      let yates = botes.forEach(async (e) => {
+         await Products.findOrCreate({
+            where: {
+               make: e.make,
+               model: e.model,
+               year: e.year,
+               cabins: e.cabins,
+               bathrooms: e.bathrooms,
+               guests: e.guests,
+               length: e.length,
+               beam: e.beam,
+               draft: e.draft,
+               fuelCapacity: e.fuelCapacity,
+               waterCapacity: e.waterCapacity,
+               cruiseVel: e.cruiseVel,
+               fuelType: e.fuelType ? e.fuelType : 'gasoline',
+               description: e.description,
+               pictures: e.pictures,
+            },
+         });
+      });
+      yates = await Products.findAll();
 
-		return res.status(201).json(yates);
-	} catch (error) {
-		console.log(
-			error,
-			"algo pasó con el post del cargafull chequea los campos"
-		);
-		return res.status(500).json(botes);
-	}
+      return res.status(201).json(yates);
+   } catch (error) {
+      console.log(
+         error,
+         'algo pasó con el post del cargafull chequea los campos'
+      );
+      return res.status(500).json(botes);
+   }
 });
-router.put("/profile", async (req, res) => {
-	const { email } = req.body;
 
-	try {
-		console.log(email);
-		const user = await Users.findOne({
-			where: {
-				email: email,
-			},
-		});
-		console.log(email);
-		console.log(user);
-		//const { email, firtsName, lastName, userName, picture, password } = req.body;
-		await user.update({
-			email: req.body.email,
-			firtsName: req.body.firtsName,
-			lastName: req.body.lastName,
-			userName: req.body.userName,
-			password: req.body.password,
-			picture: req.body.picture,
-		});
+router.put('/profile', async (req, res) => {
+   const { email } = req.body;
 
-		return res.status(201).json("Actualizacion exitosa");
-	} catch (error) {
-		console.log(error, "error en la ruta put /profile");
-	}
-});
+   try {
+      console.log(email);
+      const user = await Users.findOne({
+         where: {
+            email: email,
+         },
+      });
+      console.log(email);
+      console.log(user);
+      //const { email, firtsName, lastName, userName, picture, password } = req.body;
+      await user.update({
+         email: req.body.email,
+         firtsName: req.body.firtsName,
+         lastName: req.body.lastName,
+         userName: req.body.userName,
+         password: req.body.password,
+         picture: req.body.picture,
+      });
+
+      return res.status(201).json('Actualizacion exitosa');
+   } catch (error) {
+      console.log(error, 'error en la ruta put /profile');
+   }
+
 
 router.get("/json", async (req, res) => {
 	try {
