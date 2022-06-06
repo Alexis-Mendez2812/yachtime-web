@@ -1,67 +1,63 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { postYateForm } from "../../Redux/Actions/FormActions/formAction";
-import {
-	Box,
-	ImageListItem,
-	Button,
-	Snackbar,
-	CircularProgress,
-} from "@mui/material";
+import React, { useState } from "react";
+import axios from "axios";
+import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
+import { Box, ImageListItem, Button, CircularProgress } from "@mui/material";
 import "./NewProduct.css";
 import style from "../Uploading/Uploading.module.css";
-import MuiAlert, { AlertProps } from "@mui/material/Alert";
+import { useSelector } from "react-redux";
 
 export default function NewProduct({
-	make,
-	model,
-	year,
-	cabins,
-	bathrooms,
-	guest,
-	length,
-	lengthUno,
-	lengthDos,
-	beam,
-	beamUno,
-	beamDos,
-	draft,
-	draftUno,
-	draftDos,
-	fuelCapacity,
-	waterCapacity,
-	cruiseVel,
-	location,
-	fuelType,
-	description,
-	pictures,
+	editId,
+	editmake,
+	editmodel,
+	edityear,
+	editcabins,
+	editbathrooms,
+	editguest,
+	editlength,
+	editlengthUno,
+	editlengthDos,
+	editbeam,
+	editbeamUno,
+	editbeamDos,
+	editdraft,
+	editdraftUno,
+	editdraftDos,
+	editfuelCapacity,
+	editwaterCapacity,
+	editcruiseVel,
+	editlocation,
+	editfuelType,
+	editdescription,
+	editpictures,
 	isEdit,
 }) {
+	const { id: userId } = useSelector((state) => state.userSession);
 	const navigate = useNavigate();
 	const [product, setProduct] = useState({
-		make: "",
-		model: "40",
-		year: "1990",
-		cabins: "0",
-		bathrooms: "0",
-		guest: "0",
-		length: "",
-		lengthUno: "30",
-		lengthDos: "0",
-		beam: "",
-		beamUno: "10",
-		beamDos: "0",
-		draft: "",
-		draftUno: "3",
-		draftDos: "0",
-		fuelCapacity: "0",
-		waterCapacity: "0",
-		cruiseVel: "0",
-		location: "",
-		fuelType: "",
-		description: "",
-		pictures: [],
+		make: editmake || "",
+		model: editmodel || "40",
+		year: edityear || "1990",
+		cabins: editcabins || "0",
+		bathrooms: editbathrooms || "0",
+		guest: editguest || "0",
+		length: editlength || "",
+		lengthUno: editlengthUno || "30",
+		lengthDos: editlengthDos || "0",
+		beam: editbeam || "",
+		beamUno: editbeamUno || "10",
+		beamDos: editbeamDos || "0",
+		draft: editdraft || "",
+		draftUno: editdraftUno || "3",
+		draftDos: editdraftDos || "0",
+		fuelCapacity: editfuelCapacity || "0",
+		waterCapacity: editwaterCapacity || "0",
+		cruiseVel: editcruiseVel || "0",
+		location: editlocation || "",
+		fuelType: editfuelType || "",
+		description: editdescription || "",
+		pictures: editpictures || [],
 	});
 	const [controller, setController] = useState({});
 	const [charging, setCharging] = useState(false);
@@ -164,25 +160,45 @@ export default function NewProduct({
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		setCharging(true);
+
 		if (
 			!product.make ||
 			product.pictures.length === 0 ||
 			!product.description
 		) {
 			setCharging(false);
-			return alert("complete todos los campos");
+			swal("Error!", `Complete todos los campos `, "warning");
 		}
-		setTimeout(() => {
-			postYateForm(product)
-				.then(() => {
-					setCharging(false);
-					navigate("/");
-				})
-				.catch(() => {
-					setCharging(false);
-				});
-		}, 3000);
+
+		if (isEdit === undefined) {
+			console.log("create");
+			const user = {
+				headers: {
+					userId,
+				},
+			};
+			try {
+				await axios.post("/products", product, user);
+				swal("Exito!", `yacht creado correctamente`, "success");
+			} catch (error) {
+				console.log(error);
+				swal("Error!", `Error al subir yatch `, "warning");
+			}
+		} else {
+			console.log("edit");
+			const editId = {
+				headers: {
+					editId,
+				},
+			};
+			try {
+				await axios.put("/products", product, editId);
+				swal("Exito!", `yacht Modificado correctamente`, "success");
+			} catch (error) {
+				console.log(error);
+				swal("Error!", `Error al modificar yatch `, "warning");
+			}
+		}
 	};
 
 	if (charging) {
@@ -549,11 +565,11 @@ export default function NewProduct({
 						{!controller.button && (
 							<Button
 								style={{ marginTop: "0.5vh" }}
-								color="success"
+								color={isEdit ? "warning" : "success"}
 								onClick={handleSubmit}
 								variant="contained"
 							>
-								S U B M I T
+								{isEdit ? "E d i t" : "S U B M I T"}
 							</Button>
 						)}
 						{controller.button && (
