@@ -10,11 +10,24 @@ export const MyYacht = () => {
 	});
 	return (
 		<div>
-			{allYates ? (
-				<div className="card_yates_container">
-					{allYates?.map((yate) => (
-						<CardYate key={yate.id} yate={yate} />
-					))}
+			{allYates.length > 0 ? (
+				<div className="div-b">
+					<button
+						type="button"
+						class="btn btn-success"
+						data-bs-toggle="modal"
+						data-bs-target="#exampleModal2"
+					>
+						Create new Yacht
+					</button>
+					<div className="yacht-main">
+						<h2>My Active Yatch</h2>
+						<div className="card_yates_container">
+							{allYates?.map((yate) => (
+								<CardYate key={yate.id} yate={yate} />
+							))}
+						</div>
+					</div>
 				</div>
 			) : (
 				<div className="myYatchNoYacth">

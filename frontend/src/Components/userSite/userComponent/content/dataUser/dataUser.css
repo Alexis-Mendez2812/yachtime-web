@@ -63,7 +63,7 @@
     font-weight: bold;
     transition: all .3s ease;
 }
-.btnData:hover{
+.btn:hover{
     cursor: pointer;
     transform: scale(1.05);
 

@@ -8,13 +8,13 @@ export const ButtonEdit = ({ yate }) => {
 				type="button"
 				class="btn btn-primary"
 				data-bs-toggle="modal"
-				data-bs-target="#exampleModal"
+				data-bs-target={`#${yate.id}`}
 			>
 				Editar
 			</button>
 			<div
 				class="modal modal-xl fade"
-				id="exampleModal"
+				id={yate.id}
 				tabindex="-1"
 				aria-labelledby="exampleModalLabel"
 				aria-hidden="true"
@@ -23,7 +23,7 @@ export const ButtonEdit = ({ yate }) => {
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">
-								Modal title
+								Edit Yacht
 							</h5>
 							<button
 								type="button"
@@ -34,28 +34,29 @@ export const ButtonEdit = ({ yate }) => {
 						</div>
 						<div class="modal-body">
 							<NewProduct
-								make={yate.make}
-								model={yate.model}
-								year={yate.year}
-								cabins={yate.cabins}
-								bathrooms={yate.bathrooms}
-								guest={yate.guest}
-								length={yate.length}
-								lengthUno={yate.lengthUno}
-								lengthDos={yate.lengthDos}
-								beam={yate.beam}
-								beamUno={yate.beamUno}
-								beamDos={yate.beamDos}
-								draft={yate.draft}
-								draftUno={yate.draftUno}
-								draftDos={yate.draftDos}
-								fuelCapacity={yate.fuelCapacity}
-								waterCapacity={yate.waterCapacity}
-								cruiseVel={yate.cruiseVel}
-								location={yate.location}
-								fuelType={yate.fuelType}
-								description={yate.description}
-								pictures={yate.pictures}
+								editId={yate.id}
+								editmake={yate.make}
+								editmodel={yate.model}
+								edityear={yate.year}
+								editcabins={yate.cabins}
+								editbathrooms={yate.bathrooms}
+								editguest={yate.guest}
+								editlength={yate.length}
+								editlengthUno={yate.lengthUno}
+								editlengthDos={yate.lengthDos}
+								editbeam={yate.beam}
+								editbeamUno={yate.beamUno}
+								editbeamDos={yate.beamDos}
+								editdraft={yate.draft}
+								editdraftUno={yate.draftUno}
+								editdraftDos={yate.draftDos}
+								editfuelCapacity={yate.fuelCapacity}
+								editwaterCapacity={yate.waterCapacity}
+								editcruiseVel={yate.cruiseVel}
+								editlocation={yate.location}
+								editfuelType={yate.fuelType}
+								editdescription={yate.description}
+								editpictures={yate.pictures}
 								isEdit={true}
 							/>
 						</div>
