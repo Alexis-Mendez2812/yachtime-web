@@ -1,8 +1,8 @@
-const { Router } = require("express");
-const axios = require("axios");
+const { Router } = require('express');
+const axios = require('axios');
 const { Users, Products } = require(`../db`);
 // const main = require("../controllers/mailer");
-const { botes } = require("../yates.json");
+const { botes } = require('../yates.json');
 const router = Router();
 
 // let comicsDb = await Comics.findAll({order: [['updatedAt', 'DESC']]});
@@ -69,213 +69,212 @@ router.put('/profile', async (req, res) => {
    } catch (error) {
       console.log(error, 'error en la ruta put /profile');
    }
-
-
-router.get("/json", async (req, res) => {
-	try {
-		return res.status(200).json(botes);
-	} catch (error) {
-		console.log(error);
-	}
+});
+router.get('/json', async (req, res) => {
+   try {
+      return res.status(200).json(botes);
+   } catch (error) {
+      console.log(error);
+   }
 });
 
-router.post("/favorites", async (req, res) => {
-	const { email, idProducts } = req.body;
+router.post('/favorites', async (req, res) => {
+   const { email, idProducts } = req.body;
 
-	try {
-		console.log(email);
-		const user = await Users.findOne({
-			include: Products,
-			where: {
-				email: email,
-			},
-		});
-		console.log("soy idProducts", idProducts);
-		user.setComics(idProducts);
+   try {
+      console.log(email);
+      const user = await Users.findOne({
+         include: Products,
+         where: {
+            email: email,
+         },
+      });
+      console.log('soy idProducts', idProducts);
+      user.setComics(idProducts);
 
-		return res.status(200).send(user.Products);
-	} catch (error) {
-		console.log(error, "error en la ruta post/favorites");
-	}
+      return res.status(200).send(user.Products);
+   } catch (error) {
+      console.log(error, 'error en la ruta post/favorites');
+   }
 });
 
-router.get("/favorites", async (req, res) => {
-	const { email } = req.params;
+router.get('/favorites', async (req, res) => {
+   const { email } = req.params;
 
-	try {
-		console.log(email);
-		const favorites = await Users.findOne({
-			include: Products,
-			where: {
-				email: email,
-			},
-		});
-		console.log(favorites);
-		return res.status(200).send(favorites.Products);
-	} catch (error) {
-		console.log(error, "error en la ruta get/favorites");
-	}
+   try {
+      console.log(email);
+      const favorites = await Users.findOne({
+         include: Products,
+         where: {
+            email: email,
+         },
+      });
+      console.log(favorites);
+      return res.status(200).send(favorites.Products);
+   } catch (error) {
+      console.log(error, 'error en la ruta get/favorites');
+   }
 });
 
 //ADMIN
 
-router.get("/all", async (req, res) => {
-	try {
-		const products = await Products.findAll();
-		return res.status(200).json(products);
-	} catch (error) {
-		console.log(error);
-	}
+router.get('/all', async (req, res) => {
+   try {
+      const products = await Products.findAll();
+      return res.status(200).json(products);
+   } catch (error) {
+      console.log(error);
+   }
 });
 
-router.get("/detail/:id", async (req, res) => {
-	try {
-		const { id } = req.params;
-		const products = await Products.findOne({
-			where: { id },
-		});
-		return res.status(200).json(products);
-	} catch (error) {
-		console.log(error);
-	}
+router.get('/detail/:id', async (req, res) => {
+   try {
+      const { id } = req.params;
+      const products = await Products.findOne({
+         where: { id },
+      });
+      return res.status(200).json(products);
+   } catch (error) {
+      console.log(error);
+   }
 });
 
-router.get("/:email", async (req, res) => {
-	const { email } = req.params;
+router.get('/:email', async (req, res) => {
+   const { email } = req.params;
 
-	try {
-		console.log(email);
-		const user = await Users.findOne({
-			where: {
-				email: email,
-			},
-		});
-		return res.status(201).json(user);
-	} catch (error) {
-		console.log(error);
-	}
+   try {
+      console.log(email);
+      const user = await Users.findOne({
+         where: {
+            email: email,
+         },
+      });
+      return res.status(201).json(user);
+   } catch (error) {
+      console.log(error);
+   }
 });
 
 //------->
 
-router.post("/", async (req, res) => {
-	const { userId } = req.user;
-	const {
-		make,
-		model,
-		year,
-		cabins,
-		bathrooms,
-		guest,
-		length,
-		lengthUno,
-		lengthDos,
-		beam,
-		beamUno,
-		beamDos,
-		draft,
-		draftUno,
-		draftDos,
-		fuelCapacity,
-		waterCapacity,
-		cruiseVel,
-		location,
-		fuelType,
-		description,
-		pictures,
-	} = req.body;
-	try {
-		let resp = await Products.create({
-			make,
-			model,
-			year,
-			cabins,
-			bathrooms,
-			guest,
-			length,
-			lengthUno,
-			lengthDos,
-			beam,
-			beamUno,
-			beamDos,
-			draft,
-			draftUno,
-			draftDos,
-			fuelCapacity,
-			waterCapacity,
-			cruiseVel,
-			location,
-			fuelType,
-			description,
-			pictures,
-			userId,
-		});
-		return res.status(200).send(resp);
-	} catch (error) {
-		console.log(error);
-	}
+router.post('/', async (req, res) => {
+   const { userId } = req.user;
+   const {
+      make,
+      model,
+      year,
+      cabins,
+      bathrooms,
+      guest,
+      length,
+      lengthUno,
+      lengthDos,
+      beam,
+      beamUno,
+      beamDos,
+      draft,
+      draftUno,
+      draftDos,
+      fuelCapacity,
+      waterCapacity,
+      cruiseVel,
+      location,
+      fuelType,
+      description,
+      pictures,
+   } = req.body;
+   try {
+      let resp = await Products.create({
+         make,
+         model,
+         year,
+         cabins,
+         bathrooms,
+         guest,
+         length,
+         lengthUno,
+         lengthDos,
+         beam,
+         beamUno,
+         beamDos,
+         draft,
+         draftUno,
+         draftDos,
+         fuelCapacity,
+         waterCapacity,
+         cruiseVel,
+         location,
+         fuelType,
+         description,
+         pictures,
+         userId,
+      });
+      return res.status(200).send(resp);
+   } catch (error) {
+      console.log(error);
+   }
 });
 
-router.put("/", async (req, res) => {
-	const { editId } = req.editId;
-	const {
-		make,
-		model,
-		year,
-		cabins,
-		bathrooms,
-		guest,
-		length,
-		lengthUno,
-		lengthDos,
-		beam,
-		beamUno,
-		beamDos,
-		draft,
-		draftUno,
-		draftDos,
-		fuelCapacity,
-		waterCapacity,
-		cruiseVel,
-		location,
-		fuelType,
-		description,
-		pictures,
-	} = req.body;
-	try {
-		let resp = await Products.update(
-			{
-				make,
-				model,
-				year,
-				cabins,
-				bathrooms,
-				guest,
-				length,
-				lengthUno,
-				lengthDos,
-				beam,
-				beamUno,
-				beamDos,
-				draft,
-				draftUno,
-				draftDos,
-				fuelCapacity,
-				waterCapacity,
-				cruiseVel,
-				location,
-				fuelType,
-				description,
-				pictures,
-			},
-			{
-				where: { id: editId },
-			}
-		);
-		return res.status(200).send(resp);
-	} catch (error) {
-		console.log(error);
-	}
+router.put('/', async (req, res) => {
+   const { editId } = req.editId;
+   const {
+      make,
+      model,
+      year,
+      cabins,
+      bathrooms,
+      guest,
+      length,
+      lengthUno,
+      lengthDos,
+      beam,
+      beamUno,
+      beamDos,
+      draft,
+      draftUno,
+      draftDos,
+      fuelCapacity,
+      waterCapacity,
+      cruiseVel,
+      location,
+      fuelType,
+      description,
+      pictures,
+   } = req.body;
+   try {
+      let resp = await Products.update(
+         {
+            make,
+            model,
+            year,
+            cabins,
+            bathrooms,
+            guest,
+            length,
+            lengthUno,
+            lengthDos,
+            beam,
+            beamUno,
+            beamDos,
+            draft,
+            draftUno,
+            draftDos,
+            fuelCapacity,
+            waterCapacity,
+            cruiseVel,
+            location,
+            fuelType,
+            description,
+            pictures,
+         },
+         {
+            where: { id: editId },
+         }
+      );
+      return res.status(200).send(resp);
+   } catch (error) {
+      console.log(error);
+   }
 });
 
 module.exports = router;
