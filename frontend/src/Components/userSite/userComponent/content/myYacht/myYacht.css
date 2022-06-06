@@ -17,3 +17,14 @@
     align-items: center;
     color: white;
 }
+.yacht-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em;
+    color: white;
+}
+.div-b{
+    padding: 1em;
+}

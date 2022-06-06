@@ -12,10 +12,6 @@ import NewProduct from "../../../../../NewProduct/NewProduct";
 import { ButtonEdit } from "../buttonEdit/ButtonEdit";
 
 export const CardYate = ({ yate }) => {
-	console.log(yate);
-	const [open, setOpen] = React.useState(false);
-	const handleOpen = () => setOpen(true);
-	const handleClose = () => setOpen(false);
 	return (
 		<>
 			{yate ? (
