@@ -23,7 +23,7 @@ import {
    ChatBox,
 } from './styledComponents';
 import io from 'socket.io-client';
-const socket = io.connect('https://yachtimeapp.herokuapp.com');
+const socket = io.connect('https://yachtimeapp.herokuapp.com/');
 
 export const ChatDetail = () => {
    const dispatch = useDispatch();
