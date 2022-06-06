@@ -13,6 +13,7 @@
     font-size: 20px;
     width: 100%;
     padding: 1em;
+    background-color: #17181c;
 
 }
 .width100{
@@ -48,7 +49,7 @@
   }
   .Form-label {
     color: #eee;
-    width: 27%;
+    width: 100%;
     font-family: sans-serif;
     font-size: 16px;
     font-weight: 600;
@@ -279,3 +280,4 @@
     width: 100% ;
     display: flex;
 }
+
