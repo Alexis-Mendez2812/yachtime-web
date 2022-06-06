@@ -117,7 +117,6 @@ export default function GameDetail() {
 				</Box>
 				<Box
 					style={{
-						backgroundColor: "red",
 						width: "100vw",
 						height: "70vh",
 					}}
