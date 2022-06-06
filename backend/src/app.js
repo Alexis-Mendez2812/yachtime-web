@@ -46,7 +46,8 @@ const io = new Server(newServer, {
    cors: {
       origin: 'https://yachtimeapp-15428.web.app/',
       methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
-   },);
+   },
+});
 
 io.on('connection', (socket) => {
    socket.on('join_chat', (room) => {
