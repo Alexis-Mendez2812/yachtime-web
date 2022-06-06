@@ -7,3 +7,24 @@
     padding: 2em;
     gap: 1em;
 }
+
+.myYatchNoYacth{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.yacht-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em;
+    color: white;
+}
+.div-b{
+    padding: 1em;
+}

@@ -73,6 +73,9 @@ body {
   border-bottom: 1px solid grey;
   transition: all .5s ease;
 }
+#sidebar .nav li {
+  width: 100%;
+}
 
 #sidebar .nav a:hover{
   background: none;
