@@ -178,6 +178,7 @@ export default function GameDetail() {
                         {yateSelected.model}' {yateSelected.make}
                      </DataGraphy>
 
+
                      {userSession.role === 'ROLE_PRIME' ? (
                         <MessageButton onClick={handleOpenDrawer}>
                            Contact The Owner

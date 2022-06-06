@@ -1,8 +1,8 @@
 .uploadingContainer {
    display: flex;
    flex-direction: column;
-   height: 14rem;
-   background-color: #191e29;
+   height: 100%;
+   width: 100%;
 }
 
 .imgContainer {
@@ -14,8 +14,10 @@
 }
 
 .deleteButton {
-   background-color: black;
+   background-color: red;
    color: white;
+   border :none;
+   padding: 5px;
    font-size: 2vh;
 }
 
