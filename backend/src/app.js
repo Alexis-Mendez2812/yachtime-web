@@ -42,7 +42,11 @@ app.use((err, req, res, next) => {
 });
 
 const newServer = http.createServer(app);
-const io = new Server(newServer);
+const io = new Server(newServer, {
+   cors: {
+      origin: 'http://yachtime-web.vercel.app',
+      methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+   },);
 
 io.on('connection', (socket) => {
    socket.on('join_chat', (room) => {
