@@ -11,6 +11,10 @@ import {
    Input,
    Title,
    UserNameGraphy,
+   MessageGraphy,
+   MetaDataChatBox,
+   MessageOwnerBox,
+   LocadingBox,
    MessageBox,
    LastMessGraphy,
    EachChatBox,
@@ -18,6 +22,8 @@ import {
    ChatContainer,
    ChatBox,
 } from './styledComponents';
+import io from 'socket.io-client';
+const socket = io.connect('http://localhost:3001');
 
 export const ChatDetail = () => {
    const dispatch = useDispatch();
@@ -27,15 +33,16 @@ export const ChatDetail = () => {
    const [adminId, setAdminId] = useState('');
    const [allMyChats, setAllMyChats] = useState([]);
    const [charging, setCharging] = useState(true);
+   const [actualMessage, setActualMessage] = useState('');
+   const [myMessages, setMyMessages] = useState([]);
+   const [room, setRoom] = useState('');
 
    useEffect(() => {
       dispatch(getAllUsers());
    }, []);
-
    useEffect(() => {
       setAdminId(userSession.id);
    }, [userSession.id]);
-
    useEffect(() => {
       if (adminId && users.length) {
          let prueba = {};
@@ -61,15 +68,37 @@ export const ChatDetail = () => {
                      mess: prueba[prop],
                   });
                }
-               console.log('ACA: ', eachChat);
+
                setAllMyChats(eachChat);
             })
             .catch((err) => console.log(err));
       }
    }, [adminId, users]);
+   useEffect(() => {
+      socket.on('receive_message', (data) => {
+         setMyMessages([...myMessages, data]);
+      });
+   });
+   useEffect(() => {
+      if (room.length > 0) {
+         socket.emit('join_chat', room);
+      }
+   }, [room]);
 
-   const handleOpenChat = (e) => {
-      setCharging(!charging);
+   const handleOpenChat = (m) => {
+      setRoom(`${userSession.userName}${m.name}`);
+      setMyMessages(m.mess);
+      if (charging) {
+         setCharging(false);
+      }
+   };
+   const handleInputMessage = (e) => {
+      setActualMessage(e.target.value);
+   };
+   const handleSendMessage = () => {
+      setMyMessages([...myMessages, actualMessage]);
+      socket.emit('send_message', { actualMessage, room });
+      setActualMessage('');
    };
 
    return (
@@ -79,41 +108,42 @@ export const ChatDetail = () => {
             {allMyChats.length > 0 &&
                allMyChats.map((m) => {
                   return (
-                     <EachChatBox key={m.name} onClick={handleOpenChat}>
+                     <EachChatBox
+                        key={m.name}
+                        onClick={() => handleOpenChat(m)}
+                     >
                         <MessageIcon color='primary' fontSize='large' />
-                        <Box
-                           style={{
-                              marginLeft: '0.4rem',
-                              width: '90%',
-                              height: '100%',
-                              overflow: 'hidden',
-                           }}
-                        >
+                        <MetaDataChatBox>
                            <UserNameGraphy>{m.name}</UserNameGraphy>
                            <LastMessGraphy>{m.mess[0]}</LastMessGraphy>
-                        </Box>
+                        </MetaDataChatBox>
                      </EachChatBox>
                   );
                })}
          </HistoryBox>
          <ChatContainer>
             {charging ? (
-               <Box
-                  style={{
-                     backgroundColor: 'black',
-                     display: 'flex',
-                     justifyContent: 'center',
-                     alignItems: 'center',
-                  }}
-               >
+               <LocadingBox>
                   <Loading />
-               </Box>
+               </LocadingBox>
             ) : (
                <Box>
-                  <ChatBox></ChatBox>
+                  <ChatBox>
+                     {myMessages.length > 0 &&
+                        myMessages.map((m, i) => {
+                           return (
+                              <MessageOwnerBox key={i}>
+                                 <MessageGraphy>{m}</MessageGraphy>
+                              </MessageOwnerBox>
+                           );
+                        })}
+                  </ChatBox>
                   <MessageBox>
-                     <Input></Input>
-                     <SendButton>Send</SendButton>
+                     <Input
+                        value={actualMessage}
+                        onChange={handleInputMessage}
+                     ></Input>
+                     <SendButton onClick={handleSendMessage}>Send</SendButton>
                   </MessageBox>
                </Box>
             )}
