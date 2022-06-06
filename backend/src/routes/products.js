@@ -69,7 +69,7 @@ router.put('/profile', async (req, res) => {
    } catch (error) {
       console.log(error, 'error en la ruta put /profile');
    }
-
+});
 
 router.get("/json", async (req, res) => {
 	try {

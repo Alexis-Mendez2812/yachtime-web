@@ -10,7 +10,7 @@ const { botes } = require('../../yates.json');
 
 const uploadImage = async (req, res) => {
    try {
-      const { owner } = req.body;
+      const { owner ,botes} = req.body;
       botes.forEach(async (e) => {
          const [save] = await Products.findOrCreate({
             where: {
@@ -32,8 +32,10 @@ const uploadImage = async (req, res) => {
             },
          });
 
-         const user = await Users.findOne({ where: { id: owner } });
-         await user.addProducts(save);
+
+   const user = await Users.findOne({ where: { id: owner } });
+   await user.addProducts(save);
+
       });
       //    const {
       //       make,

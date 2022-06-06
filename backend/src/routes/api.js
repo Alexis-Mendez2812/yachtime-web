@@ -17,7 +17,7 @@ router.get("/images", async (req, res) => {
 	res.send(publicIds);
 });
 
-router.post("/asfdf", async (req, res) => {
+router.post("/upload", async (req, res) => {
 	try {
 		console.log(req.body);
 		const fileStr = req.body.data;
