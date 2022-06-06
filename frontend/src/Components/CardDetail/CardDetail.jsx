@@ -34,7 +34,7 @@ import {
 import { Box, TextField } from '@mui/material';
 import { getIdYate, vaciar } from '../../Redux/Actions/actions';
 import io from 'socket.io-client';
-const socket = io.connect('http://localhost:3001');
+const socket = io.connect('https://yachtimeapp.herokuapp.com');
 
 export default function GameDetail() {
    const { id } = useParams();
