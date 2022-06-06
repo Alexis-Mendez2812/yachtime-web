@@ -121,3 +121,62 @@ export const CarPic = styled(Box)`
 	background-size: cover;
 	background-position-y: 50%;
 `;
+
+export const ChatBox = styled(Box)`
+   width: 30vw;
+   height: 100vh;
+   background-color: black;
+`;
+
+export const TextChatBox = styled(Box)`
+   width: 100%;
+   height: 94%;
+   padding: 1.2rem;
+   overflow-y: auto;
+
+   &::-webkit-scrollbar {
+      width: 0.5rem;
+      background-color: white;
+   }
+   &::-webkit-scrollbar-thumb {
+      background-color: rgb(39, 37, 37);
+      border-radius: 0vh;
+   }
+`;
+
+export const InputChatBox = styled(Box)`
+   width: 100%;
+   height: 6%;
+   background-color: grey;
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+`;
+
+export const SendButton = styled('button')`
+   width: 18%;
+   height: 80%;
+   border: 0vh;
+   background-color: white;
+   border-radius: 1rem;
+   color: #4d4a4a;
+   cursor: pointer;
+   font-weight: 500;
+`;
+
+export const MessageOwnerBox = styled(Box)`
+   background-color: grey;
+   margin: 0.2rem;
+   word-wrap: break-word;
+   padding: 0.2rem;
+   border-radius: 0.2rem;
+   margin-left: -0.4rem;
+`;
+
+export const MessageGraphy = styled(Typography)`
+   font-size: 0.8rem;
+   color: white;
+   cursor: default;
+   font-weight: 400;
+   letter-spacing: 0.05rem;
+`;

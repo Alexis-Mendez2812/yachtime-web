@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const { Users, Payments, Chat } = require(`../db`);
+const { Users, Payments, Products } = require(`../db`);
 // const main = require("../controllers/mailer");
 
 const router = Router();
@@ -88,7 +88,13 @@ router.put('/profile', async (req, res) => {
 
 router.get('/all', async (req, res) => {
    try {
-      const users = await Users.findAll();
+      const users = await Users.findAll({
+         include: {
+            model: Products,
+            attributes: ['id'],
+            through: { yatesOwned: [] },
+         },
+      });
 
       return res.status(200).json(users);
    } catch (error) {
