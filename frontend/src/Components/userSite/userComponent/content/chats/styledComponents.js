@@ -25,6 +25,7 @@ export const ChatBox = styled(Box)`
    width: 51.7vw;
    background-color: black;
    height: 93vh;
+   padding: 1rem;
 `;
 
 export const MessageBox = styled(Box)`
@@ -49,6 +50,7 @@ export const SendButton = styled('button')`
    width: 11%;
    border-radius: 0.5rem;
    height: 50%;
+   cursor: pointer;
    border: 0vh;
 `;
 
@@ -80,6 +82,34 @@ export const UserNameGraphy = styled(Typography)`
 
 export const LastMessGraphy = styled(Typography)`
    font-size: 1rem;
-   color: white;
+   color: #45a7d5;
    font-weight: 300;
+`;
+
+export const MetaDataChatBox = styled(Box)`
+   width: 90%;
+   height: 100%;
+   margin-left: 0.4rem;
+   overflow: hidden;
+`;
+
+export const LocadingBox = styled(Box)`
+   background-color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+`;
+
+export const MessageOwnerBox = styled(Box)`
+   background-color: grey;
+   margin: 0.2rem;
+   word-wrap: break-word;
+   padding: 0.2rem;
+   border-radius: 0.2rem;
+   margin-left: -0.4rem;
+`;
+
+export const MessageGraphy = styled(Typography)`
+   color: white;
+   font-weight: 400;
 `;

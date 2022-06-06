@@ -34,7 +34,6 @@ import {
 import { Box, TextField } from '@mui/material';
 import { getIdYate, vaciar } from '../../Redux/Actions/actions';
 import io from 'socket.io-client';
-import { FortTwoTone } from '@mui/icons-material';
 const socket = io.connect('http://localhost:3001');
 
 export default function GameDetail() {
