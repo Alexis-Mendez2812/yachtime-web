@@ -70,7 +70,6 @@ router.put('/profile', async (req, res) => {
       console.log(error, 'error en la ruta put /profile');
    }
 });
-
 router.get('/json', async (req, res) => {
    try {
       return res.status(200).json(botes);
@@ -151,6 +150,128 @@ router.get('/:email', async (req, res) => {
          },
       });
       return res.status(201).json(user);
+   } catch (error) {
+      console.log(error);
+   }
+});
+
+//------->
+
+router.post('/', async (req, res) => {
+   const { userId } = req.user;
+   const {
+      make,
+      model,
+      year,
+      cabins,
+      bathrooms,
+      guest,
+      length,
+      lengthUno,
+      lengthDos,
+      beam,
+      beamUno,
+      beamDos,
+      draft,
+      draftUno,
+      draftDos,
+      fuelCapacity,
+      waterCapacity,
+      cruiseVel,
+      location,
+      fuelType,
+      description,
+      pictures,
+   } = req.body;
+   try {
+      let resp = await Products.create({
+         make,
+         model,
+         year,
+         cabins,
+         bathrooms,
+         guest,
+         length,
+         lengthUno,
+         lengthDos,
+         beam,
+         beamUno,
+         beamDos,
+         draft,
+         draftUno,
+         draftDos,
+         fuelCapacity,
+         waterCapacity,
+         cruiseVel,
+         location,
+         fuelType,
+         description,
+         pictures,
+         userId,
+      });
+      return res.status(200).send(resp);
+   } catch (error) {
+      console.log(error);
+   }
+});
+
+router.put('/', async (req, res) => {
+   const { editId } = req.editId;
+   const {
+      make,
+      model,
+      year,
+      cabins,
+      bathrooms,
+      guest,
+      length,
+      lengthUno,
+      lengthDos,
+      beam,
+      beamUno,
+      beamDos,
+      draft,
+      draftUno,
+      draftDos,
+      fuelCapacity,
+      waterCapacity,
+      cruiseVel,
+      location,
+      fuelType,
+      description,
+      pictures,
+   } = req.body;
+   try {
+      let resp = await Products.update(
+         {
+            make,
+            model,
+            year,
+            cabins,
+            bathrooms,
+            guest,
+            length,
+            lengthUno,
+            lengthDos,
+            beam,
+            beamUno,
+            beamDos,
+            draft,
+            draftUno,
+            draftDos,
+            fuelCapacity,
+            waterCapacity,
+            cruiseVel,
+            location,
+            fuelType,
+            description,
+            pictures,
+         },
+         {
+            where: { id: editId },
+         }
+      );
+      return res.status(200).send(resp);
    } catch (error) {
       console.log(error);
    }

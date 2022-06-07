@@ -523,7 +523,6 @@ export default function NewProduct() {
 
 export function validate(product) {
    let controller = {};
-   console.log(product);
    //DESCRIPTION
    if (!product.make) {
       controller.make = 'The make is required';
