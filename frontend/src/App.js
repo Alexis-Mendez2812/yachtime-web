@@ -1,9 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Components/Login/Login.jsx';
 import Home from './Components/Home/Home.jsx';
 import Navbar from './Components/Navbar/Navbar';
-import { Box } from '@mui/material';
 import { WppAvatar } from './Components/Home/styledComponents';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { LoginForm } from './Components/Login/LoginForm.jsx';
@@ -25,9 +24,11 @@ import { UserSite } from './Components/userSite/UserSite.js';
 function App() {
    return (
       <div className='App'>
-         <WppAvatar>
-            <WhatsAppIcon sx={{ fontSize: 50 }} />
-         </WppAvatar>
+         <a href='https://wa.link/tgghvx' target='_blank' rel='noreferrer'>
+            <WppAvatar>
+               <WhatsAppIcon sx={{ fontSize: 50 }} />
+            </WppAvatar>
+         </a>
 
          <BrowserRouter>
             <Routes>

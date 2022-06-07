@@ -49,7 +49,7 @@ export default function CardHomeYate() {
 
    return (
       <Box>
-         <Box style={{ display: 'flex', justifyContent: 'flex-end' }}>
+         <Box style={{ width: '100%' }}>
             <Filtros
                setCurrentPage={setCurrentPage}
                setCharging={setCharging}

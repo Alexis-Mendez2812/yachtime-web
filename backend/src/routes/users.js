@@ -18,7 +18,6 @@ router.post('/', async (req, res) => {
          });
 
          if (usuario && Object.keys(usuario).length) {
-            console.log('usuario existente');
             return res.status(200).json(usuario);
          } else {
             const [user, created] = await Users.findOrCreate({
@@ -106,7 +105,6 @@ router.get('/login/:email', async (req, res) => {
    const { email } = req.params;
 
    try {
-      console.log(email);
       const user = await Users.findOne({
          where: {
             email: email,
@@ -122,14 +120,12 @@ router.post('/favorites', async (req, res) => {
    const { email, idProducts } = req.body;
 
    try {
-      console.log(email);
       const user = await Users.findOne({
          include: Products,
          where: {
             email: email,
          },
       });
-      console.log('soy idProducts', idProducts);
       user.setComics(idProducts);
 
       return res.status(200).send(user.Products);
@@ -142,14 +138,12 @@ router.get('/favorites', async (req, res) => {
    const { email } = req.params;
 
    try {
-      console.log(email);
       const favorites = await Users.findOne({
          include: Products,
          where: {
             email: email,
          },
       });
-      console.log(favorites);
       return res.status(200).send(favorites.Products);
    } catch (error) {
       console.log(error, 'error en la ruta get/favorites');
@@ -175,7 +169,6 @@ router.post('/payment', async (req, res) => {
          },
       });
       user.update({ role: 'ROLE_PRIME' });
-      console.log('se hizo el pago');
 
       return res.status(200).json({ user, pago });
    } catch (err) {
@@ -189,14 +182,11 @@ router.post('/authorize', async (req, res) => {
    const { email } = req.body;
 
    try {
-      console.log(email);
       const user = await Users.findOne({
          where: {
             email: email,
          },
       });
-      console.log(email);
-      console.log(user);
       //const { email, firtsName, lastName, userName, picture, password } = req.body;
       await user.update({
          role: 'ROLE_ADMIN',
