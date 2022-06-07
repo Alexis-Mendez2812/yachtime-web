@@ -34,7 +34,7 @@ import {
 import { Box, TextField } from '@mui/material';
 import { getIdYate, vaciar } from '../../Redux/Actions/actions';
 import io from 'socket.io-client';
-const socket = io.connect('http://localhost:3001');
+const socket = io.connect();
 
 export default function GameDetail() {
    const { id } = useParams();
@@ -177,6 +177,7 @@ export default function GameDetail() {
                      <DataGraphy>
                         {yateSelected.model}' {yateSelected.make}
                      </DataGraphy>
+
 
                      {userSession.role === 'ROLE_PRIME' ? (
                         <MessageButton onClick={handleOpenDrawer}>

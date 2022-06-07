@@ -13,11 +13,13 @@ import './NewProduct.css';
 import style from '../Uploading/Uploading.module.css';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
+
 export default function NewProduct() {
    const navigate = useNavigate();
    const user = useSelector((state) => {
       return state.userSession;
    });
+
 
    const [product, setProduct] = useState({
       make: '',
@@ -167,6 +169,7 @@ export default function NewProduct() {
             });
       }, 3000);
    };
+
 
    if (charging) {
       return (
@@ -515,6 +518,7 @@ export default function NewProduct() {
          </>
       );
    }
+
 }
 
 export function validate(product) {

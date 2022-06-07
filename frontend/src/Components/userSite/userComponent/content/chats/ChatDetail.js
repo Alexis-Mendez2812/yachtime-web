@@ -5,7 +5,7 @@ import { getAllUsers } from '../../../../../Redux/Actions/actions';
 import MessageIcon from '@mui/icons-material/Message';
 import Loading from '../../../../Loading/Loading';
 import { Box } from '@mui/material';
-import {
+import { 
    Container,
    HistoryBox,
    Input,
@@ -23,7 +23,7 @@ import {
    ChatBox,
 } from './styledComponents';
 import io from 'socket.io-client';
-const socket = io.connect('http://localhost:3001');
+const socket = io.connect();
 
 export const ChatDetail = () => {
    const dispatch = useDispatch();
