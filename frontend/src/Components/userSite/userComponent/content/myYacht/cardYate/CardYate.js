@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "@mui/material/Card";
+import { useDispatch } from "react-redux";
 import {
 	Button,
 	CardActions,
@@ -10,8 +11,19 @@ import {
 import "./cardYate.css";
 import NewProduct from "../../../../../NewProduct/NewProduct";
 import { ButtonEdit } from "../buttonEdit/ButtonEdit";
+import {
+	deleteYacht,
+	getAllProducts,
+} from "../../../../../../Redux/Actions/ProductActions/getAllProducts";
 
 export const CardYate = ({ yate }) => {
+	const dispatch = useDispatch();
+	const handleDeleteYacht = () => {
+		console.log(yate.id);
+		dispatch(deleteYacht(yate.id));
+		// dispatch(getAllProducts());
+		console.log("done");
+	};
 	return (
 		<>
 			{yate ? (
@@ -31,7 +43,9 @@ export const CardYate = ({ yate }) => {
 					<CardActions>
 						{/* componente modal */}
 						<ButtonEdit yate={yate} />
-						<Button size="small">Eliminar</Button>
+						<Button onClick={handleDeleteYacht} size="small">
+							Eliminar
+						</Button>
 					</CardActions>
 				</Card>
 			) : (
