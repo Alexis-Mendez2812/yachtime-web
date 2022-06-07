@@ -29,7 +29,7 @@
 .changeDataContainer{
     color: white;
     padding: 2em;
-    height: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
