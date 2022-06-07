@@ -25,9 +25,11 @@ import { UserSite } from './Components/userSite/UserSite.js';
 function App() {
    return (
       <div className='App'>
-         <WppAvatar>
-            <WhatsAppIcon sx={{ fontSize: 50 }} />
-         </WppAvatar>
+         <a href='https://wa.link/tgghvx' target='_blank'>
+            <WppAvatar>
+               <WhatsAppIcon sx={{ fontSize: 50 }} />
+            </WppAvatar>
+         </a>
 
          <BrowserRouter>
             <Routes>
