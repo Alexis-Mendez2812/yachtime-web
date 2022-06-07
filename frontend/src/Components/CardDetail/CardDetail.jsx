@@ -17,6 +17,7 @@ import {
    FeatureBox,
    IconBox,
    DataTitle,
+   InfoBox,
    Li,
    CarPic,
    TextChatBox,
@@ -34,8 +35,8 @@ import {
 import { Box, TextField } from '@mui/material';
 import { getIdYate, vaciar } from '../../Redux/Actions/actions';
 import io from 'socket.io-client';
-// const socket = io.connect('https://yachtimeapp.herokuapp.com');
-const socket = io.connect('http://localhost:3001');
+const socket = io.connect('https://yachtimeapp.herokuapp.com');
+// const socket = io.connect('http://localhost:3001');
 
 export default function GameDetail() {
    const { id } = useParams();
@@ -192,7 +193,7 @@ export default function GameDetail() {
                   </DataPictureBox>
                </PictureShadow>
             </Picture>
-            <Box style={{ display: 'flex' }}>
+            <InfoBox>
                <FeatureBox style={{ width: '50vw' }}>
                   <DataTitle>Features</DataTitle>
                   <DetailBox>
@@ -213,7 +214,7 @@ export default function GameDetail() {
                   <DataTitle>Description</DataTitle>
                   <TextBox>{description}</TextBox>
                </FeatureBox>
-            </Box>
+            </InfoBox>
             <Box
                style={{
                   width: '100vw',

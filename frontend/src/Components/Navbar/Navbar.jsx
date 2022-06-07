@@ -179,6 +179,17 @@ function Navbar() {
                   ) : (
                      <Box>
                         <Link to={'/login'} className={style.enlace}>
+                           <button
+                              style={{
+                                 border: '0vh',
+                                 width: '8vw',
+                                 height: '2rem',
+                                 backgroundColor: 'grey',
+                                 color: 'black',
+                              }}
+                           >
+                              Login
+                           </button>
                            <i class='fa-solid fa-arrow-right-to-bracket'></i>
                         </Link>
                      </Box>
