@@ -277,9 +277,10 @@ router.put("/", async (req, res) => {
 	}
 });
 
-router.delete("/", async (req, res) => {
-	const { yateID } = req.body;
+router.delete("/:yateID", async (req, res) => {
+	const { yateID } = req.params;
 	try {
+		console.log(req.params)
 		await Products.destroy({
 			where: { id: yateID },
 		});

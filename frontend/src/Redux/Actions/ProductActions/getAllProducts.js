@@ -23,7 +23,7 @@ export const getProductById = (id) => {
 export const deleteYacht = (yateID) => {
 	return (dispatch) => {
 		axios
-			.delete(`http://localhost:3000/products`, yateID)
+			.delete(`/products/${yateID}`)
 			.then((data) => data.data)
 			.catch((err) => console.log(err));
 	};
