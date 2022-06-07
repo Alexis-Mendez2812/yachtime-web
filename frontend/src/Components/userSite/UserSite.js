@@ -15,9 +15,9 @@ export const UserSite = () => {
 			<UserSidebar />
 			<div className="dataRouteCont">
 				<Routes>
-					<Route path="data" element={<DataUser />} />
+					{/* <Route path="data" element={<DataUser />} /> */}
 					<Route path="changepass" element={<ChangePass />} />
-					<Route path="changeUserData" element={<ChangeDataUser />} />
+					<Route path="data" element={<ChangeDataUser />} />
 					<Route path="myYacht" element={<MyYacht />} />
 					<Route path="newproduct" element={<NewProduct />} />
 					<Route path="chats" element={<ChatDetail />} />

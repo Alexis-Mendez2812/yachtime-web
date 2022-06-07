@@ -83,6 +83,7 @@
     border: none;
     border-radius: .5em;
     transition: all .3s ease;
+    margin-top: 1em;
 }
 .change_formButton:hover{
     cursor: pointer;
