@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -520,7 +519,6 @@ export default function NewProduct() {
 
 export function validate(product) {
    let controller = {};
-   console.log(product);
    //DESCRIPTION
    if (!product.make) {
       controller.make = 'The make is required';
