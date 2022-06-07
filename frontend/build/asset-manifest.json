@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cc9b47b5.chunk.css",
+    "main.js": "/static/js/main.d2f904b3.chunk.js",
+    "main.js.map": "/static/js/main.d2f904b3.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.38eacfa2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.38eacfa2.js.map",
+    "static/js/2.26932027.chunk.js": "/static/js/2.26932027.chunk.js",
+    "static/js/2.26932027.chunk.js.map": "/static/js/2.26932027.chunk.js.map",
+    "static/js/3.a330f162.chunk.js": "/static/js/3.a330f162.chunk.js",
+    "static/js/3.a330f162.chunk.js.map": "/static/js/3.a330f162.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.cc9b47b5.chunk.css.map": "/static/css/main.cc9b47b5.chunk.css.map",
+    "static/js/2.26932027.chunk.js.LICENSE.txt": "/static/js/2.26932027.chunk.js.LICENSE.txt",
+    "static/media/angel.e135dd41.jpg": "/static/media/angel.e135dd41.jpg",
+    "static/media/Footer.module.css": "/static/media/background_menber_01.2c083fe6.jpg",
+    "static/media/Membership.css": "/static/media/banner_menber_01.e8525525.jpg",
+    "static/media/business_card.67871a6a.png": "/static/media/business_card.67871a6a.png",
+    "static/media/david.23262475.jpg": "/static/media/david.23262475.jpg",
+    "static/media/diego.3827e1e6.jpg": "/static/media/diego.3827e1e6.jpg",
+    "static/media/four.fcb5de72.jpg": "/static/media/four.fcb5de72.jpg",
+    "static/media/one.3edbd88a.jpg": "/static/media/one.3edbd88a.jpg",
+    "static/media/BannerHome.module.css": "/static/media/two.3877ea67.jpg",
+    "static/media/three.944efe0a.jpg": "/static/media/three.944efe0a.jpg",
+    "static/media/two.f98a01d6.jpg": "/static/media/two.f98a01d6.jpg",
+    "static/media/valeria.33faed9e.jpg": "/static/media/valeria.33faed9e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.38eacfa2.js",
+    "static/js/2.26932027.chunk.js",
+    "static/css/main.cc9b47b5.chunk.css",
+    "static/js/main.d2f904b3.chunk.js"
+  ]
+}

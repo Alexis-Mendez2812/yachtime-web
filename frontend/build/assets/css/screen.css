@@ -1,0 +1,589 @@
+
+div, span, object, iframe, img, table, caption, thead, tbody,
+tfoot, tr, tr, td, article, aside, canvas, details, figure, hgroup, menu,
+nav, footer, header, section, summary, mark, audio, video {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+code,
+select,
+input,
+textarea,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-transform: inherit;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  outline: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  color: inherit;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+code {
+  cursor: text;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+      -ms-user-select: auto;
+          user-select: auto;
+}
+
+code * {
+  cursor: inherit;
+  -webkit-user-select: inherit;
+     -moz-user-select: inherit;
+      -ms-user-select: inherit;
+          user-select: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cit, code,
+del, dfn, em, ins, q, samp, small, strong, sub, sup, b, i, hr, dl, dt, dd,
+ol, ul, li, fieldset, legend, label {
+  font-weight: inherit;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+  display: block;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+table caption, table th, table td {
+  text-align: left;
+  vertical-align: middle;
+}
+
+a,
+a:visited,
+a:active,
+a:hover,
+button {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a *,
+a:visited *,
+a:active *,
+a:hover *,
+button * {
+  cursor: inherit;
+}
+
+a img {
+  border: 0;
+}
+
+:focus {
+  outline: 0;
+}
+
+@font-face {
+  font-family: "Raleway Webfont";
+  src: url("../fonts/raleway/raleway-thin.eot");
+  src: url("../fonts/raleway/raleway-thin.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-thin.woff") format("woff"), url("../fonts/raleway/raleway-thin.ttf") format("truetype"), url("../fonts/raleway/raleway-thin.svg#ralewaythin") format("svg");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway Webfont";
+  src: url("../fonts/raleway/raleway-extralight.eot");
+  src: url("../fonts/raleway/raleway-extralight.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-extralight.woff") format("woff"), url("../fonts/raleway/raleway-extralight.ttf") format("truetype"), url("../fonts/raleway/raleway-extralight.svg#ralewayextralight") format("svg");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway Webfont";
+  src: url("../fonts/raleway/raleway-light.eot");
+  src: url("../fonts/raleway/raleway-light.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-light.woff") format("woff"), url("../fonts/raleway/raleway-light.ttf") format("truetype"), url("../fonts/raleway/raleway-light.svg#ralewaylight") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway Webfont";
+  src: url("../fonts/raleway/raleway-regular.eot");
+  src: url("../fonts/raleway/raleway-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-regular.woff") format("woff"), url("../fonts/raleway/raleway-regular.ttf") format("truetype"), url("../fonts/raleway/raleway-regular.svg#ralewayregular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway Webfont";
+  src: url("../fonts/raleway/raleway-medium.eot");
+  src: url("../fonts/raleway/raleway-medium.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-medium.woff") format("woff"), url("../fonts/raleway/raleway-medium.ttf") format("truetype"), url("../fonts/raleway/raleway-medium.svg#ralewaymedium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway Webfont";
+  src: url("../fonts/raleway/raleway-semibold.eot");
+  src: url("../fonts/raleway/raleway-semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-semibold.woff") format("woff"), url("../fonts/raleway/raleway-semibold.ttf") format("truetype"), url("../fonts/raleway/raleway-semibold.svg#ralewaysemibold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway Webfont";
+  src: url("../fonts/raleway/raleway-bold.eot");
+  src: url("../fonts/raleway/raleway-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-bold.woff") format("woff"), url("../fonts/raleway/raleway-bold.ttf") format("truetype"), url("../fonts/raleway/raleway-bold.svg#ralewaybold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway Webfont";
+  src: url("../fonts/raleway/raleway-extrabold.eot");
+  src: url("../fonts/raleway/raleway-extrabold.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-extrabold.woff") format("woff"), url("../fonts/raleway/raleway-extrabold.ttf") format("truetype"), url("../fonts/raleway/raleway-extrabold.svg#ralewayextrabold") format("svg");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway Webfont";
+  src: url("../fonts/raleway/raleway-heavy.eot");
+  src: url("../fonts/raleway/raleway-heavy.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway/raleway-heavy.woff") format("woff"), url("../fonts/raleway/raleway-heavy.ttf") format("truetype"), url("../fonts/raleway/raleway-heavy.svg#ralewayheavy") format("svg");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-ExtraLight.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-ExtraLight.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-ExtraLight.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-ExtraLight.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 200;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-ExtraLightIt.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-ExtraLightIt.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-ExtraLightIt.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-ExtraLightIt.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-ExtraLightIt.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-Light.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-Light.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-Light.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-Light.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-LightIt.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-LightIt.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-LightIt.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-LightIt.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-LightIt.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-Regular.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-Regular.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-Regular.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-Regular.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-It.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-It.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-It.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-It.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-It.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-Medium.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-Medium.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-Medium.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-Medium.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("EOT/SourceCodePro-MediumIt.eot") format("embedded-opentype"), url("WOFF2/OTF/SourceCodePro-MediumIt.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceCodePro-MediumIt.otf.woff") format("woff"), url("OTF/SourceCodePro-MediumIt.otf") format("opentype"), url("TTF/SourceCodePro-MediumIt.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("EOT/SourceCodePro-Semibold.eot") format("embedded-opentype"), url("WOFF2/OTF/SourceCodePro-Semibold.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceCodePro-Semibold.otf.woff") format("woff"), url("OTF/SourceCodePro-Semibold.otf") format("opentype"), url("TTF/SourceCodePro-Semibold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 600;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-SemiboldIt.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-SemiboldIt.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-SemiboldIt.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-SemiboldIt.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-SemiboldIt.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-Bold.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-Bold.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-Bold.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-Bold.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-BoldIt.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-BoldIt.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-BoldIt.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-BoldIt.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-BoldIt.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-Black.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-Black.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-Black.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-Black.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceCodePro Webfont";
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("../fonts/sourcecodepro/SourceCodePro-BlackIt.eot") format("embedded-opentype"), url("../fonts/sourcecodepro/SourceCodePro-BlackIt.ttf.woff2") format("woff2"), url("../fonts/sourcecodepro/SourceCodePro-BlackIt.otf.woff") format("woff"), url("../fonts/sourcecodepro/SourceCodePro-BlackIt.otf") format("opentype"), url("../fonts/sourcecodepro/SourceCodePro-BlackIt.ttf") format("truetype");
+}
+
+/* screen.scss */
+
+
+body > header {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+body > header h1 {
+  float: left;
+  clear: both;
+  width: auto;
+}
+
+body > header h1 a {
+  float: left;
+  clear: both;
+  width: 7rem;
+  height: 1.4rem;
+  text-indent: -10000rem;
+  background-image: url(../images/ozpital_logo.svg);
+  background-size: 100% 100%;
+}
+
+body > main {
+  float: left;
+  clear: both;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+body > main > header {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+body > main > header h2 {
+  float: left;
+  clear: both;
+  width: 100%;
+  font-size: 2rem;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+body > main > header p {
+  float: left;
+  clear: both;
+  width: 100%;
+  line-height: 1.8em;
+  margin-top: 1rem;
+}
+
+body > main > section {
+  float: left;
+  clear: both;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+body > main > section > header {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+body > main > section > header ~ header {
+  margin-top: 4rem;
+}
+
+body > main > section > header h2 {
+  float: left;
+  clear: both;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+body > main > section > header h3 {
+  float: left;
+  clear: both;
+  width: 100%;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+body > main > section > p {
+  float: left;
+  clear: both;
+  width: 40rem;
+  line-height: 1.8em;
+  margin-top: 1.6rem;
+}
+
+body > main > section > p strong {
+  font-weight: 600;
+}
+
+body > main > section > code {
+  float: left;
+  clear: both;
+  width: auto;
+  font-family: "SourceCodePro Webfont";
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.8em;
+  text-align: center;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  margin-top: 1.6rem;
+  background-color: #FFFFBF;
+}
+
+body > main > section > code em {
+  font-weight: 300;
+  font-style: normal;
+}
+
+body > main > section#about {
+  padding: 3rem;
+  background-color: #EEEEEE;
+}
+
+body > main > section#about p {
+  width: 36rem;
+}
+
+body > main > section#usage {
+  border-top: 1px solid #CCCCCC;
+  padding-top: 4rem;
+}
+
+body > main > section#demo {
+  border-top: 1px solid #CCCCCC;
+  padding-top: 4rem;
+}
+
+body > main > section#demo > article {
+  float: left;
+  clear: none;
+  width: auto;
+  margin-top: 1.5rem;
+}
+
+body > main > section#demo > article ~ article {
+  margin-left: 4rem;
+}
+
+body > main > section#demo > article header {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+body > main > section#demo > article header h4 {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+body > main > section#demo > article > ul {
+  float: left;
+  clear: both;
+  width: 11.5rem;
+  margin-top: 1.5rem;
+  list-style: none;
+}
+
+body > main > section#demo > article > ul li {
+  float: left;
+  clear: none;
+  width: auto;
+}
+
+body > main > section#demo > article > ul li ~ li {
+  margin-left: 0.5rem;
+}
+
+body > main > section#demo > article > ul li:nth-of-type(1n+4) {
+  margin-top: 0.5rem;
+}
+
+body > main > section#demo > article > ul li:nth-of-type(4n+4) {
+  margin-left: 0rem;
+}
+
+body > main > section#demo > article > ul li a {
+  float: left;
+  clear: none;
+  width: 3.5rem;
+  height: 3.5rem;
+  overflow: hidden;
+  -webkit-filter: saturate(0%);
+          filter: saturate(0%);
+  background-color: #111111;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+body > main > section#demo > article > ul li a span {
+  display: none;
+}
+
+body > main > section#demo > article > ul li a:hover {
+  -webkit-filter: saturate(100%);
+          filter: saturate(100%);
+}
+
+body > main > section#demo > article:nth-of-type(1) > ul li:nth-of-type(1) a {
+  background-image: url(https://unsplash.it/300/200?image=301);
+}
+
+body > main > section#demo > article:nth-of-type(1) > ul li:nth-of-type(2) a {
+  background-image: url(https://unsplash.it/300/200?image=401);
+}
+
+body > main > section#demo > article:nth-of-type(1) > ul li:nth-of-type(3) a {
+  background-image: url(https://unsplash.it/300/200?image=501);
+}
+
+body > main > section#demo > article:nth-of-type(1) > ul li:nth-of-type(4) a {
+  background-image: url(https://unsplash.it/300/200?image=601);
+}
+
+body > main > section#demo > article:nth-of-type(1) > ul li:nth-of-type(5) a {
+  background-image: url(https://unsplash.it/300/200?image=701);
+}
+
+body > main > section#demo > article:nth-of-type(1) > ul li:nth-of-type(6) a {
+  background-image: url(https://unsplash.it/300/200?image=201);
+}
+
+body > main > section#demo > article:nth-of-type(2) > ul li:nth-of-type(1) a {
+  background-image: url(https://unsplash.it/300/200?image=321);
+}
+
+body > main > section#demo > article:nth-of-type(2) > ul li:nth-of-type(2) a {
+  background-image: url(https://unsplash.it/300/200?image=421);
+}
+
+body > main > section#demo > article:nth-of-type(2) > ul li:nth-of-type(3) a {
+  background-image: url(https://unsplash.it/300/200?image=521);
+}
+
+body > main > section#demo > article:nth-of-type(2) > ul li:nth-of-type(4) a {
+  background-image: url(https://unsplash.it/300/200?image=621);
+}
+
+body > main > section#demo > article:nth-of-type(2) > ul li:nth-of-type(5) a {
+  background-image: url(https://unsplash.it/300/200?image=721);
+}
+
+body > main > section#demo > article:nth-of-type(2) > ul li:nth-of-type(6) a {
+  background-image: url(https://unsplash.it/300/200?image=221);
+}
+
+
+/**/
+/**/
+/**/
+@media screen and (max-width: 980px) {
+  body {
+    padding-top: 6rem;
+    padding-right: 3rem;
+    padding-bottom: 10rem;
+    padding-left: 3rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  body {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+  body > main > section > p {
+    width: 100%;
+  }
+  body > main > section#about {
+    padding: 2rem;
+  }
+  body > main > section#about > p {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  html,
+  body {
+    font-size: 15px;
+  }
+  body {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  body > main > section#about {
+    padding: 1.5rem;
+  }
+}
