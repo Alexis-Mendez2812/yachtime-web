@@ -2,20 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { postYateForm } from '../../Redux/Actions/FormActions/formAction';
-import {
-   Box,
-   ImageListItem,
-   Button,
-   Snackbar,
-   CircularProgress,
-} from '@mui/material';
+import { Box, ImageListItem, Button, CircularProgress } from '@mui/material';
 import './NewProduct.css';
 import style from '../Uploading/Uploading.module.css';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
 export default function NewProduct() {
+   const dispatch = useDispatch();
    const navigate = useNavigate();
-   const user = useSelector((state) => {
+   const setId = useSelector((state) => {
       return state.userSession;
    });
 
@@ -46,8 +40,8 @@ export default function NewProduct() {
    });
 
    useEffect(() => {
-      setProduct({ ...product, owner: user.id });
-   }, [user]);
+      setProduct({ ...product, owner: setId.id });
+   }, [setId]);
 
    const [controller, setController] = useState({});
    const [charging, setCharging] = useState(false);
@@ -136,23 +130,13 @@ export default function NewProduct() {
                ...product,
                pictures: [...product.pictures, reader.result],
             });
-            setController(
-               validate({
-                  ...product,
-                  pictures: [...product.pictures, reader.result],
-               })
-            );
          };
       }
    };
    const handleSubmit = async (e) => {
       e.preventDefault();
       setCharging(true);
-      if (
-         !product.make ||
-         product.pictures.length === 0 ||
-         !product.description
-      ) {
+      if (!product.make || !product.description) {
          setCharging(false);
          return alert('complete todos los campos');
       }
@@ -179,7 +163,7 @@ export default function NewProduct() {
                alignItems: 'center',
             }}
          >
-            <CircularProgress color='info' size={100} />;
+            <CircularProgress color='info' size={100} />
          </Box>
       );
    } else {
@@ -468,7 +452,6 @@ export default function NewProduct() {
                                  <ImageListItem
                                     style={{
                                        margin: '1vw',
-                                       background: 'green',
                                        display: 'flex',
                                        flexDirection: 'column',
                                     }}
@@ -522,9 +505,6 @@ export function validate(product) {
    //DESCRIPTION
    if (!product.make) {
       controller.make = 'The make is required';
-   }
-   if (product.pictures.length === 0) {
-      controller.pictures = 'The picture is required';
    }
    if (!product.description) {
       controller.description = 'The description is required';

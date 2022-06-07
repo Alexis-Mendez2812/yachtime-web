@@ -41,3 +41,13 @@ export const bringAllChats = async (to) => {
       return 'No';
    }
 };
+
+export const getUserData = (email) => {
+   return (dispatch) => {
+      axios(`/chat/data?email=${email}`)
+         .then((ans) => {
+            return dispatch({ type: 'POST_USER', payload: ans.data[0] });
+         })
+         .catch((err) => console.log(err));
+   };
+};
