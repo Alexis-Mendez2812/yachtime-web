@@ -11,8 +11,8 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
 
-axios.defaults.baseURL = 'https://yachtimeapp.herokuapp.com';
-// axios.defaults.baseURL = 'http://localhost:3001';
+// axios.defaults.baseURL = 'https://yachtimeapp.herokuapp.com';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 ReactDOM.render(
    <Provider store={store}>

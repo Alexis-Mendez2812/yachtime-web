@@ -18,9 +18,9 @@ import {
 
 export const CardYate = ({ yate }) => {
 	const dispatch = useDispatch();
-	const handleDeleteYacht = () => {
-		console.log(yate.id);
-		dispatch(deleteYacht(yate.id));
+	const handleDeleteYacht = (id) => {
+		console.log(id);
+		dispatch(deleteYacht(id));
 		// dispatch(getAllProducts());
 		console.log("done");
 	};
@@ -43,7 +43,7 @@ export const CardYate = ({ yate }) => {
 					<CardActions>
 						{/* componente modal */}
 						<ButtonEdit yate={yate} />
-						<Button onClick={handleDeleteYacht} size="small">
+						<Button onClick={()=>handleDeleteYacht(yate.id)} size="small">
 							Eliminar
 						</Button>
 					</CardActions>
