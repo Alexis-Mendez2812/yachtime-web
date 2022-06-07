@@ -1,3 +1,4 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -8,24 +9,32 @@ export const ChangeDataUser = () => {
 	const { email, firtsName, lastName, picture, userName } = useSelector(
 		(state) => state.userSession
 	);
+	const { logout } = useAuth0();
 	return (
-		<>
-			<Link to="/userSite/data">
-				<div>
-					<div className="change_btn">Go back</div>
+		<div className="backdataUser">
+			<div className="change_DataUser_imgProfile">
+				<div className="DataUser_button">
+					<Link to="/userSite/changepass">
+						<div className=" btnData passwordColor">
+							Change Password
+						</div>
+					</Link>
+					<div
+						onClick={() =>
+							logout({ returnTo: window.location.origin })
+						}
+						className=" btnData logOutColor"
+					>
+						Log Out
+					</div>
 				</div>
-			</Link>
-			<div className="changePassContainer ">
+				<img src={picture} alt="userPic" />
+			</div>
+			<div className="changeDataContainer ">
 				<div className="animate__animated animate__fadeIn">
 					<h1>Change Data User</h1>
 				</div>
 				<div className="int">
-					<div
-						style={{ margin: "auto" }}
-						className="change_DataUser_imgProfile"
-					>
-						<img src={picture} alt="userPic" />
-					</div>
 					<form className="change_formContainer animate__animated animate__fadeIn">
 						<div>
 							<input
@@ -66,6 +75,6 @@ export const ChangeDataUser = () => {
 					</form>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
