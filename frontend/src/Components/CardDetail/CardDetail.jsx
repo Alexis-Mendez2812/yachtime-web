@@ -34,6 +34,7 @@ import {
 import { Box, TextField } from '@mui/material';
 import { getIdYate, vaciar } from '../../Redux/Actions/actions';
 import io from 'socket.io-client';
+// const socket = io.connect('https://yachtimeapp.herokuapp.com');
 const socket = io.connect('http://localhost:3001');
 
 export default function GameDetail() {
@@ -101,6 +102,7 @@ export default function GameDetail() {
                         if (x.id < y.id) {
                            return -1;
                         }
+                        return 0;
                      })
                      .map((m) => {
                         return m.message;

@@ -5,7 +5,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { postUserGoogle } from '../../Redux/Actions/actions';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button } from '@mui/material';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Avatar from '@mui/material/Avatar';
+import { Box } from '@mui/material';
 
 function Navbar() {
    const dispatch = useDispatch();
@@ -13,6 +18,15 @@ function Navbar() {
    const { user } = useAuth0();
    const [isScrolled, setIsScrolled] = useState(false);
    let userSession = useSelector((state) => state.userSession);
+
+   const [anchorEl, setAnchorEl] = React.useState(null);
+   const open = Boolean(anchorEl);
+   const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+   };
+   const handleClose = () => {
+      setAnchorEl(null);
+   };
 
    useEffect(() => {
       if (user && user.email) {
@@ -80,7 +94,7 @@ function Navbar() {
                      }}
                      className={style.enlace}
                   >
-                     contact us
+                     Contact us
                   </li>
 
                   <li>
@@ -116,9 +130,117 @@ function Navbar() {
                   )}
                </ul>
             </div>
+
+            <div>
+               <Button
+                  id='demo-positioned-button'
+                  aria-controls={open ? 'demo-positioned-menu' : undefined}
+                  aria-haspopup='true'
+                  aria-expanded={open ? 'true' : undefined}
+                  onClick={handleClick}
+               >
+                  <MoreVertIcon
+                     fontSize='large'
+                     style={{
+                        color: 'white',
+                        marginRight: '-10rem',
+                        marginTop: '0.5rem',
+                     }}
+                  />
+               </Button>
+               <Menu
+                  id='demo-positioned-menu'
+                  aria-labelledby='demo-positioned-button'
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                     vertical: 'top',
+                     horizontal: 'left',
+                  }}
+                  transformOrigin={{
+                     vertical: 'top',
+                     horizontal: 'left',
+                  }}
+               >
+                  {userSession.email ? (
+                     <Box
+                        style={{
+                           width: '100%',
+                           display: 'flex',
+                           justifyContent: 'center',
+                           alignItems: 'center',
+                        }}
+                     >
+                        <Link to={'/userSite/data'} className={style.enlace}>
+                           <Avatar alt='' src={userSession.picture} />
+                        </Link>
+                     </Box>
+                  ) : (
+                     <Box>
+                        <Link to={'/login'} className={style.enlace}>
+                           <i class='fa-solid fa-arrow-right-to-bracket'></i>
+                        </Link>
+                     </Box>
+                  )}
+                  <MenuItem
+                     onClick={() => {
+                        handleChangeView('/');
+                     }}
+                  >
+                     Dashboard
+                  </MenuItem>
+                  <MenuItem
+                     onClick={() => {
+                        handleChangeView('/membership');
+                     }}
+                  >
+                     Membership
+                  </MenuItem>
+                  <MenuItem
+                     onClick={() => {
+                        handleChangeView('/ContactUs');
+                     }}
+                  >
+                     Contact us
+                  </MenuItem>
+                  <a
+                     href='https://www.facebook.com/Yatchtimeapp-104930065485155/'
+                     target='_blank'
+                  >
+                     <MenuItem onClick={handleClose}>Facebook</MenuItem>
+                  </a>
+
+                  <a
+                     href='https://www.instagram.com/yatchtimeapp/'
+                     target='_blank'
+                  >
+                     <MenuItem
+                        style={{ color: '#EE3896' }}
+                        onClick={handleClose}
+                     >
+                        Instagram
+                     </MenuItem>
+                  </a>
+               </Menu>
+            </div>
          </nav>
       </>
    );
 }
 
 export default Navbar;
+
+{
+   /* <BtmNav className={style.btmnav}>
+<BottomNavigationAction icon={<HomeIcon />} />
+<BottomNavigationAction icon={<WorkspacePremiumIcon />} />
+<BottomNavigationAction icon={<GroupsIcon />} />
+</BtmNav> */
+}
+// import { BtmNav } from './styledComponents';
+// import BottomNavigation from '@mui/material/BottomNavigation';
+// import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+// import HomeIcon from '@mui/icons-material/Home';
+// import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+// import GroupsIcon from '@mui/icons-material/Groups';

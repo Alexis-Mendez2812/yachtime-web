@@ -1,6 +1,4 @@
-/*--------------------------------------------------------*/
-/*-----------IMPORT UTILITIES-----------*/
-import { Paper, Box, Grid, Typography, TextField } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 /*--------------------------------------------------------*/
 
@@ -10,10 +8,14 @@ export const AllCardsContainer = styled(Box)`
    justify-content: flex-start;
    align-items: flex-start;
    flex-wrap: wrap;
+
+   @media (max-width: 768px) {
+      width: 100vw;
+   }
 `;
 
 export const ChargingContainer = styled(Box)`
-   width: 99vw;
+   width: 100vw;
    height: 105vh;
    display: flex;
    justify-content: center;
@@ -30,6 +32,11 @@ export const Card = styled(Box)`
 
    &:hover {
       background-position-y: 70%;
+   }
+
+   @media (max-width: 768px) {
+      width: 100%;
+      height: 100%;
    }
 `;
 

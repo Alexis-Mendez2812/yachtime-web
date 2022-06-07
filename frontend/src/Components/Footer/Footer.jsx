@@ -1,57 +1,69 @@
-import React from "react";
-import { useNavigate, Link } from "react-router-dom";
-import style from "./Footer.module.css";
-import { ButtonGet } from "./StyledComponents";
+import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import style from './Footer.module.css';
+import { Box } from '@mui/material';
+import {
+   ButtonGet,
+   PicBox,
+   Get,
+   M,
+   T,
+   LinksBox,
+   AppPics,
+   Foot,
+   FooterBox,
+} from './StyledComponents';
 
 function Footer() {
-	const navigate = useNavigate();
-	const handleGoToMembership = () => {
-		navigate("/membership");
-	};
-	return (
-		<div>
-			<div className={style.imgMembership}>
-				<div className={style.textMembership}>
-					<h3>Get the</h3>
-					<h2>MemberShip</h2>
-					<p>
-						Designed for individuals and companies that would like
-						to entertain of yachs. throughout the year. Featuring
-						discounted pricing, exclusive events and special partner
-						offers.
-					</p>
-					<a href="#paid">
-						<ButtonGet onClick={handleGoToMembership}>
-							GET IT NOW
-						</ButtonGet>
-					</a>
-				</div>
-			</div>
-			<footer>
-				<hr style={{ border: "1px solid gray" }} />
-				<div className={style.footer}>
-					<div className={style.divImages}>
-						<img
-							src="https://es.logodownload.org/wp-content/uploads/2019/06/disponible-en-google-play-badge-1.png"
-							className={style.descarga}
-						/>
-						<img
-							src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Available_on_the_App_Store_%28black%29.png"
-							className={style.descarga}
-						/>
-					</div>
-					<div className={style.enlaces}>
-						<Link to={"/"}>About us</Link>
-						<Link to={"/contactUs"}>Contact us</Link>
-						<Link to={"/"}>Terms of service</Link>
-						<Link to={"/"}>Privacy policy</Link>
-						<br />
-						<span>&copy; 2022 Yachtimeapp</span>
-					</div>
-				</div>
-			</footer>
-		</div>
-	);
+   const navigate = useNavigate();
+   const handleGoToMembership = () => {
+      navigate('/membership');
+   };
+
+   return (
+      <Box>
+         <div className={style.imgMembership}>
+            <PicBox>
+               <Get>Get the</Get>
+               <M>MemberShip</M>
+               <T>
+                  Designed for individuals and companies that would like to
+                  entertain of yachs. throughout the year. Featuring discounted
+                  pricing, exclusive events and special partner offers.
+               </T>
+               <a href='#paid'>
+                  <ButtonGet onClick={handleGoToMembership}>
+                     GET IT NOW
+                  </ButtonGet>
+               </a>
+            </PicBox>
+         </div>
+         <Foot>
+            <FooterBox>
+               <AppPics>
+                  <img
+                     src='https://es.logodownload.org/wp-content/uploads/2019/06/disponible-en-google-play-badge-1.png'
+                     className={style.descarga}
+                     alt=''
+                  />
+                  <img
+                     src='https://upload.wikimedia.org/wikipedia/commons/5/5d/Available_on_the_App_Store_%28black%29.png'
+                     className={style.descarga}
+                     alt=''
+                  />
+               </AppPics>
+               <LinksBox>
+                  <Link to={'/'}>About us</Link>
+                  <Link to={'/contactUs'}>Contact us</Link>
+                  <Link to={'/'}>Terms of service</Link>
+                  <Link to={'/'}>Privacy policy</Link>
+                  <br />
+               </LinksBox>
+               <span style={{ color: 'white' }}>&copy; 2022 Yachtimeapp</span>
+            </FooterBox>
+         </Foot>
+      </Box>
+   );
 }
 
 export default Footer;
