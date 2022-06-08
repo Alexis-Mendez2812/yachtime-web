@@ -8,3 +8,11 @@ export const postYateForm = async (form) => {
       console.log(err);
    }
 };
+export const putYateForm = async (form) => {
+   try {
+      await axios.post('/api/edit', form);
+      return 'done';
+   } catch (err) {
+      console.log(err);
+   }
+};
