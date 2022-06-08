@@ -46,6 +46,7 @@ function App() {
                <Route exact path='/' element={<Home />} />
                <Route path='/' element={<Navbar />} />
                <Route path='/newproduct' element={<NewProduct />} />
+               <Route path='usersite/newproduct/:id' element={<NewProduct />} />
                <Route path='/CardDetail/:id' element={<CardDetail />} />
                <Route path='/paypal/pay/:mount' element={<Pay />} />
                <Route path='/userSite' element={<UserSite />} />
