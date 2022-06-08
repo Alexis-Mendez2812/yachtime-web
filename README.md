@@ -1,6 +1,9 @@
 DB NAME marvel
 model inicializado User
-
+front
+chat detail
+card detail
+index
 
 (en back, prueba =>
 localhost/prueba

@@ -15,6 +15,7 @@ import {
 	deleteYacht,
 	getAllProducts,
 } from "../../../../../../Redux/Actions/ProductActions/getAllProducts";
+import { Link } from "react-router-dom";
 
 export const CardYate = ({ yate }) => {
 	const dispatch = useDispatch();
@@ -41,8 +42,7 @@ export const CardYate = ({ yate }) => {
 						</Typography>
 					</CardContent>
 					<CardActions>
-						{/* componente modal */}
-						<ButtonEdit yate={yate} />
+						<Link to={`/usersite/newproduct/${yate.id}`}>Edit</Link>
 						<Button onClick={()=>handleDeleteYacht(yate.id)} size="small">
 							Eliminar
 						</Button>
