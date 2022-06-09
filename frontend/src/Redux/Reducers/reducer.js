@@ -55,21 +55,37 @@ export default function rootReducer(state = initialState, { type, payload }) {
             allYates: [...deletedYate],
          };
       case FILT_BY_STATS:
-         console.log('EN EL REDUCER FILTER ADMIN, ', payload);
-         const backUp2 = [...state.users];
-         const filtered2 = backUp2.filter(
-            (user) =>
-               new Date(user.createdAt).getMonth() + 1 === Number(payload)
-         );
-         break;
-      case FILT_BY_ROLE:
-         const backUp = [...state.users];
-         const filtered = backUp.filter(
-            (user) => Number(user.plan_id) === payload
-         );
+         let allUse = state.users;
+
+         let userFillt;
+
+         if (payload === 'all') {
+            userFillt = allUse;
+         } else {
+            userFillt = allUse.filter((e)=> payload == e.createdAt.substring(5,7))
+         }
+
          return {
             ...state,
-            copyUsers: filtered,
+            copyUsers: userFillt,
+         };
+         break;
+      case FILT_BY_ROLE:
+         let allUsers = state.users;
+
+         let userFill;
+
+         if (payload === 'all') {
+            userFill = allUsers;
+         } else {
+            userFill = allUsers.filter((yate) => {
+               return yate.role.includes(payload);
+            });
+         }
+
+         return {
+            ...state,
+            copyUsers: userFill,
          };
       case VACIAR:
          return {

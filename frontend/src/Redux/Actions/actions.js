@@ -124,10 +124,10 @@ export const filterByStats = (payload) => {
    };
 };
 
-export const filterByRole = (plan) => {
+export const filterByRole = (payload) => {
    return {
       type: FILT_BY_ROLE,
-      payload: Number(plan),
+      payload: payload,
    };
 };
 

@@ -115,6 +115,21 @@ banned
       );
       setStatsInvoicing(invoice());
    };
+   const handleFilterRole = (e) => {
+      e.preventDefault();
+      dispatch(filterByRole(e.target.value));
+      setStatsNewUsers(users.length);
+      console.log(
+         'en el habndler filter!!!!',
+         users,
+         e.target.value,
+         typeof e.target.value
+      );
+      setStatsNewpayedUsers(
+         users.filter((user) => user.role === 'ROLE_PRIME').length
+      );
+      setStatsInvoicing(invoice());
+   };
 
    return (
       <div style={{ backgroundColor: 'white' }} class='ui teal header'>
@@ -140,18 +155,38 @@ banned
                }}
             >
                <option value='all'>Filter by Month</option>
-               <option value='1'>January</option>
-               <option value='2'>February</option>
-               <option value='3'>March</option>
-               <option value='4'>April</option>
-               <option value='5'>May</option>
-               <option value='6'>June</option>
-               <option value='7'>July</option>
-               <option value='8'>Agost</option>
-               <option value='9'>September</option>
+               <option value='01'>January</option>
+               <option value='02'>February</option>
+               <option value='03'>March</option>
+               <option value='04'>April</option>
+               <option value='05'>May</option>
+               <option value='06'>June</option>
+               <option value='07'>July</option>
+               <option value='08'>Agost</option>
+               <option value='09'>September</option>
                <option value='10'>October</option>
                <option value='11'>November</option>
                <option value='12'>December</option>
+            </select>
+         </div>
+         <div>
+            <select
+               onChange={handleFilterRole}
+               style={{
+                  fontSize: '22px',
+                  margin: '1rem',
+                  borderRadius: '20px',
+
+                  boxShadow: '10px, white',
+                  width: '40%',
+                  padding: '1rem',
+               }}
+            >
+               <option value='all'>Filter by Role</option>
+               <option value='ADMIN'>ADMIN</option>
+               <option value='PRIME'>PRIME</option>
+               <option value='USER'>USER</option>
+
             </select>
          </div>
 
