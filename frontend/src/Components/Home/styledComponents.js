@@ -25,5 +25,12 @@ export const WppAvatar = styled(Avatar)`
       height: 4.5rem;
       margin-left: 75vw;
       margin-top: 87vh;
+
+      &:hover {
+         width: 4.5rem;
+         height: 4.5rem;
+         margin-left: 75vw;
+         margin-top: 87vh;
+      }
    }
 `;

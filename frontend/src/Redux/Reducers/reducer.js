@@ -21,6 +21,7 @@ const initialState = {
    yateSelected: {},
    userSession: {},
    users: [],
+   aux: false,
    copyUsers: [],
    oneYate: [],
 };
@@ -136,6 +137,12 @@ export default function rootReducer(state = initialState, { type, payload }) {
             ...state,
             oneYate: arr,
          };
+      case 'AUX':
+         return {
+            ...state,
+            aux: payload,
+         };
+
       default:
          return state;
    }

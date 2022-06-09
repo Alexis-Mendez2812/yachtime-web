@@ -14,11 +14,18 @@ export const HistoryBox = styled(Box)`
    display: flex;
    flex-direction: column;
    align-items: center;
+   @media (max-width: 768px) {
+      display: none;
+   }
 `;
 
 export const ChatContainer = styled(Box)`
    width: 51.7vw;
    height: 100vh;
+
+   @media (max-width: 768px) {
+      display: none;
+   }
 `;
 
 export const ChatBox = styled(Box)`
@@ -112,4 +119,29 @@ export const MessageOwnerBox = styled(Box)`
 export const MessageGraphy = styled(Typography)`
    color: white;
    font-weight: 400;
+`;
+
+export const NewNavbar = styled(Box)`
+   width: 100%;
+   display: flex;
+   align-items: center;
+   height: 4rem;
+   justify-content: space-around;
+`;
+
+export const Aux = styled(Box)`
+   display: none;
+   @media (max-width: 768px) {
+      display: block;
+   }
+`;
+
+export const RespChatBox = styled(Box)`
+   width: 100%;
+   background-color: #141313;
+   border-bottom: 0.1rem solid black;
+   border-top: 0.1rem solid black;
+   padding: 0.5rem;
+   display: flex;
+   align-items: center;
 `;

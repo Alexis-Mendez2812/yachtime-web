@@ -1,4 +1,25 @@
-.formContainer div{
-    display: flex;
-    gap: 1em;
+.formContainer div {
+   display: flex;
+   gap: 1em;
+}
+
+.box1 {
+   display: flex;
+   flex-direction: column;
+   background-color: green;
+   justify-content: space-around;
+}
+
+.box2 {
+   display: none;
+}
+
+@media (max-width: 768px) {
+   .box1 {
+      display: none;
+   }
+
+   .box2 {
+      display: flex;
+   }
 }
