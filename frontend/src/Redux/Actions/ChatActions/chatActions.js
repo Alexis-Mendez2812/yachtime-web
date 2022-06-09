@@ -51,3 +51,11 @@ export const getUserData = (email) => {
          .catch((err) => console.log(err));
    };
 };
+
+export const editUserData = async (data) => {
+   try {
+      await axios.put(`/users/editdata`, data);
+   } catch (err) {
+      console.log(err);
+   }
+};

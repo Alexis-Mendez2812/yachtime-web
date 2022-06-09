@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Components/Login/Login.jsx';
+import { useSelector } from 'react-redux';
 import Home from './Components/Home/Home.jsx';
 import Navbar from './Components/Navbar/Navbar';
 import { WppAvatar } from './Components/Home/styledComponents';
@@ -22,13 +23,23 @@ import Pay from './Components/Pay/Pay.jsx';
 import { UserSite } from './Components/userSite/UserSite.js';
 
 function App() {
+   const aux = useSelector((state) => {
+      return state.aux;
+   });
+   const [pur, setPur] = useState(false);
+   useEffect(() => {
+      setPur(!pur);
+   }, []);
+
    return (
       <div className='App'>
-         <a href='https://wa.link/tgghvx' target='_blank' rel='noreferrer'>
-            <WppAvatar>
-               <WhatsAppIcon sx={{ fontSize: 50 }} />
-            </WppAvatar>
-         </a>
+         {!aux && (
+            <a href='https://wa.link/tgghvx' target='_blank' rel='noreferrer'>
+               <WppAvatar>
+                  <WhatsAppIcon sx={{ fontSize: 50 }} />
+               </WppAvatar>
+            </a>
+         )}
 
          <BrowserRouter>
             <Routes>

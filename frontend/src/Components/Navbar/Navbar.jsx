@@ -5,12 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { postUserGoogle } from '../../Redux/Actions/actions';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useDispatch, useSelector } from 'react-redux';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Avatar from '@mui/material/Avatar';
-import { Box } from '@mui/material';
+import { Box, Avatar, MenuItem, Menu, Button } from '@mui/material';
+import { ThreeDotsIcom } from './styledComponents';
+import LoginIcon from '@mui/icons-material/Login';
 
 function Navbar() {
    const dispatch = useDispatch();
@@ -139,14 +136,7 @@ function Navbar() {
                   aria-expanded={open ? 'true' : undefined}
                   onClick={handleClick}
                >
-                  <MoreVertIcon
-                     fontSize='large'
-                     style={{
-                        color: 'white',
-                        marginRight: '-10rem',
-                        marginTop: '0.5rem',
-                     }}
-                  />
+                  <ThreeDotsIcom fontSize='large' />
                </Button>
                <Menu
                   id='demo-positioned-menu'
@@ -177,20 +167,17 @@ function Navbar() {
                         </Link>
                      </Box>
                   ) : (
-                     <Box>
+                     <Box
+                        style={{
+                           width: '100%',
+                           height: '2rem',
+                           display: 'flex',
+                           justifyContent: 'center',
+                           alignItems: 'center',
+                        }}
+                     >
                         <Link to={'/login'} className={style.enlace}>
-                           <button
-                              style={{
-                                 border: '0vh',
-                                 width: '8vw',
-                                 height: '2rem',
-                                 backgroundColor: 'grey',
-                                 color: 'black',
-                              }}
-                           >
-                              Login
-                           </button>
-                           <i class='fa-solid fa-arrow-right-to-bracket'></i>
+                           <LoginIcon style={{ color: 'black' }} />
                         </Link>
                      </Box>
                   )}
