@@ -23,7 +23,7 @@ function YachtimeContact() {
                <img src={angel} alt='angel' className={style.img} />
                <span>Angel L.</span>
                <h3>CEO\Founder</h3>
-               <a href='https://www.instagram.com/yatchtimeapp/?igshid=YmMyMTA2M2Y='>
+               <a href='https://instagram.com/angellimongi?igshid=YmMyMTA2M2Y='>
                   <SiInstagram className={style.instagram} />
                </a>
             </div>
@@ -31,7 +31,7 @@ function YachtimeContact() {
                <img src={david} alt='david' className={style.img} />
                <span>David G.</span>
                <h3>COO\Founder</h3>
-               <a href='https://www.instagram.com/yatchtimeapp/?igshid=YmMyMTA2M2Y='>
+               <a href='https://instagram.com/davidgarciabaquero?r=nametag'>
                   <SiInstagram className={style.instagram} />
                </a>
             </div>
@@ -39,7 +39,7 @@ function YachtimeContact() {
                <img src={valeria} alt='valeria' className={style.img} />
                <span>Valeria F.</span>
                <h3>Concierge</h3>
-               <a href='https://www.instagram.com/yatchtimeapp/?igshid=YmMyMTA2M2Y='>
+               <a href='https://www.instagram.com/valeriafainsodc/'>
                   <SiInstagram className={style.instagram} />
                </a>
             </div>
@@ -47,7 +47,7 @@ function YachtimeContact() {
                <img src={diego} alt='diego' className={style.img} />
                <span>Diego C.</span>
                <h3>Concierge</h3>
-               <a href='https://www.instagram.com/yatchtimeapp/?igshid=YmMyMTA2M2Y='>
+               <a href='https://www.instagram.com/diegooocorrales/'>
                   <SiInstagram className={style.instagram} />
                </a>
             </div>
