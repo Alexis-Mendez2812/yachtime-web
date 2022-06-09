@@ -141,7 +141,15 @@ banned
             Welcome to DASHBOARD
          </h1>
 
+         
+
          <div>
+            <h2 style={{ margin: '4rem', width: '40%' }} class='ui teal header'>
+               USERS MENU
+            </h2>
+
+            <div>
+            <div>
             <select
                onChange={handleFilterMonth}
                style={{
@@ -189,13 +197,6 @@ banned
 
             </select>
          </div>
-
-         <div>
-            <h2 style={{ margin: '4rem', width: '40%' }} class='ui teal header'>
-               USERS MENU
-            </h2>
-
-            <div>
                <select
                   onChange={handleFilter}
                   style={{
@@ -241,6 +242,7 @@ banned
                      <Table.HeaderCell>User Name</Table.HeaderCell>
                      <Table.HeaderCell>email</Table.HeaderCell>
                      <Table.HeaderCell>Role</Table.HeaderCell>
+                     <Table.HeaderCell>Create at</Table.HeaderCell>
                   </Table.Row>
                </Table.Header>
 
@@ -258,6 +260,7 @@ banned
                              <Table.Cell>{user.userName}</Table.Cell>
                              <Table.Cell>{user.email}</Table.Cell>
                              <Table.Cell>{user.role}</Table.Cell>
+                             <Table.Cell>{user.createdAt.substring(0,10)}</Table.Cell>
                              <Table.Cell>
                                 <Fab color='primary' aria-label='delete'>
                                    <AdminPanelSettingsIcon
