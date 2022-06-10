@@ -9,20 +9,22 @@ import { Box, ImageListItem, Button, CircularProgress } from '@mui/material';
 import './NewProduct.css';
 import style from '../Uploading/Uploading.module.css';
 import { getIdYate } from '../../Redux/Actions/actions';
-import { Input, Label, InputBox, InputBox2 } from './styledComponents';
+import { Input, Label, InputBox, InputBox2, Label2 } from './styledComponents';
 
 export default function NewProduct() {
    const dispatch = useDispatch();
+   const { id } = useParams();
    const navigate = useNavigate();
    const setId = useSelector((state) => {
       return state.userSession;
    });
-   const { id } = useParams();
    let { yateSelected, userSession } = useSelector((state) => {
       return state;
    });
    useEffect(() => {
-      dispatch(getIdYate(id));
+      if (id) {
+         dispatch(getIdYate(id));
+      }
    }, [id]);
    const [carga, setCarga] = useState(true);
 
@@ -63,14 +65,14 @@ export default function NewProduct() {
          bathrooms: yateSelected.bathrooms,
          guest: yateSelected.guests,
          length: yateSelected.length,
-         lengthUno: yateSelected.length.split("'")[0].trim(),
-         lengthDos: yateSelected.length.split("'")[1].trim(),
+         lengthUno: yateSelected.length.split("'")[0],
+         lengthDos: yateSelected.length.split("'")[1],
          beam: yateSelected.beam,
-         beamUno: yateSelected.beam.split("'")[0].trim(),
-         beamDos: yateSelected.beam.split("'")[1].trim(),
+         beamUno: yateSelected.beam.split("'")[0],
+         beamDos: yateSelected.beam.split("'")[1],
          draft: yateSelected.draft,
-         draftUno: yateSelected.draft.split("'")[0].trim(),
-         draftDos: yateSelected.draft.split("'")[1].trim(),
+         draftUno: yateSelected.draft.split("'")[0],
+         draftDos: yateSelected.draft.split("'")[1],
          fuelCapacity: yateSelected.fuelCapacity,
          waterCapacity: yateSelected.waterCapacity,
          cruiseVel: yateSelected.cruiseVel,
@@ -89,6 +91,9 @@ export default function NewProduct() {
    const [charging, setCharging] = useState(false);
    const handleFileClick = () => {
       document.querySelector('#inputFile').click();
+   };
+   const handleFileClick2 = () => {
+      document.querySelector('#inputFile2').click();
    };
    const handleOnChange = function (event) {
       setProduct({ ...product, [event.target.name]: event.target.value });
@@ -162,18 +167,26 @@ export default function NewProduct() {
       });
    };
    const handleFileInputChange = (e) => {
+      e.preventDefault();
       if (e.target.files[0]) {
-         e.preventDefault();
          const file = e.target.files[0];
          const reader = new FileReader();
          reader.readAsDataURL(file);
          reader.onloadend = () => {
-            setProduct({
-               ...product,
-               pictures: [...product.pictures, reader.result],
-            });
+            if (e.target.id === 'inputFile2') {
+               setProduct({
+                  ...product,
+                  pictures: [reader.result, ...product.pictures],
+               });
+            } else {
+               setProduct({
+                  ...product,
+                  pictures: [...product.pictures, reader.result],
+               });
+            }
          };
       }
+      console.log(product.pictures);
    };
    const handleSubmit = async (e) => {
       e.preventDefault();
@@ -580,7 +593,7 @@ export default function NewProduct() {
                      </div>
                      <label onClick={handleFileClick} className='addButton'>
                         Add Pictures
-                     </label>{' '}
+                     </label>
                      <br />
                      <Box className={style.uploadingContainer}>
                         <input
@@ -914,7 +927,10 @@ export default function NewProduct() {
                      </div>
                      <label onClick={handleFileClick} className='addButton'>
                         Add Pictures
-                     </label>{' '}
+                     </label>
+                     <Label2 onClick={handleFileClick2} className='addButton'>
+                        Cover Image
+                     </Label2>
                      <br />
                      <Box className={style.uploadingContainer}>
                         <input
@@ -922,7 +938,13 @@ export default function NewProduct() {
                            type='file'
                            onChange={handleFileInputChange}
                            name='image'
-                           value=''
+                           style={{ display: 'none' }}
+                        />
+                        <input
+                           id='inputFile2'
+                           type='file'
+                           onChange={handleFileInputChange}
+                           name='image'
                            style={{ display: 'none' }}
                         />
                         <Box className={style.imgContainer}>
