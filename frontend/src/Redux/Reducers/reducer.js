@@ -62,7 +62,9 @@ export default function rootReducer(state = initialState, { type, payload }) {
          if (payload === 'all') {
             userFillt = allUse;
          } else {
-            userFillt = allUse.filter((e)=> payload == e.createdAt.substring(5,7))
+            userFillt = allUse.filter(
+               (e) => payload == e.createdAt.substring(5, 7)
+            );
          }
 
          return {

@@ -7,6 +7,23 @@ const router = Router();
 
 //USERS
 
+router.put('/editdata', async (req, res) => {
+   const { e, firstName, lastName, email, userName } = req.body;
+   try {
+      await Users.update(
+         {
+            email: email,
+            firtsName: firstName,
+            lastName: lastName,
+            userName: userName,
+         },
+         { where: { email: e } }
+      );
+   } catch (error) {
+      console.log(error);
+   }
+});
+
 router.post('/', async (req, res) => {
    try {
       if (req.body.email_verified) {

@@ -53,10 +53,9 @@ function Footer() {
                   />
                </AppPics>
                <LinksBox>
-                  <Link to={'/'}>About us</Link>
                   <Link to={'/contactUs'}>Contact us</Link>
-                  <Link to={'/'}>Terms of service</Link>
-                  <Link to={'/'}>Privacy policy</Link>
+                  <Link to={'/service'}>Terms of service</Link>
+                  <Link to={'/privacy'}>Privacy policy</Link>
                   <br />
                </LinksBox>
                <span style={{ color: 'white' }}>&copy; 2022 Yachtimeapp</span>
