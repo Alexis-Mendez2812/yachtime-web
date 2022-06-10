@@ -194,6 +194,7 @@ banned
                <option value='ADMIN'>ADMIN</option>
                <option value='PRIME'>PRIME</option>
                <option value='USER'>USER</option>
+               <option value='BANNED'>BANNED</option>
 
             </select>
          </div>
