@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
-import { useDispatch, useSelector } from 'react-redux';
-import { postUserGoogle } from '../../../../../../Redux/Actions/actions';
+import { useDispatch } from 'react-redux';
 import {
    Button,
    CardActions,
@@ -10,10 +9,7 @@ import {
    Typography,
 } from '@mui/material';
 import './cardYate.css';
-import {
-   deleteYacht,
-   getAllProducts,
-} from '../../../../../../Redux/Actions/ProductActions/getAllProducts';
+import { deleteYacht } from '../../../../../../Redux/Actions/ProductActions/getAllProducts';
 import { Link } from 'react-router-dom';
 
 export const CardYate = ({ yate }) => {

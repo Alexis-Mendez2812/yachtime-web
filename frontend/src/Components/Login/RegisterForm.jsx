@@ -4,7 +4,6 @@ import './LoginForm.css';
 import './RegisterForm.css';
 import Google from './assets/google.png';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Box, TextField } from '@mui/material';
 import {
    GoogleText,
    GoogleBox,

@@ -13,10 +13,10 @@ import { Profile } from './Components/Login/Profile.jsx';
 import NewProduct from './Components/NewProduct/NewProduct.jsx';
 import Uploading from './Components/Uploading/Uploading.jsx';
 import Admin from './Components/Admin/Admin';
-
+import Privacy from './Components/Privacy/Privacy';
 import ContactUs from './Components/ContactUs/ContactUs.jsx';
 import Membership from './Components/Membership/Membership.jsx';
-
+import Service from './Components/Service/Service';
 import PayPal from './Components/PayPal/PayPal';
 import CardDetail from './Components/CardDetail/CardDetail.jsx';
 import Pay from './Components/Pay/Pay.jsx';
@@ -43,6 +43,8 @@ function App() {
 
          <BrowserRouter>
             <Routes>
+               <Route path='/privacy' element={<Privacy />} />
+               <Route path='/service' element={<Service />} />
                <Route path='/paypal' element={<PayPal />} />
                <Route path='/admin' element={<Admin />} />
                <Route path='/Uploading' element={<Uploading />} />

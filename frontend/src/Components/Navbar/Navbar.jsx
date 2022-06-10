@@ -99,6 +99,7 @@ function Navbar() {
                         className={style.enlace}
                         href='https://www.facebook.com/Yatchtimeapp-104930065485155/'
                         target='_blank'
+                        rel='noreferrer'
                      >
                         Facebook
                      </a>
@@ -108,6 +109,7 @@ function Navbar() {
                         className={style.enlace}
                         href='https://www.instagram.com/yatchtimeapp/'
                         target='_blank'
+                        rel='noreferrer'
                      >
                         Instagram
                      </a>
@@ -205,6 +207,7 @@ function Navbar() {
                   <a
                      href='https://www.facebook.com/Yatchtimeapp-104930065485155/'
                      target='_blank'
+                     rel='noreferre'
                   >
                      <MenuItem onClick={handleClose}>Facebook</MenuItem>
                   </a>
@@ -212,6 +215,7 @@ function Navbar() {
                   <a
                      href='https://www.instagram.com/yatchtimeapp/'
                      target='_blank'
+                     rel='noreferre'
                   >
                      <MenuItem
                         style={{ color: '#EE3896' }}
@@ -228,17 +232,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-{
-   /* <BtmNav className={style.btmnav}>
-<BottomNavigationAction icon={<HomeIcon />} />
-<BottomNavigationAction icon={<WorkspacePremiumIcon />} />
-<BottomNavigationAction icon={<GroupsIcon />} />
-</BtmNav> */
-}
-// import { BtmNav } from './styledComponents';
-// import BottomNavigation from '@mui/material/BottomNavigation';
-// import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-// import HomeIcon from '@mui/icons-material/Home';
-// import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
-// import GroupsIcon from '@mui/icons-material/Groups';

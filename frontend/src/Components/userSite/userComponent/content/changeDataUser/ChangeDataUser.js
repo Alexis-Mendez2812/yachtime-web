@@ -18,6 +18,7 @@ export const ChangeDataUser = () => {
       (state) => state.userSession
    );
    const [data, setData] = useState({
+      e: email,
       firstName: '',
       lastName: '',
       email: '',
@@ -31,21 +32,13 @@ export const ChangeDataUser = () => {
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      if (
-         data.firstName === firtsName ||
-         data.lastName === lastName ||
-         data.email === email ||
-         data.userName === userName
-      ) {
-         console.log('');
-      } else {
-         editUserData(data);
-      }
+      editUserData(data);
       navigate('/home');
    };
 
    useEffect(() => {
       setData({
+         ...data,
          firstName: firtsName,
          lastName: lastName,
          email: email,
@@ -91,16 +84,18 @@ export const ChangeDataUser = () => {
                      <div>
                         <input
                            type='text'
-                           name='firtsName'
+                           name='firstName'
                            placeholder='First Name'
                            autoComplete='off'
-                           value={firtsName}
+                           value={data.firstName}
+                           onChange={handleInputChage}
                         />
                         <input
                            placeholder='Last Name'
                            type='text'
                            name='lastName'
-                           value={lastName}
+                           value={data.lastName}
+                           onChange={handleInputChage}
                            autoComplete='off'
                         />
                      </div>
@@ -109,20 +104,24 @@ export const ChangeDataUser = () => {
                            placeholder='Email'
                            type='text'
                            name='email'
-                           value={email}
+                           value={data.email}
+                           onChange={handleInputChage}
                            autoComplete='off'
                         />
                         <input
                            placeholder='Username'
                            type='text'
                            name='userName'
-                           value={data.userName}
                            onChange={handleInputChage}
+                           value={data.userName}
                            autoComplete='off'
                         />
                      </div>
 
-                     <button className='change_formButton'>
+                     <button
+                        onClick={handleSubmit}
+                        className='change_formButton'
+                     >
                         Change Data User
                      </button>
                   </form>
