@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-
 import './Profile.css';
 import style from './Login.module.css';
 import { LoginForm } from './LoginForm.jsx';
 import { RegisterForm } from './RegisterForm.jsx';
 import { Link } from 'react-router-dom';
-import { Box } from '@mui/material';
 import { Container } from './styledComponents';
 
 function Login() {

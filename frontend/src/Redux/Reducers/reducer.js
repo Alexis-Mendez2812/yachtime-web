@@ -55,7 +55,6 @@ export default function rootReducer(state = initialState, { type, payload }) {
             allYates: [...deletedYate],
          };
       case FILT_BY_STATS:
-         console.log('EN EL REDUCER FILTER ADMIN, ', payload);
          const backUp2 = [...state.users];
          const filtered2 = backUp2.filter(
             (user) =>

@@ -18,7 +18,7 @@ export default function NewProduct() {
       return state.userSession;
    });
    const { id } = useParams();
-   let { yateSelected, userSession, users } = useSelector((state) => {
+   let { yateSelected, userSession } = useSelector((state) => {
       return state;
    });
    useEffect(() => {
@@ -53,7 +53,6 @@ export default function NewProduct() {
       owner: '',
    });
    if (id && Object.keys(yateSelected).length && carga) {
-      console.log(true);
       setCarga(false);
       setProduct({
          id: id,
