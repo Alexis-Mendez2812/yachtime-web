@@ -115,5 +115,4 @@ export const MyYacht = () => {
          )}
       </div>
    );
-   // <Link to="/userSite/newproduct">Crear nuevo yate</Link>;
 };
