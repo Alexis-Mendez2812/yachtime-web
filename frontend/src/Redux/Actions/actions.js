@@ -109,7 +109,7 @@ export const deleteYate = (id) => {
 
          return dispatch({
             type: 'DELETE_YATE',
-            payload: comicDelete.data.remove,
+            payload: id,
          });
       } catch (error) {
          console.log(error);

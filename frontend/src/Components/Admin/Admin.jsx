@@ -65,7 +65,6 @@ const Admin = () => {
 
    const handledeleteYate = (id) => {
       dispatch(deleteYate(id));
-      setShowComics(!showComics);
    };
    const handleChangeUser = (email, action) => {
       switch (action) {
@@ -371,7 +370,7 @@ banned
                                 <Fab color='error' aria-label='delete'>
                                    <DeleteIcon
                                       onClick={() => {
-                                         handledeleteYate(comic.idPrincipal);
+                                         handledeleteYate(comic.id);
                                       }}
                                    />
                                 </Fab>

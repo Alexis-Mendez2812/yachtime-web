@@ -48,11 +48,12 @@ export default function rootReducer(state = initialState, { type, payload }) {
          };
       case DELETE_YATE:
          let deletedYate = state.allYates.filter(
-            (c) => c.id !== type.payload.id
+            (c) => c.id !== payload
          );
          return {
             ...state,
             allYates: [...deletedYate],
+            copyYates: [...deletedYate],
          };
       case FILT_BY_STATS:
          let allUse = state.users;
