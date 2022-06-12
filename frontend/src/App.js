@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Components/Login/Login.jsx';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Home from './Components/Home/Home.jsx';
 import Navbar from './Components/Navbar/Navbar';
 import { WppAvatar } from './Components/Home/styledComponents';
@@ -21,12 +21,21 @@ import PayPal from './Components/PayPal/PayPal';
 import CardDetail from './Components/CardDetail/CardDetail.jsx';
 import Pay from './Components/Pay/Pay.jsx';
 import { UserSite } from './Components/userSite/UserSite.js';
+import { useAuth0 } from '@auth0/auth0-react';
+import { postUserGoogle } from './Redux/Actions/actions';
 
 function App() {
+   const dispatch = useDispatch();
+   const { user } = useAuth0();
    const aux = useSelector((state) => {
       return state.aux;
    });
    const [pur, setPur] = useState(false);
+   useEffect(() => {
+      if (user) {
+         dispatch(postUserGoogle(user));
+      }
+   }, [user]);
    useEffect(() => {
       setPur(!pur);
    }, []);

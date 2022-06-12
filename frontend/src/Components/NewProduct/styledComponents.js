@@ -25,3 +25,10 @@ export const InputBox2 = styled(Box)`
       display: block;
    }
 `;
+
+export const Label2 = styled('label')`
+   width: 50%;
+   height: 3rem;
+   color: white;
+   margin-top: 1rem;
+`;
