@@ -9,3 +9,11 @@ export const filterByModel = (model) => {
 export const filterByYear = (year) => {
    return { type: 'FILTER_BY_YEAR', payload: year };
 };
+
+export const filterByGuests = (guests) => {
+   return { type: 'FILTER_BY_GUESTS', payload: guests };
+};
+
+export const filterByLength = (length) => {
+   return { type: 'FILTER_BY_LENGTH', payload: length };
+};
