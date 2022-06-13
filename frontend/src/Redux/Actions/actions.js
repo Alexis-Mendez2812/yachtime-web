@@ -107,7 +107,7 @@ export const deleteYate = (id) => {
    console.log(id);
    return async (dispatch) => {
       try {
-         const comicDelete = await axios.delete(`/products/delete/${id}`);
+         await axios.delete(`/products/delete/${id}`);
 
          return dispatch({
             type: 'DELETE_YATE',

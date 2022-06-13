@@ -66,7 +66,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
             userFillt = allUse;
          } else {
             userFillt = allUse.filter(
-               (e) => payload == e.createdAt.substring(5, 7)
+               (e) => payload === e.createdAt.substring(5, 7)
             );
          }
 
@@ -74,7 +74,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
             ...state,
             copyUsers: userFillt,
          };
-         break;
+
       case FILT_BY_STATS_YACH:
          let yachs = state.allYates;
 
@@ -84,7 +84,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
             yachsFillt = yachs;
          } else {
             yachsFillt = yachs.filter(
-               (e) => payload == e.createdAt.substring(5, 7)
+               (e) => payload === e.createdAt.substring(5, 7)
             );
          }
 
@@ -92,7 +92,6 @@ export default function rootReducer(state = initialState, { type, payload }) {
             ...state,
             copyYates: yachsFillt,
          };
-         break;
       case FILT_BY_MODEL_YACH:
          
          let yachsFilltModel;
@@ -120,8 +119,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
             ...state,
             copyYates: yachsFilltModel,
          };
-         break;
-      case FILT_BY_ROLE:
+         case FILT_BY_ROLE:
          let allUsers = state.users;
 
          let userFill;

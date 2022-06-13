@@ -92,9 +92,6 @@ export const MyYacht = () => {
          </Aux>
          {yates.length > 0 ? (
             <div className='div-b'>
-               <Link to='/userSite/newproduct'>
-                  <div className=' btn btn-success'>Create new Yacht</div>
-               </Link>
                <div className='yacht-main'>
                   <h2>My Active Yatch</h2>
                   <div className='card_yates_container'>
