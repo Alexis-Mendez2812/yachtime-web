@@ -277,15 +277,15 @@ router.put("/", async (req, res) => {
 	}
 });
 
-router.delete("/:yateID", async (req, res) => {
-	const { yateID } = req.params;
+router.delete("/delete/:id", async (req, res) => {
+	const { id } = req.params;
 	try {
 		console.log(req.params)
 		await Products.destroy({
-			where: { id: yateID },
+			where: { id: id },
 		});
 
-		console.log(yateID);
+		console.log(id);
 		res.status(200).send("deleted");
 	} catch (error) {
 		console.log(error);
