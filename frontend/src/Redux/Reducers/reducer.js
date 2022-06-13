@@ -11,6 +11,8 @@ import {
    AUTHORIZE,
    DESAUTHORIZE,
    BANNED,
+   FILT_BY_STATS_YACH,
+   FILT_BY_MODEL_YACH
 } from '../Actions/actions';
 
 const initialState = {
@@ -71,6 +73,52 @@ export default function rootReducer(state = initialState, { type, payload }) {
          return {
             ...state,
             copyUsers: userFillt,
+         };
+         break;
+      case FILT_BY_STATS_YACH:
+         let yachs = state.allYates;
+
+         let yachsFillt;
+
+         if (payload === 'all') {
+            yachsFillt = yachs;
+         } else {
+            yachsFillt = yachs.filter(
+               (e) => payload == e.createdAt.substring(5, 7)
+            );
+         }
+
+         return {
+            ...state,
+            copyYates: yachsFillt,
+         };
+         break;
+      case FILT_BY_MODEL_YACH:
+         
+         let yachsFilltModel;
+
+         if (payload === 'all') {
+            yachsFilltModel = state.allYates;
+         } 
+         else if(payload === '49') {
+            yachsFilltModel = state.allYates.filter((yate) => {
+               return yate.model <=payload ;
+            });
+         }
+         else if(payload === '90') {
+            yachsFilltModel = state.allYates.filter((yate) => {
+               return yate.model >= payload ;
+            });
+         }
+         else if(payload === '89') {
+            yachsFilltModel = state.allYates.filter((yate) => {
+               return yate.model <=payload && yate.model >= "50" ;
+            });
+         }
+
+         return {
+            ...state,
+            copyYates: yachsFilltModel,
          };
          break;
       case FILT_BY_ROLE:

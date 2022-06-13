@@ -12,6 +12,8 @@ import {
    authorize,
    desauthorize,
    banned,
+   filterByStatsYach,
+   filterByModelYach
 } from '../../Redux/Actions/actions';
 import { Link } from 'react-router-dom';
 import { Table, Button } from 'semantic-ui-react';
@@ -32,7 +34,7 @@ const Admin = () => {
    const [statsInvoicing, setStatsInvoicing] = React.useState(0);
 
    const [showUsers, setShowUsers] = React.useState(false);
-   let comics = useSelector((state) => state.allYates);
+   let comics = useSelector((state) => state.copyYates);
    const [showComics, setShowComics] = React.useState(false);
    const createdComics = comics;
 
@@ -68,11 +70,7 @@ const Admin = () => {
    };
    const handleChangeUser = (email, action) => {
       switch (action) {
-         /**
-authorize
-desauthorize
-banned
- */
+         
          case 'admin':
             return dispatch(authorize(email));
 
@@ -99,6 +97,16 @@ banned
       return statsInvoicing;
    };
 
+   const handleFilterModel = (e) => {
+      e.preventDefault();
+      dispatch(filterByModelYach(e.target.value));
+
+   };
+   const handleFilterMonthYach = (e) => {
+      e.preventDefault();
+      dispatch(filterByStatsYach(e.target.value));
+
+   };
    const handleFilterMonth = (e) => {
       e.preventDefault();
       dispatch(filterByStats(e.target.value));
@@ -175,8 +183,6 @@ banned
                <option value='11'>November</option>
                <option value='12'>December</option>
             </select>
-         </div>
-         <div>
             <select
                onChange={handleFilterRole}
                style={{
@@ -197,7 +203,7 @@ banned
 
             </select>
          </div>
-               <select
+               {/* <select
                   onChange={handleFilter}
                   style={{
                      fontSize: '22px',
@@ -213,7 +219,7 @@ banned
                   <option value='1'>Monthly</option>
                   <option value='2'>Annual</option>
                   <option value=''>Canceled</option>
-               </select>
+               </select> */}
             </div>
             <Button
                onClick={handleAll}
@@ -298,7 +304,52 @@ banned
             <h2 style={{ margin: '4rem', width: '40%' }} class='ui teal header'>
                YACHTS MENU
             </h2>
+            <div>
+            <select
+               onChange={handleFilterMonthYach}
+               style={{
+                  fontSize: '22px',
+                  margin: '1rem',
+                  borderRadius: '20px',
 
+                  boxShadow: '10px, white',
+                  width: '40%',
+                  padding: '1rem',
+               }}
+            >
+               <option value='all'>Filter by Month</option>
+               <option value='01'>January</option>
+               <option value='02'>February</option>
+               <option value='03'>March</option>
+               <option value='04'>April</option>
+               <option value='05'>May</option>
+               <option value='06'>June</option>
+               <option value='07'>July</option>
+               <option value='08'>Agost</option>
+               <option value='09'>September</option>
+               <option value='10'>October</option>
+               <option value='11'>November</option>
+               <option value='12'>December</option>
+            </select>
+            <select
+               onChange={handleFilterModel}
+               style={{
+                  fontSize: '22px',
+                  margin: '1rem',
+                  borderRadius: '20px',
+
+                  boxShadow: '10px, white',
+                  width: '40%',
+                  padding: '1rem',
+               }}
+            >
+               <option value='all'>Filter by Model</option>
+               <option value='49'>Up to 50'</option>
+               <option value='89'>50' to 90'</option>
+               <option value='90'>Over 90'</option>
+
+            </select>
+         </div>
             <Button
                onClick={handleShowComics}
                style={{
@@ -333,6 +384,7 @@ banned
                      <Table.HeaderCell> Water Cap </Table.HeaderCell>
                      <Table.HeaderCell>Cruise Vel</Table.HeaderCell>
                      <Table.HeaderCell>Fuel Type</Table.HeaderCell>
+                     <Table.HeaderCell>Create at</Table.HeaderCell>
                   </Table.Row>
                </Table.Header>
 
@@ -361,8 +413,10 @@ banned
                              <Table.Cell>{`${comic.waterCapacity} GAL`}</Table.Cell>
                              <Table.Cell>{`${comic.cruiseVel} KNOTS`}</Table.Cell>
                              <Table.Cell>{`${
+                             
                                 comic.fuelType || 'gasoline'
                              }`}</Table.Cell>
+                             <Table.Cell>{comic.createdAt.substring(0,10)}</Table.Cell>
                              <Table.Cell>
                                 <Fab color='secondary' aria-label='edit'>
                                    +

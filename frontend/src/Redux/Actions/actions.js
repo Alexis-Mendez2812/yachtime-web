@@ -12,6 +12,8 @@ export const GET_ID_NAME = 'GET_ID_NAME';
 export const AUTHORIZE = 'AUTHORIZE';
 export const DESAUTHORIZE = 'DESAUTHORIZE';
 export const BANNED = 'BANNED';
+export const FILT_BY_STATS_YACH = 'FILT_BY_STATS_YACH';
+export const FILT_BY_MODEL_YACH = 'FILT_BY_MODEL_YACH';
 
 export function allYates() {
    return async function (dispatch) {
@@ -120,6 +122,18 @@ export const deleteYate = (id) => {
 export const filterByStats = (payload) => {
    return {
       type: FILT_BY_STATS,
+      payload: payload,
+   };
+};
+export const filterByStatsYach = (payload) => {
+   return {
+      type: FILT_BY_STATS_YACH,
+      payload: payload,
+   };
+};
+export const filterByModelYach = (payload) => {
+   return {
+      type: FILT_BY_MODEL_YACH,
       payload: payload,
    };
 };
