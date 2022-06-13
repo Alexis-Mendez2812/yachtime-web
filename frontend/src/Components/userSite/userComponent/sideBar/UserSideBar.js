@@ -4,7 +4,7 @@ import './userSideBar.css';
 import logo from '../../../Navbar/logo/logoYT.png';
 import HomeIcon from '@mui/icons-material/Home';
 import { Container } from '../styledComponents.js';
-
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 export const UserSidebar = () => {
    return (
       <Container>
@@ -37,6 +37,12 @@ export const UserSidebar = () => {
                      <Link to='/userSite/chats'>
                         <i className='fa-solid fa-comments'></i>
                         Chats
+                     </Link>
+                  </li>
+                  <li>
+                     <Link to='/userSite/newproduct'>
+                        <AddCircleOutlineIcon />
+                         Create Yach
                      </Link>
                   </li>
                </ul>
