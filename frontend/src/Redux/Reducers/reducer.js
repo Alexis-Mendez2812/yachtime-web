@@ -33,7 +33,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
       case ALL_YATES:
          return { ...state, allYates: payload, copyYates: payload };
       case POST_USER:
-         return { ...state, userSession: payload };
+         return { ...state, userSession: payload,myYates: payload.Products };
       case GET_ALL_PRODUCTS:
          return { ...state, allYates: payload, copyYates: payload };
       case AUTHORIZE:

@@ -31,7 +31,9 @@ router.post('/', async (req, res) => {
          let usuario = await Users.findOne({
             where: {
                email,
-            },
+            },include: {
+               model: Products,
+            }
          });
 
          if (usuario && Object.keys(usuario).length) {
@@ -107,8 +109,6 @@ router.get('/all', async (req, res) => {
       const users = await Users.findAll({
          include: {
             model: Products,
-            attributes: ['id'],
-            through: { yatesOwned: [] },
          },
       });
 

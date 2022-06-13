@@ -15,7 +15,7 @@ export const MyYacht = () => {
    const { logout, user } = useAuth0();
    const dispatch = useDispatch();
    const yates = useSelector((state) => {
-      return state.allYates;
+      return state.myYates;
    });
    const { picture } = useSelector((state) => state.userSession);
    const [anchorEl, setAnchorEl] = React.useState(null);
