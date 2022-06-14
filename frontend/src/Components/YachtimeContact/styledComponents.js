@@ -44,3 +44,23 @@ export const NumberGraphy = styled(Typography)`
    font-weight: 400;
    font-size: 1rem;
 `;
+
+export const AllCardsBox = styled(Box)`
+   display: none;
+
+   @media (max-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
+   }
+`;
+
+export const CardBox = styled(Box)`
+   display: flex;
+   flex-direction: column;
+   width: 50%;
+   align-items: center;
+   justify-content: center;
+   background-color: #222;
+   margin-top: 0.5rem;
+   margin-top: 0.5rem;
+`;

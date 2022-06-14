@@ -156,55 +156,54 @@ router.get('/:email', async (req, res) => {
 
 //------->
 
-
-router.post("/", async (req, res) => {
-	const {
-		make,
-		model,
-		year,
-		cabins,
-		bathrooms,
-		guests,
-		length,
-		beam,
-		draft,
-		fuelCapacity,
-		waterCapacity,
-		cruiseVel,
-		location,
-		fuelType,
-		description,
-		pictures,
-		owner,
-	 } = req.body;
-	try {
-		const [newProduct, bool] = await Products.findOrCreate({
-			where: {
-			   make,
-			   model,
-			   year,
-			   cabins,
-			   bathrooms,
-			   guests,
-			   length,
-			   beam,
-			   draft,
-			   fuelCapacity,
-			   waterCapacity,
-			   cruiseVel,
-			   location,
-			   fuelType,
-			   description,
-			   pictures,
-			},
-		 });
-		const user = await Users.findOne({ where: { id: owner } });
+router.post('/', async (req, res) => {
+   const {
+      make,
+      model,
+      year,
+      cabins,
+      bathrooms,
+      guests,
+      length,
+      beam,
+      draft,
+      fuelCapacity,
+      waterCapacity,
+      cruiseVel,
+      location,
+      fuelType,
+      description,
+      pictures,
+      owner,
+   } = req.body;
+   try {
+      const [newProduct, bool] = await Products.findOrCreate({
+         where: {
+            make,
+            model,
+            year,
+            cabins,
+            bathrooms,
+            guests,
+            length,
+            beam,
+            draft,
+            fuelCapacity,
+            waterCapacity,
+            cruiseVel,
+            location,
+            fuelType,
+            description,
+            pictures,
+         },
+      });
+      const user = await Users.findOne({ where: { id: owner } });
       await user.addProducts(newProduct.id);
-		return res.status(201).send({bool,newProduct});
-	} catch (error) {
-		console.log(error);
-	}
-
+      return res.status(201).send({ bool, newProduct });
+   } catch (error) {
+      console.log(error);
+   }
+});
 
 router.put('/', async (req, res) => {
    const { editId } = req.editId;
@@ -268,16 +267,14 @@ router.put('/', async (req, res) => {
    }
 });
 
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
    const { id } = req.params;
    try {
-      console.log(req.params);
       await Products.destroy({
          where: { id: id },
       });
 
-      console.log(id);
-      res.status(200).send('deleted');
+      return res.status(200).send('deleted');
    } catch (error) {
       console.log(error);
    }

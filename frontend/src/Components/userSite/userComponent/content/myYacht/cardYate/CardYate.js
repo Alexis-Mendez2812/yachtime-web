@@ -16,6 +16,7 @@ export const CardYate = ({ yate }) => {
    const dispatch = useDispatch();
    const handleDeleteYacht = (id) => {
       dispatch(deleteYacht(id));
+      // window.location.reload();
    };
 
    return (
@@ -34,7 +35,7 @@ export const CardYate = ({ yate }) => {
                      {yate.model} {yate.make}
                   </Typography>
                </CardContent>
-               <CardActions style={{"justify-content": "space-between"}} >
+               <CardActions style={{ 'justify-content': 'space-between' }}>
                   <Link to={`/usersite/newproduct/${yate.id}`}>Edit</Link>
                   <Button
                      onClick={() => handleDeleteYacht(yate.id)}
