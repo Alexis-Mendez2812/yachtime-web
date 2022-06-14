@@ -4,8 +4,16 @@ import './userSideBar.css';
 import logo from '../../../Navbar/logo/logoYT.png';
 import HomeIcon from '@mui/icons-material/Home';
 import { Container } from '../styledComponents.js';
-
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import ChatIcon from '@mui/icons-material/Chat';
+import AnchorIcon from '@mui/icons-material/Anchor';
+import PersonIcon from '@mui/icons-material/Person';
+import { useSelector } from 'react-redux';
 export const UserSidebar = () => {
+   const { role } = useSelector(
+      (state) => state.userSession
+   );
    return (
       <Container>
          <div id='viewport'>
@@ -24,21 +32,33 @@ export const UserSidebar = () => {
                   </li>
                   <li>
                      <Link to='/userSite/data'>
-                        <i className='fa-solid fa-ellipsis-vertical'></i>
+                        <PersonIcon />
                         Profile
                      </Link>
                   </li>
                   <li>
                      <Link to='/userSite/myYacht'>
-                        <i className='fa-solid fa-sailboat'></i>My Yacht
+                        <AnchorIcon />
+                        My Yachs
                      </Link>
                   </li>
                   <li>
                      <Link to='/userSite/chats'>
-                        <i className='fa-solid fa-comments'></i>
+                        <ChatIcon />
                         Chats
                      </Link>
                   </li>
+                  <li>
+                     <Link to='/userSite/newproduct'>
+                        <AddCircleOutlineIcon />
+                         Create Yach
+                     </Link>
+                  </li>
+{   (role ==="ROLE_ADMIN" || role ==="ROLE_SUPER_ADMIN") &&    <li>
+                     <Link to='/admin'>
+                        <AdminPanelSettingsIcon />Admin
+                     </Link>
+                  </li>}
                </ul>
             </div>
          </div>
