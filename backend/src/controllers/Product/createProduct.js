@@ -7,6 +7,8 @@ cloudinary.config({
    api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+const ConfirmUploadToUser = require('../../notifications/executors/ShipUploaded');
+
 const uploadImage = async (req, res) => {
    try {
       const {
@@ -59,8 +61,8 @@ const uploadImage = async (req, res) => {
 
       const user = await Users.findOne({ where: { id: owner } });
       await user.addProducts(newProduct.id);
-
-      res.json({ status: 'Product saved successfully.' });
+      ConfirmUploadToUser(user.email, make, model);
+      return res.json({ status: 'Product saved successfully.' });
    } catch (err) {
       console.log(err);
       res.json(err);
