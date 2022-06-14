@@ -5,7 +5,14 @@ import david from './staff/david.jpg';
 import diego from './staff/diego.jpg';
 import valeria from './staff/valeria.jpg';
 import { SiInstagram } from 'react-icons/si';
-import { MapContainer, NumberGraphy, DataBox } from './styledComponents';
+import {
+   MapContainer,
+   NumberGraphy,
+   DataBox,
+   AllCardsBox,
+   CardBox,
+} from './styledComponents';
+import { Box } from '@mui/material';
 
 function YachtimeContact() {
    const [mapRef] = useState(
@@ -13,10 +20,14 @@ function YachtimeContact() {
    );
 
    return (
-      <div className={style.YachtimeContact}>
+      <Box
+         style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+         }}
+      >
          <h1 className={style.title}>Yachtimeapp's Crew</h1>
-
-         {/* STAFF */}
          <div className={style.divImages}>
             <div className={style.staff}>
                <img src={angel} alt='angel' className={style.img} />
@@ -51,6 +62,52 @@ function YachtimeContact() {
                </a>
             </div>
          </div>
+         <AllCardsBox>
+            <CardBox>
+               <img src={angel} alt='angel' className={style.img} />
+               <span style={{ color: 'white' }}>Angel L.</span>
+               <h3 style={{ color: 'white' }}>CEO\Founder</h3>
+               <a href='https://instagram.com/angellimongi?igshid=YmMyMTA2M2Y='>
+                  <SiInstagram
+                     style={{ color: 'white' }}
+                     className={style.instagram}
+                  />
+               </a>
+            </CardBox>
+            <CardBox>
+               <img src={david} alt='david' className={style.img} />
+               <span style={{ color: 'white' }}>David G.</span>
+               <h3 style={{ color: 'white' }}>COO\Founder</h3>
+               <a href='https://instagram.com/davidgarciabaquero?r=nametag'>
+                  <SiInstagram
+                     style={{ color: 'white' }}
+                     className={style.instagram}
+                  />
+               </a>
+            </CardBox>
+            <CardBox>
+               <img src={valeria} alt='valeria' className={style.img} />
+               <span style={{ color: 'white' }}>Valeria F.</span>
+               <h3 style={{ color: 'white' }}>Concierge</h3>
+               <a href='https://www.instagram.com/valeriafainsodc/'>
+                  <SiInstagram
+                     style={{ color: 'white' }}
+                     className={style.instagram}
+                  />
+               </a>
+            </CardBox>
+            <CardBox>
+               <img src={diego} alt='diego' className={style.img} />
+               <span style={{ color: 'white' }}>Diego C.</span>
+               <h3 style={{ color: 'white' }}>Concierge</h3>
+               <a href='https://www.instagram.com/diegooocorrales/'>
+                  <SiInstagram
+                     style={{ color: 'white' }}
+                     className={style.instagram}
+                  />
+               </a>
+            </CardBox>
+         </AllCardsBox>
          {mapRef && (
             <MapContainer>
                <iframe
@@ -69,7 +126,7 @@ function YachtimeContact() {
                </DataBox>
             </MapContainer>
          )}
-      </div>
+      </Box>
    );
 }
 

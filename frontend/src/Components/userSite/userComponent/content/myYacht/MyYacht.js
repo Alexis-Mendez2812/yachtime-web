@@ -28,7 +28,9 @@ export const MyYacht = () => {
    };
 
    useEffect(() => {
-      dispatch(postUserGoogle(user));
+      if (user) {
+         dispatch(postUserGoogle(user));
+      }
    }, [dispatch, user]);
 
    useEffect(() => {
