@@ -195,6 +195,34 @@ export default function rootReducer(state = initialState, { type, payload }) {
             ...state,
             allYates: filYear,
          };
+      case 'FILTER_BY_GUESTS':
+         const everyBoat2 = state.copyYates;
+         let filGuests;
+         if (payload === 'all') {
+            filGuests = everyBoat2;
+         } else {
+            filGuests = everyBoat2.filter((yate) => {
+               return yate.guests === Number(payload);
+            });
+         }
+         return {
+            ...state,
+            allYates: filGuests,
+         };
+      case 'FILTER_BY_LENGTH':
+         const everyBoat3 = state.copyYates;
+         let filLength;
+         if (payload === 'all') {
+            filLength = everyBoat3;
+         } else {
+            filLength = everyBoat3.filter((yate) => {
+               return yate.length === payload;
+            });
+         }
+         return {
+            ...state,
+            allYates: filLength,
+         };
       case 'GET_YATE_DETAIL':
          const arr = [];
          arr.push(payload);

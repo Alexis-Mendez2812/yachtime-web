@@ -745,8 +745,67 @@ export default function NewProduct() {
                                  onChange={handleOnChange}
                               ></input>
                            </div>
-                           <div className='width100'>
-                              <label className='Form-label '>Length</label>{' '}
+                           <InputBox className='width100'>
+                              <label className='Form-label '>Length</label>
+                              <br />
+                              <div className='Form-div-internal'>
+                                 <Input
+                                    className='Form-input-internal'
+                                    type='number'
+                                    name='lengthUno'
+                                    min='30'
+                                    max='200'
+                                    value={product.lengthUno}
+                                    placeholder='Title'
+                                    onChange={handleOnChangeLength}
+                                 ></Input>
+                                 <Input
+                                    className='Form-input-internal'
+                                    type='number'
+                                    name='lengthDos'
+                                    min='0'
+                                    max='11'
+                                    value={product.lengthDos}
+                                    placeholder='Title'
+                                    onChange={handleOnChangeLength}
+                                 ></Input>
+                                 <Label className='Form-label-internal '>
+                                    {`${product.lengthUno}' ${product.lengthDos}"`}
+                                 </Label>
+                                 <br />
+                              </div>
+                           </InputBox>
+                           <InputBox className='width100'>
+                              <label className='Form-label '>Beam</label> <br />
+                              <div className='Form-div-internal'>
+                                 <Input
+                                    className='Form-input-internal'
+                                    type='number'
+                                    name='beamUno'
+                                    min='10'
+                                    max='40'
+                                    value={product.beamUno}
+                                    placeholder='Title'
+                                    onChange={handleOnChangeBeam}
+                                 ></Input>
+                                 <Input
+                                    className='Form-input-internal'
+                                    type='number'
+                                    name='beamDos'
+                                    min='0'
+                                    max='11'
+                                    value={product.beamDos}
+                                    placeholder='Title'
+                                    onChange={handleOnChangeBeam}
+                                 ></Input>
+                                 <Label className='Form-label-internal '>
+                                    {`${product.beamUno}' ${product.beamDos}"`}
+                                 </Label>
+                                 <br />
+                              </div>
+                           </InputBox>
+                           <InputBox2 className='width100'>
+                              <label className='Form-label '>Length</label>
                               <br />
                               <div className='Form-div-internal'>
                                  <input
@@ -770,43 +829,41 @@ export default function NewProduct() {
                                     onChange={handleOnChangeLength}
                                  ></input>
                                  <label className='Form-label-internal '>
-                                    {' '}
                                     {`${product.lengthUno}' ${product.lengthDos}"`}
-                                 </label>{' '}
+                                 </label>
                                  <br />
                               </div>
-                           </div>
-                           <div className='width100'>
-                              <label className='Form-label '>Beam</label> <br />
-                              <div className='Form-div-internal'>
-                                 <input
-                                    className='Form-input-internal'
-                                    type='number'
-                                    name='beamUno'
-                                    min='10'
-                                    max='40'
-                                    value={product.beamUno}
-                                    placeholder='Title'
-                                    onChange={handleOnChangeBeam}
-                                 ></input>
-                                 <input
-                                    className='Form-input-internal'
-                                    type='number'
-                                    name='beamDos'
-                                    min='0'
-                                    max='11'
-                                    value={product.beamDos}
-                                    placeholder='Title'
-                                    onChange={handleOnChangeBeam}
-                                 ></input>
-                                 <label className='Form-label-internal '>
-                                    {' '}
-                                    {`${product.beamUno}' ${product.beamDos}"`}
-                                 </label>{' '}
-                                 <br />
-                              </div>
-                           </div>
+                           </InputBox2>
                         </div>
+                        <InputBox2 className='width100'>
+                           <label className='Form-label '>Beam</label> <br />
+                           <div className='Form-div-internal'>
+                              <input
+                                 className='Form-input-internal'
+                                 type='number'
+                                 name='beamUno'
+                                 min='10'
+                                 max='40'
+                                 value={product.beamUno}
+                                 placeholder='Title'
+                                 onChange={handleOnChangeBeam}
+                              ></input>
+                              <input
+                                 className='Form-input-internal'
+                                 type='number'
+                                 name='beamDos'
+                                 min='0'
+                                 max='11'
+                                 value={product.beamDos}
+                                 placeholder='Title'
+                                 onChange={handleOnChangeBeam}
+                              ></input>
+                              <label className='Form-label-internal '>
+                                 {`${product.beamUno}' ${product.beamDos}"`}
+                              </label>
+                              <br />
+                           </div>
+                        </InputBox2>
                         <div className='inputContUp'>
                            <div className='width100'>
                               <label className='Form-label '>Draft</label>{' '}
@@ -839,10 +896,10 @@ export default function NewProduct() {
                                  <br />
                               </div>
                            </div>
-                           <div className='width100'>
+                           <InputBox className='width100'>
                               <label className='Form-label '>
                                  Fuel Capacity
-                              </label>{' '}
+                              </label>
                               <br />
                               <input
                                  className='Form-input'
@@ -853,7 +910,25 @@ export default function NewProduct() {
                                  placeholder='Title'
                                  onChange={handleOnChange}
                               ></input>
-                           </div>
+                           </InputBox>
+                           <InputBox2
+                              className='width100'
+                              style={{ width: '70%' }}
+                           >
+                              <label className='Form-label '>
+                                 Fuel Capacity
+                              </label>
+                              <br />
+                              <input
+                                 className='Form-input'
+                                 type='number'
+                                 min='0'
+                                 name='fuelCapacity'
+                                 value={product.fuelCapacity}
+                                 placeholder='Title'
+                                 onChange={handleOnChange}
+                              ></input>
+                           </InputBox2>
                            <div className='width100'>
                               <label className='Form-label '>
                                  WaterCapacity

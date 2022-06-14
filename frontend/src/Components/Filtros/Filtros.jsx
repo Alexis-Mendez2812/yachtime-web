@@ -13,6 +13,8 @@ import {
    filterBySize,
    filterByModel,
    filterByYear,
+   filterByGuests,
+   filterByLength,
 } from '../../Redux/Actions/FilterActions/filterActions';
 
 const Filtros = ({ setCurrentPage, setCharging }) => {
@@ -24,10 +26,14 @@ const Filtros = ({ setCurrentPage, setCharging }) => {
    const [sizeSelect, setSizeSelect] = useState('All');
    const [modelSelect, setModelSelect] = useState('All');
    const [yearSelect, setYearSelect] = useState('All');
+   const [guestsSelect, setGuestsSelect] = useState('All');
+   const [lengthSelect, setLengthSelect] = useState('All');
 
    let sizeArr = [];
    let modelArr = [];
    let yearArr = [];
+   let guestsArr = [];
+   let lengthArr = [];
    for (let i = 0; i < allYates.length; i++) {
       if (!sizeArr.includes(allYates[i].model)) {
          sizeArr.push(allYates[i].model);
@@ -43,12 +49,24 @@ const Filtros = ({ setCurrentPage, setCharging }) => {
          yearArr.push(allYates[i].year);
       }
    }
+   for (let i = 0; i < allYates.length; i++) {
+      if (!guestsArr.includes(allYates[i].guests)) {
+         guestsArr.push(allYates[i].guests);
+      }
+   }
+   for (let i = 0; i < allYates.length; i++) {
+      if (!lengthArr.includes(allYates[i].length)) {
+         lengthArr.push(allYates[i].length);
+      }
+   }
 
    const handleInputSize = (e) => {
       e.preventDefault();
       setSizeSelect(e.target.value);
       setModelSelect('Select');
       setYearSelect('Select');
+      setGuestsSelect('Select');
+      setLengthSelect('Select');
       setCharging(true);
       dispatch(filterBySize(e.target.value));
       setCurrentPage(1);
@@ -63,6 +81,8 @@ const Filtros = ({ setCurrentPage, setCharging }) => {
       setModelSelect(e.target.value);
       setSizeSelect('Select');
       setYearSelect('Select');
+      setGuestsSelect('Select');
+      setLengthSelect('Select');
       dispatch(filterByModel(e.target.value));
       setCurrentPage(1);
       setTimeout(() => {
@@ -76,7 +96,39 @@ const Filtros = ({ setCurrentPage, setCharging }) => {
       setYearSelect(e.target.value);
       setSizeSelect('Select');
       setModelSelect('Select');
+      setGuestsSelect('Select');
+      setLengthSelect('Select');
       dispatch(filterByYear(e.target.value));
+      setCurrentPage(1);
+      setTimeout(() => {
+         setCharging(false);
+      }, 400);
+   };
+
+   const handleInputGuests = (e) => {
+      e.preventDefault();
+      setCharging(true);
+      setGuestsSelect(e.target.value);
+      setSizeSelect('Select');
+      setModelSelect('Select');
+      setYearSelect('Select');
+      setLengthSelect('Select');
+      dispatch(filterByGuests(e.target.value));
+      setCurrentPage(1);
+      setTimeout(() => {
+         setCharging(false);
+      }, 400);
+   };
+
+   const handleInputLength = (e) => {
+      e.preventDefault();
+      setCharging(true);
+      setLengthSelect(e.target.value);
+      setSizeSelect('Select');
+      setModelSelect('Select');
+      setYearSelect('Select');
+      setGuestsSelect('Select');
+      dispatch(filterByLength(e.target.value));
       setCurrentPage(1);
       setTimeout(() => {
          setCharging(false);
@@ -90,6 +142,8 @@ const Filtros = ({ setCurrentPage, setCharging }) => {
       setSizeSelect('Select');
       setModelSelect('Select');
       setYearSelect('Select');
+      setGuestsSelect('Select');
+      setLengthSelect('Select');
       setTimeout(() => {
          setCharging(false);
       }, 400);
@@ -160,6 +214,51 @@ const Filtros = ({ setCurrentPage, setCharging }) => {
                               {year}
                            </Option>
                         );
+                     })}
+            </Select>
+         </FilterBox>
+         <FilterBox>
+            <FilterTitle>Guests:</FilterTitle>
+            <Select onChange={handleInputGuests} value={guestsSelect}>
+               <Option key='none' value='all'>
+                  Select
+               </Option>
+               {guestsArr.length > 0 &&
+                  guestsArr.map((guests, i) => {
+                     return (
+                        <Option key={i} value={guests}>
+                           {guests}
+                        </Option>
+                     );
+                  })}
+            </Select>
+         </FilterBox>
+         <FilterBox>
+            <FilterTitle>Length:</FilterTitle>
+            <Select onChange={handleInputLength} value={lengthSelect}>
+               <Option key='none' value='all'>
+                  Select
+               </Option>
+               {lengthArr.length > 0 &&
+                  lengthArr
+                     .sort((x, y) => {
+                        if (x > y) {
+                           return 1;
+                        }
+                        if (x < y) {
+                           return -1;
+                        }
+                        return 0;
+                     })
+                     .map((length, i) => {
+                        if (length.length !== 0) {
+                           return (
+                              <Option key={i} value={length}>
+                                 {length}
+                              </Option>
+                           );
+                        }
+                        return;
                      })}
             </Select>
          </FilterBox>
