@@ -1,10 +1,10 @@
 const { Router } = require('express');
 
 const { Users, Payments, Products } = require(`../db`);
-// const main = require("../controllers/mailer");
+const SendEmailToNewUser = require('../notifications/executors/NewUser');
+const ConfirmPaymentToUser = require('../notifications/executors/MembershipConfirmed');
 
 const router = Router();
-
 //USERS
 
 router.put('/editdata', async (req, res) => {
@@ -46,6 +46,7 @@ router.post('/', async (req, res) => {
                   picture: picture,
                },
             });
+            SendEmailToNewUser(email, given_name);
 
             console.log('se creó el usuario por auth0 ' + created);
 
@@ -66,6 +67,7 @@ router.post('/', async (req, res) => {
          },
       });
       console.log('se creó el usuario por el form ' + created);
+      SendEmailToNewUser(email, given_name);
 
       return res.status(201).json(user);
    } catch (error) {
@@ -186,6 +188,7 @@ router.post('/payment', async (req, res) => {
          },
       });
       user.update({ role: 'ROLE_PRIME' });
+      ConfirmPaymentToUser(email, user.firtsName);
 
       return res.status(200).json({ user, pago });
    } catch (err) {
