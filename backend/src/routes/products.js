@@ -156,63 +156,55 @@ router.get('/:email', async (req, res) => {
 
 //------->
 
-router.post('/', async (req, res) => {
-   const { userId } = req.user;
-   const {
-      make,
-      model,
-      year,
-      cabins,
-      bathrooms,
-      guest,
-      length,
-      lengthUno,
-      lengthDos,
-      beam,
-      beamUno,
-      beamDos,
-      draft,
-      draftUno,
-      draftDos,
-      fuelCapacity,
-      waterCapacity,
-      cruiseVel,
-      location,
-      fuelType,
-      description,
-      pictures,
-   } = req.body;
-   try {
-      let resp = await Products.create({
-         make,
-         model,
-         year,
-         cabins,
-         bathrooms,
-         guest,
-         length,
-         lengthUno,
-         lengthDos,
-         beam,
-         beamUno,
-         beamDos,
-         draft,
-         draftUno,
-         draftDos,
-         fuelCapacity,
-         waterCapacity,
-         cruiseVel,
-         location,
-         fuelType,
-         description,
-         pictures,
-         userId,
-      });
-      return res.status(200).send(resp);
-   } catch (error) {
-      console.log(error);
-   }
-});
+
+router.post("/", async (req, res) => {
+	const {
+		make,
+		model,
+		year,
+		cabins,
+		bathrooms,
+		guests,
+		length,
+		beam,
+		draft,
+		fuelCapacity,
+		waterCapacity,
+		cruiseVel,
+		location,
+		fuelType,
+		description,
+		pictures,
+		owner,
+	 } = req.body;
+	try {
+		const [newProduct, bool] = await Products.findOrCreate({
+			where: {
+			   make,
+			   model,
+			   year,
+			   cabins,
+			   bathrooms,
+			   guests,
+			   length,
+			   beam,
+			   draft,
+			   fuelCapacity,
+			   waterCapacity,
+			   cruiseVel,
+			   location,
+			   fuelType,
+			   description,
+			   pictures,
+			},
+		 });
+		const user = await Users.findOne({ where: { id: owner } });
+      await user.addProducts(newProduct.id);
+		return res.status(201).send({bool,newProduct});
+	} catch (error) {
+		console.log(error);
+	}
+
 
 router.put('/', async (req, res) => {
    const { editId } = req.editId;
