@@ -27,7 +27,7 @@ function YachtimeContact() {
             alignItems: 'center',
          }}
       >
-         <h1 className={style.title}>Yachtimeapp's Crew</h1>
+         <h1 className={style.title}>Yachtimeapp Crew</h1>
          <div className={style.divImages}>
             <div className={style.staff}>
                <img src={angel} alt='angel' className={style.img} />
