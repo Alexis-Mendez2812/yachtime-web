@@ -1,12 +1,12 @@
 .imgMembership {
    background-image: url('./logo/background_menber_01.jpg');
-   display: flex;
-   justify-content: center;
-   align-items: center;
    background-repeat: no-repeat;
    background-position: center;
    background-size: cover;
    width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    height: 400px;
    margin-bottom: 3rem;
 }

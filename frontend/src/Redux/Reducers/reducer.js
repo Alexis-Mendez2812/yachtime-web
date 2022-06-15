@@ -11,6 +11,8 @@ import {
    AUTHORIZE,
    DESAUTHORIZE,
    BANNED,
+   FILT_BY_STATS_YACH,
+   FILT_BY_MODEL_YACH
 } from '../Actions/actions';
 
 const initialState = {
@@ -21,6 +23,7 @@ const initialState = {
    yateSelected: {},
    userSession: {},
    users: [],
+   aux: false,
    copyUsers: [],
    oneYate: [],
 };
@@ -30,7 +33,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
       case ALL_YATES:
          return { ...state, allYates: payload, copyYates: payload };
       case POST_USER:
-         return { ...state, userSession: payload };
+         return { ...state, userSession: payload,myYates: payload.Products };
       case GET_ALL_PRODUCTS:
          return { ...state, allYates: payload, copyYates: payload };
       case AUTHORIZE:
@@ -47,28 +50,91 @@ export default function rootReducer(state = initialState, { type, payload }) {
          };
       case DELETE_YATE:
          let deletedYate = state.allYates.filter(
-            (c) => c.id !== type.payload.id
+            (c) => c.id !== payload
          );
          return {
             ...state,
             allYates: [...deletedYate],
+            copyYates: [...deletedYate],
          };
       case FILT_BY_STATS:
-         console.log('EN EL REDUCER FILTER ADMIN, ', payload);
-         const backUp2 = [...state.users];
-         const filtered2 = backUp2.filter(
-            (user) =>
-               new Date(user.createdAt).getMonth() + 1 === Number(payload)
-         );
-         break;
-      case FILT_BY_ROLE:
-         const backUp = [...state.users];
-         const filtered = backUp.filter(
-            (user) => Number(user.plan_id) === payload
-         );
+         let allUse = state.users;
+
+         let userFillt;
+
+         if (payload === 'all') {
+            userFillt = allUse;
+         } else {
+            userFillt = allUse.filter(
+               (e) => payload === e.createdAt.substring(5, 7)
+            );
+         }
+
          return {
             ...state,
-            copyUsers: filtered,
+            copyUsers: userFillt,
+         };
+
+      case FILT_BY_STATS_YACH:
+         let yachs = state.allYates;
+
+         let yachsFillt;
+
+         if (payload === 'all') {
+            yachsFillt = yachs;
+         } else {
+            yachsFillt = yachs.filter(
+               (e) => payload === e.createdAt.substring(5, 7)
+            );
+         }
+
+         return {
+            ...state,
+            copyYates: yachsFillt,
+         };
+      case FILT_BY_MODEL_YACH:
+         
+         let yachsFilltModel;
+
+         if (payload === 'all') {
+            yachsFilltModel = state.allYates;
+         } 
+         else if(payload === '49') {
+            yachsFilltModel = state.allYates.filter((yate) => {
+               return yate.model <=payload ;
+            });
+         }
+         else if(payload === '90') {
+            yachsFilltModel = state.allYates.filter((yate) => {
+               return yate.model >= payload ;
+            });
+         }
+         else if(payload === '89') {
+            yachsFilltModel = state.allYates.filter((yate) => {
+               return yate.model <=payload && yate.model >= "50" ;
+            });
+         }
+
+         return {
+            ...state,
+            copyYates: yachsFilltModel,
+         };
+         case FILT_BY_ROLE:
+         let allUsers = state.users;
+
+         let userFill;
+
+         if (payload === 'all') {
+            userFill = allUsers;
+         } else {
+            userFill = allUsers.filter((yate) => {
+               return yate.role.includes(payload);
+            });
+         }
+
+         return {
+            ...state,
+            copyUsers: userFill,
          };
       case VACIAR:
          return {
@@ -129,6 +195,34 @@ export default function rootReducer(state = initialState, { type, payload }) {
             ...state,
             allYates: filYear,
          };
+      case 'FILTER_BY_GUESTS':
+         const everyBoat2 = state.copyYates;
+         let filGuests;
+         if (payload === 'all') {
+            filGuests = everyBoat2;
+         } else {
+            filGuests = everyBoat2.filter((yate) => {
+               return yate.guests === Number(payload);
+            });
+         }
+         return {
+            ...state,
+            allYates: filGuests,
+         };
+      case 'FILTER_BY_LENGTH':
+         const everyBoat3 = state.copyYates;
+         let filLength;
+         if (payload === 'all') {
+            filLength = everyBoat3;
+         } else {
+            filLength = everyBoat3.filter((yate) => {
+               return yate.length === payload;
+            });
+         }
+         return {
+            ...state,
+            allYates: filLength,
+         };
       case 'GET_YATE_DETAIL':
          const arr = [];
          arr.push(payload);
@@ -136,6 +230,12 @@ export default function rootReducer(state = initialState, { type, payload }) {
             ...state,
             oneYate: arr,
          };
+      case 'AUX':
+         return {
+            ...state,
+            aux: payload,
+         };
+
       default:
          return state;
    }

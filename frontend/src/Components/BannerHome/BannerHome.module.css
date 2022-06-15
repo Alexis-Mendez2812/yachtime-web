@@ -205,3 +205,18 @@
       margin-left: -300%;
    }
 }
+
+@media (max-width: 768px) {
+   .eachSlide {
+      display: none;
+   }
+
+   .container {
+      width: 100%;
+      margin: auto;
+      overflow: hidden;
+      background: URL('./logo/two.jpg');
+      background-size: cover;
+      background-position-x: 50%;
+   }
+}

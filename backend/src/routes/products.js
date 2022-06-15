@@ -4,7 +4,6 @@ const { Users, Products } = require(`../db`);
 // const main = require("../controllers/mailer");
 const { botes } = require('../yates.json');
 const router = Router();
-
 // let comicsDb = await Comics.findAll({order: [['updatedAt', 'DESC']]});
 //USERS
 
@@ -158,23 +157,16 @@ router.get('/:email', async (req, res) => {
 //------->
 
 router.post('/', async (req, res) => {
-   const { userId } = req.user;
    const {
       make,
       model,
       year,
       cabins,
       bathrooms,
-      guest,
+      guests,
       length,
-      lengthUno,
-      lengthDos,
       beam,
-      beamUno,
-      beamDos,
       draft,
-      draftUno,
-      draftDos,
       fuelCapacity,
       waterCapacity,
       cruiseVel,
@@ -182,34 +174,32 @@ router.post('/', async (req, res) => {
       fuelType,
       description,
       pictures,
+      owner,
    } = req.body;
    try {
-      let resp = await Products.create({
-         make,
-         model,
-         year,
-         cabins,
-         bathrooms,
-         guest,
-         length,
-         lengthUno,
-         lengthDos,
-         beam,
-         beamUno,
-         beamDos,
-         draft,
-         draftUno,
-         draftDos,
-         fuelCapacity,
-         waterCapacity,
-         cruiseVel,
-         location,
-         fuelType,
-         description,
-         pictures,
-         userId,
+      const [newProduct, bool] = await Products.findOrCreate({
+         where: {
+            make,
+            model,
+            year,
+            cabins,
+            bathrooms,
+            guests,
+            length,
+            beam,
+            draft,
+            fuelCapacity,
+            waterCapacity,
+            cruiseVel,
+            location,
+            fuelType,
+            description,
+            pictures,
+         },
       });
-      return res.status(200).send(resp);
+      const user = await Users.findOne({ where: { id: owner } });
+      await user.addProducts(newProduct.id);
+      return res.status(201).send({ bool, newProduct });
    } catch (error) {
       console.log(error);
    }
@@ -277,4 +267,16 @@ router.put('/', async (req, res) => {
    }
 });
 
+router.delete('/:id', async (req, res) => {
+   const { id } = req.params;
+   try {
+      await Products.destroy({
+         where: { id: id },
+      });
+
+      return res.status(200).send('deleted');
+   } catch (error) {
+      console.log(error);
+   }
+});
 module.exports = router;

@@ -19,4 +19,18 @@ export const WppAvatar = styled(Avatar)`
       width: 6rem;
       height: 6rem;
    }
+
+   @media (max-width: 768px) {
+      width: 4.5rem;
+      height: 4.5rem;
+      margin-left: 75vw;
+      margin-top: 87vh;
+
+      &:hover {
+         width: 4.5rem;
+         height: 4.5rem;
+         margin-left: 75vw;
+         margin-top: 87vh;
+      }
+   }
 `;

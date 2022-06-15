@@ -17,6 +17,7 @@ import {
    FeatureBox,
    IconBox,
    DataTitle,
+   InfoBox,
    Li,
    CarPic,
    TextChatBox,
@@ -34,7 +35,8 @@ import {
 import { Box, TextField } from '@mui/material';
 import { getIdYate, vaciar } from '../../Redux/Actions/actions';
 import io from 'socket.io-client';
-const socket = io.connect();
+const socket = io.connect('https://yachtimeapp.herokuapp.com');
+// const socket = io.connect('http://localhost:3001');
 
 export default function GameDetail() {
    const { id } = useParams();
@@ -101,6 +103,7 @@ export default function GameDetail() {
                         if (x.id < y.id) {
                            return -1;
                         }
+                        return 0;
                      })
                      .map((m) => {
                         return m.message;
@@ -178,7 +181,6 @@ export default function GameDetail() {
                         {yateSelected.model}' {yateSelected.make}
                      </DataGraphy>
 
-
                      {userSession.role === 'ROLE_PRIME' ? (
                         <MessageButton onClick={handleOpenDrawer}>
                            Contact The Owner
@@ -191,7 +193,7 @@ export default function GameDetail() {
                   </DataPictureBox>
                </PictureShadow>
             </Picture>
-            <Box style={{ display: 'flex' }}>
+            <InfoBox>
                <FeatureBox style={{ width: '50vw' }}>
                   <DataTitle>Features</DataTitle>
                   <DetailBox>
@@ -212,7 +214,7 @@ export default function GameDetail() {
                   <DataTitle>Description</DataTitle>
                   <TextBox>{description}</TextBox>
                </FeatureBox>
-            </Box>
+            </InfoBox>
             <Box
                style={{
                   width: '100vw',

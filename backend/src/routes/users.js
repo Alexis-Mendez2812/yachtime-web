@@ -1,11 +1,28 @@
 const { Router } = require('express');
 
 const { Users, Payments, Products } = require(`../db`);
-// const main = require("../controllers/mailer");
+const SendEmailToNewUser = require('../notifications/executors/NewUser');
+const ConfirmPaymentToUser = require('../notifications/executors/MembershipConfirmed');
 
 const router = Router();
-
 //USERS
+
+router.put('/editdata', async (req, res) => {
+   const { e, firstName, lastName, email, userName } = req.body;
+   try {
+      await Users.update(
+         {
+            email: email,
+            firtsName: firstName,
+            lastName: lastName,
+            userName: userName,
+         },
+         { where: { email: e } }
+      );
+   } catch (error) {
+      console.log(error);
+   }
+});
 
 router.post('/', async (req, res) => {
    try {
@@ -14,11 +31,12 @@ router.post('/', async (req, res) => {
          let usuario = await Users.findOne({
             where: {
                email,
-            },
+            },include: {
+               model: Products,
+            }
          });
 
          if (usuario && Object.keys(usuario).length) {
-            console.log('usuario existente');
             return res.status(200).json(usuario);
          } else {
             const [user, created] = await Users.findOrCreate({
@@ -30,6 +48,7 @@ router.post('/', async (req, res) => {
                   picture: picture,
                },
             });
+            SendEmailToNewUser(email, given_name);
 
             console.log('se creó el usuario por auth0 ' + created);
 
@@ -50,6 +69,7 @@ router.post('/', async (req, res) => {
          },
       });
       console.log('se creó el usuario por el form ' + created);
+      SendEmailToNewUser(email, given_name);
 
       return res.status(201).json(user);
    } catch (error) {
@@ -91,8 +111,6 @@ router.get('/all', async (req, res) => {
       const users = await Users.findAll({
          include: {
             model: Products,
-            attributes: ['id'],
-            through: { yatesOwned: [] },
          },
       });
 
@@ -106,7 +124,6 @@ router.get('/login/:email', async (req, res) => {
    const { email } = req.params;
 
    try {
-      console.log(email);
       const user = await Users.findOne({
          where: {
             email: email,
@@ -122,14 +139,12 @@ router.post('/favorites', async (req, res) => {
    const { email, idProducts } = req.body;
 
    try {
-      console.log(email);
       const user = await Users.findOne({
          include: Products,
          where: {
             email: email,
          },
       });
-      console.log('soy idProducts', idProducts);
       user.setComics(idProducts);
 
       return res.status(200).send(user.Products);
@@ -142,14 +157,12 @@ router.get('/favorites', async (req, res) => {
    const { email } = req.params;
 
    try {
-      console.log(email);
       const favorites = await Users.findOne({
          include: Products,
          where: {
             email: email,
          },
       });
-      console.log(favorites);
       return res.status(200).send(favorites.Products);
    } catch (error) {
       console.log(error, 'error en la ruta get/favorites');
@@ -175,7 +188,7 @@ router.post('/payment', async (req, res) => {
          },
       });
       user.update({ role: 'ROLE_PRIME' });
-      console.log('se hizo el pago');
+      ConfirmPaymentToUser(email, user.firtsName);
 
       return res.status(200).json({ user, pago });
    } catch (err) {
@@ -189,14 +202,11 @@ router.post('/authorize', async (req, res) => {
    const { email } = req.body;
 
    try {
-      console.log(email);
       const user = await Users.findOne({
          where: {
             email: email,
          },
       });
-      console.log(email);
-      console.log(user);
       //const { email, firtsName, lastName, userName, picture, password } = req.body;
       await user.update({
          role: 'ROLE_ADMIN',

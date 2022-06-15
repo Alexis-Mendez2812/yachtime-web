@@ -1,60 +1,66 @@
-.YachtimeContact{
-    padding: 2em;
+.YachtimeContact {
+   padding: 2em;
 }
 
-.img{
-    border-radius: 50%;
-    width: 160px;
-    height: 160px;
+.img {
+   border-radius: 50%;
+   width: 160px;
+   height: 160px;
 }
-.title{
-    color: white;
-    margin-left: 1rem;
-}
-
-.divImages{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    padding: 2em;
+.title {
+   color: white;
+   margin-left: 1rem;
 }
 
-.staff{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    width: 250px;
-    height: 300px;
-    background-color: #222;
+.divImages {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 2rem;
+   justify-content: center;
+   padding-bottom: 1rem;
 }
 
-.staff > a{
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
+.staff {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   width: 250px;
+   height: 300px;
+   background-color: #222;
 }
 
-.instagram{
-    font-size: 30px;
+.staff > a {
+   text-decoration: none;
+   color: white;
+   cursor: pointer;
 }
 
-.divUbicacion{
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    align-items: center;
-    padding-top: 2em;
+.instagram {
+   font-size: 30px;
 }
 
-.contact{
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-    justify-content: center;
-    align-items: center;
+.divUbicacion {
+   display: flex;
+   flex-direction: row-reverse;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 1rem;
+   align-items: center;
+   padding-top: 2em;
+}
+
+.contact {
+   display: flex;
+   flex-direction: column;
+   color: #fff;
+   justify-content: center;
+   align-items: center;
+}
+
+@media (max-width: 768px) {
+   .divImages {
+      display: none;
+   }
 }

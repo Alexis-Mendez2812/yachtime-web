@@ -12,6 +12,8 @@ export const GET_ID_NAME = 'GET_ID_NAME';
 export const AUTHORIZE = 'AUTHORIZE';
 export const DESAUTHORIZE = 'DESAUTHORIZE';
 export const BANNED = 'BANNED';
+export const FILT_BY_STATS_YACH = 'FILT_BY_STATS_YACH';
+export const FILT_BY_MODEL_YACH = 'FILT_BY_MODEL_YACH';
 
 export function allYates() {
    return async function (dispatch) {
@@ -105,11 +107,11 @@ export const deleteYate = (id) => {
    console.log(id);
    return async (dispatch) => {
       try {
-         const comicDelete = await axios.delete(`/products/delete/${id}`);
+         await axios.delete(`/products/delete/${id}`);
 
          return dispatch({
             type: 'DELETE_YATE',
-            payload: comicDelete.data.remove,
+            payload: id,
          });
       } catch (error) {
          console.log(error);
@@ -123,11 +125,23 @@ export const filterByStats = (payload) => {
       payload: payload,
    };
 };
+export const filterByStatsYach = (payload) => {
+   return {
+      type: FILT_BY_STATS_YACH,
+      payload: payload,
+   };
+};
+export const filterByModelYach = (payload) => {
+   return {
+      type: FILT_BY_MODEL_YACH,
+      payload: payload,
+   };
+};
 
-export const filterByRole = (plan) => {
+export const filterByRole = (payload) => {
    return {
       type: FILT_BY_ROLE,
-      payload: Number(plan),
+      payload: payload,
    };
 };
 
