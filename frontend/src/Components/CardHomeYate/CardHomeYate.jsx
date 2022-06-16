@@ -19,7 +19,7 @@ export default function CardHomeYate() {
    const navigate = useNavigate();
    const dispatch = useDispatch();
    const allYates = useSelector((state) => {
-      return state.allYates;
+      return state.copyYates;
    });
 
    const [charging, setCharging] = useState(false);

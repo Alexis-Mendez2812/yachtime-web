@@ -161,7 +161,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
 
          return {
             ...state,
-            allYates: filSize,
+            copyYates: filSize,
          };
       case 'FILTER_BY_MODEL':
          const allBoats = state.copyYates;
@@ -178,7 +178,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
 
          return {
             ...state,
-            allYates: filModel,
+         copyYates: filModel,
          };
       case 'FILTER_BY_YEAR':
          const everyBoat = state.copyYates;
@@ -207,7 +207,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
          }
          return {
             ...state,
-            allYates: filGuests,
+            copyYates: filGuests,
          };
       case 'FILTER_BY_LENGTH':
          const everyBoat3 = state.copyYates;

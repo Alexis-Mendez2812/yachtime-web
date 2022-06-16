@@ -32,21 +32,6 @@ jobs:
         with:
           secrets: |
 
-      - name: Setup Node
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: v16.x
-
-      - name: Build Node assets
-        env:
-          CI: true
-          CLOUDINARY_API_KEY: 153468469853466
-          CLOUDINARY_API_SECRET: 2XbRMteptxLqQkm9UJUeePHcYrM
-          CLOUDINARY_NAME: yachtimeapp
-          SITE_URL: ${{ steps.project.outputs.site-url }}
-        run: npm ci
-
       - name: Deploy to IONOS
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: ionos-deploy-now/deploy-to-ionos-action@v1
@@ -55,5 +40,5 @@ jobs:
           branch-id: ${{ steps.project.outputs.branch-id }}
           service-host: api-eu.ionos.space
           api-key: ${{ secrets.IONOS_API_KEY }}
-          dist-folder: ./
+          dist-folder: ./frontend
           runtime-placeholder-files: ${{ steps.template.outputs.runtime-placeholder-files }}
