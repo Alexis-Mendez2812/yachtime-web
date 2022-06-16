@@ -31,9 +31,10 @@ router.post('/', async (req, res) => {
          let usuario = await Users.findOne({
             where: {
                email,
-            },include: {
+            },
+            include: {
                model: Products,
-            }
+            },
          });
 
          if (usuario && Object.keys(usuario).length) {

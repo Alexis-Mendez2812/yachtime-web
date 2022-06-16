@@ -44,7 +44,6 @@ app.use((err, req, res, next) => {
 const newServer = http.createServer(app);
 const io = new Server(newServer, {
    cors: {
-      // origin: 'http://localhost:3000',
       origin: 'https://yachtimeapp.vercel.app/',
    },
 });

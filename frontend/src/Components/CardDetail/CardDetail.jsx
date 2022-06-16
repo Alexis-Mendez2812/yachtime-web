@@ -35,8 +35,8 @@ import {
 import { Box, TextField } from '@mui/material';
 import { getIdYate, vaciar } from '../../Redux/Actions/actions';
 import io from 'socket.io-client';
-const socket = io.connect('https://yachtimeapp.herokuapp.com');
-// const socket = io.connect('http://localhost:3001');
+// const socket = io.connect('https://yachtimeapp.herokuapp.com');
+const socket = io.connect('http://localhost:3001');
 
 export default function GameDetail() {
    const { id } = useParams();
@@ -204,10 +204,10 @@ export default function GameDetail() {
                      <Li>Toilets: {bathrooms}</Li>
                      <Li>Cabins: {cabins}</Li>
                      <Li>Draft: {draft}</Li>
-                     <Li>Cruise Velocity: {cruiseVel}</Li>
-                     <Li>Fuel Capacity: {fuelCapacity}</Li>
-                     <Li>Fuel Type: {fuelType}</Li>
-                     <Li>Water Capacity: {waterCapacity}</Li>
+                     <Li>CruiseVelocity: {cruiseVel}</Li>
+                     <Li>FuelCapacity: {fuelCapacity}</Li>
+                     <Li>FuelType: {fuelType}</Li>
+                     <Li>WaterCapacity: {waterCapacity}</Li>
                   </DetailBox>
                </FeatureBox>
                <FeatureBox style={{ width: '50vw' }}>
