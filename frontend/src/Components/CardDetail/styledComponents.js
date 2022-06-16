@@ -122,6 +122,7 @@ export const DetailBox = styled(Box)`
    flex-wrap: wrap;
 
    @media (max-width: 768px) {
+      background-color: green;
       height: 45vh;
       width: 100vw;
       margin-left: -1.6rem;
