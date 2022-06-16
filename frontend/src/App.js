@@ -30,6 +30,7 @@ function App() {
    const aux = useSelector((state) => {
       return state.aux;
    });
+
    const [pur, setPur] = useState(false);
    useEffect(() => {
       if (user) {
@@ -43,7 +44,7 @@ function App() {
    return (
       <div className='App'>
          {!aux && (
-            <a href='https://wa.link/tgghvx' target='_blank' rel='noreferrer'>
+            <a href='https://wa.link/4gi1p8' target='_blank' rel='noreferrer'>
                <WppAvatar>
                   <WhatsAppIcon sx={{ fontSize: 50 }} />
                </WppAvatar>

@@ -5,9 +5,11 @@ import { LoginForm } from './LoginForm.jsx';
 import { RegisterForm } from './RegisterForm.jsx';
 import { Link } from 'react-router-dom';
 import { Container } from './styledComponents';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Login() {
-   const [login, setLogin] = useState(true);
+   const [login, setLogin] = useState(false);
+   const { loginWithRedirect } = useAuth0();
    const handleLogIn = () => {
       setLogin(!login);
    };
@@ -20,19 +22,21 @@ function Login() {
                </Link>
             </div>
             <div className={style.copy}>
-               <h1>Are you new here?</h1>
+               <h1 style={{ fontSize: '1.7rem' }}>Already have an account?</h1>
                <p>
                   This will be the best experience you will have. What are you
                   waiting for?
                </p>
-               <button className={style.btn} onClick={handleLogIn}>
-                  {login ? 'Sing Up' : 'Log In'}
+               <button className={style.btn} onClick={loginWithRedirect}>
+                  Log In
+                  {/* {login ? 'Sing Up' : 'Log In'} */}
                </button>
             </div>
          </div>
 
          <div className={style.LoginRight}>
-            {login ? <LoginForm /> : <RegisterForm />}
+            <RegisterForm />
+            {/* {login ? <LoginForm /> : <RegisterForm />} */}
          </div>
       </Container>
    );

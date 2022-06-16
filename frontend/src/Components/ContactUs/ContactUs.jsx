@@ -3,15 +3,26 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import { Box } from '@mui/material';
 import { DataBox, DataGraphy } from './styledComponents';
-
+import { WppAvatar } from '../Home/styledComponents';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { useSelector } from 'react-redux';
 function ContactUs() {
    useEffect(() => {
       window.scrollTo(0, 0);
    }, []);
+   const aux = useSelector((state) => {
+      return state.aux;
+   });
    return (
       <>
          <Navbar />
-
+         {!aux && (
+            <a href='https://wa.link/tgghvx' target='_blank' rel='noreferrer'>
+               <WppAvatar>
+                  <WhatsAppIcon sx={{ fontSize: 50 }} />
+               </WppAvatar>
+            </a>
+         )}
          <DataBox>
             <h3 style={{ color: 'white', fontSize: '2rem' }}>Contact</h3>
             <h3 style={{ color: 'white', fontSize: '2rem' }}>

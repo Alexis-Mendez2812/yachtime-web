@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { Box, Button } from '@mui/material';
 import swal from 'sweetalert';
 import {
    getAllUsers,
@@ -13,10 +13,11 @@ import {
    desauthorize,
    banned,
    filterByStatsYach,
-   filterByModelYach
+   filterByModelYach,
 } from '../../Redux/Actions/actions';
+import { Displayer } from './styledComponents';
 import { Link } from 'react-router-dom';
-import { Table, Button } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 import Fab from '@material-ui/core/Fab';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 // import ArrowCircleDown from "@material-ui/icons/ArrowCircleDown";
@@ -70,7 +71,6 @@ const Admin = () => {
    };
    const handleChangeUser = (email, action) => {
       switch (action) {
-         
          case 'admin':
             return dispatch(authorize(email));
 
@@ -100,12 +100,10 @@ const Admin = () => {
    const handleFilterModel = (e) => {
       e.preventDefault();
       dispatch(filterByModelYach(e.target.value));
-
    };
    const handleFilterMonthYach = (e) => {
       e.preventDefault();
       dispatch(filterByStatsYach(e.target.value));
-
    };
    const handleFilterMonth = (e) => {
       e.preventDefault();
@@ -139,16 +137,26 @@ const Admin = () => {
    };
 
    return (
-      <div style={{ backgroundColor: 'white' }} class='ui teal header'>
-         <Button className='button'>
-            <Link to='/'>HOME</Link>
-         </Button>
+      <div
+         style={{ backgroundColor: 'white', width: '100vw' }}
+         class='ui teal header'
+      >
+         <Link to='/'>
+            <Button
+               style={{
+                  backgroundColor: 'black',
+                  color: 'white',
+                  marginTop: '2rem',
+                  marginLeft: '2rem',
+               }}
+            >
+               HOME
+            </Button>
+         </Link>
 
          <h1 style={{ margin: '4rem', width: '40%' }} class='ui teal header'>
             Welcome to DASHBOARD
          </h1>
-
-         
 
          <div>
             <h2 style={{ margin: '4rem', width: '40%' }} class='ui teal header'>
@@ -156,70 +164,52 @@ const Admin = () => {
             </h2>
 
             <div>
-            <div>
-            <select
-               onChange={handleFilterMonth}
-               style={{
-                  fontSize: '22px',
-                  margin: '1rem',
-                  borderRadius: '20px',
+               <div>
+                  <select
+                     onChange={handleFilterMonth}
+                     style={{
+                        fontSize: '22px',
+                        margin: '1rem',
+                        borderRadius: '20px',
 
-                  boxShadow: '10px, white',
-                  width: '40%',
-                  padding: '1rem',
-               }}
-            >
-               <option value='all'>Filter by Month</option>
-               <option value='01'>January</option>
-               <option value='02'>February</option>
-               <option value='03'>March</option>
-               <option value='04'>April</option>
-               <option value='05'>May</option>
-               <option value='06'>June</option>
-               <option value='07'>July</option>
-               <option value='08'>Agost</option>
-               <option value='09'>September</option>
-               <option value='10'>October</option>
-               <option value='11'>November</option>
-               <option value='12'>December</option>
-            </select>
-            <select
-               onChange={handleFilterRole}
-               style={{
-                  fontSize: '22px',
-                  margin: '1rem',
-                  borderRadius: '20px',
+                        boxShadow: '10px, white',
+                        width: '40%',
+                        padding: '1rem',
+                     }}
+                  >
+                     <option value='all'>Filter by Month</option>
+                     <option value='01'>January</option>
+                     <option value='02'>February</option>
+                     <option value='03'>March</option>
+                     <option value='04'>April</option>
+                     <option value='05'>May</option>
+                     <option value='06'>June</option>
+                     <option value='07'>July</option>
+                     <option value='08'>Agost</option>
+                     <option value='09'>September</option>
+                     <option value='10'>October</option>
+                     <option value='11'>November</option>
+                     <option value='12'>December</option>
+                  </select>
+                  <select
+                     onChange={handleFilterRole}
+                     style={{
+                        fontSize: '22px',
+                        margin: '1rem',
+                        borderRadius: '20px',
 
-                  boxShadow: '10px, white',
-                  width: '40%',
-                  padding: '1rem',
-               }}
-            >
-               <option value='all'>Filter by Role</option>
-               <option value='ADMIN'>ADMIN</option>
-               <option value='PRIME'>PRIME</option>
-               <option value='USER'>USER</option>
-               <option value='BANNED'>BANNED</option>
-
-            </select>
-         </div>
-               {/* <select
-                  onChange={handleFilter}
-                  style={{
-                     fontSize: '22px',
-                     margin: '1rem',
-                     borderRadius: '20px',
-
-                     boxShadow: '10px, white',
-                     width: '40%',
-                     padding: '1rem',
-                  }}
-               >
-                  <option value='all'>Filter by Plan</option>
-                  <option value='1'>Monthly</option>
-                  <option value='2'>Annual</option>
-                  <option value=''>Canceled</option>
-               </select> */}
+                        boxShadow: '10px, white',
+                        width: '40%',
+                        padding: '1rem',
+                     }}
+                  >
+                     <option value='all'>Filter by Role</option>
+                     <option value='ADMIN'>ADMIN</option>
+                     <option value='PRIME'>PRIME</option>
+                     <option value='USER'>USER</option>
+                     <option value='BANNED'>BANNED</option>
+                  </select>
+               </div>
             </div>
             <Button
                onClick={handleAll}
@@ -266,7 +256,9 @@ const Admin = () => {
                              <Table.Cell>{user.userName}</Table.Cell>
                              <Table.Cell>{user.email}</Table.Cell>
                              <Table.Cell>{user.role}</Table.Cell>
-                             <Table.Cell>{user.createdAt.substring(0,10)}</Table.Cell>
+                             <Table.Cell>
+                                {user.createdAt.substring(0, 10)}
+                             </Table.Cell>
                              <Table.Cell>
                                 <Fab color='primary' aria-label='delete'>
                                    <AdminPanelSettingsIcon
@@ -300,140 +292,146 @@ const Admin = () => {
          <br />
          <br />
 
-         <div>
-            <h2 style={{ margin: '4rem', width: '40%' }} class='ui teal header'>
-               YACHTS MENU
-            </h2>
+         <Displayer>
             <div>
-            <select
-               onChange={handleFilterMonthYach}
-               style={{
-                  fontSize: '22px',
-                  margin: '1rem',
-                  borderRadius: '20px',
+               <h2
+                  style={{ margin: '4rem', width: '40%' }}
+                  class='ui teal header'
+               >
+                  YACHTS MENU
+               </h2>
+               <div>
+                  <select
+                     onChange={handleFilterMonthYach}
+                     style={{
+                        fontSize: '22px',
+                        margin: '1rem',
+                        borderRadius: '20px',
 
-                  boxShadow: '10px, white',
-                  width: '40%',
-                  padding: '1rem',
-               }}
-            >
-               <option value='all'>Filter by Month</option>
-               <option value='01'>January</option>
-               <option value='02'>February</option>
-               <option value='03'>March</option>
-               <option value='04'>April</option>
-               <option value='05'>May</option>
-               <option value='06'>June</option>
-               <option value='07'>July</option>
-               <option value='08'>Agost</option>
-               <option value='09'>September</option>
-               <option value='10'>October</option>
-               <option value='11'>November</option>
-               <option value='12'>December</option>
-            </select>
-            <select
-               onChange={handleFilterModel}
-               style={{
-                  fontSize: '22px',
-                  margin: '1rem',
-                  borderRadius: '20px',
+                        boxShadow: '10px, white',
+                        width: '40%',
+                        padding: '1rem',
+                     }}
+                  >
+                     <option value='all'>Filter by Month</option>
+                     <option value='01'>January</option>
+                     <option value='02'>February</option>
+                     <option value='03'>March</option>
+                     <option value='04'>April</option>
+                     <option value='05'>May</option>
+                     <option value='06'>June</option>
+                     <option value='07'>July</option>
+                     <option value='08'>Agost</option>
+                     <option value='09'>September</option>
+                     <option value='10'>October</option>
+                     <option value='11'>November</option>
+                     <option value='12'>December</option>
+                  </select>
+                  <select
+                     onChange={handleFilterModel}
+                     style={{
+                        fontSize: '22px',
+                        margin: '1rem',
+                        borderRadius: '20px',
 
-                  boxShadow: '10px, white',
-                  width: '40%',
-                  padding: '1rem',
-               }}
-            >
-               <option value='all'>Filter by Model</option>
-               <option value='49'>Up to 50'</option>
-               <option value='89'>50' to 90'</option>
-               <option value='90'>Over 90'</option>
+                        boxShadow: '10px, white',
+                        width: '40%',
+                        padding: '1rem',
+                     }}
+                  >
+                     <option value='all'>Filter by Model</option>
+                     <option value='49'>Up to 50'</option>
+                     <option value='89'>50' to 90'</option>
+                     <option value='90'>Over 90'</option>
+                  </select>
+               </div>
 
-            </select>
-         </div>
-            <Button
-               onClick={handleShowComics}
-               style={{
-                  fontSize: '20px',
-                  margin: '1rem',
-                  width: '30%',
-                  borderRadius: '20px',
-                  borderColor: 'orange',
-                  boxShadow: '10px, white',
-               }}
-            >
-               Show uploaded Yachts
-            </Button>
+               <Button
+                  onClick={handleShowComics}
+                  style={{
+                     fontSize: '20px',
+                     margin: '1rem',
+                     width: '30%',
+                     borderRadius: '20px',
+                     borderColor: 'orange',
+                     boxShadow: '10px, white',
+                  }}
+               >
+                  Show uploaded Yachts
+               </Button>
 
-            <Table
-               style={{ margin: '1rem', width: '70%' }}
-               celled
-               options={options}
-            >
-               <Table.Header>
-                  <Table.Row>
-                     <Table.HeaderCell>Make</Table.HeaderCell>
-                     <Table.HeaderCell> Model </Table.HeaderCell>
-                     <Table.HeaderCell> Year </Table.HeaderCell>
-                     <Table.HeaderCell> Cabins </Table.HeaderCell>
-                     <Table.HeaderCell> Bathrooms </Table.HeaderCell>
-                     <Table.HeaderCell>Guest</Table.HeaderCell>
-                     <Table.HeaderCell> Length </Table.HeaderCell>
-                     <Table.HeaderCell> Beam </Table.HeaderCell>
-                     <Table.HeaderCell> Draft </Table.HeaderCell>
-                     <Table.HeaderCell> Fuel Cap </Table.HeaderCell>
-                     <Table.HeaderCell> Water Cap </Table.HeaderCell>
-                     <Table.HeaderCell>Cruise Vel</Table.HeaderCell>
-                     <Table.HeaderCell>Fuel Type</Table.HeaderCell>
-                     <Table.HeaderCell>Create at</Table.HeaderCell>
-                  </Table.Row>
-               </Table.Header>
+               <Table
+                  style={{ margin: '1rem', width: '70%' }}
+                  celled
+                  options={options}
+               >
+                  <Table.Header>
+                     <Table.Row>
+                        <Table.HeaderCell>Make</Table.HeaderCell>
+                        <Table.HeaderCell>Model</Table.HeaderCell>
+                        <Table.HeaderCell>Year</Table.HeaderCell>
+                        <Table.HeaderCell>Cabins</Table.HeaderCell>
+                        <Table.HeaderCell>Bathrooms</Table.HeaderCell>
+                        <Table.HeaderCell>Guest</Table.HeaderCell>
+                        <Table.HeaderCell>Length</Table.HeaderCell>
+                        <Table.HeaderCell>Beam</Table.HeaderCell>
+                        <Table.HeaderCell> Draft </Table.HeaderCell>
+                        <Table.HeaderCell>FuelCap </Table.HeaderCell>
+                        <Table.HeaderCell>WaterCap</Table.HeaderCell>
+                        <Table.HeaderCell>CruiseVel</Table.HeaderCell>
+                        <Table.HeaderCell>FuelType</Table.HeaderCell>
+                        <Table.HeaderCell>CreateAt</Table.HeaderCell>
+                     </Table.Row>
+                  </Table.Header>
 
-               {!createdComics
-                  ? alert('No yates yet')
-                  : showComics &&
-                    createdComics?.map((comic) => {
-                       return (
-                          <Table.Row key={comic.id}>
-                             <Table.Cell>{`${comic.make}`}</Table.Cell>
-                             <Table.Cell>{`${comic.model}'`}</Table.Cell>
-                             <Table.Cell>{`${comic.year}`}</Table.Cell>
-                             <Table.Cell>{`${comic.cabins}`}</Table.Cell>
-                             <Table.Cell>{comic.bathrooms}</Table.Cell>
-                             <Table.Cell>{`${comic.guests}`}</Table.Cell>
-                             <Table.Cell>{`${comic.length[0]}' ${
-                                comic.length.length > 1 ? comic.length[1] : 0
-                             }" `}</Table.Cell>
-                             <Table.Cell>{`${comic.beam[0]}' ${
-                                comic.beam.length > 1 ? comic.beam[1] : 0
-                             }"`}</Table.Cell>
-                             <Table.Cell>{`${comic.draft[0]}' ${
-                                comic.draft.length > 1 ? comic.draft[1] : 0
-                             }"`}</Table.Cell>
-                             <Table.Cell>{`${comic.fuelCapacity} GAL`}</Table.Cell>
-                             <Table.Cell>{`${comic.waterCapacity} GAL`}</Table.Cell>
-                             <Table.Cell>{`${comic.cruiseVel} KNOTS`}</Table.Cell>
-                             <Table.Cell>{`${
-                             
-                                comic.fuelType || 'gasoline'
-                             }`}</Table.Cell>
-                             <Table.Cell>{comic.createdAt.substring(0,10)}</Table.Cell>
-                             <Table.Cell>
-                                <Fab color='secondary' aria-label='edit'>
-                                   +
-                                </Fab>
-                                <Fab color='error' aria-label='delete'>
-                                   <DeleteIcon
-                                      onClick={() => {
-                                         handledeleteYate(comic.id);
-                                      }}
-                                   />
-                                </Fab>
-                             </Table.Cell>
-                          </Table.Row>
-                       );
-                    })}
-            </Table>
-         </div>
+                  {!createdComics
+                     ? alert('No yates yet')
+                     : showComics &&
+                       createdComics?.map((comic) => {
+                          return (
+                             <Table.Row key={comic.id}>
+                                <Table.Cell>{`${comic.make}`}</Table.Cell>
+                                <Table.Cell>{`${comic.model}'`}</Table.Cell>
+                                <Table.Cell>{`${comic.year}`}</Table.Cell>
+                                <Table.Cell>{`${comic.cabins}`}</Table.Cell>
+                                <Table.Cell>{comic.bathrooms}</Table.Cell>
+                                <Table.Cell>{`${comic.guests}`}</Table.Cell>
+                                <Table.Cell>{`${comic.length[0]}' ${
+                                   comic.length.length > 1 ? comic.length[1] : 0
+                                }" `}</Table.Cell>
+                                <Table.Cell>{`${comic.beam[0]}' ${
+                                   comic.beam.length > 1 ? comic.beam[1] : 0
+                                }"`}</Table.Cell>
+                                <Table.Cell>{`${comic.draft[0]}' ${
+                                   comic.draft.length > 1 ? comic.draft[1] : 0
+                                }"`}</Table.Cell>
+                                <Table.Cell>{`${comic.fuelCapacity} GAL`}</Table.Cell>
+                                <Table.Cell>{`${comic.waterCapacity} GAL`}</Table.Cell>
+                                <Table.Cell>{`${comic.cruiseVel} KNOTS`}</Table.Cell>
+                                <Table.Cell>{`${
+                                   comic.fuelType || 'gasoline'
+                                }`}</Table.Cell>
+                                <Table.Cell>
+                                   {comic.createdAt.substring(0, 10)}
+                                </Table.Cell>
+                                <Table.Cell>
+                                   <Fab color='secondary' aria-label='edit'>
+                                      +
+                                   </Fab>
+                                   <Fab color='error' aria-label='delete'>
+                                      <DeleteIcon
+                                         onClick={() => {
+                                            handledeleteYate(comic.id);
+                                         }}
+                                      />
+                                   </Fab>
+                                </Table.Cell>
+                             </Table.Row>
+                          );
+                       })}
+               </Table>
+            </div>
+         </Displayer>
       </div>
    );
 };

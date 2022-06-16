@@ -45,7 +45,7 @@ const newServer = http.createServer(app);
 const io = new Server(newServer, {
    cors: {
       origin: 'http://localhost:3000',
-      // origin: 'https://yachtimeapp.com',
+      // origin: 'https://yachtime-web.vercel.app/',
    },
 });
 

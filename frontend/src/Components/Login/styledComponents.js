@@ -9,6 +9,7 @@ export const Container = styled(Box)`
 
    @media (max-width: 768px) {
       flex-direction: column;
+      height: 100vh;
    }
 `;
 
@@ -35,6 +36,10 @@ export const GoogleBox = styled(Box)`
    display: flex;
    justify-content: space-around;
    align-items: center;
+
+   @media (max-width: 768px) {
+      height: 4.5rem;
+   }
 `;
 
 export const GoogleImg = styled('img')`
@@ -71,7 +76,7 @@ export const FormBox = styled(Box)`
 
 export const FormBox2 = styled(Box)`
    display: flex;
-   height: 14rem;
+   height: 23rem;
    flex-direction: column;
    justify-content: space-around;
    border-radius: 1rem;
@@ -98,14 +103,14 @@ export const TextInput = styled(TextField)`
 
 export const Container2 = styled(Box)`
    width: 35rem;
-   height: 45%;
+   height: 55%;
    display: flex;
    flex-direction: column;
    justify-content: space-around;
    align-items: center;
 
    @media (max-width: 768px) {
-      height: 75%;
+      height: 80vh;
    }
 `;
 
@@ -114,7 +119,7 @@ export const FormBox3 = styled(Box)`
 
    @media (max-width: 768px) {
       width: 90%;
-      height: 80%;
+      height: 145%;
       display: flex;
       flex-direction: column;
       justify-content: space-around;

@@ -27,7 +27,7 @@ function YachtimeContact() {
             alignItems: 'center',
          }}
       >
-         <h1 className={style.title}>Yachtimeapp's Crew</h1>
+         <h1 className={style.title}>Yachtimeapp Crew</h1>
          <div className={style.divImages}>
             <div className={style.staff}>
                <img src={angel} alt='angel' className={style.img} />
@@ -112,7 +112,7 @@ function YachtimeContact() {
             <MapContainer>
                <iframe
                   src={mapRef}
-                  style={{ border: '0', width: '100vw', height: '40vh' }}
+                  style={{ border: '0', width: '103vw', height: '40vh' }}
                   loading='lazy'
                   referrerPolicy='no-referrer-when-downgrade'
                ></iframe>
