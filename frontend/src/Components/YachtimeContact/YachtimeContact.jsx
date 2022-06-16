@@ -112,7 +112,7 @@ function YachtimeContact() {
             <MapContainer>
                <iframe
                   src={mapRef}
-                  style={{ border: '0', width: '100vw', height: '40vh' }}
+                  style={{ border: '0', width: '103vw', height: '40vh' }}
                   loading='lazy'
                   referrerPolicy='no-referrer-when-downgrade'
                ></iframe>

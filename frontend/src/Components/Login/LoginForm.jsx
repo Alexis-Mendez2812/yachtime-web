@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { postUserGoogle } from '../../Redux/Actions/actions';
 import './LoginForm.css';
 import { useAuth0 } from '@auth0/auth0-react';
-import { TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { Box, Snackbar, TextField } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
+import { loginUser } from '../../Redux/Actions/FormActions/formAction';
 import Google from './assets/google.png';
 import {
    GoogleText,
@@ -14,57 +18,68 @@ import {
    LogButton,
 } from './styledComponents';
 
-export function validate(input) {
-   let errors = {};
-   console.log(errors);
-
-   if (!input.username) {
-      errors.username = 'Username is required';
-   } else if (!/\S+@\S+\.\S+/.test(input.username)) {
-      errors.username = 'Username is invalid';
-   }
-   if (!input.password) {
-      errors.password = 'Password is required';
-   } else if (!/(?=.-*[0-9])/.test(input.password)) {
-      errors.password = 'Password is invalid';
-   }
-   return errors;
-}
+const Alert = React.forwardRef(function Alert(props, ref) {
+   return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
+});
 
 export const LoginForm = () => {
+   const dispatch = useDispatch();
+   const navigate = useNavigate();
    const { loginWithRedirect } = useAuth0();
    const [input, setInput] = useState({
-      username: '',
+      email: '',
       password: '',
    });
-   const [errors, setErrors] = useState({});
+
+   const [errorAlert, setErrorAlert] = useState(false);
+   const [successAlert, setSuccessAlert] = useState(false);
 
    const handleInputChange = function (e) {
       setInput({
          ...input,
          [e.target.name]: e.target.value,
       });
-      setErrors(
-         validate({
-            ...input,
-            [e.target.name]: e.target.value,
-         })
-      );
    };
+
    const handleSumbit = async (e) => {
+      e.preventDefault();
       try {
-         e.preventDefault();
-         if (Object.keys(errors).length > 0) {
-            toast.error('Debes completar correctamente los campos.');
-         }
+         loginUser(input).then((res) => {
+            if (res) {
+               setSuccessAlert(true);
+               setTimeout(() => {
+                  setSuccessAlert(false);
+                  dispatch(postUserGoogle());
+                  navigate('/');
+               }, 3000);
+            } else {
+               setErrorAlert(true);
+               setTimeout(() => {
+                  setErrorAlert(false);
+               }, 3000);
+            }
+         });
       } catch (e) {
-         console.log(e);
-         toast.error('Contraseña o usuario incorrecto.');
+         setErrorAlert(true);
+         setTimeout(() => {
+            setErrorAlert(false);
+         }, 3000);
       }
    };
 
    return (
       <Form>
+         <Snackbar open={errorAlert} autoHideDuration={6000}>
+            <Alert severity='error' sx={{ width: '100%' }}>
+               Credentials are not valid!
+            </Alert>
+         </Snackbar>
+         <Snackbar open={successAlert} autoHideDuration={6000}>
+            <Alert severity='success' sx={{ width: '100%' }}>
+               Login completed.
+            </Alert>
+         </Snackbar>
+
          <GoogleBox onClick={loginWithRedirect}>
             <GoogleImg src={Google} alt='' />
             <GoogleText> CONTINUE WITH GOOGLE</GoogleText>
@@ -73,17 +88,19 @@ export const LoginForm = () => {
             <TextField
                autoComplete='off'
                onChange={handleInputChange}
-               value={input.username}
-               style={{ width: '100%' }}
+               value={input.email}
+               style={{
+                  width: '100%',
+                  color: 'white',
+                  borderTopLeftRadius: '0.5rem',
+                  borderTopRightRadius: '0.5rem',
+                  backgroundColor: 'rgb(0, 0, 0, 72%)',
+               }}
+               InputProps={{ inputProps: { style: { color: 'white' } } }}
                placeholder='Email'
-               name='username'
-               variant='standard'
+               name='email'
+               variant='filled'
             />
-            {errors.username && (
-               <p style={{ color: 'red' }} className='error'>
-                  {errors.username}
-               </p>
-            )}
             <TextField
                autoComplete='off'
                onChange={handleInputChange}
@@ -91,14 +108,16 @@ export const LoginForm = () => {
                type='password'
                name='password'
                placeholder='Password'
-               style={{ width: '100%' }}
-               variant='standard'
+               style={{
+                  width: '100%',
+                  color: 'white',
+                  borderTopLeftRadius: '0.5rem',
+                  borderTopRightRadius: '0.5rem',
+                  backgroundColor: 'rgb(0, 0, 0, 72%)',
+               }}
+               InputProps={{ inputProps: { style: { color: 'white' } } }}
+               variant='filled'
             />
-            {errors.password && (
-               <p style={{ color: 'red' }} className='error'>
-                  {errors.password}
-               </p>
-            )}
             <LogButton onClick={handleSumbit}>Log In</LogButton>
 
             <Link
