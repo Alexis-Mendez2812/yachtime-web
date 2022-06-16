@@ -4,8 +4,7 @@ import Login from './Components/Login/Login.jsx';
 import { useSelector, useDispatch } from 'react-redux';
 import Home from './Components/Home/Home.jsx';
 import Navbar from './Components/Navbar/Navbar';
-import { WppAvatar } from './Components/Home/styledComponents';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+
 import { LoginForm } from './Components/Login/LoginForm.jsx';
 import { RegisterForm } from './Components/Login/RegisterForm.jsx';
 import Loading from './Components/Loading/Loading.jsx';
@@ -27,9 +26,7 @@ import { postUserGoogle } from './Redux/Actions/actions';
 function App() {
    const dispatch = useDispatch();
    const { user } = useAuth0();
-   const aux = useSelector((state) => {
-      return state.aux;
-   });
+
    const [pur, setPur] = useState(false);
    useEffect(() => {
       if (user) {
@@ -42,13 +39,7 @@ function App() {
 
    return (
       <div className='App'>
-         {!aux && (
-            <a href='https://wa.link/tgghvx' target='_blank' rel='noreferrer'>
-               <WppAvatar>
-                  <WhatsAppIcon sx={{ fontSize: 50 }} />
-               </WppAvatar>
-            </a>
-         )}
+         
 
          <BrowserRouter>
             <Routes>
