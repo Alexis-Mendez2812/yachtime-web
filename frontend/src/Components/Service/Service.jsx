@@ -223,7 +223,7 @@ const Service = () => {
             </ParaBox>
             <ParaBox style={{ flexDirection: 'column' }}>
                <Subtitle style={{ marginBottom: '0.2rem' }}>
-                  LICENSE GRANTED BY USER
+                  CESSING AND DOWNLOADING THE APPLICATION FROM ITUNES
                </Subtitle>
                <Text>
                   The following applies to any App Store Sourced Application:
@@ -275,7 +275,7 @@ const Service = () => {
                <Text>{para28}</Text>
             </ParaBox>
             <ParaBox>
-               <Subtitle>DISCLAIMER OF WARRANTIES</Subtitle>
+               <Subtitle>INTERNET DELAYS</Subtitle>
             </ParaBox>
             <ParaBox>
                <Text>{para29}</Text>
