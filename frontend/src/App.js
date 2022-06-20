@@ -23,7 +23,7 @@ import Pay from './Components/Pay/Pay.jsx';
 import { UserSite } from './Components/userSite/UserSite.js';
 import { useAuth0 } from '@auth0/auth0-react';
 import { postUserGoogle } from './Redux/Actions/actions';
-
+import iconx from './img/iconoX.png'
 function App() {
    const dispatch = useDispatch();
    const { user } = useAuth0();
@@ -40,7 +40,13 @@ function App() {
    useEffect(() => {
       setPur(!pur);
    }, []);
-
+if(true){
+   return(
+      <div className='App' style={{ backgroundColor: 'black', width: '100vw', height: '100vw' }} >
+         <img src={iconx}/>
+      </div>
+   )
+}
    return (
       <div className='App'>
          {!aux && (
