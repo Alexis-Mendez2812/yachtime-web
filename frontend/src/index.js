@@ -14,18 +14,18 @@ dotenv.config();
 axios.defaults.baseURL = 'https://yachtimeapp.herokuapp.com';
 // axios.defaults.baseURL = 'http://localhost:3001';
 
-ReactDOM.render(
-   <Provider store={store}>
-      <Auth0Provider
-         domain='dev-xiwxe9u1.us.auth0.com'
-         clientId='3r3QNv0jS6aCasZByiNgURRyA2PUqCyX'
-         redirectUri={window.location.origin}
-      >
-         <App />
-      </Auth0Provider>
-   </Provider>,
-   document.getElementById('root')
-);
+// ReactDOM.render(
+//    <Provider store={store}>
+//       <Auth0Provider
+//          domain='dev-xiwxe9u1.us.auth0.com'
+//          clientId='3r3QNv0jS6aCasZByiNgURRyA2PUqCyX'
+//          redirectUri={window.location.origin}
+//       >
+//          <App />
+//       </Auth0Provider>
+//    </Provider>,
+//    document.getElementById('root')
+// );
 
 
 reportWebVitals();
