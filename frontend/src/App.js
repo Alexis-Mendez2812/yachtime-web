@@ -63,9 +63,9 @@ function App() {
                <Route path='/contactUs' element={<ContactUs />} />
                <Route path='/membership' element={<Membership />} />
                <Route path='/loading' element={<Loading />} />
-               <Route path='/login' element={<Login />} />
-               <Route path='/loginForm' element={<LoginForm />} />
-               <Route path='/registerForm' element={<RegisterForm />} />
+               {/* <Route path='/login' element={<Login />} /> */}
+               {/* <Route path='/loginForm' element={<LoginForm />} /> */}
+               {/* <Route path='/registerForm' element={<RegisterForm />} /> */}
                <Route exact path='/' element={<Home />} />
                <Route path='/' element={<Navbar />} />
                <Route path='/newproduct' element={<NewProduct />} />

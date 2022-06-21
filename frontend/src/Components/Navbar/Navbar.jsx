@@ -12,7 +12,7 @@ import LoginIcon from '@mui/icons-material/Login';
 function Navbar() {
    const dispatch = useDispatch();
    const navigate = useNavigate();
-   const { user } = useAuth0();
+   const { user,loginWithRedirect } = useAuth0();
    const [isScrolled, setIsScrolled] = useState(false);
    let userSession = useSelector((state) => state.userSession);
 
@@ -122,9 +122,9 @@ function Navbar() {
                      </li>
                   ) : (
                      <li>
-                        <Link to={'/login'} className={style.enlace}>
+                        <Box onClick={()=>loginWithRedirect()} className={style.enlace}>
                            <i class='fa-solid fa-arrow-right-to-bracket'></i>
-                        </Link>
+                        </Box>
                      </li>
                   )}
                </ul>
@@ -178,9 +178,9 @@ function Navbar() {
                            alignItems: 'center',
                         }}
                      >
-                        <Link to={'/login'} className={style.enlace}>
+                        <Box onClick={()=>loginWithRedirect()} className={style.enlace}>
                            <LoginIcon style={{ color: 'black' }} />
-                        </Link>
+                        </Box>
                      </Box>
                   )}
                   <MenuItem
