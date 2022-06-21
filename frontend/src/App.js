@@ -40,13 +40,6 @@ function App() {
    useEffect(() => {
       setPur(!pur);
    }, []);
-if(true){
-   return(
-      <div className='App' style={{ backgroundColor: 'black', width: '100vw', height: '100vw' }} >
-         <img src={iconx}/>
-      </div>
-   )
-}
    return (
       <div className='App'>
          {!aux && (
